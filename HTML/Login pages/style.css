@@ -1,0 +1,261 @@
+.body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #040013;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    position: relative;
+    overflow: hidden;
+}
+
+.body::before {
+    content: '';
+    background-image: url('background.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(2px);
+    background-color: rgba(4, 0, 19, 0.411);
+    z-index: -1;
+    opacity: 0.7;
+
+}
+
+.background {
+    background-color: #ffffff6a;
+    border: #0a0029ec solid 3px;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: #ffffff 0px 0px 50px;
+    max-width: 300px;
+    gap: 100%;
+    display: flex;
+    flex-direction: column; /* Cambia a row si los elementos deben estar en fila */
+    justify-content: space-between; /* Distribuye los elementos uniformemente */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.title {
+    font-family: 'Courier New', Courier, monospace;
+    text-overflow: #ffff solid 5px;
+    text-shadow: #040013 1px 1px 8px;
+    text-align: center;
+}
+
+.imputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.name {
+    background-color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    text-overflow: #ffff solid 5px;
+    text-shadow: #040013 1px 1px 8px;
+    text-align: center;
+    position: relative;
+    padding: 5px 3px;
+}
+
+.name:focus {
+    outline: none;
+    box-shadow: #3d3d3d 0 0 5px;
+}
+
+.password {
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    text-overflow: #ffff solid 5px;
+    text-shadow: #040013 1px 1px 8px;
+    text-align: center;
+    margin-top: 7px;
+    position: relative;
+    padding: 5px 3px;
+}
+
+.password:focus {
+    outline: none;
+    box-shadow: #3d3d3d 0 0 5px;
+}
+
+.remember-me {
+    font-family: 'Courier New', Courier, monospace;
+    text-overflow: #ffff solid 5px;
+    text-shadow: #040013 1px 1px 8px;
+    text-align: center;
+    position: relative;
+    padding: 5px 3px;
+}
+
+.checkbox {
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.checkbox:checked {
+    background-color: #040013;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 1px 50px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.buttons {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-container .button {
+    margin: 0 5px;
+}
+
+.button {
+    background-color: #040013;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: white 0px 0px 50px;
+    color: white;
+    border-color: black;
+    border-radius: 5px;
+    padding: 2px 10px;
+    flex: 1 0 60px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 171px;
+    max-width: 300px;
+    cursor: pointer;
+}
+
+.button.active {
+    background-color: #090353e0;
+    text-shadow: #ffffffa6 1px 0.5px 0.6px;
+    box-shadow: hsla(130, 100%, 79%, 0.773) 0 0 5px;
+    border-color: black;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.button.disactive {
+    background-color: #040013;
+    color: white;
+    box-shadow: #ffffffc5 0 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    background-color: #090353e0;
+    text-shadow: #ffffffa6 1px 0.5px 0.6px;
+    box-shadow: hsla(130, 100%, 79%, 0.773) 0 0 5px;
+    border-color: black;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forgot-password {
+    font-family: 'Courier New', Courier, monospace;
+    text-overflow: #ffff solid 5px;
+    text-shadow: #040013 0px 0px 3.1px;
+    text-align: center;
+    position: relative;
+}
+
+.forgot-password a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #040013;
+    text-shadow: white 1px 1px 1.6px;
+    text-decoration: underline;
+}
+
+.sing-up {
+    font-family: 'Courier New', Courier, monospace;
+    text-overflow: #ffff solid 5px;
+    text-shadow: #040013 1px 1px 1.6px;
+    text-align: center;
+    position: relative;
+}
+
+.sing-up a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sing-up a:hover {
+    color: #040013;
+    text-shadow: white 1px 1px 1.6px;
+    text-decoration: underline;
+}
+
+.terms-and-Conditions {
+    font-family: 'Courier New', Courier, monospace;
+    text-overflow: #ffff solid 5px;
+    text-shadow: #040013 1px 1px 1.6px;
+    text-align: center;
+    position: relative;
+}
+
+.terms-and-Conditions a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.terms-and-Conditions a:hover {
+    color: #040013;
+    text-shadow: white 1px 1px 1.6px;
+    text-decoration: underline;
+}
+
+.privacy-policy {
+    font-family: 'Courier New', Courier, monospace;
+    text-overflow: #ffff solid 5px;
+    text-shadow: #040013 1px 1px 1.6px;
+    text-align: center;
+    position: relative;
+}
+
+.privacy-policy a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.privacy-policy a:hover {
+    color: #040013;
+    text-shadow: white 1px 0px 25px;
+    text-decoration: underline;
+}

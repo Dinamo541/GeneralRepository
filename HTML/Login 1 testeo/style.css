@@ -1,0 +1,175 @@
+html {
+    overflow: hidden;
+}
+
+.body {
+    background-color: white;
+    font-family: 'Lucida sans', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(2px);
+    background-color: rgba(4, 0, 19, 0.411);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.welcome {
+    background-image: url('colorful-image-mountains-mountains.avif');
+    filter: hue-rotate(300deg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 52%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logos {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    display: fixed;
+    position: absolute;
+    scale: 4.5;
+    justify-content: center;
+    align-items: center;
+}
+
+.learn-more {
+    position: absolute;
+    scale: 1.16;
+    background-color: black;
+    color: white;
+    padding: 5px 15px;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 7px;
+    top: 80%;
+    translate: -240% 0%;
+}
+
+.learn-more:hover {
+    background-color: #020202;
+    box-shadow: black 0px 0px 5px;
+    transition: border-color 3.0s ease-out background-color 3.0s ease-out;
+}
+
+.background {
+    background-color: #ffffff;
+    position: absolute;
+    border: none;
+    border-radius: 10px;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    justify-content: left;
+    align-items: column;
+    padding: 0px 4.5%;
+}
+
+.everything {
+    position: absolute;
+    border: none;
+    scale: 1.2;
+    top: 67.5px;
+    width: 60%;
+    height: 90%;
+    justify-content: left;
+    align-items: column;
+    padding: 0px 4.5%;
+}
+
+.login {
+    position: absolute;
+    border: none;
+    scale: 1.4;
+    top: 40px;
+    padding: 0px 16px;
+    margin: 1px;
+}
+
+.login-mesage {
+    position: relative;
+    scale: 1;
+    top: 89px;
+}
+
+.rest {
+    position: absolute;
+    border: none;
+    top: 130px;
+}
+
+.username {
+    position: relative;
+    align-items: column;
+    padding: 10px 0px 70px 0px;
+}
+
+.name {
+    position: absolute;
+    border: black 1px 1px;
+    border-radius: 12px;
+    margin: 10px 0px;
+    padding: 7px 25px;
+}
+
+.password-text {
+    position: relative;
+    align-items: column;
+    padding: 10px 0px 70px 0px;
+}
+
+.password {
+    position: absolute;
+    border: black 1px 1px;
+    border-radius: 12px;
+    margin: 10px 0px;
+    padding: 7px 25px;
+}
+
+.remeber-password {
+    position: absolute;
+    padding: 10px 0px 70px 0px;
+}
+
+.checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.submit {
+    position: relative;
+    left: 0px;
+}

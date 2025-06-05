@@ -1,0 +1,249 @@
+html {
+    overflow: hidden;
+}
+
+.body {
+    display: flex;
+}
+
+.background {
+    background-image: url('colorful-image-mountains-mountains.avif');
+    filter: hue-rotate(330deg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0px;
+    left: 0px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    top: 42%;
+    width: 40%;
+    left: 12%;
+}
+
+.welcome {
+    display: fixed;
+    position: relative;
+    font-size: 300%;
+    top: 40%;
+}
+
+.learn-more {
+    position: absolute;
+    scale: 1.36;
+    background-color: black;
+    color: white;
+    padding: 5px 15px;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 7px;
+    top: 80%;
+    left: 20%;
+}
+
+.learn-more:hover {
+    background-color: #020202;
+    box-shadow: black 0px 0px 5px;
+    transition: border-color 3.0s ease-out background-color 3.0s ease-out;
+}
+
+.login-menu {
+    background-color: #ffffff;
+    position: absolute;
+    border: white solid;
+    border-radius: 16px 0px 0px 16px;
+    top: 0;
+    right: 0px;
+    width: 42.2%;
+    height: 100%;
+    justify-content: center;
+    align-items: column;
+    padding: 3% 5% 3% 4.8%;
+}
+
+.margin {
+    border: none;
+    position: relative;
+    height: 93%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column; 
+}
+
+.title {
+    border: none;
+    height: 15%;
+}
+
+.login {
+    border: none;
+    position: relative;
+    scale: 1.5;
+    width: 30%;
+    left: 7.97%;
+}
+
+.mesage-conte {
+    border: none;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: inherit;
+}
+
+.main {
+    border: none;
+    height: 65%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+.username {
+    position: relative;
+    align-items: column;
+    scale: 1.5;
+    margin-left: 20%;
+    margin-top: 30px;
+}
+
+.name-conte {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1% 0px 0px 0px;
+    height: 35px;   
+}
+
+.username-input {
+    position: relative;
+    display: flex;
+    border: black 1px 1px;
+    border-radius: 12px;
+    height: 100%;
+    width: 100%;
+}
+
+.username-input:focus {
+    outline: none;
+    box-shadow: #3d3d3d 0 0 5px;
+}
+
+.password {
+    position: relative;
+    align-items: column;
+    scale: 1.5;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+.pass-conte {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1% 0px 0px 0px;
+    height: 35px;   
+}
+
+.password-input {
+    position: relative;
+    display: flex;
+    border: black 1px 1px;
+    border-radius: 12px;
+    height: 100%;
+    width: 100%;
+}
+
+.password-input:focus {
+    outline: none;
+    box-shadow: #3d3d3d 0 0 5px;
+}
+
+.remember-conte {
+    border: none;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.remember-me {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    border: black solid;
+    position: relative;
+    margin-left: 20%;
+}
+
+.submit-conte {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+}
+
+.submit {
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: solid 2px;
+    border-color: black;
+    border-radius: 7px;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+}
+
+.submit:hover {
+    background-color: #020202;
+    box-shadow: black 0px 0px 5px;
+    transition: border-color 3.0s ease-out background-color 3.0s ease-out;
+}
+
+.password-link {
+    color: black;
+    text-decoration: none;
+}
+
+.password-link:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    border: none;
+    height: 20%;
+}
+
+.new-user-conte {
+    border: none;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.sing-up {
+    color: black;
+    text-decoration: none;
+}
+
+.sing-up:hover {
+    text-decoration: underline;
+}

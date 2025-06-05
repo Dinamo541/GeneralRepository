@@ -1,0 +1,197 @@
+.background {
+    background-color: #d6d6d64b;
+    border: #313030c2 solid 3px;
+    border-radius: 5px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 35px rgba(250, 250, 250, 0.822);
+}
+
+.title {
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    text-shadow: #272727 2.3px 1px 5px;
+    background-color: #2929294d;
+    border: #000000 solid 2px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.title.active {
+    box-shadow: hsla(129, 100%, 90%, 0.773) 0 0 5px;
+    text-shadow: #eaffee77 2.3px 0.5px 0.9px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.title.disactive {
+    background-color: #2929294d;
+    color: #000000;
+    text-shadow: #ffffff77 2.3px 0.5px 0.9px;
+    box-shadow: #ffffffc5 0 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text {
+    color: black;
+    text-shadow: #272727 2.3px 1px 5px;
+    font-size: 20px;
+    margin: 0;
+}
+
+.forgot-password {
+    color: #000000;
+    text-shadow: #272727 2.3px 1px 6px;
+    font-size: 16px;
+    margin: 0;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #4038af;
+    text-shadow: #5382c0 2px 1px 0.5px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.register-button {
+    color: #000000;
+    text-shadow: #272727 2.3px 1px 6px;
+    font-size: 16px;
+    margin: 0;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.register-button:hover {
+    color: #4038af;
+    text-shadow: #5382c0 2px 1px 0.5px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.content {
+    text-shadow: #272727 2.3px 1px 5px;
+    font-size: 16px;
+    margin: 0;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.highlight {
+    background-color: #1f002b;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #040013;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    position: relative;
+    overflow: hidden;
+}
+
+.body::before {
+    content: '';
+    background-image: url('background.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(2px);
+    background-color: rgba(4, 0, 19, 0.411);
+    z-index: -1;
+    opacity: 0.7;
+
+}
+  
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 500px;
+}
+  
+.name {
+    flex: 1 0 140px;
+    background-color: #292929a1;
+    border-radius: 4px;
+    border: #000000 solid 2px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #02002a 40px;
+}
+
+.name:focus + label {
+    transform: translateY(-20px);
+    color: #444d0065;
+}
+
+.name:focus {
+    outline: none;
+    box-shadow: #3d3d3d 0 0 5px;
+}
+
+.password {
+    flex: 1 0 120px;
+    background-color: #292929a1;
+    border-radius: 4px;
+    border: #000000 solid 2px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.password:focus {
+    outline: none;
+    box-shadow: #3d3d3d 0 0 5px;
+}
+
+button {
+    flex: 1 0 60px;
+    background-color: #2929294d;
+    box-shadow: #ffffffc5 0 0 5px;
+    color: #000000;
+    text-shadow: #ffffff77 2.3px 0.5px 0.9px;
+    border: #000000 solid 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 171px;
+}
+
+button.active {
+    background-color: #19ad45e0;
+    text-shadow: #0c7c48a6 2.3px 0.5px 0.9px;
+    box-shadow: hsla(130, 100%, 79%, 0.773) 0 0 5px;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button.disactive {
+    background-color: #2929294d;
+    color: #000000;
+    text-shadow: #ffffff77 2.3px 0.5px 0.9px;
+    box-shadow: #ffffffc5 0 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botton:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 20px rgba(199, 199, 199, 0.623);
+}

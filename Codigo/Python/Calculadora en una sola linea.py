@@ -1,0 +1,1 @@
+while True: print(eval(input("Introduce la operación: ")))
