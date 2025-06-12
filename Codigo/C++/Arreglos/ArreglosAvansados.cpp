@@ -93,14 +93,14 @@ public:
 
     // Ejercicio 6: Mueve los elementos del arreglo 'steps' posiciones a la izquierda
     void moveStepsToLeft(int steps) {
-        while (steps > SIZE) {
+        while (SIZE < steps) {
             steps = steps - SIZE;
         }
         int arrAux[SIZE];
         for (int i = 0; i < SIZE; i++) {
             arrAux[i] = arr[i];
         }
-        for (int i = SIZE; i >= 0; i--) {
+        for (int i = SIZE - 1; i >= 0; i--) {
             if (i - steps >= 0) {
                 arr[i] = arrAux[i - steps];
             } else {

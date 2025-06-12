@@ -1,79 +1,49 @@
 // Testeos.cpp : This file contains the 'main' function. Program execution begins
-#include <iostream>
+#include<iostream>
+#include <string>
+using namespace std;
 
-class TicTacToe {
-private:
-    char board[3][3];
-
-public:
-    TicTacToe() {
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                board[i][j] = ' ';
-            }
+void elevarPotencia(int myArray[], int expo, int tam){
+    int resultado;
+    for (int i = 0; i < tam; i++) {
+        resultado = 1;
+        for (int j = 0; j < expo; j++) {
+            resultado *= myArray[i];
         }
+        myArray[i] = resultado;
     }
-    ~TicTacToe() {}
-    char whoWins() {
-        if (ifPlayerWin('X')) {
-            return 'X';
-        } else if (ifPlayerWin('O')) {
-            return 'O';
-        }
-    }
-    bool ifPlayerWin(char playerChar) {
-        if (ifPlayerWinByRows(playerChar)){
-            return true;
-        } else if (ifPlayerWinByColumns(playerChar)){
-            return true;
-        } else if (ifPlayerWinByDiagonals(playerChar)){
-            return true;
-        }
-        return false;  
-    }
-    bool ifPlayerWinByRows(char playerChar) { 
-        for (int i = 0; i < 3; i++) {
-            if ((board[i][0] == playerChar) && (board[i][0] == board[i][1]) && (board[i][1] == board[i][2])) {
-                return true;
-            }
-        } 
-        return false;
-    }
-    bool ifPlayerWinByColumns(char playerChar) {
-        for (int i = 0; i < 3; i++) {
-            if ((board [0][i] == playerChar) && (board[0][i] == board[1][i]) && (board[1][i] == board[2][i])) {
-                return true;
-            }
-        }
-        return false;
-    }
-    bool ifPlayerWinByDiagonals(char playerChar) {
-        for (int i = 0; i < 3; i + 2) {
-            for (int j = 2; j >= 0; j - 2) {
-                if ((board[1][1] == playerChar) && (board[i][j] == playerChar) && (board[i][j] == board[i][j])) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    void registerAMove(int row, int col, char playerChar) {
-        if (board[row][col] == ' ') {
-            board[row][col] = playerChar;
-        }
-    }
-    void cleanBoard() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; i < 3; j++) {
-               board[i][j] = ' '; 
-            }
-        }   
-    }
-};
+}
 
 
-int main() {
-    
+int main () {
+
+    const int tam = 10;
+
+    int myArreglo[tam];
+
+    //llenado del arreglo
+    for ( int i = 0; i < tam ; i++){
+        cout << "Ingrese el valor" << i <<  " del arreglo " << endl;
+        cout << "Ingrese el valor" << i+1 <<  " del arreglo " << endl;
+        cin  >> myArreglo[i];
+    }
+
+    // imprimir los valores del arreglo 
+    cout << "\n"<< "\n"<< "Los valores del arreglos son:";
+    for ( int i =0; i< tam; i++){
+        cout << myArreglo[i] << " ";
+
+    }
+
+    // calcular la suma de los valores de un vector 
+
+    int suma = 0;
+    for ( int i =0; i< tam; i++){
+        suma += myArreglo[i];
+    }
+    cout << "\n"<< "\n"<< "La suma de los valores del arreglos da: " << suma;
+
+
 
     return 0;
 }

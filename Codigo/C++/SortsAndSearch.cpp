@@ -16,7 +16,7 @@ public:
         if (arr[index] > arr[index + 1]) {
             int swap = arr[index];
             arr[index] = arr[index + 1];
-            arr[index + 1] = index;
+            arr[index + 1] = swap;
         }
     }
 
