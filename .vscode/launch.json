@@ -2,17 +2,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug C/C++ Executable (MSYS2)",
+            "name": "Debug C/C++ Executable (MinGW64)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
+            "program": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode/Codigo/C++/Ejercicios/output/Testeos.exe",
             "args": [],
             "stopAtEntry": true,
-            "cwd": "${workspaceFolder}",
+            "cwd": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+            "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -21,6 +21,26 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++.exe build active file (MSYS2)"
+        },
+        {    "name": "Debug C/C++ Executable (MinGW64)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode/Codigo/C++/SFML/FMLTest/output/SFMLTest.exe",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Compilar SFML"
         }
     ]
 }

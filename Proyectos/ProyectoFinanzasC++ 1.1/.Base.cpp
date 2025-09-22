@@ -8,8 +8,8 @@ private:
     double balance;
     int moves;
     int incomes;
-    int lastIncome;
     int expenses;
+    int lastIncome;
     int lastExpense;
     std::string incomesReasonAndAmount[SIZE]; //Formart "RE/AM" where RE is the reason and AM is the amount
     std::string incomesDates[SIZE]; //Date formart "DD/MM/YYYY"
