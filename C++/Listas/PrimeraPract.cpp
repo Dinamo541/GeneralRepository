@@ -1,31 +1,31 @@
 #include <iostream>
 using namespace std;
 
-class Data {
+class People {
 private:
-    int id;
+    int age;
     string name;
 
 public:
-    Data() {
-        id = 0;
+    People() {
+        age = 0;
         name = "desconocido";
     }
-    Data(int newId, string newName) {
-        id = newId;
+    People(int newId, string newName) {
+        age = newId;
         name = newName;
     }
-    ~Data() {}
+    ~People() {}
 
     void setId(int newId) {
-        id = newId;
+        age = newId;
     }
     void setName(string newName) {
         name =newName;
     }
 
     int getId() {
-        return id;
+        return age;
     }
     string getName() {
         return name;
@@ -35,7 +35,7 @@ public:
 
 class Nodo {
 private:
-    Data* person;
+    People* person;
     Nodo* next;
 
 public:
@@ -50,14 +50,14 @@ public:
         next = nullptr;
     }
 
-    void setData(Data *newPersona) {
+    void setData(People *newPersona) {
         person = newPersona;
     }
     void setNext(Nodo *newNext) {
         next = newNext;
     }
 
-    Data* getData() {
+    People* getData() {
         return person;
     }
     Nodo* getNext() {
@@ -80,7 +80,7 @@ public:
     List() {
         first = nullptr;
     }
-    List(Data* newPerson) {
+    List(People* newPerson) {
         first = new Nodo;
         first->setData(newPerson);
         first->setNext(new Nodo);
@@ -90,7 +90,7 @@ public:
         first = nullptr;
     }
 
-    void add(Data* newPerson) {
+    void add(People* newPerson) {
         Nodo* current = first;
 
         while(current->getNext() != nullptr) {
@@ -128,7 +128,7 @@ public:
             }
         }
     }
-    Data* FindByName(string name) {
+    People* FindByName(string name) {
         Nodo* current = first;
         if (current->getData()->getName() == name) {
             return current->getData();
@@ -146,7 +146,7 @@ public:
 };
 
 int main() {
-    List list(new Data(1, "Primero"));\
+    List list(new People(1, "Primero"));\
     string nombre;
     int id = 0;
     while (true) {
@@ -155,7 +155,7 @@ int main() {
         printf("Agrege el id");
         cin >> id;
 
-        list.add(new Data(id, nombre));
+        list.add(new People(id, nombre));
         list.print();
     }
     

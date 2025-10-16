@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "VisualStudioCode_c54cd4cd"
+        },
+        {
             "name": "Debug C/C++ Executable (MinGW64)",
             "type": "cppdbg",
             "request": "launch",
@@ -22,7 +29,8 @@
             ],
             "preLaunchTask": "C/C++: g++.exe build active file (MSYS2)"
         },
-        {    "name": "Debug C/C++ Executable (MinGW64)",
+        {
+            "name": "Debug C/C++ Executable (MinGW64)",
             "type": "cppdbg",
             "request": "launch",
             "program": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode/Codigo/C++/SFML/FMLTest/output/SFMLTest.exe",

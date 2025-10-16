@@ -32,7 +32,7 @@ string confirmationNumberWhitSistem(string allowedCharacters, string sistemFromN
                     cout << "El numero contiene un o varios caracteres en una ubicacion erronea!\n";
                     number = "None";
                 }
-            } 
+            }
         }
     }
     return number;
