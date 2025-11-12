@@ -79,6 +79,9 @@
         "ratio": "cpp",
         "xhash": "cpp",
         "unordered_set": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "any": "cpp",
+        "ranges": "cpp",
+        "valarray": "cpp"
     }
 }

@@ -80,11 +80,12 @@ public:
     void fromCharToBin() {
         ASCII = character;
         std::string bin = decimalToBinary(ASCII);
+        int size = bin.length();
         for (int i = 0; i < 8; i++) {
-            if (i < (8 - bin.size())) {
+            if (i < (8 - size)) {
                 binary[i] = 0;
             } else {
-                binary[i] = bin[i - (8 - bin.size())] - '0';
+                binary[i] = bin[i - (8 - size)] - '0';
             }
         }
         binary[7] = (ASCII % 2);
@@ -266,7 +267,6 @@ int main() {
         std::cout << "0. Cerrar " << std::endl;
         std::cout << "1. Texto -> Binario " << std::endl;
         std::cout << "2. Binario -> Texto " << std::endl;
-        std::cout << "3. Historial " << std::endl;
         std::getline(std::cin, options);
         if (options == "1") {
             system("cls");

@@ -7,16 +7,16 @@ private:
     Nodo<T>* next;
 
 public:
-    Nodo(T val) : variable(val), next(nullptr) {}
+    Nodo(T* val) : variable(val), next(nullptr) {}
     ~Nodo() {
         delete variable;
         next = nullptr;
     }
 
-    T getVariable() {
+    T* getVariable() {
         return variable;
     }
-    Nodo getNext() {
+    Nodo* getNext() {
         return next;
     }
     void setVariable(T newVariable) {
@@ -30,7 +30,7 @@ public:
 template <class T>
 class List {
 private:
-    Nodo<T>* first;
+    Nodo<T>* first; // 33
 
 public:
     List() : first(nullptr) {}

@@ -19,7 +19,7 @@ public:
             outFile = std::ofstream(fileName);
             if (outFile.is_open()) {
                 outFile << "Hola, mundo!\n";
-                outFile << "Este es un archivo de texto\n";
+                outFile << "Este es un archivo de texto";
                 outFile.close();
             }
             else {
@@ -33,7 +33,7 @@ public:
         }
     }
     void openIn() {
-        std::string line = "Hola";
+        std::string line = "";
         try {
             inFile = std::ifstream(fileName);
             if (inFile.is_open()) {

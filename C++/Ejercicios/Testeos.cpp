@@ -2,15 +2,12 @@
 #include <string>
 
 int main() {
-    std::string oracion;
-    std::cout << "Escriba una oracion: ";
-    std::getline(std::cin, oracion);
-    int size = oracion.size();
-    for (int i = size - 1; i >= 0; i--) {
-        if (oracion[i] == ' ') {
-            oracion[i] = 0;
+    int num = 0;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            std::cout << num << std::endl;
+            num++;
         }
     }
-    std::cout << oracion;
     return 0;
 }

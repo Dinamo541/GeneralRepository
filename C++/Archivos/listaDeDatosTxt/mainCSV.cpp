@@ -43,13 +43,18 @@ public:
                 while (std::getline(inFile, line)) {
                     if (line.find(idStr + ".") != std::string::npos) {
                         size_t dot = line.find('.');
+
                         if (dot == std::string::npos) continue;
+
                         size_t start = dot + 1;
                         size_t comma1 = line.find(',', start);
+
                         if (comma1 == std::string::npos) continue;
+
                         name = line.substr(start, comma1 - start);
 
                         size_t comma2 = line.find(',', comma1 + 1);
+                        
                         if (comma2 == std::string::npos) continue;
                         lastName = line.substr(comma1 + 1, comma2 - (comma1 + 1));
 

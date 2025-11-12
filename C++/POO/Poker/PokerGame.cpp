@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <cstdlib>
+#include <string>
 #include <ctime>
 
 class Cards {
