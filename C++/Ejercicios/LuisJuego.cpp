@@ -208,8 +208,7 @@ void printMenu() {
 
 //Empieza el main &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-int main()
-{
+int main() {
     int opcion = 1, plantOpcion = 0, furrow = 0, firsFurrow = 0, endFurrow = 0;
     colleccion farm1;
     colleccion farm2;

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Main {
+public class MainOne {
     public static void main(String[] args) {
         // Declaración de variables
         int intNumber = 10;

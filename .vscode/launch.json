@@ -3,6 +3,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MainFour",
+            "request": "launch",
+            "mainClass": "MainFour",
+            "projectName": "VisualStudioCode_c54cd4cd"
+        },
+        {
+            "type": "java",
+            "name": "MainThree",
+            "request": "launch",
+            "mainClass": "MainThree",
+            "projectName": "VisualStudioCode_c54cd4cd"
+        },
+        {
+            "type": "java",
+            "name": "MainTwo",
+            "request": "launch",
+            "mainClass": "MainTwo",
+            "projectName": "VisualStudioCode_c54cd4cd"
+        },
+        {
+            "type": "java",
+            "name": "MainOne",
+            "request": "launch",
+            "mainClass": "MainOne",
+            "projectName": "VisualStudioCode_c54cd4cd"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "Main",

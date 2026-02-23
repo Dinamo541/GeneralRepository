@@ -191,7 +191,6 @@ public:
     void printAll() {
         character->printAll();
     }
-
 };
 
 class List {
@@ -286,8 +285,14 @@ private:
     std::ofstream outFile;
 
 public:
-    ListHisto(Nodo<List>* newFirst) : first(newFirst) {}
+    ListHisto() : first(nullptr) {
+        load();
+    }
+    ListHisto(Nodo<List>* newFirst) : first(newFirst) {
+        load();
+    }
     ~ListHisto() {
+        save();
         Nodo<List>* current = first; 
         Nodo<List>* next = first->getNext();
         while(next != nullptr) {
@@ -300,22 +305,25 @@ public:
 
     void load() {
         std::string line;
+        if (first == nullptr) {
+            first = new Nodo<List>();
+        }
         Nodo<List>* current = first;
         try {
             inFile = std::ifstream("historial.csv");
             if (inFile.is_open()) {
                 while (std::getline(inFile, line)) {
-                    current->setNext(new Nodo<List>());
                     if (line.find('.') != std::string::npos) {
                         size_t dot = line.find('.');
                         size_t start = dot + 1;
                         size_t end = line.length();
                         std::string bin = line.substr(start, end - start);
-    
-                        List* list;
-                        list->setBinary(bin);
-                        current->setData(list);
+                        
+                        List* newList = new List();
+                        newList->setBinary(bin);
+                        current->setData(newList);
                         current = current->getNext();
+                        current->setNext(new Nodo<List>());
                     }
                 }
                 inFile.close();
@@ -328,23 +336,78 @@ public:
             }
         }
     }
+    void add(List* newList) {
+        if (first == nullptr) {
+            first = new Nodo<List>(newList);
+        } else {
+            Nodo<List>* current = first;
+            while (current->getNext() == nullptr) {
+                current = current->getNext();
+            }
+
+            current->setNext(new Nodo<List>(newList));
+        }
+    }
+    void print() {
+        if (first == nullptr) {
+            std::cout << "Todavia no hay historial";
+        }
+        recursivePrint(first, 1);
+    }
+    void recursivePrint(Nodo<List>* current, int id) {
+        if (current != nullptr) {
+            std::cout << "Numero " << id << std::endl << std::endl;
+            std::cout << "Binario: ";
+            current->getData()->printBin();
+            std::cout << "\nTexto: ";
+            current->getData()->printChar();
+            if (current->getNext() != nullptr) {
+                std::cout << "\n -----------------------------------------------\n\n";
+            }
+            recursivePrint(current->getNext(), id++);
+        }
+    }
     void save() {
-        
+        int id = 1;
+        Nodo<List>* current = first;
+        try {
+            outFile = std::ofstream("historial.csv");
+            if (inFile.is_open()) {
+                while (current != nullptr) {
+                    outFile << id << ".";
+                    outFile << current->getData()->getsBinary();
+
+                    current = current->getNext();
+                    if (current != nullptr) {
+                        outFile << std::endl;
+                        id++;
+                    }
+                }
+                inFile.close();
+            } else {
+                throw(-1);
+            }
+        } catch (int error) {
+            if (error == -1) {
+                std::cerr << "No se pudo abrir el archivo para leer.\n";
+            }
+        }
     }
 };
 
 int main() {
     std::string phrase = " ", options = " ";
     int size = 0;
-    while (options != "0") {
+    ListHisto record;
+    while (true) {
         std::cout << "Eliga el formato: " << std::endl;
         std::cout << "0. Cerrar " << std::endl;
         std::cout << "1. Texto -> Binario " << std::endl;
         std::cout << "2. Binario -> Texto " << std::endl;
         std::cout << "3. Historial " << std::endl;
         std::getline(std::cin, options);
+        system("cls");
         if (options == "1") {
-            system("cls");
             std::cout << "(Tex -> Bin) Escriba la frase que desea pasar a binario: " << std::endl;
             std::getline(std::cin, phrase);
             size = phrase.size();
@@ -357,9 +420,10 @@ int main() {
             calculator.printBin();
             std::cout << std::endl << std::endl;
             std::cout << "Ingrese cualquier tecla para continuar" << std::endl;
+            record.add(&calculator);
             std::getline(std::cin, phrase);
+            phrase = "";
         } else if (options == "2") {
-            system("cls");
             std::cout << "(Bin -> Text) Escriba el binario que desea decifrar: " << std::endl;
             std::getline(std::cin, phrase);
             size = phrase.size();
@@ -372,20 +436,23 @@ int main() {
             calculator.printChar();
             std::cout << std::endl << std::endl;
             std::cout << "Ingrese cualquier tecla para continuar" << std::endl;
+            record.add(&calculator);
             std::getline(std::cin, phrase);
+            phrase = "";
         } else if (options == "3") {
-
+            record.print();
+            std::cout << std::endl << "Ingrese cualquier tecla para continuar" << std::endl;
+            std::getline(std::cin, options);
+            phrase = "";
         } else if (options == "0") {
-            system("cls");
             std::cout << "Gracias por usar el programa." << std::endl;
             return 0;
         } else {
-            system("cls");
             std::cout << "La opcion digitada no es correcta." << std::endl;
             std::cout << "Ingrese cualquier tecla para continuar" << std::endl;
             std::getline(std::cin, options);
+            phrase = "";
         }
         system("cls");
     }
-    return 0;
 }
