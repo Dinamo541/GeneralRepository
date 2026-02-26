@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java & JavaFX — Para devs de C++/SFML</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --card: #1a1e2a;
+    --border: #252a38;
+    --accent: #f0c040;
+    --accent2: #5ce0c4;
+    --accent3: #e05c8a;
+    --text: #d8dce8;
+    --muted: #7880a0;
+    --java: #f89820;
+    --cpp: #6c9edb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(240,192,64,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #0d0f14;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  header h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+  header h1 span { color: var(--accent); }
+  header p {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    gap: 4px;
+    padding: 16px 40px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    background: rgba(13,15,20,0.95);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  nav a:hover { color: var(--accent); background: rgba(240,192,64,0.08); }
+
+  /* MAIN */
+  main { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* SECTION */
+  .section { margin-bottom: 70px; }
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title .num {
+    background: var(--accent);
+    color: #0d0f14;
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* PROSE */
+  .prose {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .prose strong { color: var(--accent); font-weight: 700; }
+  .prose em { color: var(--accent2); font-style: normal; }
+  .prose .note {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: rgba(92,224,196,0.07);
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: var(--accent2);
+  }
+
+  /* COMPARISON CARDS */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+  .compare-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .compare-card .lang-label {
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .cpp-label { background: rgba(108,158,219,0.15); color: var(--cpp); border-bottom: 1px solid var(--border); }
+  .java-label { background: rgba(248,152,32,0.12); color: var(--java); border-bottom: 1px solid var(--border); }
+  .javafx-label { background: rgba(92,224,196,0.1); color: var(--accent2); border-bottom: 1px solid var(--border); }
+
+  /* CODE */
+  pre {
+    background: #090b10;
+    padding: 20px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: auto;
+    border-radius: 8px;
+  }
+  .compare-card pre {
+    margin: 0;
+    border-radius: 0;
+    background: #0a0c12;
+  }
+
+  /* Syntax highlight via spans */
+  .kw { color: #cc99cd; }
+  .ty { color: #f89820; }
+  .fn { color: #8bc4f0; }
+  .str { color: #98d982; }
+  .cm { color: #4d5573; }
+  .num { color: #f0c040; }
+  .cls { color: #5ce0c4; }
+
+  /* CALLOUT */
+  .callout {
+    display: flex;
+    gap: 14px;
+    background: rgba(224,92,138,0.07);
+    border: 1px solid rgba(224,92,138,0.25);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    align-items: flex-start;
+  }
+  .callout .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .callout strong { color: var(--accent3); }
+
+  /* FULL CODE BLOCK */
+  .code-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .code-header {
+    padding: 10px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    text-transform: uppercase;
+  }
+  .code-block pre { border-radius: 0; }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border);
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  td.desc { font-family: 'Syne', sans-serif; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">Guía de referencia</div>
+  <h1>Java & <span>JavaFX</span><br>vs C++/SFML</h1>
+  <h3><span>Tutor: </span>Esteban Javier Granados Sibaja<br></h3>
+  <h3><span>Tutoría: </span>Programación 2</h3>
+</header>
+
+<nav>
+  <a href="#intro">¿Cómo funciona Java?</a>
+  <a href="#sintaxis">Sintaxis base</a>
+  <a href="#oop">OOP & Clases</a>
+  <a href="#colecciones">Colecciones</a>
+  <a href="#javafx">JavaFX</a>
+  <a href="#escena">Escena & Nodos</a>
+  <a href="#eventos">Eventos</a>
+  <a href="#animacion">Animación</a>
+  <a href="#proyecto">Estructura</a>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════ 1. INTRO ═══════════════════════════════ -->
+<section class="section" id="intro">
+  <div class="section-title"><span class="num">1</span> ¿Cómo funciona Java?</div>
+
+  <div class="prose">
+    <strong>C++ compila a código máquina.</strong> El ejecutable corre directamente en el hardware. Un .exe compilado en Windows no corre en Linux.
+    <br><br>
+    <strong>Java es diferente:</strong> el compilador (<em>javac</em>) convierte el código a <strong>bytecode</strong> (.class), un formato intermedio. Ese bytecode lo ejecuta la <strong>JVM (Java Virtual Machine)</strong>, instalada en cada sistema operativo. Resultado: <em>"write once, run anywhere"</em>.
+    <div class="note">
+      javac MiClase.java → MiClase.class (bytecode) → JVM → ejecuta en cualquier OS
+    </div>
+  </div>
+
+  <div class="prose">
+    <strong>Memoria:</strong> en C++ la memoria se maneja con <em>new/delete</em>. En Java, la JVM tiene un <strong>Garbage Collector</strong> que limpia los objetos que ya no se usan. No hay punteros crudos, no hay <em>delete</em>, casi no hay memory leaks accidentales.
+    <br><br>
+    <strong>Todo es un objeto</strong> (casi). No hay funciones sueltas como en C++ — todo vive dentro de una clase. El punto de entrada es siempre:
+    <pre><code><span class="kw">public static void</span> <span class="fn">main</span>(<span class="ty">String</span>[] args) { ... }</code></pre>
+    <strong>Tipos primitivos</strong> son la excepción: <em>int, double, boolean, char, long, float</em> no son objetos (por eficiencia). Sus versiones objeto son <em>Integer, Double, Boolean</em>, etc.
+  </div>
+
+  <div class="callout">
+    <span class="icon">💡</span>
+    <div><strong>Packages = namespaces:</strong> en C++ se usa <code>namespace</code>. En Java se declara <code>package com.miapp.logica;</code> al inicio del archivo. Los imports reemplazan los <code>#include</code>, pero no copian código — solo indican al compilador dónde buscar.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 2. SINTAXIS ═══════════════════════════════ -->
+<section class="section" id="sintaxis">
+  <div class="section-title"><span class="num">2</span> Sintaxis base</div>
+
+  <div class="compare">
+    <div class="compare-card">
+      <div class="lang-label cpp-label">C++</div>
+      <pre><code><span class="cm">// Variables</span>
+<span class="kw">int</span> x = <span class="num">10</span>;
+<span class="kw">double</span> pi = <span class="num">3.14</span>;
+<span class="kw">bool</span> activo = <span class="kw">true</span>;
+<span class="ty">std::string</span> nombre = <span class="str">"Mario"</span>;
+
+<span class="cm">// Constante</span>
+<span class="kw">const int</span> MAX = <span class="num">100</span>;
+
+<span class="cm">// Array estático</span>
+<span class="kw">int</span> arr[<span class="num">5</span>] = {<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>};
+<span class="kw">int</span> tam = arr.size(); <span class="cm">// no aplica</span>
+
+<span class="cm">// Imprimir</span>
+<span class="ty">std::cout</span> << <span class="str">"Hola"</span> << <span class="ty">std::endl</span>;</code></pre>
+    </div>
+    <div class="compare-card">
+      <div class="lang-label java-label">Java</div>
+      <pre><code><span class="cm">// Variables</span>
+<span class="kw">int</span> x = <span class="num">10</span>;
+<span class="kw">double</span> pi = <span class="num">3.14</span>;
+<span class="kw">boolean</span> activo = <span class="kw">true</span>;  <span class="cm">// ojo: boolean</span>
+<span class="ty">String</span> nombre = <span class="str">"Mario"</span>; <span class="cm">// String es objeto</span>
+
+<span class="cm">// Constante</span>
+<span class="kw">final int</span> MAX = <span class="num">100</span>;
+
+<span class="cm">// Array (tamaño fijo)</span>
+<span class="kw">int</span>[] arr = {<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>};
+<span class="kw">int</span> tam = arr.length; <span class="cm">// .length (no método)</span>
+
+<span class="cm">// Imprimir</span>
+<span class="ty">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="str">"Hola"</span>);</code></pre>
+    </div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-card">
+      <div class="lang-label cpp-label">C++ — Control de flujo</div>
+      <pre><code><span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < <span class="num">10</span>; i++) { }
+
+<span class="kw">for</span> (<span class="kw">auto</span>& e : coleccion) { }
+
+<span class="kw">while</span> (condicion) { }
+
+<span class="kw">if</span> (x > <span class="num">0</span>) { }
+<span class="kw">else if</span> (x == <span class="num">0</span>) { }
+<span class="kw">else</span> { }</code></pre>
+    </div>
+    <div class="compare-card">
+      <div class="lang-label java-label">Java — Control de flujo</div>
+      <pre><code><span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < <span class="num">10</span>; i++) { }
+
+<span class="kw">for</span> (<span class="ty">Tipo</span> e : coleccion) { } <span class="cm">// for-each</span>
+
+<span class="kw">while</span> (condicion) { }
+
+<span class="kw">if</span> (x > <span class="num">0</span>) { }
+<span class="kw">else if</span> (x == <span class="num">0</span>) { }
+<span class="kw">else</span> { }
+<span class="cm">// Igual a C++ aquí ✔</span></code></pre>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="icon">⚠️</span>
+    <div><strong>Comparación de Strings:</strong> en Java <code>==</code> compara referencias (como punteros). Para comparar contenido se usa siempre <code>nombre.<span style="color:var(--accent2)">equals</span>("Mario")</code> para un mejor manejo</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 3. OOP ═══════════════════════════════ -->
+<section class="section" id="oop">
+  <div class="section-title"><span class="num">3</span> OOP & Clases</div>
+
+  <div class="prose">
+    En C++ la declaración (.h) y la implementación (.cpp) van separadas. <strong>En Java todo está junto en un único archivo</strong> (.java), y el nombre del archivo debe coincidir con la clase pública.
+  </div>
+
+  <div class="compare">
+    <div class="compare-card">
+      <div class="lang-label cpp-label">C++ — Jugador.h + Jugador.cpp</div>
+      <pre><code><span class="cm">// Jugador.h</span>
+<span class="kw">class</span> <span class="cls">Jugador</span> {
+<span class="kw">private</span>:
+    <span class="kw">float</span> x, y;
+    <span class="kw">int</span> vida;
+<span class="kw">public</span>:
+    <span class="cls">Jugador</span>(<span class="kw">float</span> x, <span class="kw">float</span> y);
+    <span class="kw">void</span> <span class="fn">mover</span>(<span class="kw">float</span> dx, <span class="kw">float</span> dy);
+    <span class="kw">int</span> <span class="fn">getVida</span>() <span class="kw">const</span>;
+};
+
+<span class="cm">// Jugador.cpp</span>
+<span class="cls">Jugador</span>::<span class="cls">Jugador</span>(<span class="kw">float</span> x, <span class="kw">float</span> y)
+  : x(x), y(y), vida(<span class="num">100</span>) {}
+
+<span class="kw">void</span> <span class="cls">Jugador</span>::<span class="fn">mover</span>(<span class="kw">float</span> dx, <span class="kw">float</span> dy) {
+    x += dx; y += dy;
+}</code></pre>
+    </div>
+    <div class="compare-card">
+      <div class="lang-label java-label">Java — Jugador.java</div>
+      <pre><code><span class="cm">// Jugador.java — todo en uno</span>
+<span class="kw">public class</span> <span class="cls">Jugador</span> {
+    <span class="kw">private double</span> x, y;
+    <span class="kw">private int</span> vida;
+
+    <span class="cm">// Constructor</span>
+    <span class="kw">public</span> <span class="cls">Jugador</span>(<span class="kw">double</span> x, <span class="kw">double</span> y) {
+        <span class="kw">this</span>.x = x;
+        <span class="kw">this</span>.y = y;
+        <span class="kw">this</span>.vida = <span class="num">100</span>;
+    }
+
+    <span class="kw">public void</span> <span class="fn">mover</span>(<span class="kw">double</span> dx, <span class="kw">double</span> dy) {
+        x += dx; y += dy;
+    }
+
+    <span class="kw">public int</span> <span class="fn">getVida</span>() { <span class="kw">return</span> vida; }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-card">
+      <div class="lang-label cpp-label">C++ — Herencia</div>
+      <pre><code><span class="kw">class</span> <span class="cls">Enemigo</span> : <span class="kw">public</span> <span class="cls">Entidad</span> {
+<span class="kw">public</span>:
+    <span class="kw">virtual void</span> <span class="fn">atacar</span>() <span class="kw">override</span> { }
+};</code></pre>
+    </div>
+    <div class="compare-card">
+      <div class="lang-label java-label">Java — Herencia</div>
+      <pre><code><span class="kw">public class</span> <span class="cls">Enemigo</span> <span class="kw">extends</span> <span class="cls">Entidad</span> {
+    <span class="cm">// @Override es opcional pero recomendado (en ocasiones obligario, mejor no omitirlo)</span>
+    @<span class="cls">Override</span>
+    <span class="kw">public void</span> <span class="fn">atacar</span>() { }
+}
+<span class="cm">// Todos los métodos son "virtual" por defecto</span></code></pre>
+    </div>
+  </div>
+
+  <div class="prose">
+    <strong>Interfaces en Java</strong> son como clases abstractas puras en C++. Se usan muchísimo para definir contratos:
+    <pre style="margin-top:12px"><code><span class="kw">public interface</span> <span class="cls">Dibujable</span> {
+    <span class="kw">void</span> <span class="fn">dibujar</span>();  <span class="cm">// automáticamente abstracto</span>
+}
+
+<span class="kw">public class</span> <span class="cls">Bala</span> <span class="kw">implements</span> <span class="cls">Dibujable</span> {
+    <span class="kw">public void</span> <span class="fn">dibujar</span>() { <span class="cm">/* ... */</span> }
+}</code></pre>
+    <div class="note">Una clase puede <em>extender (extends)</em> solo una clase, pero puede <em>implementar (implement)</em> múltiples interfaces — solución al problema del diamante de C++.</div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-card">
+      <div class="lang-label cpp-label">C++ — Instanciar objetos</div>
+      <pre><code><span class="cm">// En stack (se destruye solo)</span>
+<span class="cls">Jugador</span> p1(<span class="num">0.0f</span>, <span class="num">0.0f</span>);
+
+<span class="cm">// En heap (el GC hace el delete)</span>
+<span class="cls">Jugador</span>* p2 = <span class="kw">new</span> <span class="cls">Jugador</span>(<span class="num">0</span>, <span class="num">0</span>);
+<span class="kw">delete</span> p2;</code></pre>
+    </div>
+    <div class="compare-card">
+      <div class="lang-label java-label">Java — Instanciar objetos</div>
+      <pre><code><span class="cm">// Siempre en heap, GC lo limpia</span>
+<span class="cls">Jugador</span> p1 = <span class="kw">new</span> <span class="cls">Jugador</span>(<span class="num">0.0</span>, <span class="num">0.0</span>);
+
+<span class="cm">// p1 es una REFERENCIA (como pointer pero seguro)</span>
+<span class="cm">// No hay delete. El GC lo maneja.</span>
+
+<span class="cm">// Referencia nula:</span>
+<span class="cls">Jugador</span> p2 = <span class="kw">null</span>;</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 4. COLECCIONES ═══════════════════════════════ -->
+<section class="section" id="colecciones">
+  <div class="section-title"><span class="num">4</span> Colecciones</div>
+
+  <div class="prose">
+    Para la mayoría de los casos, los arrays simples no son suficientes. Java tiene colecciones genéricas en <em>java.util</em> que cubren casi todo.
+  </div>
+
+  <table>
+    <tr><th>Java</th><th>Equivalente C++</th><th class="desc">Cuándo usarlo</th></tr>
+    <tr><td><code><span class="ty">ArrayList</span>&lt;<span class="cls">T</span>&gt;</code></td><td><code>std::vector</code></td><td class="desc">Lista dinámica, uso general</td></tr>
+    <tr><td><code><span class="ty">LinkedList</span>&lt;<span class="cls">T</span>&gt;</code></td><td><code>std::list</code></td><td class="desc">Insertar/borrar al inicio/medio</td></tr>
+    <tr><td><code><span class="ty">HashMap</span>&lt;<span class="cls">K,V</span>&gt;</code></td><td><code>std::unordered_map</code></td><td class="desc">Clave-valor, O(1) lookup</td></tr>
+    <tr><td><code><span class="ty">HashSet</span>&lt;<span class="cls">T</span>&gt;</code></td><td><code>std::unordered_set</code></td><td class="desc">Elementos únicos sin orden</td></tr>
+    <tr><td><code><span class="ty">Stack</span>&lt;<span class="cls">T</span>&gt;</code></td><td><code>std::stack</code></td><td class="desc">LIFO</td></tr>
+  </table>
+
+  <div class="code-block">
+    <div class="code-header">ArrayList — uso típico en un juego</div>
+    <pre><code><span class="kw">import</span> java.util.<span class="cls">ArrayList</span>;
+
+<span class="cls">ArrayList</span>&lt;<span class="cls">Enemigo</span>&gt; enemigos = <span class="kw">new</span> <span class="cls">ArrayList</span>&lt;&gt;(); <span class="cm">// &lt;&gt; = "inferir el tipo"</span>
+
+<span class="cm">// Agregar</span>
+enemigos.<span class="fn">add</span>(<span class="kw">new</span> <span class="cls">Enemigo</span>(<span class="num">100</span>, <span class="num">200</span>));
+
+<span class="cm">// Recorrer</span>
+<span class="kw">for</span> (<span class="cls">Enemigo</span> e : enemigos) {
+    e.<span class="fn">actualizar</span>();
+}
+
+<span class="cm">// Eliminar los muertos con iterator (evita ConcurrentModificationException)</span>
+enemigos.<span class="fn">removeIf</span>(e -> !e.<span class="fn">estaVivo</span>());
+
+<span class="cm">// Tamaño</span>
+<span class="kw">int</span> cantidad = enemigos.<span class="fn">size</span>();</code></pre>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 5. JAVAFX ═══════════════════════════════ -->
+<section class="section" id="javafx">
+  <div class="section-title"><span class="num">5</span> JavaFX — La ventana y el contexto</div>
+
+  <div class="prose">
+    <strong>SFML</strong> da una ventana (<em>RenderWindow</em>) y se dibujan sprites/shapes directamente. <strong>JavaFX</strong> funciona distinto: tiene un <strong>Scene Graph</strong>, un árbol de nodos visuales (como el DOM en HTML). Acá no se dibuja frame a frame — se describe qué hay en pantalla y JavaFX se encarga de renderizarlo.
+    <br><br>
+    La estructura es: <em>Stage</em> (la ventana del OS) → <em>Scene</em> (el contenido) → <em>Nodos</em> (shapes, imágenes, controles, etc.)
+    <div class="note">Para dibujos frame-a-frame (como en SFML), JavaFX tiene <strong>Canvas</strong> — ahí se dibuja con un GraphicsContext, similar a SFML.</div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header">Estructura mínima de una app JavaFX</div>
+    <pre><code><span class="kw">import</span> javafx.application.<span class="cls">Application</span>;
+<span class="kw">import</span> javafx.scene.<span class="cls">Scene</span>;
+<span class="kw">import</span> javafx.scene.layout.<span class="cls">Pane</span>;
+<span class="kw">import</span> javafx.stage.<span class="cls">Stage</span>;
+
+<span class="kw">public class</span> <span class="cls">MiApp</span> <span class="kw">extends</span> <span class="cls">Application</span> {
+
+    <span class="cm">// start() = equivalente al main loop inicial</span>
+    <span class="kw">@Override</span>
+    <span class="kw">public void</span> <span class="fn">start</span>(<span class="cls">Stage</span> stage) {
+        <span class="cls">Pane</span> root = <span class="kw">new</span> <span class="cls">Pane</span>();         <span class="cm">// contenedor raíz</span>
+        <span class="cls">Scene</span> scene = <span class="kw">new</span> <span class="cls">Scene</span>(root, <span class="num">800</span>, <span class="num">600</span>); <span class="cm">// 800x600 px</span>
+
+        stage.<span class="fn">setTitle</span>(<span class="str">"Mi Juego"</span>);
+        stage.<span class="fn">setScene</span>(scene);
+        stage.<span class="fn">show</span>();
+    }
+
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="ty">String</span>[] args) {
+        <span class="fn">launch</span>(args); <span class="cm">// arranca el framework JavaFX</span>
+    }
+}</code></pre>
+  </div>
+
+  <div class="compare">
+    <div class="compare-card">
+      <div class="lang-label cpp-label">SFML</div>
+      <pre><code><span class="cls">sf::RenderWindow</span> win(
+    {<span class="num">800</span>, <span class="num">600</span>}, <span class="str">"Juego"</span>);
+<span class="cls">sf::CircleShape</span> circ(<span class="num">50</span>);
+circ.<span class="fn">setFillColor</span>(<span class="cls">sf::Color::Red</span>);
+circ.<span class="fn">setPosition</span>(<span class="num">100</span>, <span class="num">200</span>);
+
+<span class="kw">while</span> (win.<span class="fn">isOpen</span>()) {
+    win.<span class="fn">clear</span>();
+    win.<span class="fn">draw</span>(circ);
+    win.<span class="fn">display</span>();
+}</code></pre>
+    </div>
+    <div class="compare-card">
+      <div class="lang-label javafx-label">JavaFX</div>
+      <pre><code><span class="cm">// Creás el nodo UNA vez</span>
+<span class="cls">Circle</span> circ = <span class="kw">new</span> <span class="cls">Circle</span>(<span class="num">50</span>);
+circ.<span class="fn">setFill</span>(<span class="cls">Color</span>.<span class="fn">RED</span>);
+circ.<span class="fn">setLayoutX</span>(<span class="num">100</span>);
+circ.<span class="fn">setLayoutY</span>(<span class="num">200</span>);
+
+<span class="cm">// Lo agregás al árbol</span>
+root.<span class="fn">getChildren</span>().<span class="fn">add</span>(circ);
+
+<span class="cm">// JavaFX se encarga del render loop</span></code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 6. NODOS ═══════════════════════════════ -->
+<section class="section" id="escena">
+  <div class="section-title"><span class="num">6</span> Shapes & Nodos comunes</div>
+
+  <div class="code-block">
+    <div class="code-header">Formas básicas — equivalente a sf::Shape</div>
+    <pre><code><span class="kw">import</span> javafx.scene.shape.*;
+<span class="kw">import</span> javafx.scene.paint.<span class="cls">Color</span>;
+
+<span class="cm">// Rectángulo (x, y, ancho, alto)</span>
+<span class="cls">Rectangle</span> rect = <span class="kw">new</span> <span class="cls">Rectangle</span>(<span class="num">50</span>, <span class="num">50</span>, <span class="num">100</span>, <span class="num">60</span>);
+rect.<span class="fn">setFill</span>(<span class="cls">Color</span>.<span class="fn">BLUE</span>);
+rect.<span class="fn">setStroke</span>(<span class="cls">Color</span>.<span class="fn">WHITE</span>);  <span class="cm">// borde</span>
+rect.<span class="fn">setStrokeWidth</span>(<span class="num">2</span>);
+
+<span class="cm">// Círculo (centroX, centroY, radio)</span>
+<span class="cls">Circle</span> circ = <span class="kw">new</span> <span class="cls">Circle</span>(<span class="num">200</span>, <span class="num">200</span>, <span class="num">40</span>);
+circ.<span class="fn">setFill</span>(<span class="cls">Color</span>.<span class="fn">RED</span>);
+
+<span class="cm">// Línea</span>
+<span class="cls">Line</span> linea = <span class="kw">new</span> <span class="cls">Line</span>(<span class="num">0</span>, <span class="num">0</span>, <span class="num">100</span>, <span class="num">100</span>);
+linea.<span class="fn">setStroke</span>(<span class="cls">Color</span>.<span class="fn">GREEN</span>);
+
+<span class="cm">// Polígono</span>
+<span class="cls">Polygon</span> tri = <span class="kw">new</span> <span class="cls">Polygon</span>(<span class="num">100</span>,<span class="num">0</span>, <span class="num">0</span>,<span class="num">200</span>, <span class="num">200</span>,<span class="num">200</span>);
+
+<span class="cm">// Imagen</span>
+<span class="kw">import</span> javafx.scene.image.*;
+<span class="cls">Image</span> img = <span class="kw">new</span> <span class="cls">Image</span>(<span class="str">"file:recursos/sprite.png"</span>);
+<span class="cls">ImageView</span> sprite = <span class="kw">new</span> <span class="cls">ImageView</span>(img);
+sprite.<span class="fn">setX</span>(<span class="num">300</span>); sprite.<span class="fn">setY</span>(<span class="num">150</span>);
+
+<span class="cm">// Agregar todo al pane</span>
+root.<span class="fn">getChildren</span>().<span class="fn">addAll</span>(rect, circ, linea, tri, sprite);</code></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header">Canvas — Para dibujo frame a frame (como SFML)</div>
+    <pre><code><span class="kw">import</span> javafx.scene.canvas.*;
+
+<span class="cls">Canvas</span> canvas = <span class="kw">new</span> <span class="cls">Canvas</span>(<span class="num">800</span>, <span class="num">600</span>);
+<span class="cls">GraphicsContext</span> gc = canvas.<span class="fn">getGraphicsContext2D</span>();
+root.<span class="fn">getChildren</span>().<span class="fn">add</span>(canvas);
+
+<span class="cm">// En el loop de animación:</span>
+gc.<span class="fn">clearRect</span>(<span class="num">0</span>, <span class="num">0</span>, <span class="num">800</span>, <span class="num">600</span>);           <span class="cm">// como window.clear()</span>
+gc.<span class="fn">setFill</span>(<span class="cls">Color</span>.<span class="fn">RED</span>);
+gc.<span class="fn">fillRect</span>(<span class="num">x</span>, <span class="num">y</span>, <span class="num">50</span>, <span class="num">50</span>);               <span class="cm">// dibuja rectángulo</span>
+gc.<span class="fn">drawImage</span>(img, <span class="num">x</span>, <span class="num">y</span>);                <span class="cm">// dibuja imagen</span>
+gc.<span class="fn">strokeLine</span>(<span class="num">0</span>, <span class="num">0</span>, <span class="num">100</span>, <span class="num">100</span>);          <span class="cm">// línea</span>
+gc.<span class="fn">fillText</span>(<span class="str">"Score: 10"</span>, <span class="num">10</span>, <span class="num">20</span>);        <span class="cm">// texto</span></code></pre>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 7. EVENTOS ═══════════════════════════════ -->
+<section class="section" id="eventos">
+  <div class="section-title"><span class="num">7</span> Manejo de eventos</div>
+
+  <div class="prose">
+    En SFML se itera sobre una cola de eventos con <em>pollEvent</em>. En JavaFX se registran <strong>listeners</strong> (callbacks) en los nodos. Cuando ocurre algo, JavaFX llama a la función registrada automáticamente.
+    <br><br>
+    Los lambdas de Java <em><code>e -> { }</code></em> son como funciones anónimas, equivalente a pasar un puntero a función.
+  </div>
+
+  <div class="compare">
+    <div class="compare-card">
+      <div class="lang-label cpp-label">SFML</div>
+      <pre><code><span class="kw">while</span> (win.<span class="fn">pollEvent</span>(ev)) {
+  <span class="kw">if</span> (ev.type == 
+      <span class="cls">sf::Event::KeyPressed</span>) {
+    <span class="kw">if</span> (ev.key.code == 
+        <span class="cls">sf::Keyboard::Left</span>)
+      jugador.<span class="fn">moverIzquierda</span>();
+  }
+  <span class="kw">if</span> (ev.type == 
+      <span class="cls">sf::Event::MouseButtonPressed</span>)
+    <span class="fn">disparar</span>();
+}</code></pre>
+    </div>
+    <div class="compare-card">
+      <div class="lang-label javafx-label">JavaFX</div>
+      <pre><code><span class="kw">import</span> javafx.scene.input.*;
+
+<span class="cm">// Registrar una vez (en start())</span>
+scene.<span class="fn">setOnKeyPressed</span>(e -> {
+  <span class="kw">if</span> (e.<span class="fn">getCode</span>() == <span class="cls">KeyCode</span>.<span class="fn">LEFT</span>)
+    jugador.<span class="fn">moverIzquierda</span>();
+});
+
+scene.<span class="fn">setOnMouseClicked</span>(e -> {
+  <span class="fn">disparar</span>(e.<span class="fn">getX</span>(), e.<span class="fn">getY</span>());
+});</code></pre>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header">Teclado — detectar teclas presionadas simultáneas</div>
+    <pre><code><span class="kw">import</span> java.util.<span class="cls">HashSet</span>;
+<span class="cls">HashSet</span>&lt;<span class="cls">KeyCode</span>&gt; teclasPresionadas = <span class="kw">new</span> <span class="cls">HashSet</span>&lt;&gt;();
+
+scene.<span class="fn">setOnKeyPressed</span> (e -> teclasPresionadas.<span class="fn">add</span>   (e.<span class="fn">getCode</span>()));
+scene.<span class="fn">setOnKeyReleased</span>(e -> teclasPresionadas.<span class="fn">remove</span>(e.<span class="fn">getCode</span>()));
+
+<span class="cm">// En el loop de actualización:</span>
+<span class="kw">if</span> (teclasPresionadas.<span class="fn">contains</span>(<span class="cls">KeyCode</span>.<span class="fn">W</span>)) jugador.<span class="fn">moverArriba</span>();
+<span class="kw">if</span> (teclasPresionadas.<span class="fn">contains</span>(<span class="cls">KeyCode</span>.<span class="fn">S</span>)) jugador.<span class="fn">moverAbajo</span>();
+<span class="kw">if</span> (teclasPresionadas.<span class="fn">contains</span>(<span class="cls">KeyCode</span>.<span class="fn">A</span>)) jugador.<span class="fn">moverIzquierda</span>();
+<span class="kw">if</span> (teclasPresionadas.<span class="fn">contains</span>(<span class="cls">KeyCode</span>.<span class="fn">D</span>)) jugador.<span class="fn">moverDerecha</span>();</code></pre>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 8. ANIMACION ═══════════════════════════════ -->
+<section class="section" id="animacion">
+  <div class="section-title"><span class="num">8</span> Game Loop & Animación</div>
+
+  <div class="prose">
+    SFML tiene un game loop explícito con control manual. JavaFX tiene <strong>AnimationTimer</strong> — llama al método <em>handle()</em> en cada frame (≈60fps), en el hilo de la UI. También está <em>Timeline</em> para animaciones más simples.
+  </div>
+
+  <div class="compare">
+    <div class="compare-card">
+      <div class="lang-label cpp-label">SFML — Game Loop</div>
+      <pre><code><span class="cls">sf::Clock</span> clock;
+<span class="kw">while</span> (win.<span class="fn">isOpen</span>()) {
+  <span class="kw">float</span> dt = 
+    clock.<span class="fn">restart</span>().<span class="fn">asSeconds</span>();
+  
+  <span class="fn">procesarEventos</span>();
+  <span class="fn">actualizar</span>(dt);
+  
+  win.<span class="fn">clear</span>();
+  <span class="fn">dibujar</span>(win);
+  win.<span class="fn">display</span>();
+}</code></pre>
+    </div>
+    <div class="compare-card">
+      <div class="lang-label javafx-label">JavaFX — AnimationTimer</div>
+      <pre><code><span class="kw">import</span> javafx.animation.<span class="cls">AnimationTimer</span>;
+
+<span class="kw">long</span>[] ultimoTiempo = {<span class="num">0</span>};
+<span class="kw">new</span> <span class="cls">AnimationTimer</span>() {
+  <span class="kw">public void</span> <span class="fn">handle</span>(<span class="kw">long</span> ahora) {
+    <span class="kw">double</span> dt = 
+      (ahora - ultimoTiempo[<span class="num">0</span>]) / <span class="num">1e9</span>;
+    ultimoTiempo[<span class="num">0</span>] = ahora;
+    
+    <span class="fn">actualizar</span>(dt);
+    <span class="fn">dibujar</span>(gc);
+  }
+}.<span class="fn">start</span>();  <span class="cm">// arranca el loop</span></code></pre>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-header">Timeline — Ejecutar algo cada X segundos</div>
+    <pre><code><span class="kw">import</span> javafx.animation.*;
+<span class="kw">import</span> javafx.util.<span class="cls">Duration</span>;
+
+<span class="cls">Timeline</span> timer = <span class="kw">new</span> <span class="cls">Timeline</span>(
+    <span class="kw">new</span> <span class="cls">KeyFrame</span>(<span class="cls">Duration</span>.<span class="fn">seconds</span>(<span class="num">2</span>), e -> {
+        <span class="fn">spawnEnemigo</span>(); <span class="cm">// se llama cada 2 segundos</span>
+    })
+);
+timer.<span class="fn">setCycleCount</span>(<span class="cls">Timeline</span>.<span class="fn">INDEFINITE</span>); <span class="cm">// repetir infinito</span>
+timer.<span class="fn">play</span>();</code></pre>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 9. ESTRUCTURA ═══════════════════════════════ -->
+<section class="section" id="proyecto">
+  <div class="section-title"><span class="num">9</span> Estructura de proyecto</div>
+
+  <div class="prose">
+    Un proyecto Java/JavaFX típico para un juego mediano. Cada clase en su propio archivo dentro del package correspondiente:
+    <pre style="margin-top:14px"><code>mi-juego/
+├── src/
+│   └── com/miapp/
+│       ├── Main.java            <span class="cm">← punto de entrada (extends Application)</span>
+│       ├── juego/
+│       │   ├── JuegoController.java   <span class="cm">← lógica principal, game loop</span>
+│       │   └── EstadoJuego.java       <span class="cm">← enum: MENU, JUGANDO, PAUSADO</span>
+│       ├── entidades/
+│       │   ├── Entidad.java           <span class="cm">← clase base</span>
+│       │   ├── Jugador.java
+│       │   └── Enemigo.java
+│       └── util/
+│           └── Recursos.java          <span class="cm">← carga imágenes/sonidos</span>
+└── recursos/
+    ├── imagenes/
+    └── sonidos/</code></pre>
+    <div class="note">Con Maven o Gradle (herramientas de build como CMake para Java), el source va en <em>src/main/java/</em> y los recursos en <em>src/main/resources/</em>.</div>
+  </div>
+
+  <div class="callout">
+    <span class="icon">🚀</span>
+    <div><strong>Notas adicionales:</strong> IntelliJ IDEA Community (gratis), VS Code y NetBeans son los IDE más comunes para el desarrollo en JavaFX. Para proyectos más grandes, <strong>Maven</strong> permite gestionar dependencias (libraries externas) sin copiar JARs manualmente, similar a vcpkg o conan en C++.</div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
