@@ -1,45 +1,21 @@
-import javax.swing.*;
-import java.awt.*;
-
-// 👇 Panel personalizado con fondo escalable
-class FondoPanel extends JPanel {
-
-    private Image fondo;
-
-    public FondoPanel(String rutaImagen) {
-        fondo = new ImageIcon(rutaImagen).getImage();
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        // dibuja la imagen ajustándola al tamaño del panel
-        g.drawImage(fondo, 0, 0, getWidth(), getHeight(), this);
-    }
-}
+import static java.lang.Math.*;
 
 public class MainFour {
-
     public static void main(String[] args) {
+        // double angulo = atan2(sqrt(3), 1);
 
-        JFrame frame = new JFrame("Fondo escalable");
-        frame.setSize(800, 500);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
+        double respuesta = (magnitud(-3, 4) * magnitud(12, 9)) / 2;
+        System.out.println("Angulo: " + respuesta);
+    }
 
-        // Panel con imagen de fondo
-        // ejemplo de componente encima del fondo
-        JLabel texto = new JLabel("Hola mundo");
-        texto.setFont(new Font("Arial", Font.BOLD, 40));
-        texto.setForeground(Color.WHITE);
+    public static double magnitud(int x, int y) {
+        return sqrt(pow(x, 2) + pow(y, 2));
+    }
 
-        FondoPanel fondo = new FondoPanel("java/Cuarto/img/gbmframes_000.png");
-        fondo.setLayout(new GridBagLayout()); // centra elementos
-        fondo.add(texto);
-
-        // usamos el panel como contenido
-        frame.setContentPane(fondo);
-        frame.setVisible(true);
+    public static double pow(float base, float expo) {
+        for (int i = 1; i < expo; i++) {
+            base = base * base;
+        }
+        return base;
     }
 }

@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MainFive",
+            "request": "launch",
+            "mainClass": "MainFive",
+            "projectName": "VisualStudioCode_c54cd4cd"
+        },
+        {
+            "type": "java",
             "name": "MainFour",
             "request": "launch",
             "mainClass": "MainFour",
