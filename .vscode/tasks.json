@@ -1,9 +1,10 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "compiler: C:\\Copiladores\\mingw64\\bin\\g++.exe",
+            "command": "C:/Copiladores/mingw64-SFML/bin/g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -12,33 +13,36 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode"
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "MinGW g++.exe for the active C++ file"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe build active file",
+            "command": "C:/Copiladores/mingw64-SFML/bin/gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
             },
             "problemMatcher": [
                 "$gcc"
             ],
             "group": "build",
-            "detail": "compiler: C:\\Copiladores\\mingw64\\bin\\g++.exe"
-        },
-        {
-            "label": "Compilar SFML",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "-g",
-                "SFMLTest.cpp",
-                "-IC:/SFML-3.0.0/include",
-                "-LC:/SFML-3.0.0/lib",
-                "-lsfml-graphics",
-                "-lsfml-window",
-                "-lsfml-system",
-                "-o",
-                "SFMLTest.exe"
-            ],
-            "group": "build",
-            "problemMatcher": [
-                "$gcc"
-            ]
+            "detail": "MinGW gcc.exe for the active C file"
         },
         {
             "type": "cppbuild",
@@ -57,12 +61,142 @@
             "problemMatcher": [
                 "$msCompile"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
+            "group": "build",
+            "detail": "MSVC cl.exe for the active C/C++ file"
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: g++.exe build SFMLTest",
+            "command": "C:/Copiladores/mingw64-SFML/bin/g++.exe",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "${workspaceFolder}\\C++\\SFML\\SFMLTest\\SFMLTest.cpp",
+                "-I${workspaceFolder}\\.vscode\\include",
+                "-L${workspaceFolder}\\.vscode\\lib",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system",
+                "-o",
+                "${workspaceFolder}\\.vscode\\bin\\SFMLTest.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
-            "detail": "compiler: cl.exe"
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Build the bundled SFML sample into .vscode/bin"
+        },
+        {
+            "type": "shell",
+            "label": "Java: compile active file",
+            "command": "javac",
+            "args": [
+                "-encoding",
+                "UTF-8",
+                "-d",
+                "${fileDirname}\\bin",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$javac"
+            ],
+            "group": "build",
+            "detail": "Compile the active Java file into a local bin folder"
+        },
+        {
+            "type": "shell",
+            "label": "Java: run active file",
+            "command": "java",
+            "args": [
+                "-cp",
+                "${fileDirname}\\bin",
+                "${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "test",
+            "detail": "Run the active Java class from the local bin folder"
+        },
+        {
+            "type": "shell",
+            "label": "JavaScript: run active file with Node",
+            "command": "node",
+            "args": [
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "test",
+            "detail": "Run the active JavaScript file with Node.js"
+        },
+        {
+            "type": "shell",
+            "label": "Python: run active file",
+            "command": "py",
+            "args": [
+                "-3",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "test",
+            "detail": "Run the active Python file using the Windows Python launcher"
+        },
+        {
+            "type": "shell",
+            "label": "Ruby: run active file",
+            "command": "ruby",
+            "args": [
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "test",
+            "detail": "Run the active Ruby file"
+        },
+        {
+            "type": "shell",
+            "label": "HTML: open current file in browser",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "start",
+                "",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "test",
+            "detail": "Open the active HTML file with the default browser"
+        },
+        {
+            "type": "shell",
+            "label": "HTML: start local server for current folder",
+            "command": "py",
+            "args": [
+                "-3",
+                "-m",
+                "http.server",
+                "5500",
+                "--directory",
+                "${fileDirname}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "test",
+            "detail": "Serve the active HTML folder over HTTP on port 5500"
         }
-    ],
-    "version": "2.0.0"
+    ]
 }

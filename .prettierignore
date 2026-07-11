@@ -1,0 +1,9 @@
+# Ignorar archivos de C/C++
+*.cpp
+*.c
+*.h
+*.hpp
+*.hh
+*.hxx
+*.cc
+*.cxx

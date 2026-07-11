@@ -3,31 +3,17 @@
     "configurations": [
         {
             "type": "java",
-            "name": "MainFive",
+            "name": "WaveGeneratorAlgorithm",
             "request": "launch",
-            "mainClass": "MainFive",
-            "projectName": "VisualStudioCode_c54cd4cd"
+            "mainClass": "WaveGeneratorAlgorithm",
+            "projectName": "VisualStudioCode_ab591766"
         },
         {
             "type": "java",
-            "name": "MainFour",
+            "name": "MainOne",
             "request": "launch",
-            "mainClass": "MainFour",
-            "projectName": "VisualStudioCode_c54cd4cd"
-        },
-        {
-            "type": "java",
-            "name": "MainThree",
-            "request": "launch",
-            "mainClass": "MainThree",
-            "projectName": "VisualStudioCode_c54cd4cd"
-        },
-        {
-            "type": "java",
-            "name": "MainTwo",
-            "request": "launch",
-            "mainClass": "MainTwo",
-            "projectName": "VisualStudioCode_c54cd4cd"
+            "mainClass": "MainOne",
+            "projectName": "VisualStudioCode_ab591766"
         },
         {
             "type": "java",
@@ -37,66 +23,17 @@
             "projectName": "VisualStudioCode_c54cd4cd"
         },
         {
-            "type": "java",
-            "name": "Main",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "VisualStudioCode_c54cd4cd"
-        },
-        {
-            "name": "Debug C/C++ Executable (MinGW64)",
             "type": "cppdbg",
-            "request": "launch",
-            "program": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode/Codigo/C++/Ejercicios/output/Testeos.exe",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "C/C++: g++.exe build active file (MSYS2)"
-        },
-        {
-            "name": "Debug C/C++ Executable (MinGW64)",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode/Codigo/C++/SFML/FMLTest/output/SFMLTest.exe",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "C:/Users/Usuario/Desktop/Carpeta/Codigo/VisualStudioCode",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "Compilar SFML"
-        },
-        {
-            "name": "C/C++: g++.exe build and debug active file",
-            "type": "cppdbg",
+            "name": "C/C++: Debug active file (MinGW g++)",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "compiler: C:\\Copiladores\\mingw64\\bin",
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "gdb.exe",
+            "miDebuggerPath": "C:/Copiladores/mingw64-SFML/bin/gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -110,6 +47,130 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++.exe build active file"
+        },
+        {
+            "type": "cppdbg",
+            "name": "C/C++: Debug active file (MinGW gcc)",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Copiladores/mingw64-SFML/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc.exe build active file"
+        },
+        {
+            "type": "cppvsdbg",
+            "name": "C/C++: Debug active file (MSVC)",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "integratedTerminal",
+            "preLaunchTask": "C/C++: cl.exe build active file"
+        },
+        {
+            "type": "cppdbg",
+            "name": "C++: Debug SFMLTest (MinGW g++)",
+            "request": "launch",
+            "program": "${workspaceFolder}\\.vscode\\bin\\SFMLTest.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}\\.vscode\\bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Copiladores/mingw64-SFML/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++.exe build SFMLTest"
+        },
+        {
+            "type": "java",
+            "name": "Java: Cuarto / MainFour",
+            "request": "launch",
+            "mainClass": "MainFour",
+            "projectName": "Cuarto"
+        },
+        {
+            "type": "java",
+            "name": "Java: First Try / MainOne",
+            "request": "launch",
+            "mainClass": "MainOne",
+            "projectName": "First Try"
+        },
+        {
+            "type": "java",
+            "name": "Java: N-Queens / MainOne",
+            "request": "launch",
+            "mainClass": "MainOne",
+            "projectName": "N-Queens"
+        },
+        {
+            "type": "java",
+            "name": "Java: Quinto / MainFive",
+            "request": "launch",
+            "mainClass": "MainFive",
+            "projectName": "Quinto"
+        },
+        {
+            "type": "java",
+            "name": "Java: Segundo / MainTwo",
+            "request": "launch",
+            "mainClass": "MainTwo",
+            "projectName": "Segundo"
+        },
+        {
+            "type": "java",
+            "name": "Java: Tercero / MainThree",
+            "request": "launch",
+            "mainClass": "MainThree",
+            "projectName": "Tercero"
+        },
+        {
+            "type": "python",
+            "name": "Python: Debug active file",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "type": "pwa-node",
+            "name": "JavaScript: Debug active file",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }

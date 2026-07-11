@@ -20,8 +20,7 @@ public:
         lastName = "";
         age = "";
     }
-    File(int newId) : id(newId) {
-        fileName = "archivo.csv";
+    File(int newId) : id(newId), fileName("archivo.csv") {
         setData();
     }
     ~File() {}
