@@ -2,27 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "WaveGeneratorAlgorithm",
-            "request": "launch",
-            "mainClass": "WaveGeneratorAlgorithm",
-            "projectName": "VisualStudioCode_ab591766"
-        },
-        {
-            "type": "java",
-            "name": "MainOne",
-            "request": "launch",
-            "mainClass": "MainOne",
-            "projectName": "VisualStudioCode_ab591766"
-        },
-        {
-            "type": "java",
-            "name": "MainOne",
-            "request": "launch",
-            "mainClass": "MainOne",
-            "projectName": "VisualStudioCode_c54cd4cd"
-        },
-        {
             "type": "cppdbg",
             "name": "C/C++: Debug active file (MinGW g++)",
             "request": "launch",
@@ -31,7 +10,7 @@
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "C:/Copiladores/mingw64-SFML/bin/gdb.exe",
             "setupCommands": [
@@ -57,7 +36,7 @@
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "C:/Copiladores/mingw64-SFML/bin/gdb.exe",
             "setupCommands": [
@@ -75,18 +54,6 @@
             "preLaunchTask": "C/C++: gcc.exe build active file"
         },
         {
-            "type": "cppvsdbg",
-            "name": "C/C++: Debug active file (MSVC)",
-            "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "console": "integratedTerminal",
-            "preLaunchTask": "C/C++: cl.exe build active file"
-        },
-        {
             "type": "cppdbg",
             "name": "C++: Debug SFMLTest (MinGW g++)",
             "request": "launch",
@@ -95,7 +62,7 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}\\.vscode\\bin",
             "environment": [],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "C:/Copiladores/mingw64-SFML/bin/gdb.exe",
             "setupCommands": [
@@ -117,57 +84,65 @@
             "name": "Java: Cuarto / MainFour",
             "request": "launch",
             "mainClass": "MainFour",
-            "projectName": "Cuarto"
+            "projectName": "Cuarto",
+            "console": "externalTerminal"
         },
         {
             "type": "java",
-            "name": "Java: First Try / MainOne",
+            "name": "Java: First Try / WaveGeneratorAlgorithm",
             "request": "launch",
-            "mainClass": "MainOne",
-            "projectName": "First Try"
+            "mainClass": "WaveGeneratorAlgorithm",
+            "projectName": "First Try",
+            "console": "externalTerminal"
         },
         {
             "type": "java",
             "name": "Java: N-Queens / MainOne",
             "request": "launch",
             "mainClass": "MainOne",
-            "projectName": "N-Queens"
+            "projectName": "N-Queens",
+            "console": "externalTerminal"
         },
         {
             "type": "java",
             "name": "Java: Quinto / MainFive",
             "request": "launch",
             "mainClass": "MainFive",
-            "projectName": "Quinto"
+            "projectName": "Quinto",
+            "console": "externalTerminal"
         },
         {
             "type": "java",
             "name": "Java: Segundo / MainTwo",
             "request": "launch",
             "mainClass": "MainTwo",
-            "projectName": "Segundo"
+            "projectName": "Segundo",
+            "console": "externalTerminal"
         },
         {
             "type": "java",
             "name": "Java: Tercero / MainThree",
             "request": "launch",
             "mainClass": "MainThree",
-            "projectName": "Tercero"
+            "projectName": "Tercero",
+            "console": "externalTerminal"
         },
         {
-            "type": "python",
+            "type": "debugpy",
             "name": "Python: Debug active file",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",
+            "console": "externalTerminal",
             "justMyCode": true
         },
         {
-            "type": "pwa-node",
+            "type": "node",
             "name": "JavaScript: Debug active file",
             "request": "launch",
             "program": "${file}",
             "cwd": "${fileDirname}",
+            "console": "externalTerminal",
             "skipFiles": [
                 "<node_internals>/**"
             ]

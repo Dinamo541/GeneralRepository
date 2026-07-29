@@ -2,6 +2,41 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "type": "shell",
+            "label": "Run: archivo activo en terminal externa",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}\\.vscode\\run-external.ps1",
+                "-Target",
+                "${file}",
+                "-Workspace",
+                "${workspaceFolder}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc",
+                "$javac"
+            ],
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "panel": "shared",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "F8: compila el archivo activo y lo ejecuta en una consola de Windows aparte"
+        },
+        {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
             "command": "C:/Copiladores/mingw64-SFML/bin/g++.exe",
@@ -43,26 +78,6 @@
             ],
             "group": "build",
             "detail": "MinGW gcc.exe for the active C file"
-        },
-        {
-            "type": "cppbuild",
-            "label": "C/C++: cl.exe build active file",
-            "command": "cl.exe",
-            "args": [
-                "/Zi",
-                "/EHsc",
-                "/nologo",
-                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$msCompile"
-            ],
-            "group": "build",
-            "detail": "MSVC cl.exe for the active C/C++ file"
         },
         {
             "type": "shell",
@@ -140,21 +155,7 @@
         {
             "type": "shell",
             "label": "Python: run active file",
-            "command": "py",
-            "args": [
-                "-3",
-                "${file}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "group": "test",
-            "detail": "Run the active Python file using the Windows Python launcher"
-        },
-        {
-            "type": "shell",
-            "label": "Ruby: run active file",
-            "command": "ruby",
+            "command": "python",
             "args": [
                 "${file}"
             ],
@@ -162,7 +163,7 @@
                 "cwd": "${fileDirname}"
             },
             "group": "test",
-            "detail": "Run the active Ruby file"
+            "detail": "Run the active Python file"
         },
         {
             "type": "shell",
@@ -183,9 +184,8 @@
         {
             "type": "shell",
             "label": "HTML: start local server for current folder",
-            "command": "py",
+            "command": "python",
             "args": [
-                "-3",
                 "-m",
                 "http.server",
                 "5500",

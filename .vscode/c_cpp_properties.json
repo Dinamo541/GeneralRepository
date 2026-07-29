@@ -2,24 +2,16 @@
     "configurations": [
         {
             "name": "Win32",
-            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+            "compilerPath": "C:/Copiladores/mingw64-SFML/bin/g++.exe",
             "intelliSenseMode": "windows-gcc-x64",
             "cppStandard": "c++17",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/msys64/ucrt64/include/c++/16.1.0",
-                "C:/msys64/ucrt64/include/c++/16.1.0/x86_64-w64-mingw32",
-                "C:/msys64/ucrt64/include/c++/16.1.0/backward",
-                "C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/16.1.0/include",
-                "C:/msys64/ucrt64/include",
-                "C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"
+                "${workspaceFolder}/.vscode/include"
             ],
             "browse": {
                 "path": [
-                    "${workspaceFolder}/**",
-                    "C:/msys64/ucrt64/include/c++/16.1.0",
-                    "C:/msys64/ucrt64/include/c++/16.1.0/x86_64-w64-mingw32",
-                    "C:/msys64/ucrt64/include"
+                    "${workspaceFolder}/**"
                 ],
                 "limitSymbolsToIncludedHeaders": true
             }
