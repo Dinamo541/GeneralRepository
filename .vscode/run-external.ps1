@@ -144,8 +144,10 @@ function Select-Sources([string]$Directory, [string]$ActiveFile, [string]$Filter
 }
 
 function Invoke-NativeBuildAndRun([string]$Compiler, [string]$Filter, [string[]]$ExtraFlags) {
-    $picked = Select-Sources -Directory $dir -ActiveFile $Target -Filter $Filter
-    $exe    = Join-Path $dir ($picked.Entry + '.exe')
+    $picked    = Select-Sources -Directory $dir -ActiveFile $Target -Filter $Filter
+    $outputDir = Join-Path $dir 'output'
+    New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
+    $exe = Join-Path $outputDir ($picked.Entry + '.exe')
 
     if ($picked.Files.Count -gt 1) {
         Write-Host ("Enlazando {0} archivos de la carpeta." -f $picked.Files.Count) -ForegroundColor Cyan

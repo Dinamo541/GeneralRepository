@@ -37,15 +37,12 @@
             "detail": "F8: compila el archivo activo y lo ejecuta en una consola de Windows aparte"
         },
         {
-            "type": "cppbuild",
+            "type": "shell",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:/Copiladores/mingw64-SFML/bin/g++.exe",
+            "command": "cmd",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "/c",
+                "if not exist \"${fileDirname}\\output\" mkdir \"${fileDirname}\\output\" && \"C:/Copiladores/mingw64-SFML/bin/g++.exe\" -fdiagnostics-color=always -g \"${file}\" -o \"${fileDirname}\\output\\${fileBasenameNoExtension}.exe\""
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -57,18 +54,15 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "MinGW g++.exe for the active C++ file"
+            "detail": "MinGW g++.exe for the active C++ file (output -> output/)"
         },
         {
-            "type": "cppbuild",
+            "type": "shell",
             "label": "C/C++: gcc.exe build active file",
-            "command": "C:/Copiladores/mingw64-SFML/bin/gcc.exe",
+            "command": "cmd",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "/c",
+                "if not exist \"${fileDirname}\\output\" mkdir \"${fileDirname}\\output\" && \"C:/Copiladores/mingw64-SFML/bin/gcc.exe\" -fdiagnostics-color=always -g \"${file}\" -o \"${fileDirname}\\output\\${fileBasenameNoExtension}.exe\""
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -77,7 +71,7 @@
                 "$gcc"
             ],
             "group": "build",
-            "detail": "MinGW gcc.exe for the active C file"
+            "detail": "MinGW gcc.exe for the active C file (output -> output/)"
         },
         {
             "type": "shell",
