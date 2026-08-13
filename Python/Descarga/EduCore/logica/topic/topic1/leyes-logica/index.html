@@ -1,0 +1,539 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Leyes de la lógica proposicional - Lógica y Algoritmos Computacionales</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-logica.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-logica.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-code me-2"></i>
+                    TDC400 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">Leyes de la lógica proposicional</h1>
+                <p class="lead opacity-75">Fundamentos de lógica matemática</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 71.0%;"
+                         data-total="7"
+                         data-current="5">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 5 de 7</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Leyes de la Lógica Proposicional</h1>
+<p>Las leyes lógicas son equivalencias tautológicas que permiten simplificar expresiones.</p>
+<h2>Leyes Fundamentales</h2>
+<h3>1. Leyes de Identidad</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identidad para ∧</td>
+<td>$p \land V \equiv p$</td>
+</tr>
+<tr>
+<td>Identidad para ∨</td>
+<td>$p \lor F \equiv p$</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Leyes de Dominación</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dominación para ∧</td>
+<td>$p \land F \equiv F$</td>
+</tr>
+<tr>
+<td>Dominación para ∨</td>
+<td>$p \lor V \equiv V$</td>
+</tr>
+</tbody>
+</table>
+<h3>3. Leyes de Idempotencia</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idempotencia para ∧</td>
+<td>$p \land p \equiv p$</td>
+</tr>
+<tr>
+<td>Idempotencia para ∨</td>
+<td>$p \lor p \equiv p$</td>
+</tr>
+</tbody>
+</table>
+<h3>4. Ley de Doble Negación</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Doble negación</td>
+<td>$\neg(\neg p) \equiv p$</td>
+</tr>
+</tbody>
+</table>
+<h3>5. Leyes Conmutativas</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conmutativa para ∧</td>
+<td>$p \land q \equiv q \land p$</td>
+</tr>
+<tr>
+<td>Conmutativa para ∨</td>
+<td>$p \lor q \equiv q \lor p$</td>
+</tr>
+</tbody>
+</table>
+<h3>6. Leyes Asociativas</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asociativa para ∧</td>
+<td>$(p \land q) \land r \equiv p \land (q \land r)$</td>
+</tr>
+<tr>
+<td>Asociativa para ∨</td>
+<td>$(p \lor q) \lor r \equiv p \lor (q \lor r)$</td>
+</tr>
+</tbody>
+</table>
+<h3>7. Leyes Distributivas</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Distributiva ∧ sobre ∨</td>
+<td>$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$</td>
+</tr>
+<tr>
+<td>Distributiva ∨ sobre ∧</td>
+<td>$p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$</td>
+</tr>
+</tbody>
+</table>
+<h3>8. Leyes de De Morgan</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>De Morgan para ∧</td>
+<td>$\neg(p \land q) \equiv \neg p \lor \neg q$</td>
+</tr>
+<tr>
+<td>De Morgan para ∨</td>
+<td>$\neg(p \lor q) \equiv \neg p \land \neg q$</td>
+</tr>
+</tbody>
+</table>
+<h3>9. Ley del Tercero Excluido</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tercero excluido</td>
+<td>$p \lor \neg p \equiv V$</td>
+</tr>
+</tbody>
+</table>
+<h3>10. Ley de Contradicción</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contradicción</td>
+<td>$p \land \neg p \equiv F$</td>
+</tr>
+</tbody>
+</table>
+<h3>11. Leyes de Absorción</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Absorción</td>
+<td>$p \land (p \lor q) \equiv p$</td>
+</tr>
+<tr>
+<td>Absorción</td>
+<td>$p \lor (p \land q) \equiv p$</td>
+</tr>
+</tbody>
+</table>
+<h3>12. Ley de Implicación</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Implicación</td>
+<td>$p \rightarrow q \equiv \neg p \lor q$</td>
+</tr>
+</tbody>
+</table>
+<h3>13. Ley de Bicondicional</h3>
+<table>
+<thead>
+<tr>
+<th>Ley</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bicondicional</td>
+<td>$p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)$</td>
+</tr>
+</tbody>
+</table>
+<h2>Tabla resumen de las leyes</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nombre de la Ley</th>
+<th>Forma lógica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Identidad</td>
+<td>$p \land V \equiv p$ <br> $p \lor F \equiv p$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dominación</td>
+<td>$p \land F \equiv F$ <br> $p \lor V \equiv V$</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Idempotencia</td>
+<td>$p \land p \equiv p$ <br> $p \lor p \equiv p$</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Doble negación</td>
+<td>$\neg \neg p \equiv p$</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Conmutatividad</td>
+<td>$p \land q \equiv q \land p$ <br> $p \lor q \equiv q \lor p$</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Asociatividad</td>
+<td>$(p \land q) \land r \equiv p \land (q \land r)$ <br> $(p \lor q) \lor r \equiv p \lor (q \lor r)$</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Distributividad</td>
+<td>$p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$ <br> $p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)$</td>
+</tr>
+<tr>
+<td>8</td>
+<td>De Morgan</td>
+<td>$\neg(p \land q) \equiv \neg p \lor \neg q$ <br> $\neg(p \lor q) \equiv \neg p \land \neg q$</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Tercero excluido</td>
+<td>$p \lor \neg p \equiv V$</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Contradicción</td>
+<td>$p \land \neg p \equiv F$</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Absorción</td>
+<td>$p \land (p \lor q) \equiv p$ <br> $p \lor (p \land q) \equiv p$</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Implicación</td>
+<td>$p \to q \equiv \neg p \lor q$</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Bicondicional</td>
+<td>$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$</td>
+</tr>
+</tbody>
+</table>
+<h2>Ejemplo de simplificación</h2>
+<p>Simplificar: $(p \lor q) \land (\neg p \lor q)$</p>
+<p><strong>Paso a paso:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Ley aplicada</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Distributiva</td>
+<td>$(p \land \neg p) \lor q$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Contradicción</td>
+<td>$F \lor q$</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Identidad</td>
+<td>$q$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado final:</strong> $q$</p>
+<blockquote>
+<p>📌 <strong>Ejercicio:</strong> Simplifica las siguientes expresiones:<br />
+1. $(p \land q) \lor (\neg p \land q) \lor (\neg p \land \neg q)$<br />
+2. $(p \rightarrow q) \land (p \rightarrow \neg q)$<br />
+3. $\neg(p \lor q) \lor (\neg p \land q)$</p>
+</blockquote>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../gen-tablas-verdad/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../inferencias/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+<script src="../../../../static/js/course-logica.js"></script>
+
+
+
+</body>
+</html>

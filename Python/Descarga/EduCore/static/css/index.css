@@ -1,0 +1,417 @@
+﻿/* ============================================================
+   EDUcore - LANDING PAGE HIGH-IMPACT & STICKY FOOTER
+   ============================================================ */
+
+/* ============================================================
+   1. ESTRUCTURA GLOBAL (MANTIENE EL FOOTER SIEMPRE ABAJO)
+   ============================================================ */
+
+.landing-body {
+    background-color: #050811;
+    font-family: 'Inter', sans-serif;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Organiza Header, Content y Footer verticalmente */
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Encapsulador principal que crece para empujar el footer al fondo de la pantalla */
+.landing-content-wrapper {
+    flex: 1 0 auto;
+}
+
+/* ============================================================
+   2. TEXTURAS CYBER-GRID & LUCES AMBIENTALES ANIMADAS
+   ============================================================ */
+
+/* Malla Cyber-Grid animada en movimiento vertical */
+/* Malla Cyber-Grid animada */
+.landing-body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 45px 45px;
+    pointer-events: none;
+    z-index: 0;
+    animation: gridSweep 15s linear infinite;
+}
+
+@keyframes gridSweep {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 45px;
+    }
+}
+
+/* Base común para las Esferas de Luz */
+.bg-glow {
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(60px); /* Blur un poco menor para mayor definición de luz */
+    mix-blend-mode: screen; /* Mezcla de color brillante */
+}
+
+/* ESFERA AZUL ARQUITECTURA (Ahora Eléctrica y Dinámica) */
+.bg-glow-blue {
+    top: 5%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.55) 0%, rgba(3, 105, 161, 0.25) 45%, transparent 70%);
+    animation: orbitBlue 6s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+@keyframes orbitBlue {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translate(120px, 80px) scale(1.3);
+        opacity: 1; /* Brillo máximo en el centro de la pantalla */
+    }
+
+    100% {
+        transform: translate(-40px, 160px) scale(0.9);
+        opacity: 0.6;
+    }
+}
+
+/* ESFERA MORADA LÓGICA (Animación cruzada y vibrante) */
+.bg-glow-purple {
+    bottom: 5%;
+    right: -5%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, rgba(245, 158, 11, 0.25) 50%, transparent 70%);
+    animation: orbitPurple 7s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+@keyframes orbitPurple {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-140px, -90px) scale(1.25);
+        opacity: 0.95;
+    }
+
+    100% {
+        transform: translate(50px, -180px) scale(0.85);
+        opacity: 0.5;
+    }
+}
+
+/* ============================================================
+   3. HEADER & HERO
+   ============================================================ */
+
+.landing-header {
+    background: rgba(11, 15, 25, 0.75);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.landing-location {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 16px;
+    border-radius: 50px;
+}
+
+.landing-hero {
+    padding: 4.5rem 0 2.5rem;
+}
+
+.brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #f59e0b;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f59e0b;
+    animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+.landing-title {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.landing-subtitle {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+/* Badges de soporte */
+.quick-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat-badge {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 14px;
+    font-size: 0.88rem;
+    color: #e2e8f0;
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+    .stat-badge:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 255, 255, 0.25);
+        background: rgba(30, 41, 59, 0.8);
+    }
+
+/* ============================================================
+   4. HUB CARDS
+   ============================================================ */
+
+.hub-card {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+    /* Brillo deslizante */
+    .hub-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+        transform: skewX(-20deg);
+        transition: left 0.8s ease;
+    }
+
+    .hub-card:hover::before {
+        left: 150%;
+    }
+
+    /* Hover Neón del color específico del curso */
+    .hub-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        border-color: var(--course-color);
+        box-shadow: 0 0 35px var(--course-color);
+    }
+
+.hub-card-header {
+    padding: 2.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.hub-icon-box {
+    width: 95px;
+    height: 95px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #ffffff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hub-card:hover .hub-icon-box {
+    transform: scale(1.15) rotate(-6deg);
+    box-shadow: 0 0 25px var(--course-color);
+}
+
+.hub-code-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    border: 1px solid;
+    letter-spacing: 0.5px;
+}
+
+.hub-card-body {
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.hub-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.2rem;
+}
+
+.hub-metrics-grid {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1.8rem;
+}
+
+.metric-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.hub-card:hover .metric-pill {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.metric-pill.lab-pill {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.2);
+    color: #fef08a;
+}
+
+.hub-btn-enter {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 16px;
+    border: none;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hub-card:hover .hub-btn-enter {
+    box-shadow: 0 0 20px var(--course-color);
+    transform: scale(1.02);
+}
+
+.hub-btn-enter i {
+    transition: transform 0.3s ease;
+}
+
+.hub-card:hover .hub-btn-enter i {
+    transform: translateX(6px);
+}
+
+/* ============================================================
+   5. FOOTER FIJO (ALWAYS AT BOTTOM)
+   ============================================================ */
+
+.landing-footer {
+    flex-shrink: 0; /* Impide que el footer se contraiga */
+    background: #02040a;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    font-size: 0.88rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* ============================================================
+   6. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .landing-title {
+        font-size: 2.8rem;
+    }
+
+    .hub-icon-box {
+        width: 80px;
+        height: 80px;
+        font-size: 2.4rem;
+    }
+
+    .landing-location {
+        display: none;
+    }
+}

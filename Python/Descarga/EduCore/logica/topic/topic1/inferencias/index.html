@@ -1,0 +1,257 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Inferencias lógicas - Lógica y Algoritmos Computacionales</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-logica.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-logica.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-code me-2"></i>
+                    TDC400 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">Inferencias lógicas</h1>
+                <p class="lead opacity-75">Fundamentos de lógica matemática</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 86.0%;"
+                         data-total="7"
+                         data-current="6">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 6 de 7</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Inferencias Lógicas</h1>
+<p>Una <strong>inferencia</strong> es el proceso de derivar conclusiones a partir de premisas utilizando reglas lógicas.</p>
+<h2>Argumentos</h2>
+<p>Un <strong>argumento</strong> es un conjunto de proposiciones llamadas <strong>premisas</strong> que conducen a una <strong>conclusión</strong>.</p>
+<h2>Validez vs Verdad</h2>
+<p><strong>Validez:</strong> Propiedad del argumento. Un argumento es válido si la conclusión se sigue necesariamente de las premisas.</p>
+<p><strong>Verdad:</strong> Propiedad de las proposiciones. Una proposición es verdadera si corresponde con los hechos.</p>
+<blockquote>
+<p>⚠️ <strong>Importante:</strong> Un argumento válido puede tener premisas falsas, y un argumento inválido puede tener conclusión verdadera por coincidencia.</p>
+</blockquote>
+<h2>Reglas de Inferencia Fundamentales</h2>
+<h3>1. Modus Ponens</h3>
+<p>Si $p \rightarrow q$ y $p$, entonces $q$</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> Si estudias, entonces apruebas. Estudias. Luego, apruebas.</p>
+</blockquote>
+<h3>2. Modus Tollens</h3>
+<p>Si $p \rightarrow q$ y $\neg q$, entonces $\neg p$</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> Si llueve, entonces la calle está mojada. La calle no está mojada. Luego, no llueve.</p>
+</blockquote>
+<h3>3. Silogismo Hipotético</h3>
+<p>Si $p \rightarrow q$ y $q \rightarrow r$, entonces $p \rightarrow r$</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> Si eres estudiante, entonces tienes carnet. Si tienes carnet, entonces puedes entrar. Luego, si eres estudiante, entonces puedes entrar.</p>
+</blockquote>
+<h3>4. Adición</h3>
+<p>$p$, luego $p \lor q$</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> Hoy es lunes. Luego, hoy es lunes o martes.</p>
+</blockquote>
+<h3>5. Simplificación</h3>
+<p>$p \land q$, luego $p$</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> Hace sol y es verano. Luego, hace sol.</p>
+</blockquote>
+<h3>6. Conjunción</h3>
+<p>$p$ y $q$, luego $p \land q$</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> Está lloviendo. Hace frío. Luego, está lloviendo y hace frío.</p>
+</blockquote>
+<h2>Falacias Comunes (Inferencias Inválidas)</h2>
+<h3>1. Afirmación del Consecuente</h3>
+<p>Si $p \rightarrow q$ y $q$, entonces $p$</p>
+<blockquote>
+<p>❌ <strong>Error:</strong> Si llueve, la calle está mojada. La calle está mojada. Por tanto, llueve. (¡Podrían haber regado!)</p>
+</blockquote>
+<h3>2. Negación del Antecedente</h3>
+<p>Si $p \rightarrow q$ y $\neg p$, entonces $\neg q$</p>
+<blockquote>
+<p>❌ <strong>Error:</strong> Si estudio, apruebo. No estudio. Por tanto, no apruebo. (¡Podría aprobar por otros medios!)</p>
+</blockquote>
+<h2>Ejercicios</h2>
+<blockquote>
+<p>📌 <strong>Ejercicio 1:</strong> Identifica qué regla de inferencia se utiliza:<br />
+"Si estudio, entonces entenderé lógica. Entiendo lógica. Por lo tanto, estudié."</p>
+<p><strong>Respuesta:</strong> Falacia de afirmación del consecuente (inválido)</p>
+<p>📌 <strong>Ejercicio 2:</strong> Identifica qué regla de inferencia se utiliza:<br />
+"Si hay clases en Coto, entonces hay transporte. No hay transporte. Por lo tanto, no hay clases en Coto."</p>
+<p><strong>Respuesta:</strong> Modus Tollens (válido)</p>
+</blockquote>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../leyes-logica/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../cuantificadores/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+<script src="../../../../static/js/course-logica.js"></script>
+
+
+
+</body>
+</html>

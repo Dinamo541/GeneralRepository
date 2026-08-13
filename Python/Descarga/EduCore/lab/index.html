@@ -1,0 +1,255 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Laboratorio - EduCore</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../static/css/lab.css">
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-lab">
+    <div class="container text-center">
+        <span class="badge-lab mb-3 d-inline-block">
+            <i class="fas fa-flask me-2"></i>Interactivo
+        </span>
+        <h1 class="display-4 fw-bold">
+            <i class="fas fa-flask text-warning me-3"></i>Laboratorio
+        </h1>
+        <p class="lead opacity-75">Simula algoritmos paso a paso y observa su comportamiento en tiempo real</p>
+        <p class="small opacity-50">Selecciona un algoritmo para comenzar</p>
+
+        <div class="mt-3">
+            <a href="../logica/index.html" class="btn btn-warning text-dark rounded-pill px-4">
+                <i class="fas fa-book me-2"></i>Ir al Curso
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row g-4">
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="algoritmo-card">
+                <div class="d-flex align-items-start mb-3">
+                    <div class="algoritmo-icon me-3">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0">Suma de números</h5>
+                        <small class="text-muted">1 de 7</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Algoritmo que suma dos números ingresados por el usuario.</p>
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <span class="badge-curso-lab">Curso: Lógica</span>
+                    <a href="logica/suma/index.html" class="btn btn-primary btn-simular">
+                        <i class="fas fa-play me-2"></i>Simular
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="algoritmo-card">
+                <div class="d-flex align-items-start mb-3">
+                    <div class="algoritmo-icon me-3">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0">Promedio de 3 números</h5>
+                        <small class="text-muted">2 de 7</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Calcula el promedio de tres números ingresados por el usuario.</p>
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <span class="badge-curso-lab">Curso: Lógica</span>
+                    <a href="logica/promedio/index.html" class="btn btn-primary btn-simular">
+                        <i class="fas fa-play me-2"></i>Simular
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="algoritmo-card">
+                <div class="d-flex align-items-start mb-3">
+                    <div class="algoritmo-icon me-3">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0">Promedio de Calificaciones</h5>
+                        <small class="text-muted">3 de 7</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Calcula el promedio de 5 notas ingresadas por el usuario utilizando un bucle PARA.</p>
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <span class="badge-curso-lab">Curso: Lógica</span>
+                    <a href="logica/promedio_calificaciones/index.html" class="btn btn-primary btn-simular">
+                        <i class="fas fa-play me-2"></i>Simular
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="algoritmo-card">
+                <div class="d-flex align-items-start mb-3">
+                    <div class="algoritmo-icon me-3">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0">Par o Impar</h5>
+                        <small class="text-muted">4 de 7</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Determina si un número ingresado es par o impar.</p>
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <span class="badge-curso-lab">Curso: Lógica</span>
+                    <a href="logica/par_impar/index.html" class="btn btn-primary btn-simular">
+                        <i class="fas fa-play me-2"></i>Simular
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="algoritmo-card">
+                <div class="d-flex align-items-start mb-3">
+                    <div class="algoritmo-icon me-3">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0">Factorial</h5>
+                        <small class="text-muted">5 de 7</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Calcula el factorial de un número ingresado (versión iterativa).</p>
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <span class="badge-curso-lab">Curso: Lógica</span>
+                    <a href="logica/factorial/index.html" class="btn btn-primary btn-simular">
+                        <i class="fas fa-play me-2"></i>Simular
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="algoritmo-card">
+                <div class="d-flex align-items-start mb-3">
+                    <div class="algoritmo-icon me-3">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0">Contar Pares</h5>
+                        <small class="text-muted">6 de 7</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Cuenta cuántos números pares hay en un arreglo.</p>
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <span class="badge-curso-lab">Curso: Lógica</span>
+                    <a href="logica/contar_pares/index.html" class="btn btn-primary btn-simular">
+                        <i class="fas fa-play me-2"></i>Simular
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+            <div class="algoritmo-card">
+                <div class="d-flex align-items-start mb-3">
+                    <div class="algoritmo-icon me-3">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-0">Cuadrícula de Asteriscos</h5>
+                        <small class="text-muted">7 de 7</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Muestra cómo interactúan dos bucles PARA (Ciclos Anidados) para simular una matriz de 3x3.</p>
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <span class="badge-curso-lab">Curso: Lógica</span>
+                    <a href="logica/matriz/index.html" class="btn btn-primary btn-simular">
+                        <i class="fas fa-play me-2"></i>Simular
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+</body>
+</html>

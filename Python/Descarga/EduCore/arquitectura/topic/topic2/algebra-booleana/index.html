@@ -1,0 +1,926 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Álgebra booleana - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 2
+                </div>
+                <h1 class="display-5 fw-bold">Álgebra booleana</h1>
+                <p class="lead opacity-75">Lógica digital</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 30.0%;"
+                         data-total="10"
+                         data-current="3">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 3 de 10</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Álgebra Booleana</h1>
+<h2>1. Introducción al Álgebra Booleana</h2>
+<p>El <strong>Álgebra Booleana</strong> es un sistema matemático que trabaja con variables binarias y operaciones lógicas. Fue desarrollada por George Boole en el siglo XIX y es fundamental para el diseño y análisis de circuitos digitales.</p>
+<h3>Características del Álgebra Booleana:</h3>
+<ul>
+<li>Las variables toman solo dos valores: 0 y 1.</li>
+<li>Las operaciones básicas son: AND, OR y NOT.</li>
+<li>Se utiliza para simplificar expresiones lógicas y reducir el número de compuertas necesarias.</li>
+</ul>
+<hr />
+<h2>2. Funciones Booleanas</h2>
+<p>Una <strong>función booleana</strong> es una expresión algebraica formada con variables binarias, constantes (0 y 1), símbolos de operaciones lógicas, paréntesis y un signo igual.</p>
+<h3>Ejemplo de Función Booleana</h3>
+<p>$<br />
+F = X + \overline{Y}Z<br />
+$</p>
+<p>Esta función tiene tres variables (X, Y, Z). Para evaluarla, se construye una tabla de verdad con todas las combinaciones posibles.</p>
+<p><strong>Tabla de Verdad</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: center;">Y'</th>
+<th style="text-align: center;">Y'Z</th>
+<th style="text-align: center;">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Aplicación Práctica: Sistema de Alarma</h2>
+<blockquote>
+<p><strong>Problema</strong>: <br />
+Diseñar un circuito de alarma para el lobby de un edificio.</p>
+<p><strong>Requerimientos</strong>:<br />
+1. La alarma tiene un interruptor manual que siempre dispara la alarma.<br />
+2. La alarma también se dispara si hay humo Y temperatura alta simultáneamente.</p>
+</blockquote>
+<p><strong>Variables</strong>:<br />
+- $X$ = Interruptor manual<br />
+- $Y$ = Sensor de humo<br />
+- $Z$ = Sensor de temperatura<br />
+- $F$ = Salida de la alarma</p>
+<p><strong>Tabla de Verdad</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: center;">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Función Booleana</strong>:<br />
+$<br />
+F = \overline X Y Z + X \overline Y \overline Z + X \overline Y Z + XY \overline Z + XYZ<br />
+$</p>
+<p><strong>Circuito lógico</strong>:</p>
+<div style="background-color: #0d1117; padding: 20px; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin: 20px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" width="100%" height="380" style="max-width: 680px;">
+    <style>
+      /* --- CABLES Y LINEAS DE CONEXION --- */
+      .line-main { stroke: #00b4d8; stroke-width: 2.2; fill: none; filter: drop-shadow(0px 0px 2px #00b4d8aa); }
+      .line-not { stroke: #ff007f; stroke-width: 2; stroke-dasharray: 4,3; fill: none; filter: drop-shadow(0px 0px 2px #ff007faa); }
+
+      /* Salidas y buses de suma (Amarillo Neón - Máximo contraste con el verde OR) */
+      .wire-out { stroke: #ffe600; stroke-width: 2.2; fill: none; filter: drop-shadow(0px 0px 2px #ffe600aa); }
+
+      /* --- COMPUERTAS CON COLORES PROPIOS INDEPENDIENTES --- */
+      /* 1. NOT: Naranja / Ámbar Neón */
+      .gate-not-tri { fill: #2a1800; stroke: #ff9f1c; stroke-width: 2; stroke-linejoin: round; filter: drop-shadow(0px 0px 3px #ff9f1caa); }
+      .gate-not-bubble { fill: #2a1800; stroke: #ff9f1c; stroke-width: 1.8; }
+      .not-conn { stroke: #ff9f1c; stroke-width: 2; fill: none; }
+
+      /* 2. AND: Púrpura / Violeta Neón */
+      .gate-and { fill: #240046; stroke: #b5179e; stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0px 0px 4px #b5179eaa); }
+
+      /* 3. OR: Verde Menta / Esmeralda Neón */
+      .gate-or { fill: #002822; stroke: #00f5d4; stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0px 0px 4px #00f5d4aa); }
+
+      /* --- TEXTOS Y NODOS --- */
+      .text-label { fill: #ffffff; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; font-weight: 800; }
+      .sub-label { fill: #f72585; font-family: 'Consolas', monospace; font-size: 11px; font-weight: bold; }
+      .dot-main { fill: #00b4d8; filter: drop-shadow(0px 0px 3px #00b4d8); }
+      .dot-not { fill: #ff007f; filter: drop-shadow(0px 0px 3px #ff007f); }
+    </style>
+
+    <!-- BIBLIOTECA DE COMPUERTAS LOGICAS REUTILIZABLES -->
+    <defs>
+      <!-- 1. COMPUERTA NOT -->
+      <g id="gate-not">
+        <line x1="0" y1="15" x2="10" y2="15" class="not-conn"/>
+        <polygon points="10,5 30,15 10,25" class="gate-not-tri"/>
+        <circle cx="34" cy="15" r="3.5" class="gate-not-bubble"/>
+        <line x1="38" y1="15" x2="48" y2="15" class="not-conn"/>
+      </g>
+
+      <!-- 2. COMPUERTA AND (40x40px) -->
+      <g id="gate-and">
+        <path d="M 0 0 L 20 0 A 20 20 0 0 1 20 40 L 0 40 Z" class="gate-and" />
+      </g>
+
+      <!-- 3. COMPUERTA OR (40x40px) -->
+      <g id="gate-or">
+        <path d="M 0 0 Q 12 20 0 40 Q 25 40 40 20 Q 25 0 0 0 Z" class="gate-or" />
+      </g>
+    </defs>
+
+    <!-- ENTRADAS Y BUSES VERTICALES -->
+    <!-- Entrada X -->
+    <text x="20" y="30" class="text-label" style="fill: #00b4d8;">X</text>
+    <path d="M 40 25 L 80 25 L 80 370" class="line-main" />
+    <circle cx="80" cy="25" r="3.5" class="dot-not"/>
+    <use href="#gate-not" x="80" y="10"/>
+    <path d="M 128 25 L 140 25 L 140 370" class="line-not" />
+
+    <!-- Entrada Y -->
+    <text x="20" y="60" class="text-label" style="fill: #00b4d8;">Y</text>
+    <path d="M 40 55 L 170 55 L 170 370" class="line-main" />
+    <circle cx="170" cy="55" r="3.5" class="dot-not"/>
+    <use href="#gate-not" x="170" y="40"/>
+    <path d="M 218 55 L 230 55 L 230 370" class="line-not" />
+
+    <!-- Entrada Z -->
+    <text x="20" y="90" class="text-label" style="fill: #00b4d8;">Z</text>
+    <path d="M 40 85 L 260 85 L 260 370" class="line-main" />
+    <circle cx="260" cy="85" r="3.5" class="dot-not"/>
+    <use href="#gate-not" x="260" y="70"/>
+    <path d="M 308 85 L 320 85 L 320 370" class="line-not" />
+
+    <!-- CONEXIONES (PUNTOS DE UNION) -->
+    <!-- AND 1: X' Y Z -->
+    <circle cx="140" cy="130" r="3.5" class="dot-not" />
+    <circle cx="170" cy="140" r="3.5" class="dot-main" />
+    <circle cx="260" cy="150" r="3.5" class="dot-main" />
+
+    <!-- AND 2: X Y' Z' -->
+    <circle cx="80" cy="180" r="3.5" class="dot-main" />
+    <circle cx="230" cy="190" r="3.5" class="dot-not" />
+    <circle cx="320" cy="200" r="3.5" class="dot-not" />
+
+    <!-- AND 3: X Y' Z -->
+    <circle cx="80" cy="230" r="3.5" class="dot-main" />
+    <circle cx="230" cy="240" r="3.5" class="dot-not" />
+    <circle cx="260" cy="250" r="3.5" class="dot-main" />
+
+    <!-- AND 4: X Y Z' -->
+    <circle cx="80" cy="280" r="3.5" class="dot-main" />
+    <circle cx="170" cy="290" r="3.5" class="dot-main" />
+    <circle cx="320" cy="300" r="3.5" class="dot-not" />
+
+    <!-- AND 5: X Y Z -->
+    <circle cx="80" cy="330" r="3.5" class="dot-main" />
+    <circle cx="170" cy="340" r="3.5" class="dot-main" />
+    <circle cx="260" cy="350" r="3.5" class="dot-main" />
+
+    <!-- CABLES HACIA LAS COMPUERTAS AND -->
+    <!-- Inputs AND 1 -->
+    <path d="M 140 130 L 360 130" class="line-not" />
+    <path d="M 170 140 L 360 140" class="line-main" />
+    <path d="M 260 150 L 360 150" class="line-main" />
+    <!-- Inputs AND 2 -->
+    <path d="M 80 180 L 360 180" class="line-main" />
+    <path d="M 230 190 L 360 190" class="line-not" />
+    <path d="M 320 200 L 360 200" class="line-not" />
+    <!-- Inputs AND 3 -->
+    <path d="M 80 230 L 360 230" class="line-main" />
+    <path d="M 230 240 L 360 240" class="line-not" />
+    <path d="M 260 250 L 360 250" class="line-main" />
+    <!-- Inputs AND 4 -->
+    <path d="M 80 280 L 360 280" class="line-main" />
+    <path d="M 170 290 L 360 290" class="line-main" />
+    <path d="M 320 300 L 360 300" class="line-not" />
+    <!-- Inputs AND 5 -->
+    <path d="M 80 330 L 360 330" class="line-main" />
+    <path d="M 170 340 L 360 340" class="line-main" />
+    <path d="M 260 350 L 360 350" class="line-main" />
+
+    <!-- INSTANCIAS DE COMPUERTAS AND (PÚRPURA) -->
+    <use href="#gate-and" x="360" y="120"/><text x="410" y="135" class="sub-label">X'YZ</text>
+    <use href="#gate-and" x="360" y="170"/><text x="410" y="185" class="sub-label">XY'Z'</text>
+    <use href="#gate-and" x="360" y="220"/><text x="410" y="235" class="sub-label">XY'Z</text>
+    <use href="#gate-and" x="360" y="270"/><text x="410" y="285" class="sub-label">XYZ'</text>
+    <use href="#gate-and" x="360" y="320"/><text x="410" y="335" class="sub-label">XYZ</text>
+
+    <!-- ETAPA 1 DE SUMA: PRIMERA COMPUERTA OR (VERDE MENTA) -->
+    <path d="M 400 140 L 470 140 L 470 180 L 480 180" class="wire-out" />
+    <path d="M 400 190 L 480 190" class="wire-out" />
+    <path d="M 400 240 L 470 240 L 470 200 L 480 200" class="wire-out" />
+
+    <use href="#gate-or" x="480" y="170"/>
+
+    <!-- ETAPA 2 DE SUMA: SEGUNDA COMPUERTA OR (VERDE MENTA) -->
+    <path d="M 520 190 L 560 190 L 560 280 L 580 280" class="wire-out" />
+    <path d="M 400 290 L 580 290" class="wire-out" />
+    <path d="M 400 340 L 560 340 L 560 300 L 580 300" class="wire-out" />
+
+    <use href="#gate-or" x="580" y="270"/>
+
+    <!-- SALIDA FINAL (AMARILLO NEÓN) -->
+    <path d="M 620 290 L 650 290" class="wire-out" />
+    <text x="655" y="295" class="text-label" style="fill: #ffe600; font-size: 18px; filter: drop-shadow(0px 0px 3px #ffe600);">F</text>
+  </svg>
+</div>
+<hr />
+<h2>4. Identidades Básicas del Álgebra Booleana</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">Identidad</th>
+<th style="text-align: center;">#</th>
+<th style="text-align: left;">Identidad (Dual)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$X + 0 = X$</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">$X \cdot 1 = X$</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">$X + 1 = 1$</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">$X \cdot 0 = 0$</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">$X + X = X$</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">$X \cdot X = X$</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">$X + \overline{X} = 1$</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">$X \cdot \overline{X} = 0$</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">$\overline{\overline{X}} = X$</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">$X + Y = Y + X$</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">$X \cdot Y = Y \cdot X$ (Conmutativa)</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">$X + (Y + Z) = (X + Y) + Z$</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">$X \cdot (Y \cdot Z) = (X \cdot Y) \cdot Z$ (Asociativa)</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;">$X \cdot (Y + Z) = X \cdot Y + X \cdot Z$</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;">$X + Y \cdot Z = (X + Y) \cdot (X + Z)$ (Distributiva)</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;">$\overline{X + Y} = \overline{X} \cdot \overline{Y}$</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;">$\overline{X \cdot Y} = \overline{X} + \overline{Y}$ (DeMorgan)</td>
+</tr>
+</tbody>
+</table>
+<h3>Teoremas de DeMorgan (Los más importantes)</h3>
+<p>Los teoremas de DeMorgan permiten transformar expresiones con negaciones:</p>
+<ol>
+<li>$\overline{X + Y} = \overline{X} \cdot \overline{Y}$ (El complemento de una suma es el producto de los complementos)</li>
+<li>$\overline{X \cdot Y} = \overline{X} + \overline{Y}$ (El complemento de un producto es la suma de los complementos)</li>
+</ol>
+<blockquote>
+<p><strong>Regla práctica</strong>: Para aplicar DeMorgan, se cambia la operación (AND ↔ OR) y se complementan todas las variables.</p>
+</blockquote>
+<hr />
+<h2>5. Manipulación Algebraica</h2>
+<p>El Álgebra Booleana es una herramienta útil para simplificar circuitos digitales. Al simplificar, se reduce el número de compuertas necesarias.</p>
+<h3>Ejemplo 1 de Simplificación</h3>
+<p>Según ejercicio de la Alarma, si</p>
+<p>$<br />
+F = \overline X Y Z + X \overline Y \overline Z + X \overline Y Z + XY \overline Z + XYZ<br />
+$</p>
+<p>Entonces,</p>
+<ol>
+<li>
+<p><strong>Agrupar términos</strong>:<br />
+    $F = \overline X Y Z + (X \overline Y \overline Z + X \overline Y Z) + (XY \overline Z + XYZ)$</p>
+</li>
+<li>
+<p><strong>Factorizar por pares</strong>:<br />
+    $F = \overline X Y Z + X \overline Y (\overline Z + Z) + XY (\overline Z + Z)$</p>
+</li>
+<li>
+<p><strong>Aplicar identidad</strong> ($\overline{X} + X = 1$):<br />
+    $F = \overline X Y Z + X \overline Y (1) + XY (1)$</p>
+</li>
+<li>
+<p><strong>Factorizar nuevamente</strong>:<br />
+    $F = \overline X Y Z + X (\overline Y + Y)$</p>
+</li>
+<li>
+<p><strong>Aplicar identidad</strong> ($\overline{Y} + Y = 1$):<br />
+    $F = \overline X Y Z + X (1)$</p>
+</li>
+<li>
+<p><strong>Aplicar distributiva</strong><br />
+    $F = (\overline X + X) (Y Z + X) $</p>
+</li>
+<li>
+<p><strong>Resultado final</strong><br />
+    $F = X + Y Z$</p>
+</li>
+</ol>
+<div style="background-color: #0d1117; padding: 20px; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin: 20px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" width="100%" height="220" style="max-width: 520px;">
+    <style>
+      /* --- CABLES Y LINEAS DE CONEXION --- */
+      .line-main { stroke: #00b4d8; stroke-width: 2.2; fill: none; filter: drop-shadow(0px 0px 2px #00b4d8aa); }
+
+      /* Salida Final F (Amarillo Neón) */
+      .wire-out { stroke: #ffe600; stroke-width: 2.2; fill: none; filter: drop-shadow(0px 0px 2px #ffe600aa); }
+
+      /* --- COMPUERTAS LOGICAS --- */
+      /* 1. AND: Púrpura / Violeta Neón */
+      .gate-and { fill: #240046; stroke: #b5179e; stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0px 0px 4px #b5179eaa); }
+
+      /* 2. OR: Verde Menta / Esmeralda Neón */
+      .gate-or { fill: #002822; stroke: #00f5d4; stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0px 0px 4px #00f5d4aa); }
+
+      /* --- TEXTOS Y NODOS --- */
+      .text-label { fill: #ffffff; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; font-weight: 800; }
+      .sub-label { fill: #f72585; font-family: 'Consolas', monospace; font-size: 11px; font-weight: bold; }
+      .dot-main { fill: #00b4d8; filter: drop-shadow(0px 0px 3px #00b4d8); }
+    </style>
+
+    <!-- BIBLIOTECA DE COMPUERTAS LOGICAS REUTILIZABLES -->
+    <defs>
+      <!-- COMPUERTA AND (40x40px) -->
+      <g id="gate-and">
+        <path d="M 0 0 L 20 0 A 20 20 0 0 1 20 40 L 0 40 Z" class="gate-and" />
+      </g>
+
+      <!-- COMPUERTA OR (40x40px) -->
+      <g id="gate-or">
+        <path d="M 0 0 Q 12 20 0 40 Q 25 40 40 20 Q 25 0 0 0 Z" class="gate-or" />
+      </g>
+    </defs>
+
+    <!-- ENTRADAS Y BUSES VERTICALES -->
+    <!-- Entrada X -->
+    <text x="25" y="55" class="text-label" style="fill: #00b4d8;">X</text>
+    <path d="M 45 50 L 80 50 L 80 190" class="line-main" />
+
+    <!-- Entrada Y -->
+    <text x="25" y="115" class="text-label" style="fill: #00b4d8;">Y</text>
+    <path d="M 45 110 L 140 110 L 140 190" class="line-main" />
+
+    <!-- Entrada Z -->
+    <text x="25" y="175" class="text-label" style="fill: #00b4d8;">Z</text>
+    <path d="M 45 170 L 200 170 L 200 145" class="line-main" />
+
+    <!-- CONEXIONES Y CABLES HACIA COMPUERTA AND (YZ) -->
+    <circle cx="140" cy="125" r="3.5" class="dot-main" />
+    <path d="M 140 125 L 260 125" class="line-main" />
+
+    <circle cx="200" cy="145" r="3.5" class="dot-main" />
+    <path d="M 200 145 L 260 145" class="line-main" />
+
+    <!-- COMPUERTA AND (PRODUCTO YZ) -->
+    <use href="#gate-and" x="260" y="115"/>
+    <text x="305" y="130" class="sub-label">YZ</text>
+
+    <!-- CONEXIONES Y CABLES HACIA COMPUERTA OR (X + YZ) -->
+    <!-- Entrada X hacia OR -->
+    <circle cx="80" cy="65" r="3.5" class="dot-main" />
+    <path d="M 80 65 L 380 65" class="line-main" />
+
+    <!-- Salida de AND hacia OR -->
+    <path d="M 300 135 L 340 135 L 340 85 L 380 85" class="wire-out" />
+
+    <!-- COMPUERTA OR (SUMA FINAL) -->
+    <use href="#gate-or" x="380" y="55"/>
+
+    <!-- SALIDA FINAL F -->
+    <path d="M 420 75 L 465 75" class="wire-out" />
+    <text x="472" y="80" class="text-label" style="fill: #ffe600; font-size: 18px; filter: drop-shadow(0px 0px 3px #ffe600);">F</text>
+  </svg>
+</div>
+
+<h3>Ejemplo 2 de Simplificación</h3>
+<p>Simplificar la siguiente expresión:</p>
+<p>$<br />
+F = ( \overline { A + \overline { B \overline C + C D }} ) + ( \overline A B ) <br />
+$</p>
+<p><strong>Paso a paso</strong>:</p>
+<ol>
+<li>
+<p><strong>Aplicar DeMorgan</strong>:<br />
+   $F = ( \overline A (\overline{ \overline { B \overline C + C D }} )) + ( \overline A B )$</p>
+</li>
+<li>
+<p><strong>Doble negación</strong>:<br />
+   $F = \overline A ( B \overline C + C D ) + \overline A B $</p>
+</li>
+<li>
+<p><strong>Aplicar distributiva</strong>:<br />
+   $F = \overline A B \overline C + \overline A C D + \overline A B $</p>
+</li>
+<li>
+<p><strong>Factorizar</strong>:<br />
+   $F = \overline A B (\overline C + 1) + \overline A C D $</p>
+</li>
+<li>
+<p><strong>Aplicar identidad</strong> $(\overline C + 1) = 1$: <br />
+   $F = \overline A B (1) + \overline A C D $</p>
+</li>
+<li>
+<p><strong>Resultado final</strong>:<br />
+   $F = \overline A B + \overline A C D $ o $F = \overline A (B + C D ) $</p>
+</li>
+</ol>
+<div style="background-color: #0d1117; padding: 20px; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin: 20px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 280" width="100%" height="280" style="max-width: 620px;">
+    <style>
+      .line-main { stroke: #00b4d8; stroke-width: 2.2; fill: none; filter: drop-shadow(0px 0px 2px #00b4d8aa); }
+      .line-not { stroke: #ff007f; stroke-width: 2; stroke-dasharray: 4,3; fill: none; filter: drop-shadow(0px 0px 2px #ff007faa); }
+      .wire-out { stroke: #ffe600; stroke-width: 2.2; fill: none; filter: drop-shadow(0px 0px 2px #ffe600aa); }
+
+      .gate-not-tri { fill: #2a1800; stroke: #ff9f1c; stroke-width: 2; stroke-linejoin: round; filter: drop-shadow(0px 0px 3px #ff9f1caa); }
+      .gate-not-bubble { fill: #2a1800; stroke: #ff9f1c; stroke-width: 1.8; }
+      .not-conn { stroke: #ff9f1c; stroke-width: 2; fill: none; }
+
+      .gate-and { fill: #240046; stroke: #b5179e; stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0px 0px 4px #b5179eaa); }
+      .gate-or { fill: #002822; stroke: #00f5d4; stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0px 0px 4px #00f5d4aa); }
+
+      .text-label { fill: #ffffff; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; font-weight: 800; }
+      .sub-label { fill: #f72585; font-family: 'Consolas', monospace; font-size: 11px; font-weight: bold; }
+      .dot-main { fill: #00b4d8; filter: drop-shadow(0px 0px 3px #00b4d8); }
+      .dot-not { fill: #ff007f; filter: drop-shadow(0px 0px 3px #ff007f); }
+    </style>
+
+    <defs>
+      <g id="gate-not">
+        <line x1="0" y1="15" x2="10" y2="15" class="not-conn"/>
+        <polygon points="10,5 30,15 10,25" class="gate-not-tri"/>
+        <circle cx="34" cy="15" r="3.5" class="gate-not-bubble"/>
+        <line x1="38" y1="15" x2="48" y2="15" class="not-conn"/>
+      </g>
+      <g id="gate-and">
+        <path d="M 0 0 L 20 0 A 20 20 0 0 1 20 40 L 0 40 Z" class="gate-and" />
+      </g>
+      <g id="gate-or">
+        <path d="M 0 0 Q 12 20 0 40 Q 25 40 40 20 Q 25 0 0 0 Z" class="gate-or" />
+      </g>
+    </defs>
+
+    <!-- ENTRADAS -->
+    <text x="20" y="30" class="text-label" style="fill: #00b4d8;">A</text>
+    <path d="M 40 25 L 80 25 L 80 250" class="line-main" />
+    <circle cx="80" cy="25" r="3.5" class="dot-not"/>
+    <use href="#gate-not" x="80" y="10"/>
+    <path d="M 128 25 L 140 25 L 140 250" class="line-not" />
+
+    <text x="20" y="60" class="text-label" style="fill: #00b4d8;">B</text>
+    <path d="M 40 55 L 190 55 L 190 250" class="line-main" />
+
+    <text x="20" y="90" class="text-label" style="fill: #00b4d8;">C</text>
+    <path d="M 40 85 L 240 85 L 240 250" class="line-main" />
+
+    <text x="20" y="120" class="text-label" style="fill: #00b4d8;">D</text>
+    <path d="M 40 115 L 290 115 L 290 250" class="line-main" />
+
+    <!-- CONEXIONES A AND 1 (A'B) -->
+    <circle cx="140" cy="140" r="3.5" class="dot-not" />
+    <path d="M 140 140 L 350 140" class="line-not" />
+    <circle cx="190" cy="160" r="3.5" class="dot-main" />
+    <path d="M 190 160 L 350 160" class="line-main" />
+
+    <use href="#gate-and" x="350" y="130"/>
+    <text x="395" y="145" class="sub-label">A'B</text>
+
+    <!-- CONEXIONES A AND 2 (A'CD) -->
+    <circle cx="140" cy="190" r="3.5" class="dot-not" />
+    <path d="M 140 190 L 350 190" class="line-not" />
+    <circle cx="240" cy="200" r="3.5" class="dot-main" />
+    <path d="M 240 200 L 350 200" class="line-main" />
+    <circle cx="290" cy="210" r="3.5" class="dot-main" />
+    <path d="M 290 210 L 350 210" class="line-main" />
+
+    <use href="#gate-and" x="350" y="180"/>
+    <text x="395" y="195" class="sub-label">A'CD</text>
+
+    <!-- SUMA FINAL OR -->
+    <path d="M 390 150 L 470 150 L 470 170 L 490 170" class="line-main" />
+    <path d="M 390 200 L 470 200 L 470 190 L 490 190" class="line-main" />
+
+    <use href="#gate-or" x="490" y="160"/>
+
+    <path d="M 530 180 L 570 180" class="wire-out" />
+    <text x="575" y="185" class="text-label" style="fill: #ffe600; font-size: 18px; filter: drop-shadow(0px 0px 3px #ffe600);">F</text>
+  </svg>
+</div>
+
+<div style="background-color: #0d1117; padding: 20px; border-radius: 12px; display: flex; justify-content: center; align-items: center; margin: 20px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 280" width="100%" height="280" style="max-width: 620px;">
+    <style>
+      .line-main { stroke: #00b4d8; stroke-width: 2.2; fill: none; filter: drop-shadow(0px 0px 2px #00b4d8aa); }
+      .line-not { stroke: #ff007f; stroke-width: 2; stroke-dasharray: 4,3; fill: none; filter: drop-shadow(0px 0px 2px #ff007faa); }
+      .wire-out { stroke: #ffe600; stroke-width: 2.2; fill: none; filter: drop-shadow(0px 0px 2px #ffe600aa); }
+
+      .gate-not-tri { fill: #2a1800; stroke: #ff9f1c; stroke-width: 2; stroke-linejoin: round; filter: drop-shadow(0px 0px 3px #ff9f1caa); }
+      .gate-not-bubble { fill: #2a1800; stroke: #ff9f1c; stroke-width: 1.8; }
+      .not-conn { stroke: #ff9f1c; stroke-width: 2; fill: none; }
+
+      .gate-and { fill: #240046; stroke: #b5179e; stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0px 0px 4px #b5179eaa); }
+      .gate-or { fill: #002822; stroke: #00f5d4; stroke-width: 2.2; stroke-linejoin: round; filter: drop-shadow(0px 0px 4px #00f5d4aa); }
+
+      .text-label { fill: #ffffff; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; font-weight: 800; }
+      .sub-label { fill: #f72585; font-family: 'Consolas', monospace; font-size: 11px; font-weight: bold; }
+      .dot-main { fill: #00b4d8; filter: drop-shadow(0px 0px 3px #00b4d8); }
+      .dot-not { fill: #ff007f; filter: drop-shadow(0px 0px 3px #ff007f); }
+    </style>
+
+    <defs>
+      <g id="gate-not">
+        <line x1="0" y1="15" x2="10" y2="15" class="not-conn"/>
+        <polygon points="10,5 30,15 10,25" class="gate-not-tri"/>
+        <circle cx="34" cy="15" r="3.5" class="gate-not-bubble"/>
+        <line x1="38" y1="15" x2="48" y2="15" class="not-conn"/>
+      </g>
+      <g id="gate-and">
+        <path d="M 0 0 L 20 0 A 20 20 0 0 1 20 40 L 0 40 Z" class="gate-and" />
+      </g>
+      <g id="gate-or">
+        <path d="M 0 0 Q 12 20 0 40 Q 25 40 40 20 Q 25 0 0 0 Z" class="gate-or" />
+      </g>
+    </defs>
+
+    <!-- ENTRADAS -->
+    <text x="20" y="30" class="text-label" style="fill: #00b4d8;">A</text>
+    <path d="M 40 25 L 80 25 L 80 250" class="line-main" />
+    <circle cx="80" cy="25" r="3.5" class="dot-not"/>
+    <use href="#gate-not" x="80" y="10"/>
+    <path d="M 128 25 L 140 25 L 140 250" class="line-not" />
+
+    <text x="20" y="60" class="text-label" style="fill: #00b4d8;">B</text>
+    <path d="M 40 55 L 190 55 L 190 250" class="line-main" />
+
+    <text x="20" y="90" class="text-label" style="fill: #00b4d8;">C</text>
+    <path d="M 40 85 L 240 85 L 240 250" class="line-main" />
+
+    <text x="20" y="120" class="text-label" style="fill: #00b4d8;">D</text>
+    <path d="M 40 115 L 290 115 L 290 250" class="line-main" />
+
+    <!-- ETAPA 1: COMPUERTA AND PARA (CD) -->
+    <circle cx="240" cy="190" r="3.5" class="dot-main" />
+    <path d="M 240 190 L 330 190" class="line-main" />
+    <circle cx="290" cy="210" r="3.5" class="dot-main" />
+    <path d="M 290 210 L 330 210" class="line-main" />
+
+    <use href="#gate-and" x="330" y="180"/>
+    <text x="375" y="195" class="sub-label">CD</text>
+
+    <!-- ETAPA 2: COMPUERTA OR PARA (B + CD) -->
+    <circle cx="190" cy="135" r="3.5" class="dot-main" />
+    <path d="M 190 135 L 420 135" class="line-main" />
+    <path d="M 370 200 L 400 200 L 400 155 L 420 155" class="line-main" />
+
+    <use href="#gate-or" x="420" y="125"/>
+    <text x="465" y="160" class="sub-label" style="fill: #00f5d4;">B+CD</text>
+
+    <!-- ETAPA 3: COMPUERTA AND FINAL PARA A'(B + CD) -->
+    <circle cx="140" cy="75" r="3.5" class="dot-not" />
+    <path d="M 140 75 L 510 75" class="line-not" />
+    <path d="M 460 145 L 485 145 L 485 95 L 510 95" class="line-main" />
+
+    <use href="#gate-and" x="510" y="65"/>
+
+    <!-- SALIDA FINAL F -->
+    <path d="M 550 85 L 580 85" class="wire-out" />
+    <text x="585" y="90" class="text-label" style="fill: #ffe600; font-size: 18px; filter: drop-shadow(0px 0px 3px #ffe600);">F</text>
+  </svg>
+</div>
+
+<hr />
+<h2>6. Ejercicios de Simplificación</h2>
+<p>Simplifica las siguientes expresiones booleanas:</p>
+<ol>
+<li>
+<p>$F = XYZ + \overline{X}YZ + X\overline{Z}$</p>
+</li>
+<li>
+<p>$F = \overline{X}Y\overline{Z} + \overline{X}Y + X(\overline{Y}) (\overline{Z})$</p>
+</li>
+<li>
+<p>$F = (\overline{X + Y})(\overline{X} + \overline{Y})$</p>
+</li>
+<li>
+<p>$F = \overline{(BC)} + C + [(\overline{(AD)} + B)\overline{(AD)}]$</p>
+</li>
+<li>
+<p>$F = ( \overline { \overline A + \overline { \overline B C + C D }} ) + \overline {( A + B )} $</p>
+</li>
+</ol>
+<hr />
+<h1>Referencias Bibliográficas</h1>
+<p>[1] M. Morris Mano. <em>Ingeniería computacional, diseño del hardware</em>. Colleen Brosnan. 1991.</p>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../gen-tablas-verdad/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../formas-estandar/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

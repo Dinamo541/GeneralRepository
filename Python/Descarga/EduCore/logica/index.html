@@ -1,0 +1,928 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Lógica y Algoritmos Computacionales - EduCore</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../static/css/lessons.css">
+
+<link rel="stylesheet" href="../static/css/course-logica.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-curso"">
+    <div class="container text-center">
+        <div class="curso-badge">
+            <i class="fas fa-code me-2"></i>TDC400
+        </div>
+        <h1 class="display-4 fw-bold">Lógica y Algoritmos Computacionales</h1>
+        <p class="lead opacity-75">Fundamentos de lógica matemática, algoritmos y pensamiento computacional.</p>
+        <p class="mb-0"><small>41 lecciones en 9 temas</small></p>
+
+        <!-- Buscador -->
+        <div class="search-box mx-auto mt-3">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchLessons" placeholder="Buscar lección..." class="form-control-lg border-0 shadow-none">
+        </div>
+
+        
+        <div class="mt-3">
+            <a href="../lab/index.html" class="btn btn-warning text-dark rounded-pill px-4">
+                <i class="fas fa-flask me-2"></i>Ir al Laboratorio
+            </a>
+        </div>
+        
+    </div>
+</section>
+
+<div class="container">
+    <div class="row g-4" id="topicsContainer">
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="fundamentos de lógica matemática">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-square-root-variable me-2"></i>
+                        Tema 1
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">7 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Fundamentos de lógica matemática</h5>
+                    <p class="card-text text-muted small">Proposiciones, conectivas, tablas de verdad y leyes lógicas.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="proposiciones y conectivas lógicas">
+                            <a href="topic/topic1/proposiciones/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Proposiciones y conectivas lógicas
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="simbolización de proposiciones">
+                            <a href="topic/topic1/simbolizacion/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Simbolización de proposiciones
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="tablas de verdad">
+                            <a href="topic/topic1/tablas-verdad/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    3
+                                </span>
+                                Tablas de verdad
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="generador de tablas de verdad">
+                            <a href="topic/topic1/gen-tablas-verdad/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    4
+                                </span>
+                                Generador de tablas de verdad
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="leyes de la lógica proposicional">
+                            <a href="topic/topic1/leyes-logica/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    5
+                                </span>
+                                Leyes de la lógica proposicional
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="inferencias lógicas">
+                            <a href="topic/topic1/inferencias/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    6
+                                </span>
+                                Inferencias lógicas
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="cuantificadores para una y dos variables">
+                            <a href="topic/topic1/cuantificadores/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    7
+                                </span>
+                                Cuantificadores para una y dos variables
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="razonamiento lógico y pensamiento algorítmico">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-brain me-2"></i>
+                        Tema 2
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">5 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Razonamiento lógico y pensamiento algorítmico</h5>
+                    <p class="card-text text-muted small">Inferencias válidas e inválidas, pruebas lógicas, definición y propiedades de algoritmos.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="inferencias válidas e inválidas">
+                            <a href="topic/topic2/inferencias-validas/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Inferencias válidas e inválidas
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="pruebas lógicas básicas (demostraciones)">
+                            <a href="topic/topic2/demostraciones/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Pruebas lógicas básicas (demostraciones)
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="¿qué es un algoritmo?">
+                            <a href="topic/topic2/que-es-algoritmo/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    3
+                                </span>
+                                ¿Qué es un algoritmo?
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="propiedades de los algoritmos">
+                            <a href="topic/topic2/propiedades-algoritmos/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    4
+                                </span>
+                                Propiedades de los algoritmos
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="tipos de problemas computacionales">
+                            <a href="topic/topic2/tipos-problemas/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    5
+                                </span>
+                                Tipos de problemas computacionales
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="representación de algoritmos">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-code me-2"></i>
+                        Tema 3
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">2 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Representación de algoritmos</h5>
+                    <p class="card-text text-muted small">Pseudocódigo, lenguaje estructurado e introducción a lenguajes de programación.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="pseudocódigo y estándares">
+                            <a href="topic/topic3/pseudocodigo/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Pseudocódigo y estándares
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="lenguaje estructurado">
+                            <a href="topic/topic3/lenguaje-estructurado/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Lenguaje estructurado
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="estructuras básicas de control y datos">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-diagram-project me-2"></i>
+                        Tema 4
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">5 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Estructuras básicas de control y datos</h5>
+                    <p class="card-text text-muted small">Tipos de datos, secuencias, condicionales, bucles y anidamiento.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="tipos de datos: numéricos, booleanos, cadenas">
+                            <a href="topic/topic4/tipos-datos/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Tipos de datos: numéricos, booleanos, cadenas
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="secuencias (estructura lineal de ejecución)">
+                            <a href="topic/topic4/secuencias/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Secuencias (estructura lineal de ejecución)
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="condicionales (si, entonces, switch)">
+                            <a href="topic/topic4/condicionales/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    3
+                                </span>
+                                Condicionales (SI, ENTONCES, switch)
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="bucles (para, mientras, hacer-mientras)">
+                            <a href="topic/topic4/bucles/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    4
+                                </span>
+                                Bucles (PARA, MIENTRAS, HACER-MIENTRAS)
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="anidamiento de estructuras de control">
+                            <a href="topic/topic4/anidamiento/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    5
+                                </span>
+                                Anidamiento de estructuras de control
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="estructuras de datos básicas">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-database me-2"></i>
+                        Tema 5
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">3 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Estructuras de datos básicas</h5>
+                    <p class="card-text text-muted small">Variables, arreglos y funciones.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="declaración y uso de variables">
+                            <a href="topic/topic5/variables/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Declaración y uso de variables
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="arreglos (vectores)">
+                            <a href="topic/topic5/arreglos/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Arreglos (vectores)
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="funciones: definición, uso, parámetros y retorno">
+                            <a href="topic/topic5/funciones/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    3
+                                </span>
+                                Funciones: definición, uso, parámetros y retorno
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="teoría de números aplicada a la lógica computacional">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-calculator me-2"></i>
+                        Tema 6
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">6 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Teoría de números aplicada a la lógica computacional</h5>
+                    <p class="card-text text-muted small">Números primos y compuestos, divisibilidad, MCD y MCM.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="números primos y compuestos">
+                            <a href="topic/topic6/primos-compuestos/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Números primos y compuestos
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="reglas de divisibilidad">
+                            <a href="topic/topic6/divisibilidad/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Reglas de divisibilidad
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="teorema fundamental de la aritmética">
+                            <a href="topic/topic6/teorema-fundamental/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    3
+                                </span>
+                                Teorema fundamental de la aritmética
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="cantidad de divisores de un número">
+                            <a href="topic/topic6/divisores/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    4
+                                </span>
+                                Cantidad de divisores de un número
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="algoritmo de la división">
+                            <a href="topic/topic6/algoritmo-division/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    5
+                                </span>
+                                Algoritmo de la división
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="máximo común divisor y mínimo común múltiplo">
+                            <a href="topic/topic6/mcd-mcm/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    6
+                                </span>
+                                Máximo común divisor y mínimo común múltiplo
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="sistemas de numeración y aritmética binaria">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-microchip me-2"></i>
+                        Tema 7
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">3 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Sistemas de numeración y aritmética binaria</h5>
+                    <p class="card-text text-muted small">Sistemas decimal, binario, octal, hexadecimal y aritmética binaria.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="sistemas de numeración">
+                            <a href="topic/topic7/sistemas-numeracion/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Sistemas de numeración
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="conversión entre sistemas">
+                            <a href="topic/topic7/conversiones/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Conversión entre sistemas
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="aritmética binaria: suma, resta, multiplicación">
+                            <a href="topic/topic7/aritmetica-binaria/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    3
+                                </span>
+                                Aritmética binaria: suma, resta, multiplicación
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="algoritmos fundamentales">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-arrows-spin me-2"></i>
+                        Tema 8
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">6 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Algoritmos fundamentales</h5>
+                    <p class="card-text text-muted small">Algoritmos de conteo y suma, búsqueda lineal y binaria, ordenamiento.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="algoritmos de conteo y suma">
+                            <a href="topic/topic8/conteo-suma/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Algoritmos de conteo y suma
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="búsqueda lineal">
+                            <a href="topic/topic8/busqueda-lineal/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Búsqueda lineal
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="búsqueda binaria">
+                            <a href="topic/topic8/busqueda-binaria/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    3
+                                </span>
+                                Búsqueda binaria
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="ordenamiento por burbuja">
+                            <a href="topic/topic8/ordenamiento-burbuja/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    4
+                                </span>
+                                Ordenamiento por burbuja
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="ordenamiento por inserción">
+                            <a href="topic/topic8/ordenamiento-insercion/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    5
+                                </span>
+                                Ordenamiento por inserción
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="ordenamiento por selección">
+                            <a href="topic/topic8/ordenamiento-seleccion/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    6
+                                </span>
+                                Ordenamiento por selección
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 topic-item" data-topic="integración y buenas prácticas en la resolución de problemas">
+            <div class="card tema-card h-100 shadow-sm border-0 rounded-4">
+                <div class="card-header bg-transparent border-0 pt-3 px-4 d-flex justify-content-between align-items-center"
+                     style="color: #6c2bd9;">
+                    <span>
+                        <i class="fas fa-screwdriver-wrench me-2"></i>
+                        Tema 9
+                    </span>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill lesson-count">4 lecciones</span>
+                </div>
+                <div class="card-body px-4">
+                    <h5 class="card-title" style="color: #6c2bd9;">Integración y buenas prácticas en la resolución de problemas</h5>
+                    <p class="card-text text-muted small">Análisis y descomposición de problemas, diseño estructurado, validación y pruebas, buenas prácticas.</p>
+
+                    <!-- Barra de progreso del tema -->
+                    <div class="topic-progress mb-3">
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar topic-progress-bar" role="progressbar" style="width: 0%; background: #6c2bd9;"></div>
+                        </div>
+                        <small class="text-muted topic-progress-text">0% completado</small>
+                    </div>
+
+                    <ul class="list-unstyled mt-3 lesson-list">
+                        
+                        <li class="py-1 lesson-item" data-lesson="análisis y descomposición de problemas">
+                            <a href="topic/topic9/analisis-problemas/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    1
+                                </span>
+                                Análisis y descomposición de problemas
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="diseño estructurado de soluciones">
+                            <a href="topic/topic9/diseno-soluciones/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    2
+                                </span>
+                                Diseño estructurado de soluciones
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="validación y pruebas de algoritmos">
+                            <a href="topic/topic9/validacion-pruebas/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    3
+                                </span>
+                                Validación y pruebas de algoritmos
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="py-1 lesson-item" data-lesson="buenas prácticas para escribir algoritmos">
+                            <a href="topic/topic9/buenas-practicas/index.html"
+                               class="lesson-link text-decoration-none d-flex align-items-center"
+                               style="color: #333;">
+                                <span class="badge rounded-circle me-2 lesson-num"
+                                      style="background: #6c2bd920; color: #6c2bd9;">
+                                    4
+                                </span>
+                                Buenas prácticas para escribir algoritmos
+                                <i class="fas fa-chevron-right ms-auto" style="color: #6c2bd9; font-size: 0.7rem;"></i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Mensaje cuando no hay resultados -->
+<div id="noResults" class="text-center py-5" style="display: none;">
+    <i class="fas fa-search fa-3x text-muted mb-3"></i>
+    <h4 class="text-muted">No se encontraron lecciones</h4>
+    <p class="text-muted">Intenta con otra palabra clave</p>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../static/js/progress.js"></script>
+<script src="../static/js/course.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initCoursePage === 'function') {
+            initCoursePage();
+        }
+    });
+</script>
+
+
+</body>
+</html>

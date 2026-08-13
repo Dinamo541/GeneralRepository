@@ -1,0 +1,1045 @@
+﻿/* ============================================================
+   CURSO: LÓGICA Y ALGORITMOS COMPUTACIONALES
+   ESTILO TEMÁTICO - PENSAMIENTO LÓGICO, ESTRUCTURAS Y FLUJOS
+   ============================================================ */
+
+/* ============================================================
+   1. PALETA DE COLORES TEMÁTICA
+   ============================================================ */
+:root {
+    --course-color: #6c2bd9; /* Púrpura - lógica */
+    --course-color-light: #8b5cf6; /* Púrpura claro */
+    --course-color-dark: #4c1d95; /* Púrpura oscuro */
+    --course-color-rgb: 108, 43, 217;
+    --course-accent: #f59e0b; /* Ámbar - algoritmos */
+    --course-accent-rgb: 245, 158, 11;
+    --course-mint: #10b981; /* Verde menta - flujo */
+    --course-bg-light: #faf5ff; /* Fondo claro púrpura */
+    --course-text-dark: #1f2937;
+    --course-text-muted: #6b7280;
+}
+
+/* ============================================================
+   2. HEADER: CONSOLA DE PSEUDOCÓDIGO & DEBUGGER (LÓGICA)
+   ============================================================ */
+
+.header-curso,
+.header-leccion {
+    position: relative !important;
+    overflow: hidden !important;
+    /* Fondo oscuro púrpura-consola con marco inferior segmentado */
+    background-color: #2c174f !important;
+    border-bottom: 3px solid var(--course-accent) !important;
+    box-shadow: 0 4px 25px rgba(108, 43, 217, 0.3) !important;
+}
+
+    /* 1. TEXTURA: Líneas de Guía de Indentación + Símbolos Lógicos */
+    .header-curso::before,
+    .header-leccion::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background-image:
+        /* Líneas de indentación vertical (estilo editor IDE) */
+        linear-gradient(90deg, rgba(245, 158, 11, 0.07) 1px, transparent 1px),
+        /* Máscara de degrade suave */
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 60%) !important;
+        background-size: 32px 100%, 100% 100% !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+    }
+
+    /* 2. BARRIDO VERTICAL (Luz de Debugger bajando paso a paso) */
+    .header-curso::after,
+    .header-leccion::after {
+        content: '' !important;
+        position: absolute !important;
+        top: -50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 50% !important;
+        /* Luz ámbar-menta horizontal que se desplaza de ARRIBA hacia ABAJO */
+        background: linear-gradient( 180deg, transparent 0%, rgba(245, 158, 11, 0.08) 70%, rgba(16, 185, 129, 0.15) 100% ) !important;
+        border-bottom: 2px solid rgba(245, 158, 11, 0.4) !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+        /* Animación de depuración vertical (paso a paso) */
+        animation: debuggerStep 6s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
+    }
+
+/* Animación del 'debugger' ejecutando el código hacia abajo */
+@keyframes debuggerStep {
+    0% {
+        transform: translateY(0%);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(300%);
+        opacity: 0;
+    }
+}
+
+/* 3. DETALLE ÚNICO: Prompt de Terminal Parpadeante en la esquina */
+.header-curso .container::before,
+.header-leccion .container::before {
+    content: '>_ start_algorithm.ps' !important;
+    position: absolute !important;
+    top: -0.5rem !important;
+    right: 1rem !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 0.75rem !important;
+    color: var(--course-accent) !important;
+    opacity: 0.5 !important;
+    letter-spacing: 1px !important;
+    animation: terminalBlink 1.5s steps(2, start) infinite !important;
+}
+
+@keyframes terminalBlink {
+    0%, 100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+}
+
+/* 4. CONTENEDOR EN PRIMER PLANO */
+.header-curso .container,
+.header-leccion .container {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Badges con estilo de diagrama de flujo - DIFERENTE */
+.header-curso .curso-badge,
+.header-leccion .badge-curso {
+    background: rgba(245, 158, 11, 0.12) !important;
+    border: 2px solid var(--course-accent);
+    border-radius: 20px 4px 20px 4px !important;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    padding: 6px 20px;
+    font-weight: 700;
+    color: var(--course-accent) !important;
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.08);
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(245, 158, 11, 0.08);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(245, 158, 11, 0.15);
+        transform: scale(1.02);
+    }
+}
+
+/* Títulos con énfasis en estructura - DIFERENTE */
+.header-curso h1,
+.header-leccion h1 {
+    font-weight: 800;
+    text-shadow: 0 2px 20px rgba(108, 43, 217, 0.4);
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 60%, var(--course-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+    /* Decoración adicional - título con línea de flujo */
+    .header-curso h1::after,
+    .header-leccion h1::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--course-accent), transparent);
+        border-radius: 2px;
+        animation: lineFlow 4s ease-in-out infinite;
+    }
+
+@keyframes lineFlow {
+    0%, 100% {
+        width: 60px;
+        opacity: 0.6;
+    }
+
+    50% {
+        width: 120px;
+        opacity: 1;
+    }
+}
+
+.header-curso .lead,
+.header-leccion .lead {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    border-left: 3px solid var(--course-accent);
+    padding-left: 16px;
+}
+
+/* ============================================================
+   3. BUSCADOR CON ESTILO DE FLUJO
+   ============================================================ */
+
+.search-box {
+    background: rgba(31, 41, 55, 0.6) !important;
+    border: 2px solid rgba(245, 158, 11, 0.15) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 50px !important;
+    transition: all 0.3s ease;
+}
+
+    .search-box:focus-within {
+        border-color: var(--course-accent) !important;
+        box-shadow: 0 0 40px rgba(245, 158, 11, 0.1), inset 0 0 40px rgba(245, 158, 11, 0.02) !important;
+        transform: scale(1.02);
+    }
+
+    .search-box i {
+        color: var(--course-accent) !important;
+    }
+
+    .search-box input {
+        color: #fff !important;
+        font-family: 'Inter', sans-serif;
+    }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.35) !important;
+            font-style: italic;
+        }
+
+/* ============================================================
+   4. CARDS DE TEMAS - ESTILO DIAGRAMA DE FLUJO
+   ============================================================ */
+
+.tema-card {
+    background: linear-gradient(145deg, #ffffff 0%, var(--course-bg-light) 100%) !important;
+    border: 2px solid rgba(108, 43, 217, 0.06) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px !important;
+}
+
+    /* Decoración de diagrama de flujo - DIFERENTE */
+    .tema-card::before {
+        content: '⦿';
+        position: absolute;
+        top: -20px;
+        right: -10px;
+        font-size: 60px;
+        color: rgba(245, 158, 11, 0.04);
+        transform: rotate(15deg);
+        pointer-events: none;
+        animation: none;
+    }
+
+    /* Flechas de flujo - DIFERENTE */
+    .tema-card::after {
+        content: '→ → →';
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        color: rgba(108, 43, 217, 0.04);
+        font-size: 20px;
+        letter-spacing: 10px;
+        pointer-events: none;
+        font-family: 'Courier New', monospace;
+        animation: arrowFlow 6s ease-in-out infinite;
+    }
+
+@keyframes arrowFlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(0);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateX(-10px);
+    }
+}
+
+.tema-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 50px rgba(108, 43, 217, 0.12), 0 0 0 2px rgba(245, 158, 11, 0.1) !important;
+    border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Header de la card */
+.tema-card .card-header {
+    color: var(--course-color) !important;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(108, 43, 217, 0.06) !important;
+    background: transparent !important;
+    padding: 1rem 1.25rem !important;
+}
+
+    .tema-card .card-header .badge {
+        background: linear-gradient(135deg, var(--course-color), var(--course-color-light)) !important;
+        color: white !important;
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        padding: 4px 14px;
+        border-radius: 20px 4px 20px 4px !important;
+        font-weight: 600;
+    }
+
+/* Título del tema */
+.tema-card .card-title {
+    color: var(--course-color-dark) !important;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    font-size: 1.25rem;
+}
+
+/* Descripción */
+.tema-card .card-text {
+    color: var(--course-text-muted) !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   5. LISTA DE LECCIONES - ESTRUCTURA ALGORÍTMICA
+   ============================================================ */
+
+.lesson-item {
+    border-bottom: 1px dashed rgba(108, 43, 217, 0.06);
+    transition: all 0.2s ease;
+    padding: 6px 0 !important;
+}
+
+    .lesson-item:last-child {
+        border-bottom: none;
+    }
+
+    .lesson-item:hover {
+        background: rgba(108, 43, 217, 0.02);
+        border-radius: 8px;
+    }
+
+.lesson-link {
+    color: var(--course-text-dark) !important;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    padding: 8px 12px !important;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+    .lesson-link:hover {
+        color: var(--course-color) !important;
+        background: rgba(108, 43, 217, 0.04);
+        transform: translateX(6px);
+    }
+
+/* Número de lección - estilo índice */
+.lesson-num {
+    background: var(--course-bg-light) !important;
+    color: var(--course-color) !important;
+    border: 2px solid rgba(108, 43, 217, 0.08);
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px 2px 8px 2px !important;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson-link:hover .lesson-num {
+    background: var(--course-color) !important;
+    color: white !important;
+    border-color: var(--course-color);
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 4px 15px rgba(108, 43, 217, 0.2);
+}
+
+/* Icono de flecha algorítmica */
+.lesson-link i.fa-chevron-right {
+    color: var(--course-accent) !important;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.lesson-link:hover i.fa-chevron-right {
+    opacity: 1;
+    transform: translateX(4px);
+    color: var(--course-accent) !important;
+}
+
+/* ============================================================
+   6. BARRA DE PROGRESO - FLUJO CONTINUO
+   ============================================================ */
+
+.progress-container {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50px !important;
+}
+
+    .progress-container .bar {
+        background: linear-gradient(90deg, var(--course-accent), var(--course-color-light), var(--course-accent)) !important;
+        background-size: 300% 100% !important;
+        animation: flowProgress 3s ease-in-out infinite;
+        box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+        border-radius: 50px !important;
+    }
+
+@keyframes flowProgress {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Progreso de temas */
+.topic-progress .progress {
+    background: rgba(108, 43, 217, 0.06) !important;
+    border-radius: 50px !important;
+    height: 8px;
+}
+
+.topic-progress .progress-bar {
+    background: linear-gradient(90deg, var(--course-color), var(--course-accent)) !important;
+    border-radius: 50px !important;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+    transition: width 0.6s ease;
+}
+
+.topic-progress .topic-progress-text {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: var(--course-text-muted) !important;
+    font-weight: 600;
+}
+
+/* ============================================================
+   7. BOTONES - ESTRUCTURA LÓGICA
+   ============================================================ */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--course-color), var(--course-color-light)) !important;
+    border: none !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(108, 43, 217, 0.2);
+    border-radius: 50px !important;
+    padding: 0.6rem 2rem !important;
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-primary::after {
+        position: absolute;
+        right: 15px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 8px 30px rgba(108, 43, 217, 0.3) !important;
+        background: linear-gradient(135deg, var(--course-color-dark), var(--course-color)) !important;
+        padding-right: 2.5rem !important;
+    }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+            right: 20px;
+        }
+
+.btn-outline-primary {
+    color: var(--course-color) !important;
+    border: 2px solid var(--course-color) !important;
+    background: transparent !important;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border-radius: 50px !important;
+    padding: 0.6rem 2rem !important;
+}
+
+    .btn-outline-primary:hover {
+        background: var(--course-color) !important;
+        color: white !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(108, 43, 217, 0.2);
+        border-color: var(--course-color-dark) !important;
+    }
+
+.btn-outline-secondary {
+    border: 2px solid rgba(108, 43, 217, 0.15) !important;
+    color: var(--course-text-muted) !important;
+    transition: all 0.3s ease;
+    border-radius: 50px !important;
+    font-weight: 600;
+}
+
+    .btn-outline-secondary:hover {
+        background: rgba(108, 43, 217, 0.04) !important;
+        border-color: var(--course-color) !important;
+        color: var(--course-color) !important;
+        transform: translateY(-2px);
+    }
+
+/* ============================================================
+   8. CONTENIDO DE LECCIONES - ESTRUCTURA LÓGICA
+   ============================================================ */
+
+.lesson-content {
+    color: var(--course-text-dark);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.8;
+}
+
+    /* Títulos con estructura jerárquica */
+    .lesson-content h1 {
+        color: var(--course-color-dark);
+        border-bottom: 4px solid var(--course-accent);
+        padding-bottom: 12px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        font-size: 2.2rem;
+    }
+
+    .lesson-content h2 {
+        color: var(--course-color);
+        border-left: 6px solid var(--course-accent);
+        padding-left: 16px;
+        font-weight: 700;
+        margin-top: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .lesson-content h3 {
+        color: var(--course-color-dark);
+        font-weight: 700;
+        margin-top: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+        .lesson-content h3::before {
+            content: '◆ ';
+            color: var(--course-accent);
+            font-size: 0.8rem;
+        }
+
+    .lesson-content h4 {
+        color: var(--course-color-light);
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    /* Código con estilo de pseudocódigo */
+    .lesson-content pre {
+        background: #1f2937 !important;
+        border: 2px solid rgba(245, 158, 11, 0.1);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .lesson-content pre::before {
+            content: '// PSEUDOCÓDIGO';
+            display: block;
+            background: linear-gradient(135deg, var(--course-color-dark), var(--course-color));
+            color: var(--course-accent);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            font-size: 0.6rem;
+            padding: 8px 16px;
+            font-weight: 700;
+        }
+
+    .lesson-content code {
+        background: rgba(108, 43, 217, 0.05);
+        color: var(--course-color);
+        border-radius: 4px;
+        padding: 2px 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: 1px solid rgba(108, 43, 217, 0.08);
+    }
+
+    /* Resaltado de sintaxis - lógica */
+    .lesson-content .keyword {
+        color: #7c4dff;
+        font-weight: 700;
+    }
+
+    .lesson-content .comment {
+        color: #34d399;
+        font-style: italic;
+    }
+
+    .lesson-content .number {
+        color: var(--course-accent);
+        font-weight: 700;
+    }
+
+    .lesson-content .string {
+        color: #60a5fa;
+    }
+
+    .lesson-content .variable {
+        color: #f472b6;
+    }
+
+    .lesson-content .operator {
+        color: var(--course-accent);
+        font-weight: 700;
+    }
+
+    .lesson-content .function {
+        color: #34d399;
+        font-weight: 700;
+    }
+
+    /* Tablas - estructura de datos */
+    .lesson-content table {
+        border-radius: 12px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+    }
+
+    .lesson-content thead th {
+        background: linear-gradient(135deg, var(--course-color), var(--course-color-light)) !important;
+        color: white;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        padding: 14px 20px;
+    }
+
+    .lesson-content tbody td {
+        border-bottom: 1px solid rgba(108, 43, 217, 0.06);
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+
+    .lesson-content tbody tr:nth-child(even) {
+        background: rgba(108, 43, 217, 0.02);
+    }
+
+    .lesson-content tbody tr:hover {
+        background: rgba(245, 158, 11, 0.03);
+        transition: background 0.2s ease;
+    }
+
+    /* Blockquotes - estilo lógico */
+    .lesson-content blockquote {
+        background: rgba(108, 43, 217, 0.02);
+        border-left: 6px solid var(--course-accent);
+        padding: 16px 24px;
+        border-radius: 0 8px 8px 0;
+        font-family: 'Inter', sans-serif;
+        margin: 1.5rem 0;
+        position: relative;
+    }
+
+        .lesson-content blockquote::before {
+            content: '▶';
+            position: absolute;
+            left: -18px;
+            top: 16px;
+            color: var(--course-accent);
+            font-size: 1.2rem;
+        }
+
+        .lesson-content blockquote:has(⚠️) {
+            background: rgba(245, 158, 11, 0.04);
+            border-left-color: var(--course-warm);
+        }
+
+            .lesson-content blockquote:has(⚠️)::before {
+                color: var(--course-warm);
+            }
+
+        .lesson-content blockquote:has(📌) {
+            background: rgba(16, 185, 129, 0.04);
+            border-left-color: var(--course-mint);
+        }
+
+            .lesson-content blockquote:has(📌)::before {
+                color: var(--course-mint);
+            }
+
+        .lesson-content blockquote:has(💡) {
+            background: rgba(108, 43, 217, 0.03);
+            border-left-color: var(--course-color);
+        }
+
+            .lesson-content blockquote:has(💡)::before {
+                color: var(--course-color);
+            }
+
+/* ============================================================
+   9. TOC SIDEBAR - ESTRUCTURA JERÁRQUICA
+   ============================================================ */
+
+.toc-sidebar {
+    background: linear-gradient(145deg, var(--course-bg-light), #ffffff);
+    border: 2px solid rgba(108, 43, 217, 0.04);
+    border-radius: 16px;
+    padding: 1.5rem !important;
+}
+
+    .toc-sidebar h6 {
+        color: var(--course-color-dark) !important;
+        font-weight: 800;
+        border-bottom: 3px solid var(--course-accent);
+        padding-bottom: 12px;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+    }
+
+        .toc-sidebar h6::before {
+            content: '◈ ';
+            color: var(--course-accent);
+        }
+
+    .toc-sidebar ul li a {
+        color: var(--course-text-muted);
+        font-size: 0.85rem;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        display: block;
+        border-left: 2px solid transparent;
+    }
+
+        .toc-sidebar ul li a:hover {
+            color: var(--course-color);
+            background: rgba(108, 43, 217, 0.03);
+            border-left-color: var(--course-accent);
+            transform: translateX(4px);
+        }
+
+        .toc-sidebar ul li a.active {
+            color: var(--course-color);
+            background: rgba(108, 43, 217, 0.05);
+            border-left-color: var(--course-accent);
+            font-weight: 700;
+        }
+
+/* ============================================================
+   10. NAVEGACIÓN ENTRE LECCIONES
+   ============================================================ */
+
+.nav-lessons {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 2px solid rgba(108, 43, 217, 0.04);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
+}
+
+    .nav-lessons .btn {
+        font-weight: 700;
+        border-radius: 50px !important;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1.5rem !important;
+    }
+
+        .nav-lessons .btn:hover {
+            transform: translateY(-3px);
+        }
+
+/* ============================================================
+   11. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .header-curso h1,
+    .header-leccion h1 {
+        font-size: 1.8rem !important;
+        -webkit-text-fill-color: white !important;
+    }
+
+        .header-curso h1::after,
+        .header-leccion h1::after {
+            width: 40px;
+        }
+
+    .lesson-content {
+        font-size: 1rem;
+    }
+
+        .lesson-content h1 {
+            font-size: 1.6rem;
+        }
+
+        .lesson-content h2 {
+            font-size: 1.3rem;
+        }
+
+        .lesson-content h3 {
+            font-size: 1.1rem;
+        }
+
+        .lesson-content pre {
+            font-size: 0.8rem;
+            padding: 1rem;
+        }
+
+            .lesson-content pre::before {
+                font-size: 0.5rem;
+                padding: 6px 12px;
+            }
+
+    .tema-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+
+    .header-curso .lead,
+    .header-leccion .lead {
+        font-size: 1rem;
+    }
+
+    .header-curso::after,
+    .header-leccion::after {
+        font-size: 10px;
+        letter-spacing: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-curso {
+        padding: 1.5rem 0;
+    }
+
+        .header-curso h1 {
+            font-size: 1.4rem !important;
+        }
+
+            .header-curso h1::after {
+                width: 30px;
+            }
+
+        .header-curso .lead {
+            font-size: 0.9rem;
+            padding-left: 12px;
+        }
+
+    .header-leccion {
+        padding: 1.2rem 0;
+    }
+
+        .header-leccion h1 {
+            font-size: 1.3rem !important;
+        }
+
+            .header-leccion h1::after {
+                width: 30px;
+            }
+
+    .search-box {
+        padding: 6px 16px;
+        max-width: 100%;
+        border-radius: 50px !important;
+    }
+
+        .search-box input {
+            font-size: 0.9rem;
+            padding: 8px 0;
+        }
+
+    .nav-lessons .btn {
+        font-size: 0.8rem;
+        padding: 0.3rem 1rem !important;
+    }
+
+    .tema-card .card-title {
+        font-size: 1.1rem;
+    }
+
+    .lesson-content {
+        font-size: 0.95rem;
+    }
+
+        .lesson-content h1 {
+            font-size: 1.4rem;
+        }
+
+        .lesson-content h2 {
+            font-size: 1.1rem;
+        }
+
+        .lesson-content h3 {
+            font-size: 1rem;
+        }
+
+        .lesson-content blockquote {
+            padding: 12px 16px;
+            font-size: 0.9rem;
+        }
+
+    .toc-sidebar {
+        padding: 1rem !important;
+    }
+
+    .header-curso::after,
+    .header-leccion::after {
+        font-size: 8px;
+        letter-spacing: 6px;
+        right: 15px;
+    }
+}
+
+/* ============================================================
+   12. ANIMACIONES ADICIONALES (DIFERENTES A ARQUITECTURA)
+   ============================================================ */
+
+/* Flujo continuo de puntos - ÚNICO para Lógica */
+@keyframes logicFlow {
+    0% {
+        opacity: 0.2;
+        transform: translateX(0) scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: translateX(-15px) scale(1.1);
+    }
+
+    100% {
+        opacity: 0.2;
+        transform: translateX(-30px) scale(1);
+    }
+}
+
+/* Efecto de parpadeo lógico - DIFERENTE */
+@keyframes logicPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+}
+
+/* Aplicar a elementos clave */
+.logic-highlight {
+    animation: logicPulse 2s ease-in-out infinite;
+}
+
+/* Efecto de conexión lógica - DIFERENTE */
+.lesson-link {
+    position: relative;
+}
+
+    .lesson-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--course-color), var(--course-accent));
+        transition: width 0.3s ease;
+        opacity: 0.3;
+    }
+
+    .lesson-link:hover::after {
+        width: 100%;
+    }
+
+/* Efecto de scanline sutil en headers - MENOS NOTABLE */
+.header-curso .container::after,
+.header-leccion .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient( 0deg, transparent, transparent 3px, rgba(255, 255, 255, 0.005) 3px, rgba(255, 255, 255, 0.005) 4px );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================================
+   13. UTILIDADES ADICIONALES
+   ============================================================ */
+
+/* Tarjeta de concepto lógico */
+.logic-card {
+    background: linear-gradient(145deg, #ffffff, var(--course-bg-light));
+    border: 2px solid rgba(108, 43, 217, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+}
+
+    .logic-card::before {
+        content: '◆';
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        background: white;
+        padding: 0 8px;
+        color: var(--course-accent);
+        font-size: 0.8rem;
+    }
+
+/* Badge de estructura */
+.structure-badge {
+    background: rgba(245, 158, 11, 0.08);
+    color: var(--course-accent);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+    border-radius: 20px 4px 20px 4px;
+    padding: 2px 16px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+}
+
+/* Separador de flujo */
+.flow-divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--course-accent), var(--course-color), var(--course-accent), transparent);
+    margin: 2rem 0;
+    opacity: 0.3;
+}

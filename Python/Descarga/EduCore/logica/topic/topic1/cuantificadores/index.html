@@ -1,0 +1,273 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Cuantificadores para una y dos variables - Lógica y Algoritmos Computacionales</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-logica.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-logica.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-code me-2"></i>
+                    TDC400 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">Cuantificadores para una y dos variables</h1>
+                <p class="lead opacity-75">Fundamentos de lógica matemática</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 100.0%;"
+                         data-total="7"
+                         data-current="7">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 7 de 7</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Cuantificadores y Predicados</h1>
+<p>Los <strong>predicados</strong> son proposiciones que dependen de una o más variables.</p>
+<p><strong>Definición:</strong> $P(x)$ es una afirmación que contiene la variable $x$. Por ejemplo: $P(x): x^2 \geq 0$</p>
+<h2>Cuantificadores</h2>
+<h3>1. Cuantificador Universal (∀)</h3>
+<p>"Para todo $x$, $P(x)$"</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> $\forall x \in \mathbb{R}, x^2 \geq 0$ (Verdadero)</p>
+</blockquote>
+<p><strong>Negación:</strong> $\neg[\forall x P(x)] \equiv \exists x \neg P(x)$</p>
+<h3>2. Cuantificador Existencial (∃)</h3>
+<p>"Existe al menos un $x$ tal que $P(x)$"</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> $\exists x \in \mathbb{Z}, x + 3 = 0$ (Verdadero, $x = -3$)</p>
+</blockquote>
+<p><strong>Negación:</strong> $\neg[\exists x P(x)] \equiv \forall x \neg P(x)$</p>
+<h3>3. Cuantificador Existencial Único (∃!)</h3>
+<p>"Existe un único $x$ tal que $P(x)$"</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> $\exists! x \in \mathbb{R}, x^2 = 0$ (Verdadero, solo $x = 0$)</p>
+</blockquote>
+<h2>Cuantificadores con Dos Variables</h2>
+<blockquote>
+<p><strong>Ejemplos:</strong><br />
+1. $\forall x \exists y, x + y = 0$ (Para todo número existe su opuesto)<br />
+2. $\exists x \forall y, x \cdot y = y$ (Existe el elemento neutro: $x = 1$)<br />
+3. $\forall x \forall y, x + y = y + x$ (Conmutatividad de la suma)</p>
+</blockquote>
+<h2>Traducción a Lógica</h2>
+<h3>Ejercicios de traducción</h3>
+<table>
+<thead>
+<tr>
+<th>Enunciado</th>
+<th>Traducción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Todos los estudiantes de Informática tienen beca"</td>
+<td>$\forall x (I(x) \rightarrow B(x))$</td>
+</tr>
+<tr>
+<td>"Existe un estudiante sin beca"</td>
+<td>$\exists x (E(x) \land \neg B(x))$</td>
+</tr>
+<tr>
+<td>"Ningún estudiante de Coto estudia Informática"</td>
+<td>$\neg \exists x (C(x) \land I(x))$</td>
+</tr>
+</tbody>
+</table>
+<h2>Aplicación computacional</h2>
+<h3>Relación con programación</h3>
+<table>
+<thead>
+<tr>
+<th>Lógica</th>
+<th>Programación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>∀</td>
+<td>"TODOS" en SQL</td>
+</tr>
+<tr>
+<td>∃</td>
+<td>"ALGÚN" o "EXISTS" en SQL</td>
+</tr>
+<tr>
+<td>Condicionales</td>
+<td>if (p &amp;&amp; q)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 <strong>Ejercicio:</strong> Traduce a lógica de cuantificadores:<br />
+1. "Todos los números pares son divisibles por 2"<br />
+2. "Existe un número que es mayor que 100"<br />
+3. "Ningún número primo es par (excepto el 2)"</p>
+</blockquote>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../inferencias/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+<script src="../../../../static/js/course-logica.js"></script>
+
+
+
+</body>
+</html>

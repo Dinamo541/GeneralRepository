@@ -1,0 +1,1131 @@
+{
+  "url_base": "http://23.22.58.242/",
+  "descargado": "2026-07-31T14:14:35",
+  "segundos": 2.9,
+  "enlaces_reescritos": true,
+  "totales": {
+    "archivos": 124,
+    "paginas_html": 81,
+    "bytes": 5590103,
+    "fallos": 0
+  },
+  "archivos": [
+    {
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "local": "_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+      "content_type": "text/css; charset=utf-8",
+      "bytes": 232948,
+      "sha256": "3017df4a76db5f01c2b99b603d88b03106df13bcfe18e67b7c13c2341d3a67df",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "local": "_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      "content_type": "application/javascript; charset=utf-8",
+      "bytes": 80663,
+      "sha256": "82f64f62bb03c1bc1824b0f9c9e05f70dba33e146818e63cdf5c306c8cf3dedd",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js",
+      "local": "_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js",
+      "content_type": "application/javascript; charset=utf-8",
+      "bytes": 2108580,
+      "sha256": "d4295dc33744836935c1399feece5159577b34c5c8ffb9f1c6324cd82e03a882",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js",
+      "local": "_externo/cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js",
+      "content_type": "application/javascript; charset=utf-8",
+      "bytes": 26375,
+      "sha256": "02bb4ade710f3e607329e37a21f098bc3ac70eb6e33daf8a65e79f4db785e7b2",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+      "content_type": "text/css; charset=utf-8",
+      "bytes": 102641,
+      "sha256": "c22cfb6520a7fdbb738632834019acf47c78b1279462c0eb4cb83bae83ecb5a7",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.ttf",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.ttf",
+      "content_type": "application/octet-stream; charset=utf-8",
+      "bytes": 207972,
+      "sha256": "5656d596bc597165a42182f67b2b9f17d2ae47a9e3ef1b042b9a729739730705",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2",
+      "content_type": "application/octet-stream; charset=utf-8",
+      "bytes": 117372,
+      "sha256": "3a8924cd5203a28628716aedb5cef0943da4c3b44e3ffcee90ab06387b41c490",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.ttf",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.ttf",
+      "content_type": "application/octet-stream; charset=utf-8",
+      "bytes": 68004,
+      "sha256": "5d02dc9b858e3c85a794f87e379857f4fedc4e26cf15001714a9a0e0b1d2294d",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2",
+      "content_type": "application/octet-stream; charset=utf-8",
+      "bytes": 25452,
+      "sha256": "2bccecf0bc7e96cd5ce4003abeb3ae9ee4a3d19158c4e6edfd2df32d2f0d5721",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.ttf",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.ttf",
+      "content_type": "application/octet-stream; charset=utf-8",
+      "bytes": 419720,
+      "sha256": "fbbf06d7437aa30f3cd44c968380193545a8fc3eadfb7ad897bbb101eefec5a2",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2",
+      "content_type": "application/octet-stream; charset=utf-8",
+      "bytes": 156496,
+      "sha256": "9fc85f3a4544ab0d570c7f8f9bbb88db8d92c359b2707580ea8b07c75673eae2",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-v4compatibility.ttf",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-v4compatibility.ttf",
+      "content_type": "application/octet-stream; charset=utf-8",
+      "bytes": 10832,
+      "sha256": "09663a36fc05e7190af8324b855105c5bb511ad94f94b81b34afee503279eca2",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-v4compatibility.woff2",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-v4compatibility.woff2",
+      "content_type": "application/octet-stream; charset=utf-8",
+      "bytes": 4792,
+      "sha256": "4d4a2d7fd1c6684845cb174fdd7fc073bd64cb741286fb247f8b76c2b7b852c4",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+      "local": "_externo/cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+      "content_type": "application/javascript; charset=utf-8",
+      "bytes": 603445,
+      "sha256": "9274bbcec8d96168626c732b5d31c775aa8cfb7eaa0599bec0c175908a2c1ce2",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      "local": "_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css",
+      "content_type": "text/css; charset=utf-8",
+      "bytes": 12355,
+      "sha256": "ccb4927c1e665717c1f91e480fbbad168db8c70373b7ccf7abf2f70131c04de3",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap",
+      "local": "_externo/fonts.googleapis.com/css2__family_Inter_wght_400_600_700_800_900_di_ae3691ab.css",
+      "content_type": "text/css; charset=utf-8",
+      "bytes": 12355,
+      "sha256": "b7e2e37a8c16673f05c8134c4832793501ea76797c850c78d2b9a0efeba801ed",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2",
+      "local": "_externo/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2",
+      "content_type": "font/woff2",
+      "bytes": 18748,
+      "sha256": "71d5ee93cc1e9f1d520a3a8b66456de18c7879d8df09d57fcd2eaff75fef0075",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+      "local": "_externo/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+      "content_type": "font/woff2",
+      "bytes": 48256,
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2",
+      "local": "_externo/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2",
+      "content_type": "font/woff2",
+      "bytes": 18996,
+      "sha256": "1be3448e292fbf05ffe176fe1e43f135013d50b1e7d324ad1a558f623d3bb6f6",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2",
+      "local": "_externo/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2",
+      "content_type": "font/woff2",
+      "bytes": 85068,
+      "sha256": "34b9c504cab7a73e37b746343a449132e56cf7b5481af2cb81dc74dcff25c956",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2",
+      "local": "_externo/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2",
+      "content_type": "font/woff2",
+      "bytes": 25960,
+      "sha256": "ca157063339ac4ad418f214f3abfed119b0798ab4d377386ce5c9e5a7a435ebd",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2",
+      "local": "_externo/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2",
+      "content_type": "font/woff2",
+      "bytes": 11232,
+      "sha256": "6e9e020a25f9b56d418f2c085b1d3c09725a4da23fe693a5b463064606732190",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2",
+      "local": "_externo/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2",
+      "content_type": "font/woff2",
+      "bytes": 10252,
+      "sha256": "5c66f9e07e90c6d4ac4922cc68d60de26c17b1858e677fb5e603fce3952b3ff2",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/",
+      "local": "arquitectura/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 37043,
+      "sha256": "0d5c66965d06b8f6ad2312240cebf7dcfc915cb052236a5dc007d8e5b2a04894",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic1/complementos",
+      "local": "arquitectura/topic/topic1/complementos/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11663,
+      "sha256": "9b6cef329858ac55186855a60ad5e02dfe952cab17b58fc26e912131606b31d6",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic1/conversiones",
+      "local": "arquitectura/topic/topic1/conversiones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14813,
+      "sha256": "a4b1630feb16b200e7bfcf8669acb5ec23496f79688c8ad87f8fe094751c0fc1",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic1/ejercicios",
+      "local": "arquitectura/topic/topic1/ejercicios/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 54981,
+      "sha256": "f42fb3190c4d168e3081e97b163f5ebaced900fac72809bd5ba94d4677cba02c",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic1/introduccion",
+      "local": "arquitectura/topic/topic1/introduccion/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 64575,
+      "sha256": "40a8c741480c414b9a58ced8b1d6188e72e305b5e693e77d1228889b6ff46f7a",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic1/sistemas-numericos",
+      "local": "arquitectura/topic/topic1/sistemas-numericos/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 14341,
+      "sha256": "1ceda5506597bfef909da31d1f369dea475b1b8201324ecf16f981eac3cd9e60",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/algebra-booleana",
+      "local": "arquitectura/topic/topic2/algebra-booleana/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 37231,
+      "sha256": "4706f3f3869bbd49967d1a731fa9795c9c6e33d13a20a6083fb0a081bd770fb4",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/circuitos-combinatorios",
+      "local": "arquitectura/topic/topic2/circuitos-combinatorios/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 20561,
+      "sha256": "b5d69c2cfc0feb59e1ecf99b4f8e129190bd7d4537ceca47637736415c2fa467",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/circuitos-secuenciales",
+      "local": "arquitectura/topic/topic2/circuitos-secuenciales/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 23147,
+      "sha256": "6d8477232086f4f65f5ea7b97816c61a832f4e0f5f13432d0a677ac0d37f191c",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/compuertas",
+      "local": "arquitectura/topic/topic2/compuertas/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 17431,
+      "sha256": "d599fd83413527d0162ec643452293d83cf8d94c668f7dce357880dfe46a0098",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/formas-estandar",
+      "local": "arquitectura/topic/topic2/formas-estandar/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 39818,
+      "sha256": "fc7c892cd8fd7dfab65285e8873ecdd92c0109e8628f6c80c9679cc169c69e76",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/gen-tablas-verdad",
+      "local": "arquitectura/topic/topic2/gen-tablas-verdad/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 26102,
+      "sha256": "7db5801db216bd5370e105784dd2fbc000dd4b9fee9c1564f643d8d793403390",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/identidades-xor",
+      "local": "arquitectura/topic/topic2/identidades-xor/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 27519,
+      "sha256": "44c3850f883d875f6d5ce51c8e25d739eb728a43fd6fc4bcf9bed55e8c058c72",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/implicantes-primos",
+      "local": "arquitectura/topic/topic2/implicantes-primos/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 32195,
+      "sha256": "60eb8f39ef542505c00663866f0df5983dc7344fb6a92d14d00d75626b4b7f5f",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/mapas-k-cinco-variables",
+      "local": "arquitectura/topic/topic2/mapas-k-cinco-variables/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 50536,
+      "sha256": "324c67b4417a5116d193a08598e1d38d86a998f21253dcf792eb86c9eae399ff",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic2/mapas-karnaugh",
+      "local": "arquitectura/topic/topic2/mapas-karnaugh/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 29765,
+      "sha256": "0eace18830ef6113c8d695df0926ce8a1ea18d8f2948f6bc422ba3ce9d234c73",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic3/alu",
+      "local": "arquitectura/topic/topic3/alu/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6907,
+      "sha256": "3417a38960a56aebb7ee634e460b9eefee57d54b536184a7a17fc0162771ab3a",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic3/buses",
+      "local": "arquitectura/topic/topic3/buses/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6920,
+      "sha256": "2e07386f5a8e03a1ccc26aa2c0ab0e52f778184a7530f425330dd3dc65c00650",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic3/cisc-risc",
+      "local": "arquitectura/topic/topic3/cisc-risc/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6659,
+      "sha256": "df1de29e9979a91f48ded6f2a2b8014db08338aa2969155f59a26b15c5d290e2",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic3/cpu",
+      "local": "arquitectura/topic/topic3/cpu/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6630,
+      "sha256": "de1f0a169300cda886f17db6f9275992e334b4e25292d4e1b740d18c75528dbb",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic3/modos-direccionamiento",
+      "local": "arquitectura/topic/topic3/modos-direccionamiento/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6907,
+      "sha256": "cee223a845cea363781c65c860684f55805ca7c449eb865bff80f3fae4b85b84",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic3/unidad-control",
+      "local": "arquitectura/topic/topic3/unidad-control/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6919,
+      "sha256": "53b194bc5f30cdeb2d5c58f292557d5b9e26a9c6e927902d58fe7290fa8d781e",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic4/instrucciones",
+      "local": "arquitectura/topic/topic4/instrucciones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6948,
+      "sha256": "97707c2295afccee1e1af1844e18d1c5cd4c3a6118658ed097aa813572521802",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic4/interrupciones",
+      "local": "arquitectura/topic/topic4/interrupciones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6619,
+      "sha256": "8d08f900e9ad6b3107d2ab870008aca4499994933d1c234c0a8bb83b00aaa612",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic4/introduccion-ensamblador",
+      "local": "arquitectura/topic/topic4/introduccion-ensamblador/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6645,
+      "sha256": "45c161c29ab74d87cf34cdeddb85e966ef8b36b0a8a39a09abed6db13c2d2f7b",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic4/registros",
+      "local": "arquitectura/topic/topic4/registros/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6901,
+      "sha256": "9cc3e721f05fc726b8d95b67db2dcd0c0f9ce432cea002923a155e88d5c7d12c",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic4/segmentos",
+      "local": "arquitectura/topic/topic4/segmentos/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6911,
+      "sha256": "b02857b93ea5b4322941c0c31ae9d2eb41c5e783461d636f8aa4844c1b5d6ca4",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic5/cargadores-ligadores",
+      "local": "arquitectura/topic/topic5/cargadores-ligadores/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6632,
+      "sha256": "fc5ca78206968abc52f188a0b5074098b4a079d02dfa60d8826677e7e6936538",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic5/compiladores",
+      "local": "arquitectura/topic/topic5/compiladores/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6660,
+      "sha256": "fb786c162a1e4012795fc8975db2a556b194e35ada446fef3f0113e6192f89eb",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/arquitectura/topic/topic5/macros",
+      "local": "arquitectura/topic/topic5/macros/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6957,
+      "sha256": "72b54e9ee2073b4254c8710c5f17bbca83e9354de87c9a3eea897a1828fabe79",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/",
+      "local": "index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8270,
+      "sha256": "43d8dba75a4761b846731f66e5f192631d51ad79c47907ab2ef0a67a1e3e9d88",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/lab/",
+      "local": "lab/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10778,
+      "sha256": "d64ced3856c5daed6979439238ebf4c807ed0e8a4e85fb35748e42275a04df6f",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/lab/logica/contar_pares",
+      "local": "lab/logica/contar_pares/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8591,
+      "sha256": "4a21e51f37736b98b5be59ef67ad4c793e2651daa76a5ae78a44440b352142ad",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/lab/logica/factorial",
+      "local": "lab/logica/factorial/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8599,
+      "sha256": "d9923260528cdc999be2ceb92f9f9c855ab28f8d64682a24acb19d4f6a1574d9",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/lab/logica/matriz",
+      "local": "lab/logica/matriz/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8654,
+      "sha256": "9b5ac29948d5be9be70b29f306d2904a15d853a8f3162d8c45f0148881d58b05",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/lab/logica/par_impar",
+      "local": "lab/logica/par_impar/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8585,
+      "sha256": "bbe18237a8739be35fbb62ab2feffe75ec7b8bfc8d87fef9453bc3fb3c62f79d",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/lab/logica/promedio",
+      "local": "lab/logica/promedio/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8621,
+      "sha256": "d62e90becc15c2830234960c6fdf5044d4b6b96b7bcba561dde7bab09a617a0b",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/lab/logica/promedio_calificaciones",
+      "local": "lab/logica/promedio_calificaciones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8663,
+      "sha256": "69c0691986b35941f2aff50d93249aab8c36512d0a3b9a0e1df621aad75ca31c",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/lab/logica/suma",
+      "local": "lab/logica/suma/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 8599,
+      "sha256": "124f37f83013a2c3343c4b394cd6b0823cfd40a45ff8eadfc991d9488c925498",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/",
+      "local": "logica/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 53729,
+      "sha256": "2cac422bca87b13c0fbb77eb31ba246429d5b58d046e2d02045069c90c1e2aba",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic1/cuantificadores",
+      "local": "logica/topic/topic1/cuantificadores/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 9115,
+      "sha256": "d2d924cc75f6a53e0e196928a0a0ae0785c2b06901562dcd21e43e9a2631438d",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic1/gen-tablas-verdad",
+      "local": "logica/topic/topic1/gen-tablas-verdad/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 30461,
+      "sha256": "0d87456409463bf5a86864298574157204bb3fed927e1d7401972b19874d0353",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic1/inferencias",
+      "local": "logica/topic/topic1/inferencias/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10053,
+      "sha256": "4590f6f86d2efbcf1de59cbba388b4081335be59af34d8b7362273e0675979e2",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic1/leyes-logica",
+      "local": "logica/topic/topic1/leyes-logica/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 12714,
+      "sha256": "c65b7dd8737e2dcf23525a0e715fd98920e6d56cb6efd3e5502ed1cf12351b9f",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic1/proposiciones",
+      "local": "logica/topic/topic1/proposiciones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11642,
+      "sha256": "a9213e829603bf28f5ed2ec168e653046b25cbfb10c4b1746a930f2dbdfaeafa",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic1/simbolizacion",
+      "local": "logica/topic/topic1/simbolizacion/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 9550,
+      "sha256": "a9627cfd647d76baab5e1ddf7075ed12c35ea0791db2358488ba7bb0ae31f789",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic1/tablas-verdad",
+      "local": "logica/topic/topic1/tablas-verdad/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 10578,
+      "sha256": "a0e9f31ea24a3b4e892587d4c6d03cf44a124d437f5f564f2768c62939362c41",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic2/demostraciones",
+      "local": "logica/topic/topic2/demostraciones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6993,
+      "sha256": "528257ae193f1d24d0663f9900d224c94f5c8a5506f9fe96dd7f814f8cf179af",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic2/inferencias-validas",
+      "local": "logica/topic/topic2/inferencias-validas/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6696,
+      "sha256": "e58437dc3d59ed889779976865ff9f64a4344e30e2e38dd46fd888bff4080412",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic2/propiedades-algoritmos",
+      "local": "logica/topic/topic2/propiedades-algoritmos/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6971,
+      "sha256": "1ff1ee71674f84c4c33e974c3976808259edb56a3788242452691b2cc07ed0ef",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic2/que-es-algoritmo",
+      "local": "logica/topic/topic2/que-es-algoritmo/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6958,
+      "sha256": "39d1c1aa6b7a9785156f8aa3eb2e93fd07f0418c6793c79e63388e404f1f82c4",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic2/tipos-problemas",
+      "local": "logica/topic/topic2/tipos-problemas/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6708,
+      "sha256": "618bd2b4c3ac5708fc112515fdad8f910977d8ae3acb90e338da3f0659e9160a",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic3/lenguaje-estructurado",
+      "local": "logica/topic/topic3/lenguaje-estructurado/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6660,
+      "sha256": "a358f1e21fa86c2691013dd02d6f229251d096c8498ea1f786d073d691544800",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic3/pseudocodigo",
+      "local": "logica/topic/topic3/pseudocodigo/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6666,
+      "sha256": "98ff93d7285098ed143ff7b675c74214ec38a3b3e9720123c3f3f04d04c41d37",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic4/anidamiento",
+      "local": "logica/topic/topic4/anidamiento/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6686,
+      "sha256": "e6140425a3c25ceb8f4b281303216e988b50ca175e632da05236267e48005e3b",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic4/bucles",
+      "local": "logica/topic/topic4/bucles/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6960,
+      "sha256": "32f591e7b9156122328f26111346cec5117f44bfd7c6abb3da70115e96cea925",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic4/condicionales",
+      "local": "logica/topic/topic4/condicionales/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6953,
+      "sha256": "c484374385af1ca7c407cb20bfcf0915a08c42dd843d4f9fb08c8655e4099d59",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic4/secuencias",
+      "local": "logica/topic/topic4/secuencias/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6974,
+      "sha256": "9d0959af79bedafa042723e9f4db66939ae3cf9fd7ddb962852d3cba373fc8d8",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic4/tipos-datos",
+      "local": "logica/topic/topic4/tipos-datos/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6702,
+      "sha256": "cff73aaca5dedcc99560cece1626df339bb4a74179716854518390ce879bfd71",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic5/arreglos",
+      "local": "logica/topic/topic5/arreglos/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6906,
+      "sha256": "28f0d9b8f769ecc2baeffd27fa7411d532c01a0bdde806c3996c92e409f975e4",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic5/funciones",
+      "local": "logica/topic/topic5/funciones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6702,
+      "sha256": "90ed22c8008dbe271801026f8f538483cd8e7bb1aa5c70eb0826faca7f798ce4",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic5/variables",
+      "local": "logica/topic/topic5/variables/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6658,
+      "sha256": "382db778314a055b0578efe20ee44aba821aab8e168d9be133b4f73689177623",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic6/algoritmo-division",
+      "local": "logica/topic/topic6/algoritmo-division/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6952,
+      "sha256": "316ac8375b16d08adc52cf0de4182b4ec40d4b6d7572d7dcd1ee9e834cb75162",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic6/divisibilidad",
+      "local": "logica/topic/topic6/divisibilidad/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6963,
+      "sha256": "7ea3c7523efe91742c190a2249baab1eefe426ca8b47d0945c818f8f95857238",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic6/divisores",
+      "local": "logica/topic/topic6/divisores/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6984,
+      "sha256": "b6fcb94a2d7c4351f605cea51bddc97b98e46d8037ebf7954966596af9861ff9",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic6/mcd-mcm",
+      "local": "logica/topic/topic6/mcd-mcm/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6734,
+      "sha256": "95df7081047e9299aa4beb44a766124c59cf5417e5ee4e29c89b775c10115843",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic6/primos-compuestos",
+      "local": "logica/topic/topic6/primos-compuestos/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6691,
+      "sha256": "9ec5a87463a17aad5394933c293fd90037aa89928ca5d020afc84d2834714ade",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic6/teorema-fundamental",
+      "local": "logica/topic/topic6/teorema-fundamental/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6983,
+      "sha256": "01a50c96f1b8105cbf5491ba41eb8437936c8c3af7d6a7579ddee36835cf91ad",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic7/aritmetica-binaria",
+      "local": "logica/topic/topic7/aritmetica-binaria/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6729,
+      "sha256": "20456eb27f23037489cfd5bbf880ec55c6a009b18a7004f1f847e4b1b6e181ee",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic7/conversiones",
+      "local": "logica/topic/topic7/conversiones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6959,
+      "sha256": "13c1648a92bc2fa5d1ca5925b6f102fbebef97303283398ad2927a671d3fcc54",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic7/sistemas-numeracion",
+      "local": "logica/topic/topic7/sistemas-numeracion/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6672,
+      "sha256": "6947e0f3937692b49a7d9bcc2580284b22bd254c9c712f70e8d541c920ca2459",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic8/busqueda-binaria",
+      "local": "logica/topic/topic8/busqueda-binaria/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6922,
+      "sha256": "9efa7115144f5c62aff1e4610d570e5cb0e5cd601f158578997cf72c95807c90",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic8/busqueda-lineal",
+      "local": "logica/topic/topic8/busqueda-lineal/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6911,
+      "sha256": "104672f362de753959c19c6a7d4ca4d8b908d7c22234761b1b626bd0c7ebfc89",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic8/conteo-suma",
+      "local": "logica/topic/topic8/conteo-suma/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6654,
+      "sha256": "b4c7db6810eee2126f64b814d3db596338f1707912647de4f024f42f744bb4f3",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic8/ordenamiento-burbuja",
+      "local": "logica/topic/topic8/ordenamiento-burbuja/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6943,
+      "sha256": "ba57bc1d308d2364e3c582cb6baca4da651502250996c2a0eed3bd9f6c64a35e",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic8/ordenamiento-insercion",
+      "local": "logica/topic/topic8/ordenamiento-insercion/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6955,
+      "sha256": "611e0a80869c510b6a7cb81fcd8826ea2e025a7ae84fa2ede98137c5db5cf6ef",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic8/ordenamiento-seleccion",
+      "local": "logica/topic/topic8/ordenamiento-seleccion/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6678,
+      "sha256": "9a3577311d82789aba239356ab99faf02b31615a024b19ae66b645f31316332f",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic9/analisis-problemas",
+      "local": "logica/topic/topic9/analisis-problemas/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6728,
+      "sha256": "338c4bcbe74b1f55321f5892988d2f7c35a288db0a8d237e63b31c408747d4fb",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic9/buenas-practicas",
+      "local": "logica/topic/topic9/buenas-practicas/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6737,
+      "sha256": "e2eadcd4f42ed29cdd59b627342ed44a4310aa67efed4b5cbd0226106f3642b0",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic9/diseno-soluciones",
+      "local": "logica/topic/topic9/diseno-soluciones/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6997,
+      "sha256": "42faba8a6859f88762ed9a7eb7fecf57721074a51e51884bed63961008ddca4a",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/logica/topic/topic9/validacion-pruebas",
+      "local": "logica/topic/topic9/validacion-pruebas/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 6997,
+      "sha256": "49896445c81654b8393ae2fd1c1b9a65ab1656e064f47ef31f44bf103803f845",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/static/css/base.css",
+      "local": "static/css/base.css",
+      "content_type": "text/css",
+      "bytes": 4461,
+      "sha256": "41e2ebfbc95dd04b86ce0122af9bf77bc7f5c4bbc1b6758bd8a307f60e770558",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/static/css/course-arquitectura.css",
+      "local": "static/css/course-arquitectura.css",
+      "content_type": "text/css",
+      "bytes": 19161,
+      "sha256": "c6782bd849513c09894cc7cfefb874573aea3313c4e835d78019182c939f9836",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/static/css/course-logica.css",
+      "local": "static/css/course-logica.css",
+      "content_type": "text/css",
+      "bytes": 29138,
+      "sha256": "11fb999d9720632215f079a1425d7e357935542836cfeb518ae3dd221dec7a42",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/static/css/index.css",
+      "local": "static/css/index.css",
+      "content_type": "text/css",
+      "bytes": 10239,
+      "sha256": "0b428435e1c20b014683c540de91c28cdd1003f3f4b43c797bb513e4bb925933",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/static/css/lab.css",
+      "local": "static/css/lab.css",
+      "content_type": "text/css",
+      "bytes": 14159,
+      "sha256": "81c24cb868a2fafa32321ab55d48b9f8df72afb8c895e49d3f6d115a5e99c109",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/static/css/lessons.css",
+      "local": "static/css/lessons.css",
+      "content_type": "text/css",
+      "bytes": 16143,
+      "sha256": "675da5015bb0f45ee265fa0b76f6e8eac55817f4db7a15c6477bf8e0ecd29a9b",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "http://23.22.58.242/static/img/and.svg",
+      "local": "static/img/and.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 511,
+      "sha256": "cc2976a68fb9ffddbb1f2079b411668b4c40d34aad0127333b91a534893ceae4",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/img/nand.svg",
+      "local": "static/img/nand.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 613,
+      "sha256": "0c06c1aff62d1862c402a5150cb509bd85e39269d43e2be7392e4c83f79035df",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/img/nor.svg",
+      "local": "static/img/nor.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 627,
+      "sha256": "3eeb45cb20866649fc18fb47d1a53015ee0d99374deab56742eba8fa016f4a73",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/img/not.svg",
+      "local": "static/img/not.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 527,
+      "sha256": "c39a51205eb61bcff5f1888ddfb7023be649115c784a13d481a661cffd207701",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/img/or.svg",
+      "local": "static/img/or.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 518,
+      "sha256": "36e4464627ce0bc6db891db71864fb8b6961856431a726abadd6e4651fe2ad63",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/img/xnor.svg",
+      "local": "static/img/xnor.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 755,
+      "sha256": "15d8ab35bae80f95af4072d025569c88235c312004ac2e1cf96ab8e46c81f147",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/img/xor.svg",
+      "local": "static/img/xor.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 641,
+      "sha256": "480e10ba917be7d53362801db4c028c7310df83f86b9c181fc424469b784fcce",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/js/course-logica.js",
+      "local": "static/js/course-logica.js",
+      "content_type": "application/javascript",
+      "bytes": 1058,
+      "sha256": "7af0f9715d0c711076da777280ae44b750b97cea3eba9dd586cf1e667969278c",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/js/course.js",
+      "local": "static/js/course.js",
+      "content_type": "application/javascript",
+      "bytes": 2159,
+      "sha256": "c196df92c2d41df589896f5f3eb066d4a0b7bdc7ecdc095bb1ab85aabcb4451b",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/js/index.js",
+      "local": "static/js/index.js",
+      "content_type": "application/javascript",
+      "bytes": 991,
+      "sha256": "e6a960d9fa6df51db0f609691b13f7db3bdb8baa4ba1707ac3e764c906d3e513",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/js/lab.js",
+      "local": "static/js/lab.js",
+      "content_type": "application/javascript",
+      "bytes": 16537,
+      "sha256": "66028d15added72739929435f4023afb28382069b1ab78c1f46b7e0b2c2a71f3",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/js/lesson.js",
+      "local": "static/js/lesson.js",
+      "content_type": "application/javascript",
+      "bytes": 1382,
+      "sha256": "7b37a65f14b3071986a92e7ef3a1a3365c5e4e854e87eb9b698925a400ceca0c",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/js/main.js",
+      "local": "static/js/main.js",
+      "content_type": "application/javascript",
+      "bytes": 2505,
+      "sha256": "d2172063ac26d31e50763883373f04a8ba565913514c75aa26b9202b57903b06",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "http://23.22.58.242/static/js/progress.js",
+      "local": "static/js/progress.js",
+      "content_type": "application/javascript",
+      "bytes": 2944,
+      "sha256": "d25cd58ff14c1dcfac91070ee38137bf734dbe1a655e47d61ff19a98235489da",
+      "tipo": "js",
+      "reescrito": false
+    }
+  ],
+  "fallos": []
+}

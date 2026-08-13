@@ -1,0 +1,160 @@
+/* ============================================================
+   EDUcore - ESTILOS GLOBALES (BASE.CSS)
+   Fondo Claro / Navbar & Footer Cyber-Tech
+   ============================================================ */
+
+/* ============================================================
+   1. ESTRUCTURA GLOBAL (FONDO BLANCO & STICKY FOOTER)
+   ============================================================ */
+
+/* Elimina cualquier margen o padding por defecto del navegador */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.app-body {
+    background-color: #f8fafc; /* Fondo blanco neutro */
+    font-family: 'Inter', sans-serif;
+    color: #0f172a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Encapsulador de contenido que crece para mantener el footer al final de la pantalla */
+.app-content-wrapper {
+    flex: 1 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================================
+   2. NAVBAR CON LUCES NEÓN EN ÓRBITA (EXCLUSIVO DEL MENÚ)
+   ============================================================ */
+
+.app-navbar {
+    background: #050811 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0 !important; /* Fuerza cero espacio superior */
+    z-index: 1000;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Esferas de Luz Neón dentro del Menú */
+.nav-glow {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(40px);
+    mix-blend-mode: screen;
+}
+
+.nav-glow-blue {
+    top: -50%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.6) 0%, rgba(3, 105, 161, 0.2) 50%, transparent 70%);
+    animation: navOrbitBlue 6s ease-in-out infinite alternate;
+}
+
+.nav-glow-purple {
+    bottom: -50%;
+    right: -5%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.55) 0%, rgba(245, 158, 11, 0.2) 50%, transparent 70%);
+    animation: navOrbitPurple 7s ease-in-out infinite alternate;
+}
+
+@keyframes navOrbitBlue {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(100px, 30px) scale(1.2);
+    }
+}
+
+@keyframes navOrbitPurple {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-100px, -30px) scale(1.15);
+    }
+}
+
+/* Botón y Brand del Navbar */
+.app-brand {
+    font-size: 1.35rem;
+    letter-spacing: -0.5px;
+    color: #ffffff !important;
+    transition: transform 0.3s ease;
+}
+
+    .app-brand:hover {
+        transform: scale(1.03);
+    }
+
+.app-nav-link {
+    color: #cbd5e1 !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 7px 18px !important;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.3s ease;
+}
+
+    .app-nav-link:hover {
+        color: #ffffff !important;
+        background: rgba(56, 189, 248, 0.2);
+        border-color: rgba(56, 189, 248, 0.5);
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        transform: translateY(-1px);
+    }
+
+/* ============================================================
+   3. FOOTER ESTILO LANDING PAGE (SIEMPRE AL FINAL)
+   ============================================================ */
+
+.app-footer {
+    flex-shrink: 0; /* Evita que el footer se deforme */
+    background: #02040a; /* Mismo fondo oscuro de la Landing Page */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    font-size: 0.88rem;
+    margin-top: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* ============================================================
+   Ajuste para eliminar franjas entre Navbar y Headers de Curso
+   ============================================================ */
+
+/* Quita paddings y márgenes superiores del contenedor principal */
+.app-main {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Fuerza a que cualquier header de curso o lección pegue directo al navbar */
+.header-curso,
+.header-leccion {
+    margin-top: 0 !important;
+}

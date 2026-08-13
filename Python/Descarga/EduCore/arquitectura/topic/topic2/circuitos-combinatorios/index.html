@@ -1,0 +1,649 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Circuitos combinatorios - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 2
+                </div>
+                <h1 class="display-5 fw-bold">Circuitos combinatorios</h1>
+                <p class="lead opacity-75">Lógica digital</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 90.0%;"
+                         data-total="10"
+                         data-current="9">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 9 de 10</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Circuitos Combinatorios</h1>
+<h2>1. Introducción a los Circuitos Combinatorios</h2>
+<p>Un <strong>circuito combinatorio</strong> es un sistema digital donde las salidas dependen <strong>únicamente</strong> de las entradas actuales. No tiene memoria ni retroalimentación.</p>
+<h3>Características principales:</h3>
+<ul>
+<li>Las salidas son función de las entradas en el momento presente.</li>
+<li>No hay elementos de almacenamiento (como flip-flops).</li>
+<li>Se implementan completamente con compuertas lógicas.</li>
+</ul>
+<h3>Bloque de un Circuito Combinatorio:</h3>
+<p>Entradas (n) → [ Circuito Combinatorio ] → Salidas (m)</p>
+<hr />
+<h2>2. Procedimiento de Análisis</h2>
+<p>El análisis consiste en determinar la función que ejecuta el circuito a partir de su diagrama.</p>
+<h3>Pasos para el Análisis:</h3>
+<ol>
+<li>
+<p><strong>Identificar las compuertas</strong>: Reconocer las compuertas lógicas y cómo están conectadas.</p>
+</li>
+<li>
+<p><strong>Etiquetar las salidas intermedias</strong>: Asignar nombres (R1, R2, etc.) a las salidas de cada compuerta.</p>
+</li>
+<li>
+<p><strong>Escribir las expresiones booleanas</strong>: Obtener la expresión para cada salida intermedia en términos de las entradas.</p>
+</li>
+<li>
+<p><strong>Obtener la función de salida final</strong>: Sustituir las expresiones intermedias para obtener la función de salida final.</p>
+</li>
+<li>
+<p><strong>Crear la tabla de verdad</strong>: Evaluar la función para todas las combinaciones de entrada.</p>
+</li>
+</ol>
+<hr />
+<h2>3. Ejemplo de Análisis</h2>
+<p><strong>Circuito</strong>: Dado el siguiente diagrama, determinar la función de salida.<br />
+Entradas: X, Y, Z</p>
+<p>X ──┬── AND (R1) ──┐<br />
+│ │<br />
+Y ──┤ │<br />
+│ │<br />
+└── AND (R2) ──┼── OR (R4) ── F1<br />
+│<br />
+Z ──── OR (R3) ────┘</p>
+<p><strong>Paso 1 - Salidas intermedias</strong>:<br />
+- $R_1 = X \cdot Y$<br />
+- $R_2 = X \cdot \overline{Y}$<br />
+- $R_3 = Y + Z$</p>
+<p><strong>Paso 2 - Salida final</strong>:<br />
+$<br />
+F = R_1 + R_2 + R_3 = XY + X\overline{Y} + Y + Z<br />
+$</p>
+<p><strong>Paso 3 - Simplificación</strong>:<br />
+$<br />
+F = XY + X\overline{Y} + Y + Z<br />
+$<br />
+$<br />
+F = X(Y + \overline{Y}) + Y + Z = X + Y + Z<br />
+$</p>
+<p><strong>Tabla de Verdad</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: center;">F = X + Y + Z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Procedimiento de Diseño</h2>
+<p>El diseño de circuitos combinatorios comienza con la especificación del problema y termina con el diagrama de circuito.</p>
+<h3>Pasos para el Diseño:</h3>
+<ol>
+<li>
+<p><strong>Definir entradas y salidas</strong>: Determinar cuántas entradas y salidas se necesitan y asignar símbolos.</p>
+</li>
+<li>
+<p><strong>Crear la tabla de verdad</strong>: Definir la relación requerida entre entradas y salidas.</p>
+</li>
+<li>
+<p><strong>Simplificar las funciones booleanas</strong>: Usar álgebra booleana o mapas K.</p>
+</li>
+<li>
+<p><strong>Dibujar el diagrama lógico</strong>: Implementar con compuertas lógicas.</p>
+</li>
+</ol>
+<hr />
+<h2>5. Ejemplo de Diseño: Detector de Números Menores a 3</h2>
+<p><strong>Problema</strong>: Diseñar un circuito que determine si un número binario de 3 bits es menor que 3.</p>
+<p><strong>Especificación</strong>:<br />
+- Entradas: X, Y, Z (3 bits binarios)<br />
+- Salida: F = 1 si el número es menor que 3 (000, 001, 010)</p>
+<p><strong>Tabla de Verdad</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: center;">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Función Booleana</strong>:<br />
+$<br />
+F = \overline{X}\overline{Y}\overline{Z} + \overline{X}\overline{Y}Z + \overline{X}Y\overline{Z}<br />
+$</p>
+<p><strong>Simplificación</strong>:<br />
+$<br />
+F = \overline{X}\overline{Y}(\overline{Z} + Z) + \overline{X}Y\overline{Z}<br />
+$<br />
+$<br />
+F = \overline{X}\overline{Y} + \overline{X}Y\overline{Z}<br />
+$<br />
+$<br />
+F = \overline{X}(\overline{Y} + Y\overline{Z})<br />
+$</p>
+<p><strong>Simplificación adicional</strong>:<br />
+$<br />
+F = \overline{X}(\overline{Y} + \overline{Z})<br />
+$<br />
+(porque $\overline{Y} + Y\overline{Z} = \overline{Y} + \overline{Z}$)</p>
+<p><strong>Resultado</strong>:<br />
+$<br />
+F = \overline{X}(\overline{Y} + \overline{Z})<br />
+$</p>
+<p><strong>Circuito</strong>:<br />
+1. Compuerta NOT para X.<br />
+2. Compuerta NOT para Y.<br />
+3. Compuerta NOT para Z.<br />
+4. Compuerta OR para ($\overline{Y} + \overline{Z}$).<br />
+5. Compuerta AND para $\overline{X} \cdot (\overline{Y} + \overline{Z})$.</p>
+<hr />
+<h2>6. Circuitos Aritméticos Básicos</h2>
+<h3>6.1 Semisumador (Sumador Medio)</h3>
+<p>Suma dos bits y produce la suma y el acarreo.</p>
+<p><strong>Tabla de Verdad</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">S (Suma)</th>
+<th style="text-align: center;">C (Acarreo)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Funciones</strong>:<br />
+- $S = X \oplus Y$ (XOR)<br />
+- $C = X \cdot Y$ (AND)</p>
+<p><strong>Circuito</strong>:<br />
+X ──┬── XOR ── S<br />
+│<br />
+Y ──┼── AND ── C</p>
+<h3>6.2 Sumador Completo</h3>
+<p>Suma tres bits (dos operandos y un acarreo de entrada).</p>
+<p><strong>Tabla de Verdad</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z (Acarreo entrada)</th>
+<th style="text-align: center;">S (Suma)</th>
+<th style="text-align: center;">C (Acarreo salida)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Funciones</strong>:<br />
+- $S = X \oplus Y \oplus Z$ (XOR de tres entradas)<br />
+- $C = XY + XZ + YZ$ (Mayoría de tres entradas)</p>
+<h3>6.3 Sumador Paralelo de 4 bits</h3>
+<p>Se construye conectando 4 sumadores completos en cascada. El acarreo de salida de uno va al acarreo de entrada del siguiente.</p>
+<hr />
+<h2>7. Decodificadores</h2>
+<p>Un <strong>decodificador</strong> convierte n bits de entrada en 2^n salidas únicas.</p>
+<h3>Decodificador 3x8</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Entradas (A2 A1 A0)</th>
+<th style="text-align: center;">Salida activa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">000</td>
+<td style="text-align: center;">S0 = 1</td>
+</tr>
+<tr>
+<td style="text-align: center;">001</td>
+<td style="text-align: center;">S1 = 1</td>
+</tr>
+<tr>
+<td style="text-align: center;">010</td>
+<td style="text-align: center;">S2 = 1</td>
+</tr>
+<tr>
+<td style="text-align: center;">011</td>
+<td style="text-align: center;">S3 = 1</td>
+</tr>
+<tr>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">S4 = 1</td>
+</tr>
+<tr>
+<td style="text-align: center;">101</td>
+<td style="text-align: center;">S5 = 1</td>
+</tr>
+<tr>
+<td style="text-align: center;">110</td>
+<td style="text-align: center;">S6 = 1</td>
+</tr>
+<tr>
+<td style="text-align: center;">111</td>
+<td style="text-align: center;">S7 = 1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aplicación</strong>: Selección de filas en una memoria.</p>
+<hr />
+<h2>8. Multiplexores (MUX)</h2>
+<p>Un <strong>multiplexor</strong> selecciona una de varias entradas y la pasa a la salida.</p>
+<h3>MUX 4x1</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Selección (S1 S0)</th>
+<th style="text-align: center;">Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">I0</td>
+</tr>
+<tr>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">I1</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">I2</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">I3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aplicación</strong>: Enrutamiento de datos, implementación de funciones booleanas.</p>
+<hr />
+<h2>9. Ejercicios de Práctica</h2>
+<ol>
+<li>
+<p>Diseña un circuito para una función de mayoría de 3 entradas.</p>
+</li>
+<li>
+<p>Convierte el circuito del detector de números menores a 3 a un circuito que use un multiplexor.</p>
+</li>
+<li>
+<p>Diseña un circuito restador de 2 bits (usa complementos).</p>
+</li>
+<li>
+<p>Implementa un decodificador 2x4 usando solo compuertas NAND.</p>
+</li>
+</ol>
+<hr />
+<h1>Referencias Bibliográficas</h1>
+<p>[1] M. Morris Mano. <em>Ingeniería computacional, diseño del hardware</em>. Colleen Brosnan. 1991.</p>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../identidades-xor/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../circuitos-secuenciales/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

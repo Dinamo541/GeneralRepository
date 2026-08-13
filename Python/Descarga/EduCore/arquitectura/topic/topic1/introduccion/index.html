@@ -1,0 +1,1606 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - El Espectro Electromagnético y las Señales - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">El Espectro Electromagnético y las Señales</h1>
+                <p class="lead opacity-75">Representación interna de los datos</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 20.0%;"
+                         data-total="5"
+                         data-current="1">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 1 de 5</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Introducción a las Señales y la Representación de Datos</h1>
+<h2>1. El Espectro Electromagnético</h2>
+<p>El espectro electromagnético es el conjunto de todas las longitudes de onda de las radiaciones electromagnéticas. Desde ondas de radio de baja frecuencia hasta rayos gamma de alta frecuencia, los dispositivos tecnológicos utilizan diferentes bandas de este espectro para transmitir información.</p>
+<blockquote>
+<p><strong>Analogía</strong>: Imagina que el espectro electromagnético es una autopista. Los vehículos (datos) viajan por diferentes carriles (frecuencias) a diferentes velocidades.</p>
+</blockquote>
+<style>
+   /* ============================================================
+   ESTILOS GLOBALES - TODOS LOS COMPONENTES UNIFICADOS
+   Tema oscuro consistente para toda la página
+   ============================================================ */
+
+    :root {
+        /* === PALETA PRINCIPAL === */
+        --bg-primary: #0a0e17;
+        --bg-secondary: #111827;
+        --bg-card: #1a2332;
+        --bg-card-hover: #1f2a3d;
+        --bg-canvas: #060a12;
+        --bg-input: #0d1520;
+
+        /* === BORDES === */
+        --border-color: #2a3a55;
+        --border-light: #1a2a3f;
+        --border-glow: rgba(79, 193, 255, 0.15);
+
+        /* === TEXTOS === */
+        --text-primary: #e8edf5;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --text-dim: #3b4a6a;
+
+        /* === COLORES DE SEÑAL === */
+        --signal-analog: #60a5fa;
+        --signal-digital: #fbbf24;
+        --signal-person: #f87171;
+        --signal-success: #34d399;
+        --signal-error: #f87171;
+        --signal-warning: #fbbf24;
+
+        /* === ACCENTOS === */
+        --accent-cyan: #22d3ee;
+        --accent-blue: #3b82f6;
+        --accent-purple: #8b5cf6;
+        --accent-pink: #ec4899;
+
+        /* === SOMBRAS === */
+        --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+        --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.05);
+        --shadow-input: 0 0 20px rgba(59, 130, 246, 0.1);
+
+        /* === RADIOS === */
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --radius-sm: 8px;
+        --radius-xs: 6px;
+
+        /* === TIPOGRAFÍA === */
+        --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+        /* === ESPACIADOS === */
+        --spacing-xs: 4px;
+        --spacing-sm: 8px;
+        --spacing-md: 16px;
+        --spacing-lg: 24px;
+        --spacing-xl: 32px;
+    }
+
+    /* ============================================================
+       BASE - RESET Y TIPOGRAFÍA
+       ============================================================ */
+
+    .signal-container {
+        font-family: var(--font-family);
+        color: var(--text-primary);
+        line-height: 1.6;
+    }
+
+    /* Todos los contenedores comparten el mismo estilo de tarjeta */
+    .signal-container .card,
+    .spec-container,
+    .wave-container,
+    .adc-container,
+    .digi-container,
+    .sample-container {
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-xl);
+        margin: var(--spacing-lg) 0;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-card), var(--shadow-glow);
+        transition: border-color 0.3s ease;
+    }
+
+    .signal-container .card:hover,
+    .spec-container:hover,
+    .wave-container:hover,
+    .adc-container:hover,
+    .digi-container:hover,
+    .sample-container:hover {
+        border-color: var(--border-glow);
+    }
+
+    /* Títulos unificados */
+    .signal-container .card-title,
+    .spec-container h4,
+    .wave-container h4,
+    .adc-container h1,
+    .digi-container h3,
+    .sample-container h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0 0 var(--spacing-xs) 0;
+        color: var(--text-primary);
+        letter-spacing: -0.01em;
+    }
+
+    .signal-container .card-subtitle,
+    .spec-container .sub,
+    .wave-container .sub,
+    .adc-container .adc-subtitle,
+    .digi-container .digi-sub,
+    .sample-container .sub {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-lg);
+        font-weight: 400;
+    }
+
+    /* === CONTROLES UNIFICADOS === */
+
+    /* Sliders */
+    .signal-container input[type="range"] {
+        width: 100%;
+        height: 4px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: var(--bg-input);
+        border-radius: 2px;
+        outline: none;
+        margin: var(--spacing-sm) 0;
+        border: 1px solid var(--border-light);
+        transition: border-color 0.3s ease;
+    }
+
+    .signal-container input[type="range"]:hover {
+        border-color: var(--accent-blue);
+    }
+
+    .signal-container input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, var(--accent-cyan), var(--accent-blue));
+        cursor: pointer;
+        border: 2px solid var(--bg-card);
+        box-shadow: 0 0 16px rgba(59, 130, 246, 0.3);
+        transition: transform 0.2s ease;
+    }
+
+    .signal-container input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.15);
+    }
+
+    .signal-container input[type="range"]::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, var(--accent-cyan), var(--accent-blue));
+        cursor: pointer;
+        border: 2px solid var(--bg-card);
+    }
+
+    /* Labels de controles */
+    .signal-container .control-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+    }
+
+    .signal-container .control-label .value {
+        color: var(--accent-cyan);
+        font-weight: 600;
+        font-family: var(--font-mono);
+    }
+
+    /* Botones unificados */
+    .signal-container .btn {
+        background: var(--bg-input);
+        border: 1px solid var(--border-light);
+        color: var(--text-secondary);
+        padding: 6px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-family: inherit;
+        transition: all 0.25s ease;
+        font-weight: 500;
+    }
+
+    .signal-container .btn:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--accent-blue);
+        color: var(--text-primary);
+    }
+
+    .signal-container .btn.active {
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+        color: white;
+        border-color: transparent;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+    }
+
+    .signal-container .btn.active:hover {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+        transform: translateY(-1px);
+    }
+
+    /* === PANELES DE INFORMACIÓN UNIFICADOS === */
+    .signal-container .info-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-lg);
+        background: var(--bg-secondary);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    .signal-container .info-item {
+        flex: 1;
+        min-width: 100px;
+        text-align: center;
+    }
+
+    .signal-container .info-item .label {
+        font-size: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        font-weight: 600;
+    }
+
+    .signal-container .info-item .value {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-family: var(--font-mono);
+    }
+
+    .signal-container .info-item .value.highlight {
+        color: var(--signal-digital);
+    }
+
+    .signal-container .info-item .value.success {
+        color: var(--signal-success);
+    }
+
+    .signal-container .info-item .value.error {
+        color: var(--signal-error);
+    }
+
+    .signal-container .badge {
+        display: inline-block;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.15);
+        border-radius: 20px;
+        padding: 2px 12px;
+        font-size: 0.65rem;
+        color: var(--text-secondary);
+        margin-top: 2px;
+        font-weight: 500;
+    }
+
+    /* === LEYENDAS UNIFICADAS === */
+    .signal-container .legend {
+        display: flex;
+        gap: var(--spacing-md);
+        justify-content: center;
+        margin-top: var(--spacing-sm);
+        flex-wrap: wrap;
+    }
+
+    .signal-container .legend-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+    }
+
+    .signal-container .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    /* === FOOTER UNIFICADO === */
+    .signal-container .footer-note {
+        text-align: center;
+        margin-top: var(--spacing-md);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--border-light);
+        color: var(--text-muted);
+        font-size: 0.7rem;
+    }
+
+    /* === CANVAS UNIFICADOS === */
+    .signal-container canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: var(--bg-canvas);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    .signal-container .canvas-wrapper {
+        background: var(--bg-canvas);
+        border-radius: var(--radius-sm);
+        padding: var(--spacing-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    /* === GRID DE CONTROLES === */
+    .signal-container .controls-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+        align-items: center;
+    }
+
+    .signal-container .controls-grid .control-group {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .signal-container .controls-grid .btn-group {
+        display: flex;
+        gap: var(--spacing-xs);
+        flex-wrap: wrap;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 640px) {
+        .signal-container .card,
+        .spec-container,
+        .wave-container,
+        .adc-container,
+        .digi-container,
+        .sample-container {
+            padding: var(--spacing-md);
+        }
+
+        .signal-container .info-grid {
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .signal-container .controls-grid {
+            flex-direction: column;
+        }
+
+        .signal-container .controls-grid .control-group {
+            width: 100%;
+        }
+    }
+
+    /* ============================================================
+       COMPONENTE: Espectro Electromagnético (.spec-)
+       ============================================================ */
+
+    .spec-container .spec-bar {
+        display: flex;
+        height: 56px;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid var(--border-light);
+    }
+
+    .spec-container .spec-band {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        color: white;
+        font-weight: 600;
+        font-size: 0.7rem;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+        flex: 1;
+        position: relative;
+    }
+
+    .spec-container .spec-band:hover {
+        transform: scale(1.04);
+        z-index: 2;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .spec-container .spec-band.active {
+        transform: scale(1.06);
+        z-index: 3;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        outline: 2px solid var(--accent-cyan);
+    }
+
+    .spec-container .spec-info {
+        margin-top: var(--spacing-md);
+        padding: var(--spacing-md);
+        background: var(--bg-secondary);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+    }
+
+    .spec-container .spec-info p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+
+    .spec-container .spec-info strong {
+        color: var(--text-primary);
+    }
+
+    .spec-container .spec-info .ejemplo {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: var(--spacing-xs);
+    }
+
+    /* ============================================================
+       COMPONENTE: Visualizador de Ondas (.wave-)
+       ============================================================ */
+
+    .wave-container .wave-controls {
+        display: flex;
+        gap: var(--spacing-lg);
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .wave-container .wave-control {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .wave-container .wave-canvas-wrapper {
+        flex: 2;
+        min-width: 250px;
+    }
+
+    /* ============================================================
+       COMPONENTE: ADC Rampa vs Escalera (.adc-)
+       ============================================================ */
+
+    .adc-container .adc-canvas-wrapper canvas {
+        cursor: pointer;
+        touch-action: none;
+    }
+
+    .adc-container .adc-bit-controls .btn {
+        min-width: 60px;
+        text-align: center;
+    }
+
+    /* ============================================================
+       COMPONENTE: Señal Digital (.digi-)
+       ============================================================ */
+
+    .digi-container .digi-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md) var(--spacing-xl);
+        margin-top: var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-md);
+        background: var(--bg-secondary);
+        border-radius: var(--radius-sm);
+        border-left: 3px solid var(--signal-digital);
+        font-size: 0.85rem;
+    }
+
+    .digi-container .digi-stats span {
+        color: var(--text-secondary);
+    }
+
+    .digi-container .digi-stats strong {
+        color: var(--text-primary);
+        font-family: var(--font-mono);
+    }
+
+    .digi-container .digi-stats .val {
+        color: var(--signal-digital);
+    }
+
+    /* ============================================================
+       COMPONENTE: Simulador ADC (.sample-)
+       ============================================================ */
+
+    .sample-container .sample-controls {
+        display: flex;
+        gap: var(--spacing-lg);
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .sample-container .sample-control {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .sample-container .sample-note {
+        display: block;
+        margin-top: var(--spacing-sm);
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        text-align: center;
+    }
+</style>
+
+<div class="signal-container">
+    <div class="spec-container">
+        <h4 class="card-title">🌐 Espectro Electromagnético</h4>
+        <p class="card-subtitle">Las diferentes bandas del espectro y sus aplicaciones</p>
+
+        <div class="spec-bar" id="spectrumBar">
+            <div class="spec-band" data-band="radio" style="background:#ef4444;">Radio</div>
+            <div class="spec-band" data-band="microondas" style="background:#f59e0b;">Microondas</div>
+            <div class="spec-band" data-band="infrarrojo" style="background:#f97316;">Infrarrojo</div>
+            <div class="spec-band" data-band="visible" style="background:#eab308;">Visible</div>
+            <div class="spec-band" data-band="uv" style="background:#3b82f6;">UV</div>
+            <div class="spec-band" data-band="rayosx" style="background:#8b5cf6;">Rayos X</div>
+            <div class="spec-band" data-band="gamma" style="background:#7c3aed;">Gamma</div>
+        </div>
+
+        <div class="spec-info" id="spectrumInfo">
+            <p><strong>Selecciona una banda</strong> para ver más información</p>
+        </div>
+
+        <script>
+            (function() {
+                const spectrumData = {
+                    radio: { nombre: 'Radio', descripcion: 'Ondas de radio (3 Hz - 300 GHz)', ejemplos: '📻 Radio FM/AM, 📡 Televisión, 📶 WiFi, 📱 Bluetooth' },
+                    microondas: { nombre: 'Microondas', descripcion: 'Microondas (300 MHz - 300 GHz)', ejemplos: '🍕 Hornos microondas, 📡 Radar, 📶 Comunicaciones satelitales' },
+                    infrarrojo: { nombre: 'Infrarrojo', descripcion: 'Infrarrojo (300 GHz - 400 THz)', ejemplos: '🎮 Controles remotos, 🔥 Cámaras térmicas, 🌡️ Sensores de movimiento' },
+                    visible: { nombre: 'Luz visible', descripcion: 'Luz visible (400 THz - 790 THz)', ejemplos: '👁️ Lo que vemos, 🌈 Arcoíris, 💡 Iluminación LED' },
+                    uv: { nombre: 'Ultravioleta', descripcion: 'Ultravioleta (790 THz - 30 PHz)', ejemplos: '☀️ Rayos solares, 💡 Lámparas UV, 🦠 Esterilización' },
+                    rayosx: { nombre: 'Rayos X', descripcion: 'Rayos X (30 PHz - 30 EHz)', ejemplos: '🏥 Radiografías, 🔬 Tomografías, 🛃 Escáneres de aeropuerto' },
+                    gamma: { nombre: 'Rayos Gamma', descripcion: 'Rayos Gamma (> 30 EHz)', ejemplos: '☢️ Radioterapia, 🔭 Astronomía, 🧪 Medicina nuclear' }
+                };
+
+                document.querySelectorAll('.spec-band').forEach(function(band) {
+                    band.addEventListener('click', function() {
+                        document.querySelectorAll('.spec-band').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        const data = spectrumData[this.dataset.band];
+                        const info = document.getElementById('spectrumInfo');
+                        if (data) {
+                            info.innerHTML = `
+                                <p><strong>${data.nombre}</strong> — ${data.descripcion}</p>
+                                <p class="ejemplo">${data.ejemplos}</p>
+                            `;
+                        }
+                    });
+                });
+            })();
+        </script>
+    </div>
+</div>
+
+<hr />
+<h2>2. ¿Qué es una Señal?</h2>
+<p>Una <strong>señal</strong> se define como cualquier magnitud física que varía con el tiempo, el espacio o cualquier otra variable independiente. En el contexto de la computación, las señales son la representación física de los datos que viajan a través de los circuitos.</p>
+<p>Existen dos tipos principales de señales:</p>
+<ol>
+<li><strong>Señales Analógicas</strong>: Son ondas continuas que varían suavemente en el tiempo.</li>
+<li><strong>Señales Digitales</strong>: Son ondas discretas que toman valores específicos (generalmente dos: 0 y 1).</li>
+</ol>
+<hr />
+<h2>3. Señales Analógicas</h2>
+<p>Las señales analógicas son ondas <strong>continuas</strong> y <strong>periódicas</strong>. La señal más común en este grupo es la onda senoidal.</p>
+<h3>Características de una Onda Analógica</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parámetro</th>
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Unidad de Medida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Amplitud</strong></td>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">Altura o profundidad de la onda. Indica la intensidad de la señal.</td>
+<td style="text-align: left;">Voltios (V)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Periodo</strong></td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">Tiempo necesario para completar un ciclo completo de la onda.</td>
+<td style="text-align: left;">Segundos (s)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frecuencia</strong></td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">Número de ciclos que ocurren en un segundo. Es la inversa del periodo (F = 1/T).</td>
+<td style="text-align: left;">Hertz (Hz)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplos de Señales Analógicas:</strong><br />
+- La voz humana (cuando hablamos generamos ondas de presión en el aire).<br />
+- Las ondas de radio.<br />
+- La señal de un micrófono.</p>
+<div class="signal-container">
+    <div class="wave-container">
+        <h4 class="card-title">📈 Visualizador de Ondas Analógicas</h4>
+        <p class="card-subtitle">Ajusta amplitud y frecuencia para ver cómo cambia la señal</p>
+
+        <div class="wave-controls">
+            <div class="wave-control">
+                <label class="control-label">Amplitud <span class="value" id="waveAmpValue">1.0</span></label>
+                <input type="range" id="waveAmplitudeSlider" min="0.1" max="2" step="0.1" value="1">
+            </div>
+            <div class="wave-control">
+                <label class="control-label">Frecuencia <span class="value" id="waveFreqValue">1.0</span></label>
+                <input type="range" id="waveFrequencySlider" min="0.5" max="4" step="0.1" value="1">
+            </div>
+            <div class="wave-canvas-wrapper">
+                <canvas id="waveCanvas" width="500" height="200"></canvas>
+            </div>
+        </div>
+
+        <script>
+            (function() {
+                const canvas = document.getElementById('waveCanvas');
+                const ctx = canvas.getContext('2d');
+                const w = canvas.width, h = canvas.height;
+
+                function drawWave(amplitude, frequency) {
+                    ctx.clearRect(0, 0, w, h);
+                    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(0, h/2);
+                    ctx.lineTo(w, h/2);
+                    ctx.stroke();
+
+                    ctx.strokeStyle = '#60a5fa';
+                    ctx.lineWidth = 2.5;
+                    ctx.shadowColor = 'rgba(96, 165, 250, 0.3)';
+                    ctx.shadowBlur = 12;
+                    ctx.beginPath();
+                    const points = 300;
+                    const centerY = h / 2;
+                    for (let i = 0; i <= points; i++) {
+                        const x = (i / points) * w;
+                        const y = centerY - (amplitude * 60) * Math.sin((i / points) * frequency * 4 * Math.PI);
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+                }
+
+                const ampSlider = document.getElementById('waveAmplitudeSlider');
+                const freqSlider = document.getElementById('waveFrequencySlider');
+                const ampValue = document.getElementById('waveAmpValue');
+                const freqValue = document.getElementById('waveFreqValue');
+
+                function updateWave() {
+                    const amp = parseFloat(ampSlider.value);
+                    const freq = parseFloat(freqSlider.value);
+                    ampValue.textContent = amp.toFixed(1);
+                    freqValue.textContent = freq.toFixed(1);
+                    drawWave(amp, freq);
+                }
+
+                ampSlider.addEventListener('input', updateWave);
+                freqSlider.addEventListener('input', updateWave);
+                updateWave();
+            })();
+        </script>
+    </div>
+</div>
+
+<blockquote>
+<p><strong>Nota</strong>: En las señales analógicas, la amplitud y la frecuencia pueden variar de forma infinita, lo que permite una representación muy fiel de la información original, pero son susceptibles al ruido y la interferencia.</p>
+</blockquote>
+<hr />
+<h2>4. Señales Digitales</h2>
+<p>Las señales digitales son ondas <strong>cuadradas</strong> que no son continuas en el tiempo. Toman únicamente dos valores discretos (niveles de voltaje), que representan los estados lógicos <strong>0</strong> y <strong>1</strong>.</p>
+<h3>Características de una Señal Digital</h3>
+<ul>
+<li>Son periódicas pero discretas.</li>
+<li>Utilizan niveles de voltaje específicos (ej. 0V para 0 lógico y 5V para 1 lógico).</li>
+<li>Son más resistentes al ruido que las analógicas.</li>
+</ul>
+<div class="signal-container">
+    <div class="digi-container">
+        <h4 class="card-title">🔲 Visualizador de Señal Digital</h4>
+        <p class="card-subtitle">Onda cuadrada con parámetros ajustables en tiempo real</p>
+
+        <div class="canvas-wrapper digi-canvas-wrap">
+            <canvas id="digitalCanvas" width="800" height="280"></canvas>
+        </div>
+
+        <div class="controls-grid">
+            <div class="control-group">
+                <label class="control-label">Periodo <span class="value" id="digiPeriodLabel">8</span></label>
+                <input type="range" id="digiPeriodSlider" min="2" max="20" step="0.5" value="8">
+            </div>
+            <div class="control-group">
+                <label class="control-label">Duty Cycle (%) <span class="value" id="digiDutyLabel">50</span></label>
+                <input type="range" id="digiDutySlider" min="5" max="95" step="1" value="50">
+            </div>
+            <div class="control-group">
+                <label class="control-label">Amplitud (V) <span class="value" id="digiAmpLabel">5.0</span></label>
+                <input type="range" id="digiAmpSlider" min="1" max="10" step="0.5" value="5">
+            </div>
+            <div class="control-group">
+                <label class="control-label">Offset (V) <span class="value" id="digiOffsetLabel">0.0</span></label>
+                <input type="range" id="digiOffsetSlider" min="-2" max="2" step="0.5" value="0">
+            </div>
+        </div>
+
+        <div class="digi-stats">
+            <span>⏱️ Periodo: <strong id="digiStatPeriod">8</strong> unidades</span>
+            <span>📊 Duty Cycle: <strong id="digiStatDuty">50</strong>%</span>
+            <span>🔺 V<sub>HIGH</sub>: <strong class="val" id="digiStatVhigh">5.0</strong> V</span>
+            <span>🔻 V<sub>LOW</sub>: <strong class="val" id="digiStatVlow">0.0</strong> V</span>
+            <span>⚡ Frecuencia: <strong id="digiStatFreq">0.125</strong> Hz</span>
+        </div>
+
+        <div class="footer-note">🖱️ Arrastra los sliders para modificar la señal · La onda digital solo toma valores HIGH o LOW</div>
+
+        <script>
+            (function() {
+                const container = document.querySelector('.digi-container');
+                const canvas = container.querySelector('#digitalCanvas');
+                const ctx = canvas.getContext('2d');
+
+                const W = 800, H = 280;
+                canvas.width = W;
+                canvas.height = H;
+
+                const MARGIN = { top: 30, bottom: 30, left: 50, right: 20 };
+                const chartW = W - MARGIN.left - MARGIN.right;
+                const chartH = H - MARGIN.top - MARGIN.bottom;
+
+                let period = 8, duty = 50, amplitude = 5, offset = 0;
+
+                const periodSlider = container.querySelector('#digiPeriodSlider');
+                const dutySlider = container.querySelector('#digiDutySlider');
+                const ampSlider = container.querySelector('#digiAmpSlider');
+                const offsetSlider = container.querySelector('#digiOffsetSlider');
+
+                const periodLabel = container.querySelector('#digiPeriodLabel');
+                const dutyLabel = container.querySelector('#digiDutyLabel');
+                const ampLabel = container.querySelector('#digiAmpLabel');
+                const offsetLabel = container.querySelector('#digiOffsetLabel');
+
+                const statPeriod = container.querySelector('#digiStatPeriod');
+                const statDuty = container.querySelector('#digiStatDuty');
+                const statVhigh = container.querySelector('#digiStatVhigh');
+                const statVlow = container.querySelector('#digiStatVlow');
+                const statFreq = container.querySelector('#digiStatFreq');
+
+                function draw() {
+                    ctx.clearRect(0, 0, W, H);
+
+                    // Eje
+                    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(MARGIN.left, MARGIN.top + chartH/2);
+                    ctx.lineTo(W - MARGIN.right, MARGIN.top + chartH/2);
+                    ctx.stroke();
+
+                    // Rejilla
+                    ctx.fillStyle = '#3a4a6a';
+                    ctx.font = '9px sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    for (let i = 0; i <= 10; i++) {
+                        const x = MARGIN.left + (i / 10) * chartW;
+                        ctx.fillStyle = 'rgba(255,255,255,0.03)';
+                        ctx.fillRect(x, MARGIN.top, 1, chartH);
+                        ctx.fillStyle = '#3a4a6a';
+                        ctx.font = '8px sans-serif';
+                        ctx.textBaseline = 'top';
+                        ctx.fillText((i * period / 2).toFixed(1), x - 6, MARGIN.top + chartH + 2);
+                    }
+
+                    const vHigh = amplitude + offset;
+                    const vLow = offset;
+                    ctx.fillStyle = '#3a4a6a';
+                    ctx.font = '8px sans-serif';
+                    ctx.textAlign = 'right';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(vHigh.toFixed(1) + 'V', MARGIN.left - 8, MARGIN.top + 6);
+                    ctx.fillText(vLow.toFixed(1) + 'V', MARGIN.left - 8, MARGIN.top + chartH - 2);
+
+                    // Señal
+                    const steps = 400;
+                    const highY = MARGIN.top + chartH - ((vHigh - vLow) / (amplitude * 2 + 0.01)) * chartH * 0.45;
+                    const lowY = MARGIN.top + chartH - ((vLow - vLow) / (amplitude * 2 + 0.01)) * chartH * 0.45 + chartH * 0.45;
+
+                    ctx.strokeStyle = '#fbbf24';
+                    ctx.lineWidth = 2.5;
+                    ctx.shadowColor = 'rgba(251, 191, 36, 0.25)';
+                    ctx.shadowBlur = 12;
+                    ctx.beginPath();
+
+                    for (let i = 0; i <= steps; i++) {
+                        const t = (i / steps) * period * 2;
+                        const phase = t % period;
+                        const isHigh = phase < (duty / 100) * period;
+                        const y = isHigh ? highY : lowY;
+                        const x = MARGIN.left + (t / (period * 2)) * chartW;
+
+                        if (i === 0) {
+                            ctx.moveTo(x, y);
+                        } else {
+                            const prevPhase = ((i - 1) / steps) * period * 2 % period;
+                            const prevIsHigh = prevPhase < (duty / 100) * period;
+                            if (isHigh !== prevIsHigh) {
+                                const prevX = MARGIN.left + (((i - 1) / steps) * period * 2 / (period * 2)) * chartW;
+                                ctx.lineTo(prevX, y);
+                                ctx.moveTo(x, y);
+                            }
+                            ctx.lineTo(x, y);
+                        }
+                    }
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+
+                    // Etiquetas
+                    ctx.font = '10px sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'bottom';
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.fillText('HIGH (' + vHigh.toFixed(1) + 'V)', MARGIN.left + 8, highY - 4);
+                    ctx.fillStyle = '#64748b';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('LOW (' + vLow.toFixed(1) + 'V)', MARGIN.left + 8, lowY + 4);
+
+                    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+                    ctx.font = '10px monospace';
+                    ctx.textAlign = 'right';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('T = ' + period.toFixed(1) + '  |  DC = ' + duty + '%', W - MARGIN.right, MARGIN.top + 4);
+
+                    // Stats
+                    const freq = 1 / period;
+                    statPeriod.textContent = period.toFixed(1);
+                    statDuty.textContent = duty;
+                    statVhigh.textContent = vHigh.toFixed(1);
+                    statVlow.textContent = vLow.toFixed(1);
+                    statFreq.textContent = freq.toFixed(3);
+                }
+
+                function updateAll() {
+                    period = parseFloat(periodSlider.value);
+                    duty = parseFloat(dutySlider.value);
+                    amplitude = parseFloat(ampSlider.value);
+                    offset = parseFloat(offsetSlider.value);
+
+                    periodLabel.textContent = period.toFixed(1);
+                    dutyLabel.textContent = duty;
+                    ampLabel.textContent = amplitude.toFixed(1);
+                    offsetLabel.textContent = offset.toFixed(1);
+
+                    draw();
+                }
+
+                periodSlider.addEventListener('input', updateAll);
+                dutySlider.addEventListener('input', updateAll);
+                ampSlider.addEventListener('input', updateAll);
+                offsetSlider.addEventListener('input', updateAll);
+
+                updateAll();
+            })();
+        </script>
+    </div>
+</div>
+
+<p><strong>Analogía de la Rampa vs. la Escalera:</strong></p>
+<ul>
+<li><strong>Señal Analógica (Rampa)</strong>: Una persona puede posicionarse en <em>cualquier</em> punto de la rampa. Hay infinitas posiciones.</li>
+<li><strong>Señal Digital (Escalera)</strong>: Una persona solo puede posicionarse en los <em>peldaños</em> específicos. Las posiciones son finitas y definidas.</li>
+</ul>
+<div class="signal-container">
+    <div class="adc-container">
+        <h4 class="card-title">⚡ ADC: Rampa vs. Escalera</h4>
+        <p class="card-subtitle">Conversión Analógico-Digital · Cuantización</p>
+
+        <div class="canvas-wrapper adc-canvas-wrapper">
+            <canvas id="adcCanvas" width="800" height="400"></canvas>
+        </div>
+
+        <div class="legend">
+            <span class="legend-item">
+                <span class="legend-dot" style="background:linear-gradient(135deg, #60a5fa, #3b82f6);"></span>
+                Señal Analógica (Rampa)
+            </span>
+            <span class="legend-item">
+                <span class="legend-dot" style="background:linear-gradient(135deg, #fbbf24, #f59e0b);"></span>
+                Señal Digital (Escalera)
+            </span>
+            <span class="legend-item">
+                <span class="legend-dot" style="background:#f87171; border:2px solid #f87171; box-shadow:0 0 12px rgba(248,113,113,0.4);"></span>
+                Posición de la persona
+            </span>
+        </div>
+
+        <div class="controls-grid">
+            <div class="control-group">
+                <label class="control-label">
+                    <span>📊 Posición en la rampa</span>
+                    <span class="value" id="adcPositionLabel">50%</span>
+                </label>
+                <input type="range" id="adcPositionSlider" min="0" max="100" value="50">
+            </div>
+            <div class="control-group">
+                <div class="btn-group adc-bit-controls">
+                    <button class="btn" data-bits="2">2 bits</button>
+                    <button class="btn active" data-bits="3">3 bits</button>
+                    <button class="btn" data-bits="4">4 bits</button>
+                    <button class="btn" data-bits="5">5 bits</button>
+                    <button class="btn" data-bits="8">8 bits</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="label">Niveles de cuantización</div>
+                <div class="value highlight" id="adcLevels">8</div>
+                <div class="badge">🎯 Peldaños</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Valor analógico</div>
+                <div class="value" id="adcAnalog">2.50 V</div>
+                <div class="badge">📈 En la rampa</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Valor digital</div>
+                <div class="value highlight" id="adcDigital">100</div>
+                <div class="badge">🔢 Peldaño asignado</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Error de cuantización</div>
+                <div class="value error" id="adcError">0.25 V</div>
+                <div class="badge">📏 Resolución: <span id="adcResolution">0.71 V</span></div>
+            </div>
+        </div>
+
+        <div class="footer-note">💡 Haz clic en el gráfico para mover la persona · La escalera muestra los peldaños disponibles</div>
+
+        <script>
+            (function() {
+                const container = document.querySelector('.adc-container');
+                const canvas = container.querySelector('#adcCanvas');
+                const ctx = canvas.getContext('2d');
+
+                const W = 800, H = 400;
+                canvas.width = W;
+                canvas.height = H;
+
+                const MARGIN = { top: 40, bottom: 40, left: 60, right: 30 };
+                const chartW = W - MARGIN.left - MARGIN.right;
+                const chartH = H - MARGIN.top - MARGIN.bottom;
+                const bottomY = H - MARGIN.bottom;
+
+                let bits = 3;
+                let positionPercent = 50;
+
+                const positionSlider = container.querySelector('#adcPositionSlider');
+                const positionLabel = container.querySelector('#adcPositionLabel');
+                const levelsValue = container.querySelector('#adcLevels');
+                const analogValue = container.querySelector('#adcAnalog');
+                const digitalValue = container.querySelector('#adcDigital');
+                const errorValue = container.querySelector('#adcError');
+                const resolutionValue = container.querySelector('#adcResolution');
+
+                function getLevels() { return Math.pow(2, bits); }
+
+                function getDigitalCode(percent) {
+                    const levels = getLevels();
+                    const step = 100 / levels;
+                    let p = Math.max(0, Math.min(100, percent));
+                    let code = Math.floor(p / step);
+                    if (code >= levels) code = levels - 1;
+                    return code;
+                }
+
+                function getQuantizedPercent(code) {
+                    const levels = getLevels();
+                    const step = 100 / levels;
+                    return (code + 0.5) * step;
+                }
+
+                function getAnalogVoltage(percent) {
+                    return (percent / 100) * 5;
+                }
+
+                function draw() {
+                    ctx.clearRect(0, 0, W, H);
+                    const levels = getLevels();
+                    const code = getDigitalCode(positionPercent);
+                    const quantPercent = getQuantizedPercent(code);
+                    const analogVolt = getAnalogVoltage(positionPercent);
+                    const quantVolt = getAnalogVoltage(quantPercent);
+
+                    // Fondo
+                    const grad = ctx.createLinearGradient(0, MARGIN.top, 0, bottomY);
+                    grad.addColorStop(0, 'rgba(96, 165, 250, 0.03)');
+                    grad.addColorStop(1, 'rgba(251, 191, 36, 0.03)');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(MARGIN.left, MARGIN.top, chartW, chartH);
+
+                    // Rejilla
+                    ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([3, 5]);
+                    for (let v = 0; v <= 5; v += 0.5) {
+                        const y = bottomY - (v / 5) * chartH;
+                        ctx.beginPath();
+                        ctx.moveTo(MARGIN.left, y);
+                        ctx.lineTo(W - MARGIN.right, y);
+                        ctx.stroke();
+                        ctx.fillStyle = '#4a5a7a';
+                        ctx.font = '9px sans-serif';
+                        ctx.textAlign = 'right';
+                        ctx.fillText(v.toFixed(1) + 'V', MARGIN.left - 8, y + 3);
+                    }
+                    ctx.setLineDash([]);
+
+                    // Rampa
+                    ctx.beginPath();
+                    ctx.strokeStyle = '#60a5fa';
+                    ctx.lineWidth = 2.5;
+                    ctx.shadowColor = 'rgba(96, 165, 250, 0.3)';
+                    ctx.shadowBlur = 12;
+                    ctx.moveTo(MARGIN.left, bottomY);
+                    ctx.lineTo(W - MARGIN.right, MARGIN.top);
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+
+                    // Escalera
+                    ctx.strokeStyle = '#fbbf24';
+                    ctx.lineWidth = 3;
+                    ctx.shadowColor = 'rgba(251, 191, 36, 0.3)';
+                    ctx.shadowBlur = 8;
+                    for (let i = 0; i < levels; i++) {
+                        const x1 = MARGIN.left + (i / levels) * chartW;
+                        const x2 = MARGIN.left + ((i + 1) / levels) * chartW;
+                        const y = bottomY - ((i + 0.5) / levels) * chartH;
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y);
+                        ctx.lineTo(x2, y);
+                        ctx.stroke();
+                        ctx.strokeStyle = 'rgba(251, 191, 36, 0.15)';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(x1, bottomY - (i / levels) * chartH);
+                        ctx.lineTo(x1, bottomY - ((i + 1) / levels) * chartH);
+                        ctx.stroke();
+                        ctx.strokeStyle = '#fbbf24';
+                        ctx.lineWidth = 3;
+                    }
+                    ctx.strokeStyle = 'rgba(251, 191, 36, 0.15)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(MARGIN.left + chartW, bottomY);
+                    ctx.lineTo(MARGIN.left + chartW, MARGIN.top);
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+
+                    // Peldaños sombreados + etiquetas
+                    for (let i = 0; i < levels; i++) {
+                        const x1 = MARGIN.left + (i / levels) * chartW;
+                        const x2 = MARGIN.left + ((i + 1) / levels) * chartW;
+                        const y1 = bottomY - (i / levels) * chartH;
+                        const y2 = bottomY - ((i + 1) / levels) * chartH;
+                        ctx.fillStyle = (i % 2 === 0) ? 'rgba(251, 191, 36, 0.04)' : 'rgba(251, 191, 36, 0.02)';
+                        ctx.fillRect(x1, y2, x2 - x1, y1 - y2);
+                        const codeStr = i.toString(2).padStart(bits, '0');
+                        ctx.fillStyle = 'rgba(251, 191, 36, 0.2)';
+                        ctx.font = '9px monospace';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(codeStr, (x1 + x2) / 2, (y1 + y2) / 2);
+                    }
+
+                    // Personas
+                    const personX = MARGIN.left + (positionPercent / 100) * chartW;
+                    const personY = bottomY - (positionPercent / 100) * chartH;
+                    const quantX = MARGIN.left + (quantPercent / 100) * chartW;
+                    const quantY = bottomY - (quantPercent / 100) * chartH;
+
+                    ctx.beginPath();
+                    ctx.strokeStyle = 'rgba(248, 113, 113, 0.3)';
+                    ctx.lineWidth = 1.5;
+                    ctx.setLineDash([4, 6]);
+                    ctx.moveTo(personX, personY);
+                    ctx.lineTo(quantX, quantY);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+
+                    // Persona roja (analógica)
+                    const gradPerson = ctx.createRadialGradient(personX, personY, 2, personX, personY, 16);
+                    gradPerson.addColorStop(0, '#f87171');
+                    gradPerson.addColorStop(0.7, '#ef4444');
+                    gradPerson.addColorStop(1, 'rgba(248, 113, 113, 0)');
+                    ctx.shadowColor = 'rgba(248, 113, 113, 0.5)';
+                    ctx.shadowBlur = 25;
+                    ctx.beginPath();
+                    ctx.arc(personX, personY, 10, 0, Math.PI * 2);
+                    ctx.fillStyle = gradPerson;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                    ctx.beginPath();
+                    ctx.arc(personX, personY, 7, 0, Math.PI * 2);
+                    ctx.fillStyle = '#f87171';
+                    ctx.fill();
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(personX - 2, personY - 3, 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                    ctx.fill();
+
+                    // Persona dorada (digital)
+                    const gradQuant = ctx.createRadialGradient(quantX, quantY, 1, quantX, quantY, 10);
+                    gradQuant.addColorStop(0, '#fbbf24');
+                    gradQuant.addColorStop(0.7, '#f59e0b');
+                    gradQuant.addColorStop(1, 'rgba(251, 191, 36, 0)');
+                    ctx.shadowColor = 'rgba(251, 191, 36, 0.4)';
+                    ctx.shadowBlur = 20;
+                    ctx.beginPath();
+                    ctx.arc(quantX, quantY, 7, 0, Math.PI * 2);
+                    ctx.fillStyle = gradQuant;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                    ctx.beginPath();
+                    ctx.arc(quantX, quantY, 4, 0, Math.PI * 2);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+
+                    // Etiquetas
+                    ctx.fillStyle = '#94a3b8';
+                    ctx.font = '11px sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('🔹 Señal Analógica (Rampa) — posiciones infinitas', MARGIN.left, 8);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.fillText('🔸 Señal Digital (Escalera) — ' + levels + ' peldaños', MARGIN.left, 22);
+
+                    ctx.fillStyle = '#60a5fa';
+                    ctx.font = '12px sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'bottom';
+                    const labelYpos = Math.max(MARGIN.top + 10, personY - 20);
+                    ctx.fillText('⬤ ' + analogVolt.toFixed(2) + 'V', personX + 16, labelYpos);
+
+                    ctx.fillStyle = '#fbbf24';
+                    const codeStr = code.toString(2).padStart(bits, '0');
+                    ctx.textBaseline = 'top';
+                    const labelYpos2 = Math.min(bottomY - 10, quantY + 14);
+                    ctx.fillText('◉ Código: ' + codeStr + ' (' + code + ')', quantX + 16, labelYpos2);
+
+                    // Panel
+                    const error = Math.abs(analogVolt - quantVolt);
+                    const resolution = 5 / levels;
+                    levelsValue.textContent = levels;
+                    analogValue.textContent = analogVolt.toFixed(2) + ' V';
+                    digitalValue.textContent = codeStr + ' (' + code + ')';
+                    errorValue.textContent = error.toFixed(3) + ' V';
+                    resolutionValue.textContent = resolution.toFixed(3) + ' V';
+                    errorValue.style.color = error < 0.05 ? '#34d399' : error < 0.2 ? '#fbbf24' : '#f87171';
+                }
+
+                function updateFromSlider() {
+                    positionPercent = parseFloat(positionSlider.value);
+                    positionLabel.textContent = positionPercent + '%';
+                    draw();
+                }
+
+                function handleCanvasClick(e) {
+                    const rect = canvas.getBoundingClientRect();
+                    const scaleX = canvas.width / rect.width;
+                    let clientX;
+                    if (e.touches) { clientX = e.touches[0].clientX; e.preventDefault(); } 
+                    else { clientX = e.clientX; }
+                    const canvasX = (clientX - rect.left) * scaleX;
+                    const p = Math.max(0, Math.min(100, ((canvasX - MARGIN.left) / chartW) * 100));
+                    positionPercent = p;
+                    positionSlider.value = p;
+                    positionLabel.textContent = Math.round(p) + '%';
+                    draw();
+                }
+
+                function setBits(b) {
+                    bits = b;
+                    container.querySelectorAll('.adc-bit-controls .btn').forEach(btn => {
+                        btn.classList.toggle('active', parseInt(btn.dataset.bits) === b);
+                    });
+                    draw();
+                }
+
+                positionSlider.addEventListener('input', updateFromSlider);
+                canvas.addEventListener('click', handleCanvasClick);
+                canvas.addEventListener('touchstart', handleCanvasClick, { passive: false });
+                container.querySelectorAll('.adc-bit-controls .btn').forEach(btn => {
+                    btn.addEventListener('click', function() { setBits(parseInt(this.dataset.bits)); });
+                });
+                draw();
+            })();
+        </script>
+    </div>
+</div>
+
+<hr />
+<h2>5. Diferencia entre Señal Analógica y Digital</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Característica</th>
+<th style="text-align: left;">Señal Analógica</th>
+<th style="text-align: left;">Señal Digital</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Naturaleza</strong></td>
+<td style="text-align: left;">Continua</td>
+<td style="text-align: left;">Discreta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Valores</strong></td>
+<td style="text-align: left;">Infinitos (rango continuo)</td>
+<td style="text-align: left;">Finitos (generalmente 0 y 1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ejemplo</strong></td>
+<td style="text-align: left;">Onda senoidal</td>
+<td style="text-align: left;">Onda cuadrada</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ruido</strong></td>
+<td style="text-align: left;">Se degrada fácilmente</td>
+<td style="text-align: left;">Más robusta (puede regenerarse)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Almacenamiento</strong></td>
+<td style="text-align: left;">Difícil (se deteriora)</td>
+<td style="text-align: left;">Fácil (se copia sin pérdida)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. Conversión Analógica a Digital (ADC)</h2>
+<p>Dado que los dispositivos electrónicos actuales solo pueden manejar información digital (0s y 1s), necesitamos convertir las señales del mundo real (analógicas) a un formato que la computadora entienda.</p>
+<p>Este proceso se realiza mediante un <strong>Conversor Analógico-Digital</strong> (ADC, por sus siglas en inglés).</p>
+<h3>Etapas del ADC</h3>
+<ol>
+<li>
+<p><strong>Muestreo (Sampling)</strong></p>
+<ul>
+<li>Se toman "fotografías" de la señal analógica a intervalos regulares de tiempo.</li>
+<li><strong>Teorema de Nyquist</strong>: Para reconstruir la señal correctamente, la frecuencia de muestreo debe ser al menos el doble de la frecuencia máxima de la señal original.<ul>
+<li>Ej: Si la frecuencia más alta es $11000 \text{ Hz}$ entonces: $\text{tasa_muestreo} = 2 \times 11000 = 22000 \text{ muestras/segundo}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Cuantificación (Quantization)</strong></p>
+<ul>
+<li>A cada muestra (que es un valor continuo) se le asigna un valor discreto (un "peldaño" de la escalera).</li>
+<li>Se redondea al valor más cercano permitido por el sistema.</li>
+</ul>
+</li>
+<li>
+<p><strong>Codificación (Encoding)</strong></p>
+<ul>
+<li>Cada valor cuantificado se convierte a un código binario (una secuencia de 0s y 1s).</li>
+</ul>
+</li>
+</ol>
+<h3>Ejemplo Práctico: El CD de Audio</h3>
+<ul>
+<li><strong>Muestreo</strong>: 44.1 kHz (44,100 muestras por segundo).</li>
+<li><strong>Codificación</strong>: 16 bits por muestra.</li>
+</ul>
+<h3>Efecto del Muestreo</h3>
+<ul>
+<li><strong>Muestreo Alto</strong>: Señal muy fiel, pero archivo muy grande.</li>
+<li><strong>Muestreo Bajo</strong>: Señal distorsionada, pero archivo pequeño.</li>
+</ul>
+<div class="signal-container">
+    <div class="sample-container">
+        <h4 class="card-title">🎯 Simulador de ADC - Muestreo y Cuantificación</h4>
+        <p class="card-subtitle">Visualiza cómo el muestreo y la cuantificación transforman una señal analógica</p>
+
+        <div class="sample-controls">
+            <div class="sample-control">
+                <label class="control-label">Muestras <span class="value" id="sampleValue">16</span></label>
+                <input type="range" id="sampleSlider" min="4" max="32" step="2" value="16">
+            </div>
+            <div class="sample-control">
+                <label class="control-label">Niveles (bits) <span class="value" id="bitValue">3</span></label>
+                <input type="range" id="bitSlider" min="1" max="5" step="1" value="3">
+            </div>
+        </div>
+
+        <canvas id="adcSampleCanvas" width="600" height="220"></canvas>
+        <small class="sample-note">🔵 Señal original · 🔴 Muestras · 🟢 Señal cuantificada</small>
+
+        <script>
+            (function() {
+                const canvas = document.getElementById('adcSampleCanvas');
+                const ctx = canvas.getContext('2d');
+                const w = canvas.width, h = canvas.height;
+                const centerY = h / 2;
+                const amplitude = 80;
+
+                const sampleSlider = document.getElementById('sampleSlider');
+                const bitSlider = document.getElementById('bitSlider');
+                const sampleValue = document.getElementById('sampleValue');
+                const bitValue = document.getElementById('bitValue');
+
+                function drawADC(samples, bits) {
+                    ctx.clearRect(0, 0, w, h);
+                    const levels = Math.pow(2, bits);
+
+                    // Señal original
+                    ctx.strokeStyle = '#60a5fa';
+                    ctx.lineWidth = 2;
+                    ctx.shadowColor = 'rgba(96, 165, 250, 0.2)';
+                    ctx.shadowBlur = 8;
+                    ctx.beginPath();
+                    for (let i = 0; i <= 200; i++) {
+                        const x = (i / 200) * w;
+                        const y = centerY - amplitude * Math.sin((i / 200) * 4 * Math.PI);
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+
+                    // Muestras
+                    for (let i = 0; i < samples; i++) {
+                        const x = (i / samples) * w;
+                        const y = centerY - amplitude * Math.sin((i / samples) * 4 * Math.PI);
+
+                        // Muestra (rojo)
+                        ctx.fillStyle = '#f87171';
+                        ctx.shadowColor = 'rgba(248, 113, 113, 0.4)';
+                        ctx.shadowBlur = 12;
+                        ctx.beginPath();
+                        ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                        ctx.fill();
+
+                        // Cuantificada (verde)
+                        const quantizedY = Math.round(((y - centerY + amplitude) / (2 * amplitude)) * (levels - 1));
+                        const qY = centerY - amplitude + (quantizedY / (levels - 1)) * 2 * amplitude;
+                        ctx.fillStyle = '#34d399';
+                        ctx.shadowColor = 'rgba(52, 211, 153, 0.4)';
+                        ctx.shadowBlur = 12;
+                        ctx.beginPath();
+                        ctx.arc(x, qY, 4, 0, 2 * Math.PI);
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+                }
+
+                function updateADC() {
+                    const samples = parseInt(sampleSlider.value);
+                    const bits = parseInt(bitSlider.value);
+                    sampleValue.textContent = samples;
+                    bitValue.textContent = bits;
+                    drawADC(samples, bits);
+                }
+
+                sampleSlider.addEventListener('input', updateADC);
+                bitSlider.addEventListener('input', updateADC);
+                updateADC();
+            })();
+        </script>
+    </div>
+</div>
+
+<hr />
+<h2>7. Ventajas del Tratamiento Digital</h2>
+<ol>
+<li><strong>Flexibilidad</strong>: Se pueden modificar las operaciones fácilmente cambiando el software (programación).</li>
+<li><strong>Almacenamiento</strong>: Los datos digitales se almacenan sin deterioro y se pueden copiar infinitamente sin pérdida de calidad.</li>
+<li><strong>Costo</strong>: La electrónica digital es generalmente más barata de producir en masa que la analógica de alta precisión.</li>
+</ol>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../sistemas-numericos/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

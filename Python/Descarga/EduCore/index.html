@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Portal de Aprendizaje</title>
+
+    <!-- Bootstrap 5 & Font Awesome 6 -->
+    <link href="_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts (Inter) -->
+    <link href="_externo/fonts.googleapis.com/css2__family_Inter_wght_400_600_700_800_900_di_ae3691ab.css" rel="stylesheet">
+
+    <!-- CSS Específico de la Landing -->
+    <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body class="landing-body">
+
+    <!-- LUCES EN ÓRBITA DE FONDO -->
+    <div class="bg-glow bg-glow-blue"></div>
+    <div class="bg-glow bg-glow-purple"></div>
+
+    <!-- ENCABEZADO MINIMALISTA -->
+    <header class="landing-header">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <div class="landing-brand">
+                <i class="fas fa-graduation-cap text-warning me-2 fs-4"></i>
+                <span class="fw-bold fs-4 text-white">EduCore</span>
+            </div>
+            <div class="landing-location">
+                <i class="fas fa-university me-1"></i> Universidad Nacional
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL ENCAPSULADO PARA EMPUJAR EL FOOTER ABAJO -->
+    <div class="landing-content-wrapper">
+
+        <!-- HERO CON ANIMACIONES -->
+        <section class="landing-hero">
+            <div class="container text-center position-relative" style="z-index: 2;">
+                <div class="brand-pill mb-3">
+                    <span class="pulse-dot"></span>
+                    <i class="fas fa-bolt text-warning me-1"></i> Plataforma Interactiva de Aprendizaje
+                </div>
+                <h1 class="landing-title">EDUcore</h1>
+                <p class="landing-subtitle">Selecciona tu ruta de aprendizaje para comenzar</p>
+
+                <!-- BADGES FLOTANTES CON EFECTO HOVER -->
+                <div class="quick-stats-row">
+                    <div class="stat-badge">
+                        <i class="fas fa-play-circle text-info"></i>
+                        <span>Simulaciones en Vivo</span>
+                    </div>
+                    <div class="stat-badge">
+                        <i class="fas fa-flask text-warning"></i>
+                        <span>Laboratorios Prácticos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE HUB CARDS -->
+        <main class="container py-4 mb-4 position-relative" style="z-index: 2;">
+            <div class="row g-4 justify-content-center">
+                
+                <div class="col-md-6 col-lg-5">
+                    <a href="logica/index.html" class="text-decoration-none">
+                        <div class="hub-card" style="--course-color: #6c2bd9;">
+
+                            <!-- ENCABEZADO CON ÍCONO GIGANTE Y CÓDIGO -->
+                            <div class="hub-card-header" style="background: linear-gradient(135deg, #6c2bd918 0%, transparent 100%);">
+                                <div class="hub-icon-box" style="background: #6c2bd9;">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <span class="hub-code-badge" style="color: #6c2bd9; border-color: #6c2bd940; background: #6c2bd910;">
+                                    TDC400
+                                </span>
+                            </div>
+
+                            <!-- CONTENIDO EN PÍLDORAS -->
+                            <div class="hub-card-body">
+                                <h2 class="hub-title">Lógica y Algoritmos Computacionales</h2>
+
+                                <div class="hub-metrics-grid">
+                                    <div class="metric-pill">
+                                        <i class="fas fa-book-open" style="color: #6c2bd9;"></i>
+                                        <span><strong>41</strong> Lecciones</span>
+                                    </div>
+                                    <div class="metric-pill">
+                                        <i class="fas fa-layer-group" style="color: #6c2bd9;"></i>
+                                        <span><strong>9</strong> Temas</span>
+                                    </div>
+                                    
+                                    <div class="metric-pill lab-pill">
+                                        <i class="fas fa-flask text-warning"></i>
+                                        <span><strong>Lab</strong> Incluido</span>
+                                    </div>
+                                    
+                                </div>
+
+                                <!-- BOTÓN DE INGRESO DIRECTO -->
+                                <button class="hub-btn-enter" style="background: #6c2bd9;">
+                                    <span>Ingresar al Curso</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-6 col-lg-5">
+                    <a href="arquitectura/index.html" class="text-decoration-none">
+                        <div class="hub-card" style="--course-color: #0d47a1;">
+
+                            <!-- ENCABEZADO CON ÍCONO GIGANTE Y CÓDIGO -->
+                            <div class="hub-card-header" style="background: linear-gradient(135deg, #0d47a118 0%, transparent 100%);">
+                                <div class="hub-icon-box" style="background: #0d47a1;">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <span class="hub-code-badge" style="color: #0d47a1; border-color: #0d47a140; background: #0d47a110;">
+                                    EIF205
+                                </span>
+                            </div>
+
+                            <!-- CONTENIDO EN PÍLDORAS -->
+                            <div class="hub-card-body">
+                                <h2 class="hub-title">Arquitectura de Computadores</h2>
+
+                                <div class="hub-metrics-grid">
+                                    <div class="metric-pill">
+                                        <i class="fas fa-book-open" style="color: #0d47a1;"></i>
+                                        <span><strong>29</strong> Lecciones</span>
+                                    </div>
+                                    <div class="metric-pill">
+                                        <i class="fas fa-layer-group" style="color: #0d47a1;"></i>
+                                        <span><strong>5</strong> Temas</span>
+                                    </div>
+                                    
+                                </div>
+
+                                <!-- BOTÓN DE INGRESO DIRECTO -->
+                                <button class="hub-btn-enter" style="background: #0d47a1;">
+                                    <span>Ingresar al Curso</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+        </main>
+
+    </div>
+
+    <!-- FOOTER FIJO SIEMPRE EN LA PARTE INFERIOR -->
+    <footer class="landing-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/index.js"></script>
+</body>
+</html>

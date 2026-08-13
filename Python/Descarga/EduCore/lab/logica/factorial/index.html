@@ -1,0 +1,215 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Factorial - Laboratorio</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../static/css/lab.css">
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<input type="hidden" id="algoritmo-id" value="factorial">
+
+<section class="hero-small-lab">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Botones de navegación -->
+                <div class="nav-buttons-lab">
+                    <a href="../../index.html" class="btn-nav btn-nav-back">
+                        <i class="fas fa-arrow-left me-1"></i>Algoritmos
+                    </a>
+                    <a href="../../../logica/index.html" class="btn-nav btn-nav-course">
+                        <i class="fas fa-book me-1"></i>Curso
+                    </a>
+                </div>
+
+                <div class="text-center mt-3">
+                    <span class="badge-curso-lab-sim">
+                        <i class="fas fa-flask me-2"></i>Laboratorio
+                    </span>
+                    <h1 class="fw-bold">Factorial</h1>
+                    <p class="subtitle mb-0">Calcula el factorial de un número ingresado (versión iterativa).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="margin-bottom: 100px;">
+    <div class="row g-4">
+        <!-- Panel de código (70%) -->
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center py-2">
+                    <span><i class="fas fa-file-code me-2"></i>Pseudocódigo</span>
+                    <span class="badge bg-info" id="linea-actual">0/11</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="code-wrapper">
+                        <div class="code-progress">
+                            <span class="progress-icon"><i class="fas fa-play"></i></span>
+                            <div class="progress-track">
+                                <div class="bar" id="barra-progreso" style="width: 0%;"></div>
+                            </div>
+                            <span class="progress-label" id="progreso-label">0%</span>
+                        </div>
+                        <div class="code-container" id="codigo-container">
+                            <!-- El código se renderiza con JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de variables y salida (30%) -->
+        <div class="col-lg-4">
+            <!-- Variables -->
+            <div class="card border-0 shadow-sm rounded-4 mb-3">
+                <div class="card-header bg-success text-white py-2">
+                    <i class="fas fa-table me-2"></i>Variables
+                </div>
+                <div class="variables-wrapper">
+                    <table class="table table-dark table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-variables">
+                            <tr><td colspan="2" class="text-center text-white-50 py-3">Sin variables</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Salida -->
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header bg-warning text-dark py-2">
+                    <i class="fas fa-terminal me-2"></i>Salida
+                </div>
+                <div class="card-body p-0">
+                    <div id="panel-salida">
+                        <span class="text-muted">La salida aparecerá aquí...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Controles FIJOS -->
+<div class="panel-controles">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                    <button class="btn btn-success btn-lg px-4" id="btn-paso" disabled>
+                        <i class="fas fa-step-forward me-2"></i>Paso a paso
+                    </button>
+                    <button class="btn btn-primary btn-lg px-4" id="btn-ejecutar" disabled>
+                        <i class="fas fa-play me-2"></i>Ejecutar todo
+                    </button>
+                    <button class="btn btn-danger btn-lg px-4" id="btn-reiniciar" disabled>
+                        <i class="fas fa-undo me-2"></i>Reiniciar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../static/js/lab.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var algoritmoId = document.getElementById('algoritmo-id').value;
+
+        if (typeof window.cargarAlgoritmo === 'function') {
+            window.cargarAlgoritmo(algoritmoId);
+        }
+
+        document.getElementById('btn-paso').addEventListener('click', function () {
+            if (typeof window.ejecutarPaso === 'function') window.ejecutarPaso();
+        });
+        document.getElementById('btn-ejecutar').addEventListener('click', function () {
+            if (typeof window.ejecutarTodo === 'function') window.ejecutarTodo();
+        });
+        document.getElementById('btn-reiniciar').addEventListener('click', function () {
+            if (typeof window.reiniciar === 'function') window.reiniciar();
+        });
+    });
+</script>
+
+</body>
+</html>

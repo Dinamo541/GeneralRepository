@@ -1,0 +1,523 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Compuertas lógicas digitales - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 2
+                </div>
+                <h1 class="display-5 fw-bold">Compuertas lógicas digitales</h1>
+                <p class="lead opacity-75">Lógica digital</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 10.0%;"
+                         data-total="10"
+                         data-current="1">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 1 de 10</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Compuertas Lógicas Digitales</h1>
+<h2>1. Introducción a los Circuitos Digitales</h2>
+<p>Los <strong>circuitos digitales</strong> son componentes de hardware que manipulan información binaria (0s y 1s). Estos circuitos están construidos con partes electrónicas llamadas <strong>compuertas lógicas</strong>.</p>
+<p>Cada compuerta realiza una operación lógica específica y la salida de una compuerta se aplica a las entradas de otras compuertas para formar circuitos más complejos.</p>
+<h3>Lógica Binaria</h3>
+<p>La lógica binaria trata con variables que toman dos valores discretos y con operaciones que asumen un significado lógico.</p>
+<p>A los dos valores que las variables asumen pueden llamarse de diferentes maneras:<br />
+- Verdadero y Falso<br />
+- Sí y No<br />
+- 1 y 0 (la convención más común en computación)</p>
+<hr />
+<h2>2. Operaciones Lógicas Básicas</h2>
+<p>Existen tres operaciones lógicas fundamentales:</p>
+<h3>2.1 Operación AND</h3>
+<p>La operación AND produce un 1 solo si <strong>todas</strong> las entradas son 1.</p>
+<p><strong>Notación</strong>: $X \cdot Y = Z$ o $XY = Z$ (X y Y es igual a Z)</p>
+<p><strong>Tabla de Verdad (AND de 2 entradas)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z = X · Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogía</strong>: Un interruptor en serie. La luz solo se enciende si ambos interruptores están cerrados (1).</p>
+<h3>2.2 Operación OR</h3>
+<p>La operación OR produce un 1 si <strong>al menos una</strong> de las entradas es 1.</p>
+<p><strong>Notación</strong>: $X + Y = Z$ (X o Y es igual a Z)</p>
+<p><strong>Tabla de Verdad (OR de 2 entradas)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z = X + Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogía</strong>: Un interruptor en paralelo. La luz se enciende si al menos uno de los interruptores está cerrado (1).</p>
+<h3>2.3 Operación NOT (Complemento)</h3>
+<p>La operación NOT invierte el valor de la entrada.</p>
+<p><strong>Notación</strong>: $\overline{X} = Z$ o $X' = Z$ (no X es igual a Z)</p>
+<p><strong>Tabla de Verdad (NOT)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Z = $\overline{X}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogía</strong>: Un interruptor inversor. Cuando el interruptor está abierto (0), la luz está encendida (1), y viceversa.</p>
+<hr />
+<h2>3. Compuertas Lógicas Derivadas</h2>
+<p>A partir de las tres operaciones básicas, se pueden construir otras compuertas que son muy útiles en el diseño digital.</p>
+<h3>3.1 Compuerta NAND (NOT AND)</h3>
+<p>Es la combinación de una compuerta AND seguida de un NOT.</p>
+<p><strong>Notación</strong>: $Z = \overline{X \cdot Y}$</p>
+<p><strong>Tabla de Verdad (NAND)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z = $\overline{X \cdot Y}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Importante</strong>: La compuerta NAND es <strong>universal</strong>, lo que significa que con ella se pueden construir todas las demás compuertas.</p>
+</blockquote>
+<h3>3.2 Compuerta NOR (NOT OR)</h3>
+<p>Es la combinación de una compuerta OR seguida de un NOT.</p>
+<p><strong>Notación</strong>: $Z = \overline{X + Y}$</p>
+<p><strong>Tabla de Verdad (NOR)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z = $\overline{X + Y}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Importante</strong>: La compuerta NOR también es <strong>universal</strong>.</p>
+</blockquote>
+<h3>3.3 Compuerta XOR (OR Exclusivo)</h3>
+<p>La operación XOR produce un 1 si las entradas son <strong>diferentes</strong>.</p>
+<p><strong>Notación</strong>: $Z = X \oplus Y = X\overline{Y} + \overline{X}Y$</p>
+<p><strong>Tabla de Verdad (XOR)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z = X ⊕ Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Analogía</strong>: La pregunta "¿Quieres café o té?" (pero no ambos).</p>
+<h3>3.4 Compuerta XNOR (NOT XOR)</h3>
+<p>Es la combinación de una compuerta XOR seguida de un NOT. Produce un 1 si las entradas son <strong>iguales</strong>.</p>
+<p><strong>Notación</strong>: $Z = \overline{X \oplus Y} = XY + \overline{X}\overline{Y} = X \odot Y$</p>
+<p><strong>Tabla de Verdad (XNOR)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z = $X \odot Y$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Representación Gráfica de Compuertas</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Compuerta</th>
+<th style="text-align: center;">Símbolo</th>
+<th style="text-align: left;">Expresión Booleana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>AND</strong></td>
+<td style="text-align: center;"><img alt="AND" src="../../../../static/img/and.svg" /></td>
+<td style="text-align: left;">$Z = X \cdot Y$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>OR</strong></td>
+<td style="text-align: center;"><img alt="OR" src="../../../../static/img/or.svg" /></td>
+<td style="text-align: left;">$Z = X + Y$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NOT</strong></td>
+<td style="text-align: center;"><img alt="NOT" src="../../../../static/img/not.svg" /></td>
+<td style="text-align: left;">$Z = \overline{X}$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NAND</strong></td>
+<td style="text-align: center;"><img alt="NAND" src="../../../../static/img/nand.svg" /></td>
+<td style="text-align: left;">$Z = \overline{X \cdot Y}$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NOR</strong></td>
+<td style="text-align: center;"><img alt="NOR" src="../../../../static/img/nor.svg" /></td>
+<td style="text-align: left;">$Z = \overline{X + Y}$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>XOR</strong></td>
+<td style="text-align: center;"><img alt="XOR" src="../../../../static/img/xor.svg" /></td>
+<td style="text-align: left;">$Z = X \oplus Y$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>XNOR</strong></td>
+<td style="text-align: center;"><img alt="XNOR" src="../../../../static/img/xnor.svg" /></td>
+<td style="text-align: left;">$Z = \overline{X \oplus Y} = X \odot Y$</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>5. Ejercicios Prácticos</h2>
+<ol>
+<li>
+<p>Dibuja el diagrama de circuito para la expresión: $F = \overline{X}Y + X\overline{Y}$ (XOR).</p>
+</li>
+<li>
+<p>Crea la tabla de verdad para la siguiente expresión: $F = \overline{A \cdot B} \cdot C$.</p>
+</li>
+<li>
+<p>¿Qué tipo de compuerta produce un 1 solo cuando todas sus entradas son 0? (Solución: NOR)</p>
+</li>
+<li>
+<p>Construye una compuerta AND usando solo compuertas NAND.</p>
+</li>
+</ol>
+<hr />
+<h2>6. Resumen</h2>
+<ul>
+<li>Las compuertas lógicas son los bloques fundamentales de los circuitos digitales.</li>
+<li>Las operaciones básicas son: AND, OR y NOT.</li>
+<li>NAND y NOR son compuertas universales.</li>
+<li>XOR produce 1 cuando las entradas son diferentes.</li>
+<li>XNOR produce 1 cuando las entradas son iguales.</li>
+</ul>
+<hr />
+<h1>Referencias Bibliográficas</h1>
+<p>[1] M. Morris Mano. <em>Ingeniería computacional, diseño del hardware</em>. Colleen Brosnan. 1991.</p>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../gen-tablas-verdad/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

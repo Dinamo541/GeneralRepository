@@ -1,0 +1,495 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Conversiones entre sistemas numéricos - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">Conversiones entre sistemas numéricos</h1>
+                <p class="lead opacity-75">Representación interna de los datos</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 60.0%;"
+                         data-total="5"
+                         data-current="3">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 3 de 5</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Conversiones entre Sistemas Numéricos</h1>
+<h2>1. Introducción</h2>
+<p>La capacidad de convertir números entre diferentes sistemas numéricos es fundamental para entender cómo funciona la computadora a nivel interno. En esta lección aprenderemos a convertir entre los sistemas decimal, binario y hexadecimal.</p>
+<hr />
+<h2>2. Conversión de Binario a Decimal</h2>
+<p>Para convertir un número binario a decimal, se multiplica cada bit por 2 elevado a su posición (comenzando desde 0 para el bit menos significativo).</p>
+<h3>Fórmula General:</h3>
+<p>$<br />
+N_{10} = \sum_{i=0}^{n-1} b_i \times 2^i<br />
+$</p>
+<p>Donde $b_i$ es el bit en la posición $i$.</p>
+<h3>Ejemplo:</h3>
+<p>Convertir $1011_2$ a decimal.</p>
+<p>$<br />
+1011_2 = 1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0 = 8 + 0 + 2 + 1 = 11_{10}<br />
+$</p>
+<hr />
+<h2>3. Conversión de Decimal a Binario (Método de Divisiones Sucesivas)</h2>
+<p>Para convertir un número decimal a binario, se divide sucesivamente el número entre 2 y se toman los residuos de abajo hacia arriba.</p>
+<h3>Pasos:</h3>
+<ol>
+<li>Dividir el número decimal entre 2.</li>
+<li>Escribir el cociente y el residuo.</li>
+<li>Repetir el proceso con el cociente hasta que sea 0.</li>
+<li>El número binario se forma con los residuos leídos de abajo hacia arriba.</li>
+</ol>
+<h3>Ejemplo:</h3>
+<p>Convertir $41_{10}$ a binario.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operación</th>
+<th style="text-align: left;">Cociente</th>
+<th style="text-align: left;">Residuo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">41 ÷ 2</td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">20 ÷ 2</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">10 ÷ 2</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">5 ÷ 2</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">2 ÷ 2</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">1 ÷ 2</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado</strong>: $41_{10} = 101001_2$</p>
+<hr />
+<h2>4. Conversión de Binario a Hexadecimal</h2>
+<p>Para convertir binario a hexadecimal, se agrupan los bits en grupos de 4 (comenzando desde la derecha) y se convierten a su equivalente hexadecimal.</p>
+<h3>Tabla de Conversión (4 bits a Hex)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Binario</th>
+<th style="text-align: left;">Hexadecimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0000</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">0001</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">0010</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">0011</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">0100</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr>
+<td style="text-align: left;">0101</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">0110</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr>
+<td style="text-align: left;">0111</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr>
+<td style="text-align: left;">1000</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;">1001</td>
+<td style="text-align: left;">9</td>
+</tr>
+<tr>
+<td style="text-align: left;">1010</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr>
+<td style="text-align: left;">1011</td>
+<td style="text-align: left;">B</td>
+</tr>
+<tr>
+<td style="text-align: left;">1100</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr>
+<td style="text-align: left;">1101</td>
+<td style="text-align: left;">D</td>
+</tr>
+<tr>
+<td style="text-align: left;">1110</td>
+<td style="text-align: left;">E</td>
+</tr>
+<tr>
+<td style="text-align: left;">1111</td>
+<td style="text-align: left;">F</td>
+</tr>
+</tbody>
+</table>
+<h3>Ejemplo:</h3>
+<p>Convertir $101111_2$ a hexadecimal.</p>
+<ol>
+<li>Agrupar en 4 bits (rellenar con ceros a la izquierda si es necesario):</li>
+<li>$0010$ $1111$</li>
+<li>Convertir cada grupo:</li>
+<li>$0010_2 = 2_{16}$</li>
+<li>$1111_2 = F_{16}$</li>
+</ol>
+<p><strong>Resultado</strong>: $101111_2 = 2F_{16}$</p>
+<hr />
+<h2>5. Conversión de Hexadecimal a Binario</h2>
+<p>Para convertir hexadecimal a binario, se convierte cada dígito hexadecimal a su equivalente binario de 4 bits.</p>
+<h3>Ejemplo:</h3>
+<p>Convertir $5F_{16}$ a binario.</p>
+<ul>
+<li>$5_{16} = 0101_2$</li>
+<li>$F_{16} = 1111_2$</li>
+</ul>
+<p><strong>Resultado</strong>: $5F_{16} = 01011111_2$</p>
+<hr />
+<h2>6. Conversión de Decimal a Hexadecimal</h2>
+<p>Se puede hacer de dos formas:</p>
+<h3>Método 1: Decimal → Binario → Hexadecimal</h3>
+<ol>
+<li>Convertir el número decimal a binario (divisiones sucesivas).</li>
+<li>Agrupar en 4 bits y convertir a hexadecimal.</li>
+</ol>
+<h3>Método 2: Divisiones Sucesivas por 16</h3>
+<p>Se divide el número decimal entre 16 sucesivamente, tomando los residuos.</p>
+<h3>Ejemplo:</h3>
+<p>Convertir $46687_{10}$ a hexadecimal.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operación</th>
+<th style="text-align: left;">Cociente</th>
+<th style="text-align: left;">Residuo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">46687 ÷ 16</td>
+<td style="text-align: left;">2917</td>
+<td style="text-align: left;">15 (F)</td>
+</tr>
+<tr>
+<td style="text-align: left;">2917 ÷ 16</td>
+<td style="text-align: left;">182</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">182 ÷ 16</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr>
+<td style="text-align: left;">11 ÷ 16</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">11 (B)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado</strong>: $46687_{10} = B65F_{16}$</p>
+<hr />
+<h2>7. Ejercicios de Conversiones</h2>
+<p>Completa la siguiente tabla:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Decimal</th>
+<th style="text-align: left;">Binario</th>
+<th style="text-align: left;">Hexadecimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">41</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">11010111</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">2AC5</td>
+</tr>
+<tr>
+<td style="text-align: left;">225</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">1379</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">198F</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary><b>Ver soluciones (haz clic para desplegar)</b></summary>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th align="left">Decimal</th>
+      <th align="left">Binario</th>
+      <th align="left">Hexadecimal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>41</td>
+      <td>101001</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>215</td>
+      <td>11010111</td>
+      <td>D7</td>
+    </tr>
+    <tr>
+      <td>10949</td>
+      <td>10101011000101</td>
+      <td>2AC5</td>
+    </tr>
+    <tr>
+      <td>225</td>
+      <td>11100001</td>
+      <td>E1</td>
+    </tr>
+    <tr>
+      <td>1379</td>
+      <td>10101100011</td>
+      <td>563</td>
+    </tr>
+    <tr>
+      <td>6543</td>
+      <td>1100110010001</td>
+      <td>198F</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../sistemas-numericos/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../complementos/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

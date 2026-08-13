@@ -1,0 +1,10 @@
+<svg width="100" height="50" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Triángulo -->
+  <polygon points="30,10 60,25 30,40" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Círculo de inversión -->
+  <circle cx="64" cy="25" r="4" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- Entrada -->
+  <line x1="5" y1="25" x2="30" y2="25" stroke="#000000" stroke-width="2"/>
+  <!-- Salida -->
+  <line x1="68" y1="25" x2="90" y2="25" stroke="#000000" stroke-width="2"/>
+</svg>

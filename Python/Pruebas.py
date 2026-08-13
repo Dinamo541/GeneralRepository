@@ -10,8 +10,8 @@ def contadorVocales(texto):
     for letra in texto:
         if letra in vocales:
             contador += 1
-    return contador 
+    return contador
 
 testo = 'Hola, ¿cómo estás?'
-resultado = contador_vocales(testo)
+resultado = contadorVocales(testo)
 print(f'El texto "{testo}" tiene {resultado} vocales.')

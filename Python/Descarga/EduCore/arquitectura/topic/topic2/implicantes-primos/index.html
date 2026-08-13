@@ -1,0 +1,889 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Implicantes Primos Esenciales - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 2
+                </div>
+                <h1 class="display-5 fw-bold">Implicantes Primos Esenciales</h1>
+                <p class="lead opacity-75">Lógica digital</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 60.0%;"
+                         data-total="10"
+                         data-current="6">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 6 de 10</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Implicantes Primos Esenciales</h1>
+<h2>1. Introducción a los Implicantes Primos</h2>
+<p>Cuando simplificamos una función booleana usando un mapa de Karnaugh, formamos grupos de 1s para obtener términos producto simplificados. Pero no todos los grupos que podemos formar son necesarios o válidos para la expresión final más simplificada.</p>
+<h3>Definiciones Fundamentales</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Término</th>
+<th style="text-align: left;">Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Implicante</strong></td>
+<td style="text-align: left;">Cualquier término producto que, al ser 1, hace que la función también sea 1.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implicante Primo</strong></td>
+<td style="text-align: left;">Un término producto que se obtiene combinando el <strong>máximo número posible</strong> de celdas adyacentes en el mapa. No puede combinarse con otras celdas para formar un grupo más grande.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implicante Primo Esencial</strong></td>
+<td style="text-align: left;">Un implicante primo que cubre <strong>al menos un minitérmino que no está cubierto por ningún otro implicante primo</strong>. Es decir, es el único implicante primo que puede cubrir ese 1 en particular.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Identificación de Implicantes Primos</h2>
+<h3>Reglas para Identificar Implicantes Primos:</h3>
+<ol>
+<li><strong>Buscar los grupos más grandes posibles</strong> (potencias de 2: 1, 2, 4, 8, 16...).</li>
+<li><strong>Cada grupo debe ser máximo</strong>: No debe poder combinarse con otras celdas adyacentes para formar un grupo aún más grande.</li>
+<li><strong>Un grupo máximo es un implicante primo</strong>.</li>
+</ol>
+<h3>Ejemplo Visual:</h3>
+<p>En el siguiente mapa K de 4 variables, identifiquemos los implicantes primos:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">CD = 00</th>
+<th style="text-align: center;">CD = 01</th>
+<th style="text-align: center;">CD = 11</th>
+<th style="text-align: center;">CD = 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>AB = 00</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 01</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 11</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 10</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Análisis de los Implicantes Primos</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Grupo</th>
+<th style="text-align: left;">Celdas</th>
+<th style="text-align: center;">Tamaño</th>
+<th style="text-align: left;">Término Producto</th>
+<th style="text-align: center;">¿Es Primo?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Grupo 1</strong></td>
+<td style="text-align: left;">$m_0, m_1, m_4, m_5$</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">$\overline{A}\overline{C}$</td>
+<td style="text-align: center;">✅ Sí (máximo)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Grupo 2</strong></td>
+<td style="text-align: left;">$m_7, m_6, m_{15}, m_{14}$</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">$BC$</td>
+<td style="text-align: center;">✅ Sí (máximo)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Grupo 3</strong></td>
+<td style="text-align: left;">$m_{14}, m_{15}, m_{10}, m_{11}$</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">$AC$</td>
+<td style="text-align: center;">✅ Sí (máximo)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Grupo 4</strong></td>
+<td style="text-align: left;">$m_0, m_1$</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">$\overline{A}\overline{B}\overline{C}$</td>
+<td style="text-align: center;">❌ No (puede ser más grande)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Grupo 5</strong></td>
+<td style="text-align: left;">$m_{11}, m_{10}$</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">$A\overline{B}C$</td>
+<td style="text-align: center;">❌ No (puede ser más grande)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Grupo 6</strong></td>
+<td style="text-align: left;">$m_4, m_5, m_7, m_6$</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">$\overline{A}B$</td>
+<td style="text-align: center;">✅ Sí (máximo)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Conclusión</strong>: Los implicantes primos son: $\overline{A}\overline{C}$, $BC$, $AC$, $\overline{A}\overline{B}\overline{C}$, $A\overline{B}C$ y $\overline{A}B$.</p>
+</blockquote>
+<hr />
+<h2>3. Implicantes Primos Esenciales</h2>
+<h3>¿Cómo Identificar un Implicante Primo Esencial?</h3>
+<ol>
+<li><strong>Identificar todos los implicantes primos</strong>.</li>
+<li><strong>Marcar cada minitérmino (1)</strong> y ver qué implicantes primos lo cubren.</li>
+<li><strong>Si un minitérmino es cubierto por un solo implicante primo</strong>, ese implicante es <strong>esencial</strong>.</li>
+</ol>
+<h3>Ejemplo del Mapa Anterior:</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">CD = 00</th>
+<th style="text-align: center;">CD = 01</th>
+<th style="text-align: center;">CD = 11</th>
+<th style="text-align: center;">CD = 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>AB = 00</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 01</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 11</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 10</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implicantes Primos</strong>:</p>
+<ol>
+<li>$P_1 = \overline{A}\overline{C}$ (cubre: m0, m1, m4, m5)</li>
+<li>$P_2 = BD$ (cubre: m5, m7, m13, m15)</li>
+<li>$P_3 = A\overline{B}$ (cubre: m13, m15, m12, m14)</li>
+</ol>
+<p><strong>Análisis de Cobertura</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Minitérmino</th>
+<th style="text-align: left;">Cubierto por</th>
+<th style="text-align: center;">¿Es Esencial?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">m0</td>
+<td style="text-align: left;">$P_1$</td>
+<td style="text-align: center;">✅ (solo $P_1$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m1</td>
+<td style="text-align: left;">$P_1$</td>
+<td style="text-align: center;">✅ (solo $P_1$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m4</td>
+<td style="text-align: left;">$P_1$</td>
+<td style="text-align: center;">✅ (solo $P_1$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m5</td>
+<td style="text-align: left;">$P_1, P_2$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m7</td>
+<td style="text-align: left;">$P_2$</td>
+<td style="text-align: center;">✅ (solo $P_2$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m13</td>
+<td style="text-align: left;">$P_2, P_3$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m15</td>
+<td style="text-align: left;">$P_2, P_3$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m12</td>
+<td style="text-align: left;">$P_3$</td>
+<td style="text-align: center;">✅ (solo $P_3$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m14</td>
+<td style="text-align: left;">$P_3$</td>
+<td style="text-align: center;">✅ (solo $P_3$)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implicantes Primos Esenciales</strong>:<br />
+- $P_1 = \overline{A}\overline{C}$ (cubre m0, m1, m4)<br />
+- $P_2 = BD$ (cubre m7)<br />
+- $P_3 = A\overline{B}$ (cubre m12, m14)</p>
+<p><strong>Expresión Simplificada</strong>:</p>
+<p>Como todos son esenciales, la expresión final es:<br />
+$<br />
+F = \overline{A}\overline{C} + BD + A\overline{B}<br />
+$</p>
+<hr />
+<h2>4. Ejemplo con Implicantes Primos No Esenciales</h2>
+<p>En algunos casos, no todos los implicantes primos son esenciales, y debemos elegir entre varias opciones.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">CD = 00</th>
+<th style="text-align: center;">CD = 01</th>
+<th style="text-align: center;">CD = 11</th>
+<th style="text-align: center;">CD = 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>AB = 00</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 01</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 11</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 10</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implicantes Primos</strong>:</p>
+<ol>
+<li>$P_1 = \overline{A}D$ (cubre: m1, m5)</li>
+<li>$P_2 = \overline{B}C$ (cubre: m4, m5)</li>
+<li>$P_3 = BD$ (cubre: m5, m7, m13, m15)</li>
+<li>$P_4 = \overline{A}\overline{B}C$ (cubre: m4)</li>
+<li>$P_5 = A\overline{B}D$ (cubre: m13)</li>
+</ol>
+<p><strong>Análisis de Cobertura</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Minitérmino</th>
+<th style="text-align: left;">Cubierto por</th>
+<th style="text-align: center;">¿Es Esencial?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">m1</td>
+<td style="text-align: left;">$P_1$</td>
+<td style="text-align: center;">✅ (solo $P_1$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m4</td>
+<td style="text-align: left;">$P_2, P_4$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m5</td>
+<td style="text-align: left;">$P_1, P_2, P_3$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m7</td>
+<td style="text-align: left;">$P_3$</td>
+<td style="text-align: center;">✅ (solo $P_3$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m13</td>
+<td style="text-align: left;">$P_3, P_5$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m15</td>
+<td style="text-align: left;">$P_3$</td>
+<td style="text-align: center;">✅ (solo $P_3$)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implicantes Primos Esenciales</strong>:<br />
+- $P_1 = \overline{A}D$ (esencial)<br />
+- $P_3 = BD$ (esencial)</p>
+<p><strong>Minitérminos cubiertos por los esenciales</strong>:<br />
+- $P_1$ cubre: m1, m5<br />
+- $P_3$ cubre: m5, m7, m13, m15<br />
+- <strong>Total cubierto</strong>: m1, m5, m7, m13, m15</p>
+<p><strong>Minitérminos restantes</strong> (no cubiertos por esenciales):<br />
+- m4</p>
+<p><strong>Opciones para cubrir m4</strong>:<br />
+- Opción A: Usar $P_2 = \overline{B}C$ (cubre m4, m5)<br />
+- Opción B: Usar $P_4 = \overline{A}\overline{B}C$ (cubre solo m4)</p>
+<p><strong>Elección</strong>: Usar $P_2$ (es más grande y cubre un minitérmino ya cubierto, pero es la opción más simplificada).</p>
+<p><strong>Expresión Final</strong>:<br />
+$<br />
+F = \overline{A}D + BD + \overline{B}C<br />
+$</p>
+<hr />
+<h2>5. Método Sistemático para Encontrar Implicantes Primos Esenciales</h2>
+<h3>Paso 1: Identificar todos los Implicantes Primos</h3>
+<ol>
+<li>Dibujar el mapa K.</li>
+<li>Formar todos los grupos <strong>máximos posibles</strong> de 1s (potencias de 2).</li>
+<li>Cada grupo máximo es un implicante primo.</li>
+</ol>
+<h3>Paso 2: Identificar los Implicantes Primos Esenciales</h3>
+<ol>
+<li>Marcar cada minitérmino (1) en el mapa.</li>
+<li>Para cada minitérmino, anotar qué implicantes primos lo cubren.</li>
+<li>Si un minitérmino es cubierto por <strong>un solo</strong> implicante primo, ese implicante es <strong>esencial</strong>.</li>
+</ol>
+<h3>Paso 3: Seleccionar los Implicantes Primos Adicionales</h3>
+<ol>
+<li>Marcar los minitérminos cubiertos por los esenciales.</li>
+<li>Si quedan minitérminos sin cubrir, elegir los implicantes primos más grandes que los cubran.</li>
+<li>Puede haber múltiples soluciones igualmente válidas.</li>
+</ol>
+<h3>Paso 4: Escribir la Expresión Simplificada</h3>
+<p>Sumar todos los implicantes primos seleccionados (esenciales + adicionales).</p>
+<hr />
+<h2>6. Ejemplo Detallado Paso a Paso</h2>
+<p><strong>Problema</strong>: Simplificar $F(A, B, C, D) = \Sigma m(0, 2, 3, 4, 5, 6, 7, 10, 11, 15)$</p>
+<h3>Paso 1: Crear el Mapa K</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">CD = 00</th>
+<th style="text-align: center;">CD = 01</th>
+<th style="text-align: center;">CD = 11</th>
+<th style="text-align: center;">CD = 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>AB = 00</strong></td>
+<td style="text-align: center;">1 (0)</td>
+<td style="text-align: center;">0 (1)</td>
+<td style="text-align: center;">0 (3)</td>
+<td style="text-align: center;">1 (2)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 01</strong></td>
+<td style="text-align: center;">1 (4)</td>
+<td style="text-align: center;">1 (5)</td>
+<td style="text-align: center;">1 (7)</td>
+<td style="text-align: center;">1 (6)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 11</strong></td>
+<td style="text-align: center;">0 (12)</td>
+<td style="text-align: center;">0 (13)</td>
+<td style="text-align: center;">1 (15)</td>
+<td style="text-align: center;">1 (14)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 10</strong></td>
+<td style="text-align: center;">1 (8)</td>
+<td style="text-align: center;">1 (9)</td>
+<td style="text-align: center;">1 (11)</td>
+<td style="text-align: center;">1 (10)</td>
+</tr>
+</tbody>
+</table>
+<h3>Paso 2: Identificar Implicantes Primos</h3>
+<p><strong>Agrupaciones en el mapa</strong>:</p>
+<ol>
+<li><strong>Grupo 1</strong>: Celdas (4, 5, 6, 7) → $\overline{A}B$</li>
+<li>
+<p>Tamaño: 4 (máximo en esa región)</p>
+</li>
+<li>
+<p><strong>Grupo 2</strong>: Celdas (8, 9, 10, 11) → $A\overline{B}$</p>
+</li>
+<li>
+<p>Tamaño: 4 (máximo en esa región)</p>
+</li>
+<li>
+<p><strong>Grupo 3</strong>: Celdas (0, 2, 4, 6) → $\overline{B}\overline{D}$</p>
+</li>
+<li>
+<p>Tamaño: 4 (máximo en esa región)</p>
+</li>
+<li>
+<p><strong>Grupo 4</strong>: Celdas (2, 3, 6, 7) → $\overline{A}C$</p>
+</li>
+<li>
+<p>Tamaño: 4 (máximo en esa región)</p>
+</li>
+<li>
+<p><strong>Grupo 5</strong>: Celdas (10, 11, 14, 15) → $AC$</p>
+</li>
+<li>
+<p>Tamaño: 4 (máximo en esa región)</p>
+</li>
+<li>
+<p><strong>Grupo 6</strong>: Celdas (7, 15) → $BCD$</p>
+</li>
+<li>Tamaño: 2 (¿máximo? Sí, no puede formar grupo de 4 con estas celdas)</li>
+</ol>
+<p><strong>Implicantes Primos</strong>:<br />
+- $P_1 = \overline{A}B$<br />
+- $P_2 = A\overline{B}$<br />
+- $P_3 = \overline{B}\overline{D}$<br />
+- $P_4 = \overline{A}C$<br />
+- $P_5 = AC$<br />
+- $P_6 = BCD$</p>
+<h3>Paso 3: Identificar Implicantes Primos Esenciales</h3>
+<p><strong>Análisis de cobertura</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Minitérmino</th>
+<th style="text-align: left;">Cubierto por</th>
+<th style="text-align: center;">¿Es Esencial?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">m0 (0000)</td>
+<td style="text-align: left;">$P_3$</td>
+<td style="text-align: center;">✅ (solo $P_3$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m2 (0010)</td>
+<td style="text-align: left;">$P_3, P_4$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m3 (0011)</td>
+<td style="text-align: left;">$P_4$</td>
+<td style="text-align: center;">✅ (solo $P_4$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m4 (0100)</td>
+<td style="text-align: left;">$P_1, P_3$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m5 (0101)</td>
+<td style="text-align: left;">$P_1$</td>
+<td style="text-align: center;">✅ (solo $P_1$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m6 (0110)</td>
+<td style="text-align: left;">$P_1, P_3, P_4$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m7 (0111)</td>
+<td style="text-align: left;">$P_1, P_4, P_6$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m10 (1010)</td>
+<td style="text-align: left;">$P_2, P_5$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m11 (1011)</td>
+<td style="text-align: left;">$P_2, P_5$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m14 (1110)</td>
+<td style="text-align: left;">$P_5$</td>
+<td style="text-align: center;">✅ (solo $P_5$)</td>
+</tr>
+<tr>
+<td style="text-align: center;">m15 (1111)</td>
+<td style="text-align: left;">$P_5, P_6$</td>
+<td style="text-align: center;">❌ (múltiples)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implicantes Primos Esenciales</strong>:<br />
+- $P_3 = \overline{B}\overline{D}$ (cubre m0)<br />
+- $P_4 = \overline{A}C$ (cubre m3)<br />
+- $P_1 = \overline{A}B$ (cubre m5)<br />
+- $P_5 = AC$ (cubre m14)</p>
+<h3>Paso 4: Verificar Cobertura</h3>
+<p><strong>Minitérminos cubiertos por los esenciales</strong>:<br />
+- $P_1$: m4, m5, m6, m7<br />
+- $P_3$: m0, m2, m4, m6<br />
+- $P_4$: m2, m3, m6, m7<br />
+- $P_5$: m10, m11, m14, m15</p>
+<p><strong>Total cubierto</strong>: m0, m2, m3, m4, m5, m6, m7, m10, m11, m14, m15</p>
+<p><strong>Todos los minitérminos de la función están cubiertos</strong>.</p>
+<h3>Paso 5: Expresión Final</h3>
+<p>$<br />
+F = \overline{B}\overline{D} + \overline{A}C + \overline{A}B + AC<br />
+$</p>
+<p><strong>Verificación de redundancia</strong>:</p>
+<p>Podemos simplificar más combinando términos:<br />
+$<br />
+F = \overline{B}\overline{D} + C(\overline{A} + A) + \overline{A}B<br />
+$<br />
+$<br />
+F = \overline{B}\overline{D} + C + \overline{A}B<br />
+$</p>
+<p><strong>Expresión Final Simplificada</strong>:<br />
+$<br />
+F = \overline{B}\overline{D} + C + \overline{A}B<br />
+$</p>
+<hr />
+<h2>7. Implicantes Primos y Condiciones "No Importa" (Don't Care)</h2>
+<p>Las condiciones "no importa" (X) pueden ser tratadas como 1s para formar grupos más grandes, pero <strong>no son esenciales</strong> porque no representan minitérminos reales de la función.</p>
+<h3>Reglas con Don't Cares:</h3>
+<ol>
+<li>Las X <strong>pueden</strong> usarse para hacer grupos más grandes.</li>
+<li>Las X <strong>no</strong> son obligatorias (no hay necesidad de cubrirlas).</li>
+<li>Un implicante primo solo es esencial si cubre un <strong>1</strong> (no una X) que no está cubierto por otro implicante primo.</li>
+</ol>
+<h3>Ejemplo con Don't Cares:</h3>
+<p>$F(W, X, Y, Z) = \Sigma m(1, 3, 7, 11, 15)$ con $d(W, X, Y, Z) = \Sigma m(0, 2, 5)$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">YZ = 00</th>
+<th style="text-align: center;">YZ = 01</th>
+<th style="text-align: center;">YZ = 11</th>
+<th style="text-align: center;">YZ = 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>WX = 00</strong></td>
+<td style="text-align: center;">X (0)</td>
+<td style="text-align: center;">1 (1)</td>
+<td style="text-align: center;">1 (3)</td>
+<td style="text-align: center;">X (2)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>WX = 01</strong></td>
+<td style="text-align: center;">X (4)</td>
+<td style="text-align: center;">0 (5)</td>
+<td style="text-align: center;">1 (7)</td>
+<td style="text-align: center;">0 (6)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>WX = 11</strong></td>
+<td style="text-align: center;">0 (12)</td>
+<td style="text-align: center;">0 (13)</td>
+<td style="text-align: center;">1 (15)</td>
+<td style="text-align: center;">0 (14)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>WX = 10</strong></td>
+<td style="text-align: center;">0 (8)</td>
+<td style="text-align: center;">0 (9)</td>
+<td style="text-align: center;">1 (11)</td>
+<td style="text-align: center;">0 (10)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implicantes Primos</strong>:<br />
+1. $P_1 = YZ$ (cubre: m3, m7, m11, m15) → <strong>Esencial</strong> (cubre m15)<br />
+2. $P_2 = WZ$ (cubre: m1, m3, m5, m7) → No esencial (todos sus 1s también están en P1)<br />
+3. $P_3 = \overline{W}Z$ (cubre: m1, m3) → No esencial</p>
+<p><strong>Expresión Final</strong>:<br />
+$<br />
+F = YZ<br />
+$</p>
+<hr />
+<h2>8. Ejercicios de Práctica</h2>
+<h3>Ejercicio 1: Encontrar Implicantes Primos Esenciales</h3>
+<p>Simplifica la siguiente función y encuentra los implicantes primos esenciales:</p>
+<p>$F(A, B, C, D) = \Sigma m(0, 1, 2, 3, 4, 5, 6, 7, 8, 10)$</p>
+<p><strong>Solución</strong>:<br />
+- Implicantes primos: $\overline{A}$, $\overline{B}\overline{C}$, $\overline{B}D$<br />
+- Esenciales: $\overline{A}$ (cubre m8-m15), $\overline{B}\overline{C}$ (cubre m0-m3)<br />
+- Expresión: $F = \overline{A} + \overline{B}\overline{C}$</p>
+<h3>Ejercicio 2: Múltiples Soluciones</h3>
+<p>$F(A, B, C, D) = \Sigma m(0, 1, 2, 4, 5, 6, 8, 9, 12, 13, 14)$</p>
+<p><strong>Solución</strong>:<br />
+- Implicantes primos esenciales: $\overline{C}\overline{D}$, $\overline{B}D$, $A\overline{C}$<br />
+- También hay opciones para cubrir m8, m9, m12, m13</p>
+<h3>Ejercicio 3: Con Don't Cares</h3>
+<p>$F(A, B, C, D) = \Sigma m(0, 3, 4, 6, 8, 10)$ con $d(A, B, C, D) = \Sigma m(1, 5, 9, 11, 15)$</p>
+<p><strong>Solución</strong>:<br />
+- Implicantes primos: $\overline{C}\overline{D}$, $B\overline{C}$, $A\overline{D}$, $\overline{B}D$<br />
+- Esenciales: $\overline{C}\overline{D}$ (cubre m0, m8), $B\overline{C}$ (cubre m4, m6)</p>
+<h3>Ejercicio 4: Sin Esenciales</h3>
+<p>¿Es posible que una función no tenga implicantes primos esenciales?</p>
+<p><strong>Respuesta</strong>: Sí. Por ejemplo, un mapa con cuatro 1s formando un cuadrado:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">CD = 00</th>
+<th style="text-align: center;">CD = 01</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>AB = 00</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AB = 01</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Todos los implicantes primos son de tamaño 2 y ninguno es esencial. Cualquier elección de 2 grupos cubre la función.</p>
+<hr />
+<h2>10. Preguntas Frecuentes</h2>
+<p><strong>P1: ¿Todos los implicantes primos deben ser esenciales?</strong><br />
+- No. Solo los que cubren un 1 de forma única son esenciales. Los demás pueden o no ser necesarios.</p>
+<p><strong>P2: ¿Cómo sé si mi expresión es la más simplificada?</strong><br />
+- Debes incluir todos los implicantes primos esenciales y cubrir todos los 1s con el menor número posible de implicantes primos adicionales.</p>
+<p><strong>P3: ¿Puede haber más de una expresión simplificada?</strong><br />
+- Sí. Cuando hay implicantes primos no esenciales, puede haber múltiples soluciones igualmente válidas.</p>
+<p><strong>P4: ¿Las condiciones "no importa" pueden ser esenciales?</strong><br />
+- No. Solo los minitérminos (1s) pueden hacer que un implicante primo sea esencial.</p>
+<hr />
+<h1>Referencias Bibliográficas</h1>
+<p>[1] M. Morris Mano. <em>Ingeniería computacional, diseño del hardware</em>. Colleen Brosnan. 1991.</p>
+<p>[2] M. Morris Mano. <em>Diseño Digital</em>. Tercera Edición. Pearson Education. 1982.</p>
+<p>[3] William Stallings. <em>Organización y Arquitectura de Computadores</em>. Séptima Edición. Pearson Education. 2005.</p>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../mapas-karnaugh/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../mapas-k-cinco-variables/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

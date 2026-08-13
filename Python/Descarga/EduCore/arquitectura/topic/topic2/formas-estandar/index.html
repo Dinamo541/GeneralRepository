@@ -1,0 +1,1153 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Formas Estándar - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 2
+                </div>
+                <h1 class="display-5 fw-bold">Formas Estándar</h1>
+                <p class="lead opacity-75">Lógica digital</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 40.0%;"
+                         data-total="10"
+                         data-current="4">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 4 de 10</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Formas Estándar - Minitérminos y Maxitérminos</h1>
+<h2>1. Introducción a las Formas Estándar</h2>
+<p>Una función booleana se puede escribir en diversas formas cuando se expresa en forma algebraica. Las <strong>formas estándar</strong> facilitan los procedimientos de simplificación de expresiones booleanas y con frecuencia producen circuitos de compuertas más deseables.</p>
+<h3>¿Por qué son importantes las formas estándar?</h3>
+<ul>
+<li>Permiten representar cualquier función booleana de manera única.</li>
+<li>Facilitan la simplificación mediante mapas de Karnaugh.</li>
+<li>Son la base para el diseño de circuitos combinatorios.</li>
+<li>Permiten la implementación directa con compuertas lógicas.</li>
+</ul>
+<h3>Tipos de Términos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Término</th>
+<th style="text-align: left;">Definición</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Término de Producto</strong></td>
+<td style="text-align: left;">Producto (AND) de literales</td>
+<td style="text-align: left;">$XYZ$, $\overline{X}Y\overline{Z}$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Término de Suma</strong></td>
+<td style="text-align: left;">Suma (OR) de literales</td>
+<td style="text-align: left;">$X + Y + Z$, $\overline{X} + Y + \overline{Z}$</td>
+</tr>
+</tbody>
+</table>
+<h3>Formas Estándar Principales</h3>
+<ol>
+<li>
+<p><strong>Suma de Productos (SOP)</strong>: Suma de términos de producto.<br />
+Ejemplo: $F = \overline{Y} + \overline{X}Y\overline{Z} + XY$</p>
+</li>
+<li>
+<p><strong>Producto de Sumas (POS)</strong>: Producto de términos de suma.<br />
+Ejemplo: $F = X(\overline{Y} + \overline{Z})(X + Y + \overline{Z})$</p>
+</li>
+</ol>
+<hr />
+<h2>2. Minitérminos</h2>
+<p>Un <strong>minitérmino</strong> (o término mínimo) es un término de producto que contiene <strong>todas</strong> las variables de la función, ya sea en forma normal o complementada.</p>
+<h3>Características de un Minitérmino:</h3>
+<ul>
+<li>Contiene todas las variables de la función.</li>
+<li>Cada variable aparece exactamente una vez.</li>
+<li>El valor del minitérmino es 1 solo para una combinación específica de entradas.</li>
+<li>Se denota como $m_i$, donde $i$ es el número decimal equivalente a la combinación binaria que hace el minitérmino igual a 1.</li>
+</ul>
+<h3>Minitérminos para 3 Variables (X, Y, Z)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: left;">Minitérmino</th>
+<th style="text-align: center;">Símbolo</th>
+<th style="text-align: left;">Valor = 1 cuando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$\overline{X}\overline{Y}\overline{Z}$</td>
+<td style="text-align: center;">$m_0$</td>
+<td style="text-align: left;">XYZ = 000</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$\overline{X}\overline{Y}Z$</td>
+<td style="text-align: center;">$m_1$</td>
+<td style="text-align: left;">XYZ = 001</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$\overline{X}Y\overline{Z}$</td>
+<td style="text-align: center;">$m_2$</td>
+<td style="text-align: left;">XYZ = 010</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$\overline{X}YZ$</td>
+<td style="text-align: center;">$m_3$</td>
+<td style="text-align: left;">XYZ = 011</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$X\overline{Y}\overline{Z}$</td>
+<td style="text-align: center;">$m_4$</td>
+<td style="text-align: left;">XYZ = 100</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$X\overline{Y}Z$</td>
+<td style="text-align: center;">$m_5$</td>
+<td style="text-align: left;">XYZ = 101</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$XY\overline{Z}$</td>
+<td style="text-align: center;">$m_6$</td>
+<td style="text-align: left;">XYZ = 110</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$XYZ$</td>
+<td style="text-align: center;">$m_7$</td>
+<td style="text-align: left;">XYZ = 111</td>
+</tr>
+</tbody>
+</table>
+<h3>Regla para construir un minitérmino:</h3>
+<ul>
+<li>Si la variable vale <strong>1</strong> en la combinación, se usa la variable sin complementar.</li>
+<li>Si la variable vale <strong>0</strong> en la combinación, se usa la variable complementada.</li>
+</ul>
+<h3>Ejemplo de Minitérmino:</h3>
+<p>Para la combinación $X=1, Y=0, Z=1$ ($101_2 = 5_{10})$:</p>
+<ul>
+<li>$X = 1$ → usar $X$</li>
+<li>$Y = 0$ → usar $\overline{Y}$</li>
+<li>$Z = 1$ → usar $Z$</li>
+</ul>
+<p><strong>Resultado</strong>: $m_5 = X\overline{Y}Z$</p>
+<hr />
+<h2>3. Representación de Funciones con Minitérminos</h2>
+<p>Cualquier función booleana se puede expresar como la <strong>suma de los minitérminos</strong> para los cuales la función vale 1.</p>
+<h3>Notación Compacta:</h3>
+<p>$<br />
+F(X, Y, Z) = \Sigma m(índices\ donde\ F=1)<br />
+$</p>
+<h3>Ejemplo 1: Función de 3 variables</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: center;">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paso 1</strong>: Identificar los índices donde F = 1:<br />
+- $m_0$ (000)<br />
+- $m_2$ (010)<br />
+- $m_3$ (011)<br />
+- $m_5$ (101)<br />
+- $m_7$ (111)</p>
+<p><strong>Paso 2</strong>: Escribir la función:<br />
+$<br />
+F = m_0 + m_2 + m_3 + m_5 + m_7<br />
+$</p>
+<p><strong>Paso 3</strong>: Expandir los minitérminos:<br />
+$<br />
+F = \overline{X}\overline{Y}\overline{Z} + \overline{X}Y\overline{Z} + \overline{X}YZ + X\overline{Y}Z + XYZ<br />
+$</p>
+<p><strong>Paso 4</strong>: Notación compacta:<br />
+$<br />
+F(X, Y, Z) = \Sigma m(0, 2, 3, 5, 7)<br />
+$</p>
+<h3>Ejemplo 2: Función de 4 variables</h3>
+<p>Para una función con 4 variables (A, B, C, D):<br />
+$<br />
+F(A, B, C, D) = \Sigma m(0, 1, 2, 4, 5, 6, 8, 9, 12, 13, 14)<br />
+$</p>
+<p>Esto significa que la función vale 1 para las combinaciones:<br />
+- 0000, 0001, 0010, 0100, 0101, 0110, 1000, 1001, 1100, 1101, 1110</p>
+<p>Y vale 0 para el resto de combinaciones.</p>
+<hr />
+<h2>4. Maxitérminos</h2>
+<p>Un <strong>maxitérmino</strong> (o término máximo) es un término de suma que contiene <strong>todas</strong> las variables de la función, ya sea en forma normal o complementada.</p>
+<h3>Características de un Maxitérmino:</h3>
+<ul>
+<li>Contiene todas las variables de la función.</li>
+<li>Cada variable aparece exactamente una vez.</li>
+<li>El valor del maxitérmino es 0 solo para una combinación específica de entradas.</li>
+<li>Se denota como $M_i$, donde $i$ es el número decimal equivalente a la combinación binaria que hace el maxitérmino igual a 0.</li>
+</ul>
+<h3>Maxitérminos para 3 Variables (X, Y, Z)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: left;">Maxitérmino</th>
+<th style="text-align: center;">Símbolo</th>
+<th style="text-align: left;">Valor = 0 cuando</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$X + Y + Z$</td>
+<td style="text-align: center;">$M_0$</td>
+<td style="text-align: left;">XYZ = 000</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$X + Y + \overline{Z}$</td>
+<td style="text-align: center;">$M_1$</td>
+<td style="text-align: left;">XYZ = 001</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$X + \overline{Y} + Z$</td>
+<td style="text-align: center;">$M_2$</td>
+<td style="text-align: left;">XYZ = 010</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$X + \overline{Y} + \overline{Z}$</td>
+<td style="text-align: center;">$M_3$</td>
+<td style="text-align: left;">XYZ = 011</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$\overline{X} + Y + Z$</td>
+<td style="text-align: center;">$M_4$</td>
+<td style="text-align: left;">XYZ = 100</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$\overline{X} + Y + \overline{Z}$</td>
+<td style="text-align: center;">$M_5$</td>
+<td style="text-align: left;">XYZ = 101</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$\overline{X} + \overline{Y} + Z$</td>
+<td style="text-align: center;">$M_6$</td>
+<td style="text-align: left;">XYZ = 110</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$\overline{X} + \overline{Y} + \overline{Z}$</td>
+<td style="text-align: center;">$M_7$</td>
+<td style="text-align: left;">XYZ = 111</td>
+</tr>
+</tbody>
+</table>
+<h3>Regla para construir un maxitérmino:</h3>
+<ul>
+<li>Si la variable vale <strong>1</strong> en la combinación, se usa la variable complementada.</li>
+<li>Si la variable vale <strong>0</strong> en la combinación, se usa la variable sin complementar.</li>
+</ul>
+<h3>Ejemplo de Maxitérmino:</h3>
+<p>Para la combinación $X=1, Y=0, Z=1$ ($101_2 = 5_10$):</p>
+<ul>
+<li>$X = 1$ → usar $\overline{X}$</li>
+<li>$Y = 0$ → usar $Y$</li>
+<li>$Z = 1$ → usar $\overline{Z}$</li>
+</ul>
+<p><strong>Resultado</strong>: $M_5 = \overline{X} + Y + \overline{Z}$</p>
+<h3>Relación entre Minitérminos y Maxitérminos:</h3>
+<p>$<br />
+m_i = \overline{M_i}<br />
+$</p>
+<p>Es decir, el complemento de un minitérmino es el maxitérmino correspondiente, y viceversa.</p>
+<hr />
+<h2>5. Representación de Funciones con Maxitérminos</h2>
+<p>Cualquier función booleana se puede expresar como el <strong>producto de los maxitérminos</strong> para los cuales la función vale 0.</p>
+<h3>Notación Compacta:</h3>
+<p>$<br />
+F(X, Y, Z) = \Pi M(índices\ donde\ F=0)<br />
+$</p>
+<h3>Ejemplo: Función de 3 variables</h3>
+<p>Usando la misma tabla del ejemplo anterior:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: center;">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paso 1</strong>: Identificar los índices donde F = 0:<br />
+- $M_1$ (001)<br />
+- $M_4$ (100)<br />
+- $M_6$ (110)</p>
+<p><strong>Paso 2</strong>: Escribir la función:<br />
+$<br />
+F = M_1 \cdot M_4 \cdot M_6<br />
+$</p>
+<p><strong>Paso 3</strong>: Expandir los maxitérminos:<br />
+$<br />
+F = (X + Y + \overline{Z})(\overline{X} + Y + Z)(\overline{X} + \overline{Y} + Z)<br />
+$</p>
+<p><strong>Paso 4</strong>: Notación compacta:<br />
+$<br />
+F(X, Y, Z) = \Pi M(1, 4, 6)<br />
+$</p>
+<hr />
+<h2>6. Conversión entre Formas SOP y POS</h2>
+<h3>Método 1: Usando la Tabla de Verdad</h3>
+<ul>
+<li><strong>SOP</strong>: Suma de minitérminos donde F = 1</li>
+<li><strong>POS</strong>: Producto de maxitérminos donde F = 0</li>
+</ul>
+<h3>Método 2: Usando Complementos</h3>
+<p>Si $F = \Sigma m(1, 3, 5, 7)$, entonces:<br />
+$<br />
+\overline{F} = \Sigma m(0, 2, 4, 6)<br />
+$</p>
+<p>Y por lo tanto:<br />
+$<br />
+F = \Pi M(0, 2, 4, 6)<br />
+$</p>
+<h3>Método 3: Manipulación Algebraica</h3>
+<p>Convertir $F = \overline{X}Y + X\overline{Z}$ a POS:</p>
+<p><strong>Paso 1</strong>: Expandir a minitérminos:<br />
+$<br />
+F = \overline{X}Y\overline{Z} + \overline{X}YZ + X\overline{Y}\overline{Z} + XY\overline{Z}<br />
+$<br />
+$<br />
+F = \Sigma m(2, 3, 4, 6)<br />
+$</p>
+<p><strong>Paso 2</strong>: Identificar los maxitérminos (los que faltan):<br />
+$<br />
+F = \Pi M(0, 1, 5, 7)<br />
+$</p>
+<p><strong>Paso 3</strong>: Expandir:<br />
+$<br />
+F = (X + Y + Z)(X + Y + \overline{Z})(\overline{X} + Y + \overline{Z})(\overline{X} + \overline{Y} + \overline{Z})<br />
+$</p>
+<hr />
+<h2>7. Tabla de Minitérminos y Maxitérminos (3 Variables)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: left;">Minitérmino</th>
+<th style="text-align: center;">Símbolo</th>
+<th style="text-align: left;">Maxitérmino</th>
+<th style="text-align: center;">Símbolo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$\overline{X}\overline{Y}\overline{Z}$</td>
+<td style="text-align: center;">$m_0$</td>
+<td style="text-align: left;">$X + Y + Z$</td>
+<td style="text-align: center;">$M_0$</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$\overline{X}\overline{Y}Z$</td>
+<td style="text-align: center;">$m_1$</td>
+<td style="text-align: left;">$X + Y + \overline{Z}$</td>
+<td style="text-align: center;">$M_1$</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$\overline{X}Y\overline{Z}$</td>
+<td style="text-align: center;">$m_2$</td>
+<td style="text-align: left;">$X + \overline{Y} + Z$</td>
+<td style="text-align: center;">$M_2$</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$\overline{X}YZ$</td>
+<td style="text-align: center;">$m_3$</td>
+<td style="text-align: left;">$X + \overline{Y} + \overline{Z}$</td>
+<td style="text-align: center;">$M_3$</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$X\overline{Y}\overline{Z}$</td>
+<td style="text-align: center;">$m_4$</td>
+<td style="text-align: left;">$\overline{X} + Y + Z$</td>
+<td style="text-align: center;">$M_4$</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$X\overline{Y}Z$</td>
+<td style="text-align: center;">$m_5$</td>
+<td style="text-align: left;">$\overline{X} + Y + \overline{Z}$</td>
+<td style="text-align: center;">$M_5$</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$XY\overline{Z}$</td>
+<td style="text-align: center;">$m_6$</td>
+<td style="text-align: left;">$\overline{X} + \overline{Y} + Z$</td>
+<td style="text-align: center;">$M_6$</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$XYZ$</td>
+<td style="text-align: center;">$m_7$</td>
+<td style="text-align: left;">$\overline{X} + \overline{Y} + \overline{Z}$</td>
+<td style="text-align: center;">$M_7$</td>
+</tr>
+</tbody>
+</table>
+<h3>Tabla de Minitérminos y Maxitérminos (2 Variables)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: left;">Minitérmino</th>
+<th style="text-align: center;">Símbolo</th>
+<th style="text-align: left;">Maxitérmino</th>
+<th style="text-align: center;">Símbolo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$\overline{X}\overline{Y}$</td>
+<td style="text-align: center;">$m_0$</td>
+<td style="text-align: left;">$X + Y$</td>
+<td style="text-align: center;">$M_0$</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$\overline{X}Y$</td>
+<td style="text-align: center;">$m_1$</td>
+<td style="text-align: left;">$X + \overline{Y}$</td>
+<td style="text-align: center;">$M_1$</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">$X\overline{Y}$</td>
+<td style="text-align: center;">$m_2$</td>
+<td style="text-align: left;">$\overline{X} + Y$</td>
+<td style="text-align: center;">$M_2$</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">$XY$</td>
+<td style="text-align: center;">$m_3$</td>
+<td style="text-align: left;">$\overline{X} + \overline{Y}$</td>
+<td style="text-align: center;">$M_3$</td>
+</tr>
+</tbody>
+</table>
+<h3>Tabla de Minitérminos y Maxitérminos (4 Variables)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">#</th>
+<th style="text-align: center;">ABCD</th>
+<th style="text-align: left;">Minitérmino</th>
+<th style="text-align: left;">Maxitérmino</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0000</td>
+<td style="text-align: left;">$\overline{A}\overline{B}\overline{C}\overline{D}$</td>
+<td style="text-align: left;">$A + B + C + D$</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0001</td>
+<td style="text-align: left;">$\overline{A}\overline{B}\overline{C}D$</td>
+<td style="text-align: left;">$A + B + C + \overline{D}$</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0010</td>
+<td style="text-align: left;">$\overline{A}\overline{B}C\overline{D}$</td>
+<td style="text-align: left;">$A + B + \overline{C} + D$</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0011</td>
+<td style="text-align: left;">$\overline{A}\overline{B}CD$</td>
+<td style="text-align: left;">$A + B + \overline{C} + \overline{D}$</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0100</td>
+<td style="text-align: left;">$\overline{A}B\overline{C}\overline{D}$</td>
+<td style="text-align: left;">$A + \overline{B} + C + D$</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0101</td>
+<td style="text-align: left;">$\overline{A}B\overline{C}D$</td>
+<td style="text-align: left;">$A + \overline{B} + C + \overline{D}$</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0110</td>
+<td style="text-align: left;">$\overline{A}BC\overline{D}$</td>
+<td style="text-align: left;">$A + \overline{B} + \overline{C} + D$</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0111</td>
+<td style="text-align: left;">$\overline{A}BCD$</td>
+<td style="text-align: left;">$A + \overline{B} + \overline{C} + \overline{D}$</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">1000</td>
+<td style="text-align: left;">$A\overline{B}\overline{C}\overline{D}$</td>
+<td style="text-align: left;">$\overline{A} + B + C + D$</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1001</td>
+<td style="text-align: left;">$A\overline{B}\overline{C}D$</td>
+<td style="text-align: left;">$\overline{A} + B + C + \overline{D}$</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1010</td>
+<td style="text-align: left;">$A\overline{B}C\overline{D}$</td>
+<td style="text-align: left;">$\overline{A} + B + \overline{C} + D$</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">1011</td>
+<td style="text-align: left;">$A\overline{B}CD$</td>
+<td style="text-align: left;">$\overline{A} + B + \overline{C} + \overline{D}$</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">1100</td>
+<td style="text-align: left;">$AB\overline{C}\overline{D}$</td>
+<td style="text-align: left;">$\overline{A} + \overline{B} + C + D$</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">1101</td>
+<td style="text-align: left;">$AB\overline{C}D$</td>
+<td style="text-align: left;">$\overline{A} + \overline{B} + C + \overline{D}$</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">1110</td>
+<td style="text-align: left;">$ABC\overline{D}$</td>
+<td style="text-align: left;">$\overline{A} + \overline{B} + \overline{C} + D$</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">1111</td>
+<td style="text-align: left;">$ABCD$</td>
+<td style="text-align: left;">$\overline{A} + \overline{B} + \overline{C} + \overline{D}$</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>8. Aplicación en Mapas de Karnaugh</h2>
+<h3>Minitérminos en Mapas K</h3>
+<p>Los minitérminos se colocan directamente en el mapa K. Cada 1 en el mapa corresponde a un minitérmino donde la función vale 1.</p>
+<h3>Conversión a SOP usando Mapas K</h3>
+<ol>
+<li>Colocar 1s en las celdas correspondientes a los minitérminos.</li>
+<li>Agrupar los 1s en grupos de potencias de 2.</li>
+<li>Cada grupo produce un término producto (minitérmino simplificado).</li>
+<li>La función es la suma de todos los términos producto.</li>
+</ol>
+<h3>Ejemplo de SOP con Mapa K:</h3>
+<p>$<br />
+F(A, B, C, D) = \Sigma m(0, 1, 2, 4, 5, 6, 8, 9, 12, 13, 14)<br />
+$</p>
+<p><strong>Resultado</strong> (del mapa K):<br />
+$<br />
+F = \overline{C}\overline{D} + \overline{B}D + A\overline{C} + \overline{A}B\overline{D}<br />
+$</p>
+<h3>Conversión a POS usando Mapas K</h3>
+<ol>
+<li>Colocar 0s en las celdas correspondientes a los maxitérminos (donde F = 0).</li>
+<li>Agrupar los 0s en grupos de potencias de 2.</li>
+<li>Cada grupo produce un término suma (maxitérmino simplificado).</li>
+<li>La función es el producto de todos los términos suma.</li>
+</ol>
+<hr />
+<h2>9. Ejercicios de Práctica</h2>
+<h3>Ejercicio 1: Encontrar los minitérminos</h3>
+<p>Dada la siguiente tabla de verdad, expresa la función en forma de suma de minitérminos.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">X</th>
+<th style="text-align: center;">Y</th>
+<th style="text-align: center;">Z</th>
+<th style="text-align: center;">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solución</strong>:<br />
+$<br />
+F = \Sigma m(1, 3, 4, 6, 7)<br />
+$</p>
+<h3>Ejercicio 2: Encontrar los maxitérminos</h3>
+<p>Dada la misma tabla anterior, expresa la función en forma de producto de maxitérminos.</p>
+<p><strong>Solución</strong>:<br />
+$<br />
+F = \Pi M(0, 2, 5)<br />
+$</p>
+<h3>Ejercicio 3: Expandir minitérminos</h3>
+<p>Dada $F(X, Y, Z) = \Sigma m(1, 3, 5, 7)$, expande la función.</p>
+<p><strong>Solución</strong>:<br />
+$<br />
+F = \overline{X}\overline{Y}Z + \overline{X}YZ + X\overline{Y}Z + XYZ<br />
+$</p>
+<h3>Ejercicio 4: Expandir maxitérminos</h3>
+<p>Dada $F(X, Y, Z) = \Pi M(0, 2, 4, 6)$, expande la función.</p>
+<p><strong>Solución</strong>:<br />
+$<br />
+F = (X + Y + Z)(X + \overline{Y} + Z)(\overline{X} + Y + Z)(\overline{X} + \overline{Y} + Z)<br />
+$</p>
+<h3>Ejercicio 5: Conversión SOP a POS</h3>
+<p>Convierte $F(A, B, C) = \Sigma m(0, 2, 4, 6)$ a POS.</p>
+<p><strong>Solución</strong>:</p>
+<p><strong>Paso 1</strong>: Encontrar los maxitérminos (los que faltan en 0-7):<br />
+- Faltan: 1, 3, 5, 7</p>
+<p><strong>Paso 2</strong>: Escribir la función en POS:<br />
+$<br />
+F = \Pi M(1, 3, 5, 7)<br />
+$</p>
+<p><strong>Paso 3</strong>: Expandir:<br />
+$<br />
+F = (A + B + \overline{C})(A + \overline{B} + \overline{C})(\overline{A} + B + \overline{C})(\overline{A} + \overline{B} + \overline{C})<br />
+$</p>
+<h3>Ejercicio 6: Diseñar un circuito</h3>
+<p>Diseña un circuito que implemente la función $F = \Sigma m(0, 2, 5, 7)$ usando solo compuertas NAND.</p>
+<p><strong>Solución</strong>:<br />
+1. Simplificar usando mapa K.<br />
+2. Implementar con compuertas NAND (usando DeMorgan).</p>
+<hr />
+<h2>10. Resumen y Comparación</h2>
+<h3>Resumen de Minitérminos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Aspecto</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Definición</strong></td>
+<td style="text-align: left;">Término producto con todas las variables</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Valor</strong></td>
+<td style="text-align: left;">1 para una combinación específica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Notación</strong></td>
+<td style="text-align: left;">$m_i$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forma</strong></td>
+<td style="text-align: left;">Suma de productos (SOP)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Uso</strong></td>
+<td style="text-align: left;">Implementación directa con AND-OR</td>
+</tr>
+</tbody>
+</table>
+<h3>Resumen de Maxitérminos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Aspecto</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Definición</strong></td>
+<td style="text-align: left;">Término suma con todas las variables</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Valor</strong></td>
+<td style="text-align: left;">0 para una combinación específica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Notación</strong></td>
+<td style="text-align: left;">$M_i$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Forma</strong></td>
+<td style="text-align: left;">Producto de sumas (POS)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Uso</strong></td>
+<td style="text-align: left;">Implementación directa con OR-AND</td>
+</tr>
+</tbody>
+</table>
+<h3>Relaciones Importantes</h3>
+<ol>
+<li>$m_i = \overline{M_i}$</li>
+<li>$F = \Sigma m(i) = \Pi M(j)$, donde $i$ son los índices donde F=1 y $j$ son los índices donde F=0.</li>
+<li>El complemento de una función: $\overline{F} = \Sigma m(j) = \Pi M(i)$</li>
+</ol>
+<hr />
+<h2>11. Aplicaciones Prácticas</h2>
+<h3>1. Simplificación de Circuitos</h3>
+<ul>
+<li>Las formas estándar permiten identificar rápidamente los términos que se pueden combinar.</li>
+</ul>
+<h3>2. Implementación con Compuertas</h3>
+<ul>
+<li>SOP se implementa con compuertas AND-OR.</li>
+<li>POS se implementa con compuertas OR-AND.</li>
+</ul>
+<h3>3. Minimización de Costos</h3>
+<ul>
+<li>Elegir entre SOP y POS según cuál requiera menos compuertas.</li>
+</ul>
+<h3>4. Diseño con Multiplexores</h3>
+<ul>
+<li>Los minitérminos se usan directamente para implementar funciones con multiplexores.</li>
+</ul>
+<h3>Ejemplo de Implementación:</h3>
+<p>Para $F = \Sigma m(0, 2, 5, 7)$:</p>
+<p><strong>Implementación SOP</strong> (AND-OR):<br />
+- 4 compuertas AND (una por cada minitérmino)<br />
+- 1 compuerta OR de 4 entradas</p>
+<p><strong>Implementación POS</strong> (OR-AND):<br />
+- 4 compuertas OR (una por cada maxitérmino)<br />
+- 1 compuerta AND de 4 entradas</p>
+<p>La elección depende de cuál requiera menos compuertas en el circuito.</p>
+<hr />
+<h1>Referencias Bibliográficas</h1>
+<p>[1] M. Morris Mano. <em>Ingeniería computacional, diseño del hardware</em>. Colleen Brosnan. 1991.</p>
+<p>[2] M. Morris Mano. <em>Diseño Digital</em>. Tercera Edición. Pearson Education. 1982.</p>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../algebra-booleana/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../mapas-karnaugh/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,710 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Circuitos secuenciales: Flip-Flops, contadores y registros - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 2
+                </div>
+                <h1 class="display-5 fw-bold">Circuitos secuenciales: Flip-Flops, contadores y registros</h1>
+                <p class="lead opacity-75">Lógica digital</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 100.0%;"
+                         data-total="10"
+                         data-current="10">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 10 de 10</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Circuitos Secuenciales - Flip-Flops, Contadores y Registros</h1>
+<h2>1. Introducción a los Circuitos Secuenciales</h2>
+<p>A diferencia de los circuitos combinatorios, los <strong>circuitos secuenciales</strong> tienen <strong>memoria</strong>. Sus salidas dependen no solo de las entradas actuales, sino también del estado anterior.</p>
+<h3>Características principales:</h3>
+<ul>
+<li>Incluyen elementos de almacenamiento (biestables).</li>
+<li>Funcionan con una señal de <strong>reloj</strong> (clock) que sincroniza los cambios.</li>
+<li>Se utilizan para construir memoria, contadores, registros, etc.</li>
+</ul>
+<h3>Componentes Básicos de un Circuito Secuencial:</h3>
+<p>Entradas → [ Circuito Combinatorio ] → Salidas<br />
+↑ ↓<br />
+└── [ Memoria ] ──┘</p>
+<hr />
+<h2>2. Seguros (Latches)</h2>
+<p>Un <strong>latch</strong> es el circuito básico de almacenamiento. Es un biestable sin reloj.</p>
+<h3>2.1 Latch SR (Set-Reset)</h3>
+<p><strong>Entradas</strong>:<br />
+- $S$ (Set): Activa la salida Q = 1<br />
+- $R$ (Reset): Activa la salida Q = 0<br />
+- $Q$: Salida normal<br />
+- $\overline{Q}$: Salida complementaria</p>
+<p><strong>Tabla de Verdad del Latch SR</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">S</th>
+<th style="text-align: center;">R</th>
+<th style="text-align: center;">Q</th>
+<th style="text-align: center;">Q'</th>
+<th style="text-align: left;">Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Q</td>
+<td style="text-align: center;">Q'</td>
+<td style="text-align: left;">No hay cambio</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Reset</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">Set</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><strong>Estado inválido</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>2.2 Latch SR con Entrada de Control (Enable)</h3>
+<p>Permite habilitar o deshabilitar el latch.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">E</th>
+<th style="text-align: center;">S</th>
+<th style="text-align: center;">R</th>
+<th style="text-align: left;">Estado siguiente de Q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: left;">No hay cambio</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">No hay cambio</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">0 (Reset)</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">1 (Set)</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Indeterminado</td>
+</tr>
+</tbody>
+</table>
+<h3>2.3 Latch D (Data)</h3>
+<p>Elimina el estado inválido del latch SR utilizando una entrada única D.</p>
+<p><strong>Entrada</strong>: D<br />
+<strong>Salida</strong>: Q = D (cuando E = 1)</p>
+<p><strong>Tabla de Verdad</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">Q (siguiente)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diagrama</strong>: Se construye con un latch SR y una compuerta NOT.<br />
+D ──┬── S ──┐<br />
+│ │<br />
+└── NOT ── R ── [Latch SR] ── Q</p>
+<hr />
+<h2>3. Flip-Flops (Multivibradores Biestables)</h2>
+<p>Un <strong>flip-flop</strong> es un latch sincronizado por una señal de reloj. Los cambios ocurren solo en los flancos del reloj.</p>
+<h3>3.1 Flip-Flop D (Data)</h3>
+<p>El más común y sencillo. La salida Q toma el valor de D en el flanco activo del reloj.</p>
+<p><strong>Tabla de Características</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">Q(t+1)</th>
+<th style="text-align: left;">Operación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">Reset</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Set</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Símbolo</strong>:<br />
+D ──|FF D|── Q<br />
+| |<br />
+└── CP (Reloj)</p>
+<h3>3.2 Flip-Flop JK</h3>
+<p>Elimina la condición inválida del flip-flop SR, permitiendo todas las combinaciones de entrada.</p>
+<p><strong>Tabla de Características</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">J</th>
+<th style="text-align: center;">K</th>
+<th style="text-align: center;">Q(t+1)</th>
+<th style="text-align: left;">Operación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Q(t)</td>
+<td style="text-align: left;">No hay cambio</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">Reset</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Set</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$\overline{Q(t)}$</td>
+<td style="text-align: left;">Toggle (Complemento)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Símbolo</strong>:<br />
+J ──|FF JK|── Q<br />
+K ──| |<br />
+└── CP (Reloj)</p>
+<h3>3.3 Flip-Flop T (Toggle)</h3>
+<p>Cambia de estado cuando T = 1.</p>
+<p><strong>Tabla de Características</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">T</th>
+<th style="text-align: center;">Q(t+1)</th>
+<th style="text-align: left;">Operación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Q(t)</td>
+<td style="text-align: left;">No hay cambio</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">$\overline{Q(t)}$</td>
+<td style="text-align: left;">Toggle</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Símbolo</strong>:<br />
+T ──|FF T|── Q<br />
+| |<br />
+└── CP (Reloj)</p>
+<h3>3.4 Flip-Flop RS (Set-Reset)</h3>
+<p>Similar al latch SR pero sincronizado por reloj. La condición J=1, K=1 es inválida.</p>
+<p><strong>Tabla de Características</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">R</th>
+<th style="text-align: center;">S</th>
+<th style="text-align: center;">Q(t+1)</th>
+<th style="text-align: left;">Operación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Q(t)</td>
+<td style="text-align: left;">No hay cambio</td>
+</tr>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Set</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: left;">Reset</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;"><strong>Indeterminado</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Tablas de Excitación</h2>
+<p>Las tablas de excitación indican qué valores de entrada son necesarios para lograr una transición de estado deseada.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Transición</th>
+<th style="text-align: center;">FF D</th>
+<th style="text-align: center;">FF JK</th>
+<th style="text-align: center;">FF T</th>
+<th style="text-align: center;">FF RS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0 → 0</td>
+<td style="text-align: center;">D=0</td>
+<td style="text-align: center;">J=0, K=X</td>
+<td style="text-align: center;">T=0</td>
+<td style="text-align: center;">R=X, S=0</td>
+</tr>
+<tr>
+<td style="text-align: center;">0 → 1</td>
+<td style="text-align: center;">D=1</td>
+<td style="text-align: center;">J=1, K=X</td>
+<td style="text-align: center;">T=1</td>
+<td style="text-align: center;">R=0, S=1</td>
+</tr>
+<tr>
+<td style="text-align: center;">1 → 0</td>
+<td style="text-align: center;">D=0</td>
+<td style="text-align: center;">J=X, K=1</td>
+<td style="text-align: center;">T=1</td>
+<td style="text-align: center;">R=1, S=0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1 → 1</td>
+<td style="text-align: center;">D=1</td>
+<td style="text-align: center;">J=X, K=0</td>
+<td style="text-align: center;">T=0</td>
+<td style="text-align: center;">R=0, S=X</td>
+</tr>
+</tbody>
+</table>
+<p><strong>X = Don't Care</strong> (puede ser 0 o 1)</p>
+<hr />
+<h2>5. Contadores</h2>
+<p>Un <strong>contador</strong> es un circuito secuencial que recorre una secuencia predeterminada de estados.</p>
+<h3>5.1 Contador Binario de 2 bits</h3>
+<p><strong>Secuencia</strong>: 00 → 01 → 10 → 11 → 00</p>
+<p><strong>Tabla de Estado</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Estado Presente</th>
+<th style="text-align: center;">Estado Siguiente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">01</td>
+</tr>
+<tr>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">00</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implementación con FF T</strong>:</p>
+<ul>
+<li>$T_1 = 1$ (siempre toggle)</li>
+<li>$T_0 = Q_1$ (toggle cuando Q1 = 1)</li>
+</ul>
+<h3>5.2 Contador de Década (0-9)</h3>
+<p>Cuenta del 0 al 9 (0000 a 1001) y luego regresa a 0.</p>
+<p><strong>Secuencia</strong>: 0000 → 0001 → 0010 → ... → 1001 → 0000</p>
+<h3>5.3 Contador Ascendente/Descendente (Up/Down)</h3>
+<p>Puede contar hacia arriba o hacia abajo según una entrada de control.</p>
+<hr />
+<h2>6. Registros</h2>
+<p>Un <strong>registro</strong> es un conjunto de flip-flops que almacenan un dato binario de varios bits.</p>
+<h3>6.1 Registro de Almacenamiento (Paralelo)</h3>
+<p>Almacena y entrega datos en paralelo (todos los bits al mismo tiempo).<br />
+D3 D2 D1 D0 ── [ FF3 FF2 FF1 FF0 ] ── Q3 Q2 Q1 Q0</p>
+<h3>6.2 Registro de Desplazamiento (Shift Register)</h3>
+<p>Los bits se mueven de una posición a otra en cada pulso de reloj.</p>
+<p><strong>Tipos</strong>:<br />
+- <strong>Desplazamiento a la derecha</strong>: Serie → → →<br />
+- <strong>Desplazamiento a la izquierda</strong>: ← ← ← Serie<br />
+- <strong>Rotación</strong>: Los bits que salen vuelven a entrar.</p>
+<p><strong>Aplicaciones</strong>:<br />
+- Conversión serie-paralelo<br />
+- Multiplicación y división por 2<br />
+- Memoria FIFO</p>
+<h3>6.3 Memoria de 4 bits (Ejemplo)</h3>
+<p>Construida con 4 flip-flops D.<br />
+D3 ──|FF|── Q3<br />
+D2 ──|FF|── Q2<br />
+D1 ──|FF|── Q1<br />
+D0 ──|FF|── Q0</p>
+<hr />
+<h2>7. Máquinas de Estado Finito (FSM)</h2>
+<p>Una FSM es un modelo matemático que describe el comportamiento de un circuito secuencial.</p>
+<h3>Componentes de una FSM:</h3>
+<ol>
+<li><strong>Conjunto de estados</strong>: Posibles estados del sistema.</li>
+<li><strong>Conjunto de entradas</strong>: Señales que llegan al sistema.</li>
+<li><strong>Función de transición</strong>: Estado siguiente = f(estado actual, entradas).</li>
+<li><strong>Conjunto de salidas</strong>: Señales que produce el sistema.</li>
+</ol>
+<h3>Tipos de FSM:</h3>
+<ul>
+<li><strong>Modelo Mealy</strong>: Las salidas dependen del estado actual y de las entradas.</li>
+<li><strong>Modelo Moore</strong>: Las salidas dependen solo del estado actual.</li>
+</ul>
+<h3>Diagrama de Estados</h3>
+<p>Representación gráfica donde:<br />
+- <strong>Círculos</strong> representan estados.<br />
+- <strong>Flechas</strong> representan transiciones.<br />
+- <strong>Etiquetas</strong> en las flechas muestran entrada/salida.</p>
+<p><strong>Ejemplo</strong>: Máquina expendedora de refrescos.</p>
+<hr />
+<h2>8. Procedimiento de Diseño Secuencial</h2>
+<h3>Pasos para diseñar un circuito secuencial:</h3>
+<ol>
+<li>
+<p><strong>Crear el diagrama de estados</strong> a partir de las especificaciones.</p>
+</li>
+<li>
+<p><strong>Crear la tabla de estados</strong> a partir del diagrama.</p>
+</li>
+<li>
+<p><strong>Seleccionar los flip-flops</strong> (tipo D, JK, T, o RS).</p>
+</li>
+<li>
+<p><strong>Obtener las ecuaciones de entrada</strong> para cada flip-flop.</p>
+</li>
+<li>
+<p><strong>Simplificar las ecuaciones</strong> usando álgebra booleana o mapas K.</p>
+</li>
+<li>
+<p><strong>Dibujar el diagrama lógico</strong> implementando las ecuaciones.</p>
+</li>
+</ol>
+<h3>Ejemplo de Diseño con FF D:</h3>
+<ol>
+<li>Tabla de estados → Estado siguiente</li>
+<li>Para FF D: $D = Q(t+1)$</li>
+<li>Derivar D como función de las entradas y el estado actual.</li>
+<li>Implementar con compuertas lógicas.</li>
+</ol>
+<h3>Ejemplo de Diseño con FF JK:</h3>
+<ol>
+<li>Tabla de estados → Estado siguiente</li>
+<li>Usar tabla de excitación JK para obtener J y K.</li>
+<li>Derivar J y K como funciones de las entradas y el estado actual.</li>
+<li>Implementar con compuertas lógicas.</li>
+</ol>
+<hr />
+<h2>9. Diagramas de Estado</h2>
+<h3>Notación:</h3>
+<ul>
+<li><strong>Estado</strong>: $S_0, S_1, S_2, \ldots$</li>
+<li><strong>Transición</strong>: $S_i \xrightarrow{Entrada/Salida} S_j$</li>
+</ul>
+<h3>Ejemplo: Contador de 2 bits (Moore)</h3>
+<p>00<br />
+/<br />
+0/ \1<br />
+/<br />
+01 ---- 10<br />
+\ /<br />
+\ /<br />
+0\ /1<br />
+11</p>
+<p>Las flechas indican el siguiente estado según la entrada.</p>
+<hr />
+<h2>10. Ejercicios de Práctica</h2>
+<ol>
+<li>
+<p>Diseña un flip-flop T usando un flip-flop JK.</p>
+</li>
+<li>
+<p>Dibuja el diagrama de estados de un contador que recorra la secuencia: 0 → 2 → 4 → 6 → 0.</p>
+</li>
+<li>
+<p>Diseña un registro de desplazamiento de 4 bits con carga en paralelo.</p>
+</li>
+<li>
+<p>Diseña un detector de secuencia "101" con FF JK.</p>
+</li>
+<li>
+<p>Implementa un contador ascendente/descendente de 3 bits con FF T.</p>
+</li>
+</ol>
+<hr />
+<h2>11. Resumen de Flip-Flops</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Ecuación de Estado</th>
+<th style="text-align: left;">Uso Principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>D</strong></td>
+<td style="text-align: left;">$D \to Q$</td>
+<td style="text-align: left;">$Q(t+1) = D$</td>
+<td style="text-align: left;">Registros, memorias</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>JK</strong></td>
+<td style="text-align: left;">$J, K \to Q$</td>
+<td style="text-align: left;">$Q(t+1) = J\overline{Q} + \overline{K}Q$</td>
+<td style="text-align: left;">Contadores, secuenciadores</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>T</strong></td>
+<td style="text-align: left;">$T \to Q$</td>
+<td style="text-align: left;">$Q(t+1) = T \oplus Q$</td>
+<td style="text-align: left;">Contadores</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RS</strong></td>
+<td style="text-align: left;">$R, S \to Q$</td>
+<td style="text-align: left;">$Q(t+1) = S + \overline{R}Q$</td>
+<td style="text-align: left;">Memoria básica</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Referencias Bibliográficas</h1>
+<p>[1] M. Morris Mano. <em>Ingeniería computacional, diseño del hardware</em>. Colleen Brosnan. 1991.</p>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../circuitos-combinatorios/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+Estructura de http://23.22.58.242/
+Generado 2026-07-31 14:14
+
+sitio_descargado/
+    index.html  (8.1 KB)
+    _externo/
+        cdn.jsdelivr.net/
+            npm/
+                bootstrap@5.3.2/
+                    dist/
+                        css/
+                            bootstrap.min.css  (227.5 KB)
+                        js/
+                            bootstrap.bundle.min.js  (78.8 KB)
+                mathjax@3/
+                    es5/
+                        tex-svg.js  (2.0 MB)
+                three@0.128.0/
+                    examples/
+                        js/
+                            controls/
+                                OrbitControls.js  (25.8 KB)
+        cdnjs.cloudflare.com/
+            ajax/
+                libs/
+                    font-awesome/
+                        6.5.1/
+                            css/
+                                all.min.css  (100.2 KB)
+                            webfonts/
+                                fa-brands-400.ttf  (203.1 KB)
+                                fa-brands-400.woff2  (114.6 KB)
+                                fa-regular-400.ttf  (66.4 KB)
+                                fa-regular-400.woff2  (24.9 KB)
+                                fa-solid-900.ttf  (409.9 KB)
+                                fa-solid-900.woff2  (152.8 KB)
+                                fa-v4compatibility.ttf  (10.6 KB)
+                                fa-v4compatibility.woff2  (4.7 KB)
+                    three.js/
+                        r128/
+                            three.min.js  (589.3 KB)
+        fonts.googleapis.com/
+            css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css  (11.9 KB)
+            css2__family_Inter_wght_400_600_700_800_900_di_ae3691ab.css  (11.9 KB)
+        fonts.gstatic.com/
+            s/
+                inter/
+                    v20/
+                        UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2  (18.3 KB)
+                        UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2  (47.1 KB)
+                        UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2  (18.6 KB)
+                        UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2  (83.1 KB)
+                        UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2  (25.4 KB)
+                        UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2  (11.0 KB)
+                        UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2  (10.0 KB)
+    arquitectura/
+        index.html  (36.1 KB)
+        topic/
+            topic1/
+                complementos/
+                    index.html  (11.6 KB)
+                conversiones/
+                    index.html  (14.6 KB)
+                ejercicios/
+                    index.html  (53.9 KB)
+                introduccion/
+                    index.html  (63.2 KB)
+                sistemas-numericos/
+                    index.html  (14.2 KB)
+            topic2/
+                algebra-booleana/
+                    index.html  (36.5 KB)
+                circuitos-combinatorios/
+                    index.html  (20.2 KB)
+                circuitos-secuenciales/
+                    index.html  (22.8 KB)
+                compuertas/
+                    index.html  (17.3 KB)
+                formas-estandar/
+                    index.html  (39.0 KB)
+                gen-tablas-verdad/
+                    index.html  (25.7 KB)
+                identidades-xor/
+                    index.html  (27.0 KB)
+                implicantes-primos/
+                    index.html  (31.6 KB)
+                mapas-k-cinco-variables/
+                    index.html  (49.5 KB)
+                mapas-karnaugh/
+                    index.html  (29.3 KB)
+            topic3/
+                alu/
+                    index.html  (6.9 KB)
+                buses/
+                    index.html  (6.9 KB)
+                cisc-risc/
+                    index.html  (6.7 KB)
+                cpu/
+                    index.html  (6.7 KB)
+                modos-direccionamiento/
+                    index.html  (6.9 KB)
+                unidad-control/
+                    index.html  (6.9 KB)
+            topic4/
+                instrucciones/
+                    index.html  (6.9 KB)
+                interrupciones/
+                    index.html  (6.6 KB)
+                introduccion-ensamblador/
+                    index.html  (6.7 KB)
+                registros/
+                    index.html  (6.9 KB)
+                segmentos/
+                    index.html  (6.9 KB)
+            topic5/
+                cargadores-ligadores/
+                    index.html  (6.7 KB)
+                compiladores/
+                    index.html  (6.7 KB)
+                macros/
+                    index.html  (7.0 KB)
+    lab/
+        index.html  (10.6 KB)
+        logica/
+            contar_pares/
+                index.html  (8.5 KB)
+            factorial/
+                index.html  (8.5 KB)
+            matriz/
+                index.html  (8.6 KB)
+            par_impar/
+                index.html  (8.5 KB)
+            promedio/
+                index.html  (8.6 KB)
+            promedio_calificaciones/
+                index.html  (8.6 KB)
+            suma/
+                index.html  (8.5 KB)
+    logica/
+        index.html  (52.7 KB)
+        topic/
+            topic1/
+                cuantificadores/
+                    index.html  (9.1 KB)
+                gen-tablas-verdad/
+                    index.html  (29.9 KB)
+                inferencias/
+                    index.html  (10.0 KB)
+                leyes-logica/
+                    index.html  (12.6 KB)
+                proposiciones/
+                    index.html  (11.6 KB)
+                simbolizacion/
+                    index.html  (9.5 KB)
+                tablas-verdad/
+                    index.html  (10.5 KB)
+            topic2/
+                demostraciones/
+                    index.html  (7.0 KB)
+                inferencias-validas/
+                    index.html  (6.7 KB)
+                propiedades-algoritmos/
+                    index.html  (7.0 KB)
+                que-es-algoritmo/
+                    index.html  (7.0 KB)
+                tipos-problemas/
+                    index.html  (6.7 KB)
+            topic3/
+                lenguaje-estructurado/
+                    index.html  (6.7 KB)
+                pseudocodigo/
+                    index.html  (6.7 KB)
+            topic4/
+                anidamiento/
+                    index.html  (6.7 KB)
+                bucles/
+                    index.html  (7.0 KB)
+                condicionales/
+                    index.html  (7.0 KB)
+                secuencias/
+                    index.html  (7.0 KB)
+                tipos-datos/
+                    index.html  (6.7 KB)
+            topic5/
+                arreglos/
+                    index.html  (6.9 KB)
+                funciones/
+                    index.html  (6.7 KB)
+                variables/
+                    index.html  (6.7 KB)
+            topic6/
+                algoritmo-division/
+                    index.html  (7.0 KB)
+                divisibilidad/
+                    index.html  (7.0 KB)
+                divisores/
+                    index.html  (7.0 KB)
+                mcd-mcm/
+                    index.html  (6.8 KB)
+                primos-compuestos/
+                    index.html  (6.7 KB)
+                teorema-fundamental/
+                    index.html  (7.0 KB)
+            topic7/
+                aritmetica-binaria/
+                    index.html  (6.8 KB)
+                conversiones/
+                    index.html  (7.0 KB)
+                sistemas-numeracion/
+                    index.html  (6.7 KB)
+            topic8/
+                busqueda-binaria/
+                    index.html  (7.0 KB)
+                busqueda-lineal/
+                    index.html  (6.9 KB)
+                conteo-suma/
+                    index.html  (6.7 KB)
+                ordenamiento-burbuja/
+                    index.html  (7.0 KB)
+                ordenamiento-insercion/
+                    index.html  (7.0 KB)
+                ordenamiento-seleccion/
+                    index.html  (6.7 KB)
+            topic9/
+                analisis-problemas/
+                    index.html  (6.8 KB)
+                buenas-practicas/
+                    index.html  (6.8 KB)
+                diseno-soluciones/
+                    index.html  (7.0 KB)
+                validacion-pruebas/
+                    index.html  (7.0 KB)
+    static/
+        css/
+            base.css  (4.4 KB)
+            course-arquitectura.css  (18.7 KB)
+            course-logica.css  (28.5 KB)
+            index.css  (10.0 KB)
+            lab.css  (13.8 KB)
+            lessons.css  (15.8 KB)
+        img/
+            and.svg  (511 B)
+            nand.svg  (613 B)
+            nor.svg  (627 B)
+            not.svg  (527 B)
+            or.svg  (518 B)
+            xnor.svg  (755 B)
+            xor.svg  (641 B)
+        js/
+            course-logica.js  (1.0 KB)
+            course.js  (2.1 KB)
+            index.js  (991 B)
+            lab.js  (16.1 KB)
+            lesson.js  (1.3 KB)
+            main.js  (2.4 KB)
+            progress.js  (2.9 KB)

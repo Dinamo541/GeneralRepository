@@ -1,0 +1,306 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Complemento a 1 y complemento a 2 - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">Complemento a 1 y complemento a 2</h1>
+                <p class="lead opacity-75">Representación interna de los datos</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 80.0%;"
+                         data-total="5"
+                         data-current="4">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 4 de 5</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Complementos (1's y 2's)</h1>
+<h2>1. Introducción a los Complementos</h2>
+<p>Los complementos se utilizan en las computadoras digitales para simplificar la operación de sustracción (resta) y para realizar la manipulación lógica de datos.</p>
+<p>Para cada sistema de base $r$, existen dos tipos de complementos:</p>
+<ol>
+<li><strong>Complemento radical disminuido</strong> ($(r-1)$'s complement)</li>
+<li><strong>Complemento radical</strong> ($r$'s complement)</li>
+</ol>
+<p>En sistemas binarios (base 2), estos son conocidos como:<br />
+- <strong>Complemento a 1's</strong><br />
+- <strong>Complemento a 2's</strong></p>
+<hr />
+<h2>2. Complemento a 1's</h2>
+<p>El complemento a 1's de un número binario se obtiene invirtiendo cada bit (cambiando los 0s por 1s y los 1s por 0s).</p>
+<h3>Ejemplos:</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Número Original</th>
+<th style="text-align: left;">Complemento a 1's</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1011001</td>
+<td style="text-align: left;">0100110</td>
+</tr>
+<tr>
+<td style="text-align: left;">0001111</td>
+<td style="text-align: left;">1110000</td>
+</tr>
+</tbody>
+</table>
+<h3>Regla:</h3>
+<p>$<br />
+\overline{N} = \text{Complemento a 1's de } N<br />
+$</p>
+<hr />
+<h2>3. Complemento a 2's</h2>
+<p>El complemento a 2's de un número binario se obtiene calculando el complemento a 1's y sumando 1 al resultado.</p>
+<h3>Fórmula:</h3>
+<p>$<br />
+\text{Complemento a 2's} = (\text{Complemento a 1's}) + 1<br />
+$</p>
+<h3>Ejemplo:</h3>
+<p>Calcular el complemento a 2's de $101100_2$.</p>
+<ol>
+<li><strong>Complemento a 1's</strong>: $010011$</li>
+<li><strong>Sumar 1</strong>: $010011 + 1 = 010100$</li>
+</ol>
+<p><strong>Resultado</strong>: El complemento a 2's de $101100_2$ es $010100_2$.</p>
+<hr />
+<h2>4. Uso de Complementos para Resta</h2>
+<p>Los complementos se utilizan para realizar restas de manera más eficiente en el hardware. En lugar de restar, se suma el complemento.</p>
+<h3>Método para restar $Y$ de $X$ ($X - Y$):</h3>
+<ol>
+<li>Calcular el complemento a 2's de $Y$.</li>
+<li>Sumar $X$ con el complemento a 2's de $Y$.</li>
+<li>Si hay acarreo final, descartarlo (el resultado es positivo).</li>
+<li>Si no hay acarreo final, el resultado es negativo y se debe tomar el complemento a 2's del resultado obtenido.</li>
+</ol>
+<hr />
+<h3>Ejemplo 1: Resta con resultado positivo ($X &gt; Y$)</h3>
+<p><strong>Operación:</strong> Restar $Y = 1000011_2$ de $X = 1010100_2$<br />
+<strong>Operación:</strong> $1010100 - 1000011$</p>
+<h4>Paso 1: Alinear bits</h4>
+<p>Ambos números ya cuentan con la misma longitud (7 bits):<br />
+- <strong>X (minuendo):</strong> <code>1010100</code> (7 bits)<br />
+- <strong>Y (sustraendo):</strong> <code>1000011</code> (7 bits)</p>
+<h4>Paso 2: Complemento a 2 del sustraendo ($Y$)</h4>
+<ol>
+<li><strong>Complemento a 1 (invertir bits):</strong> <code>0111100</code></li>
+<li><strong>Sumar 1:</strong> <code>0111100 + 1</code> = <strong><code>0111101</code></strong></li>
+</ol>
+<h4>Paso 3: Sumar $X$ + Complemento a 2 de $Y$</h4>
+<pre><code class="language-text">   1110000   (Acarreos)
+    1010100  (X)
+ +  0111101  (C2 de Y)
+-----------
+  1 0010001  (Suma con acarreo final)
+</code></pre>
+<h4>Paso 4: Interpretación del resultado</h4>
+<ul>
+<li>Acarreo final: SÍ hay acarreo (el <code>1</code> de la izquierda). Se descarta y nos indica que el resultado es positivo.</li>
+<li>Valor en binario: <code>0010001</code> ($17$ en decimal).</li>
+</ul>
+<hr />
+<h3>Ejemplo 2: Resta con resultado negativo ($X &lt; Y$)</h3>
+<p><strong>Operación:</strong> Restar $Y = 111011_2$ de $X = 110100_2$<br />
+<strong>Operación:</strong> $110100 - 111011$</p>
+<h4>Paso 1: Alinear bits</h4>
+<p>Ambos números ya cuentan con la misma longitud (7 bits):<br />
+- <strong>X (minuendo):</strong> <code>110100</code> (6 bits)<br />
+- <strong>Y (sustraendo):</strong> <code>111011</code> (6 bits)</p>
+<h4>Paso 2: Complemento a 2 del sustraendo ($Y$)</h4>
+<ol>
+<li><strong>Complemento a 1 (invertir bits):</strong> <code>000100</code></li>
+<li><strong>Sumar 1:</strong> <code>000100 + 1</code> = <strong><code>000101</code></strong></li>
+</ol>
+<h4>Paso 3: Sumar $X$ + Complemento a 2 de $Y$</h4>
+<pre><code class="language-text">   000100   (Acarreos)
+    110100  (X)
+ +  000101  (C2 de Y)
+----------
+  0 111001  (Suma sin acarreo final)
+</code></pre>
+<h4>Paso 4: Interpretación del resultado</h4>
+<ul>
+<li>Acarreo final: NO hay acarreo (<code>0</code>), el resultado es negativo. Esto indica que el resultado es negativo y está expresado en Complemento a 2.</li>
+<li>Para obtener el valor absoluto: Aplicamos C2 al resultado (<code>111001</code> $\rightarrow$ C1: <code>000110 + 1</code> = <code>000111</code> = $7$ decimal).</li>
+<li>Resultado final: -7 (decimal) → <code>111001</code> (binario en C2)</li>
+</ul>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../conversiones/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../ejercicios/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

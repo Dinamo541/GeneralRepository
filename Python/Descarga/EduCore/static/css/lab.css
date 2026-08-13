@@ -1,0 +1,550 @@
+﻿/* ============================================================
+   EDUcore - LABORATORIO (LÓGICA Y ALGORITMOS)
+   ============================================================ */
+
+/* ============================================================
+   1. CONTROLES FIJOS
+   ============================================================ */
+
+.panel-controles {
+    position: sticky;
+    bottom: 0;
+    background: #ffffff;
+    padding: 15px 0;
+    border-top: 2px solid #e5e7eb;
+    z-index: 100;
+    box-shadow: 0 -4px 20px rgba(108, 43, 217, 0.08);
+}
+
+/* ============================================================
+   2. CONTENEDOR DE CÓDIGO CON BARRA DE PROGRESO
+   ============================================================ */
+
+.code-wrapper {
+    background: #130924; /* Púrpura Nocturno */
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+    border: 1px solid rgba(108, 43, 217, 0.3);
+    border-top: none;
+}
+
+    .code-wrapper .code-progress {
+        background: #1c1033;
+        padding: 8px 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+        .code-wrapper .code-progress .progress-track {
+            flex: 1;
+            height: 6px;
+            background: #2a1b4e;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+            .code-wrapper .code-progress .progress-track .bar {
+                height: 100%;
+                background: linear-gradient(90deg, #f59e0b, #ffd700);
+                border-radius: 3px;
+                transition: width 0.3s ease;
+                width: 0%;
+                box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+            }
+
+        .code-wrapper .code-progress .progress-label {
+            color: #d1d5db;
+            font-size: 12px;
+            font-family: 'Consolas', monospace;
+            white-space: nowrap;
+            min-width: 40px;
+        }
+
+        .code-wrapper .code-progress .progress-icon {
+            color: #f59e0b;
+            font-size: 12px;
+        }
+
+/* ============================================================
+   3. CONTENEDOR DE CÓDIGO
+   ============================================================ */
+
+.code-container {
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 16px;
+    padding: 15px;
+    min-height: 450px;
+    overflow-x: auto;
+    line-height: 1.8;
+    color: #e2e8f0;
+    white-space: pre;
+    background-color: #130924;
+}
+
+    .code-container .line {
+        display: block;
+        padding: 2px 0;
+        transition: background 0.15s ease;
+    }
+
+    .code-container .line-number {
+        color: #6b7280;
+        display: inline-block;
+        width: 35px;
+        user-select: none;
+        text-align: right;
+        padding-right: 15px;
+        border-right: 1px solid #2d1f4e;
+        margin-right: 15px;
+    }
+
+    .code-container .line-active {
+        background: rgba(108, 43, 217, 0.35) !important;
+        border-left: 3px solid #f59e0b;
+        box-shadow: inset 0 0 10px rgba(245, 158, 11, 0.15);
+        animation: bounce-line 0.5s ease;
+    }
+
+@keyframes bounce-line {
+    0% {
+        transform: translateX(-4px);
+        border-left-width: 1px;
+    }
+
+    50% {
+        transform: translateX(4px);
+        border-left-width: 6px;
+    }
+
+    100% {
+        transform: translateX(0);
+        border-left-width: 3px;
+    }
+}
+
+/* ============================================================
+   4. RESALTADO DE SINTAXIS (IDE Algorítmico)
+   ============================================================ */
+
+.keyword {
+    color: #c084fc; /* Púrpura brillante */
+    font-weight: bold;
+}
+
+.comment {
+    color: #6b7280;
+    font-style: italic;
+}
+
+.number {
+    color: #f59e0b; /* Ámbar */
+}
+
+.string {
+    color: #34d399; /* Menta */
+}
+
+.variable {
+    color: #38bdf8; /* Azul claro */
+}
+
+.function {
+    color: #fbbf24; /* Dorado */
+}
+
+/* ============================================================
+   5. TABLA DE VARIABLES
+   ============================================================ */
+
+#tabla-variables td {
+    font-size: 15px !important;
+    padding: 8px 12px;
+}
+
+#tabla-variables strong {
+    color: #38bdf8 !important;
+    font-family: 'Consolas', monospace;
+}
+
+#tabla-variables .valor {
+    color: #34d399 !important;
+    font-family: 'Consolas', monospace;
+    font-weight: 600;
+}
+
+.variables-wrapper {
+    max-height: 350px;
+    overflow-y: auto;
+    background-color: #0d0517;
+    scrollbar-width: thin;
+}
+
+    .variables-wrapper::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .variables-wrapper::-webkit-scrollbar-track {
+        background: #0d0517;
+    }
+
+    .variables-wrapper::-webkit-scrollbar-thumb {
+        background: #3b1d75;
+        border-radius: 3px;
+    }
+
+.linea-variable-cambiada {
+    animation: destello 0.6s ease !important;
+}
+
+@keyframes destello {
+    0% {
+        background-color: rgba(245, 158, 11, 0.4);
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* ============================================================
+   6. PANEL DE SALIDA
+   ============================================================ */
+
+#panel-salida {
+    min-height: 120px;
+    max-height: 180px;
+    overflow-y: auto;
+    background: #0d0517;
+    color: #34d399; /* Consola en Menta verde */
+    padding: 12px;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid rgba(108, 43, 217, 0.2);
+    scrollbar-width: thin;
+}
+
+    #panel-salida::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #panel-salida::-webkit-scrollbar-track {
+        background: #0d0517;
+    }
+
+    #panel-salida::-webkit-scrollbar-thumb {
+        background: #3b1d75;
+        border-radius: 3px;
+    }
+
+    #panel-salida .text-muted {
+        color: #6b7280 !important;
+    }
+
+/* ============================================================
+   7. HEADER DEL LABORATORIO (PÁGINA PRINCIPAL)
+   ============================================================ */
+
+.header-lab {
+    background: linear-gradient(135deg, #0d0517 0%, #1e0c3e 50%, #3b1d75 100%) !important;
+    color: white;
+    padding: 3rem 0;
+    border-radius: 0 0 40px 40px;
+    margin-bottom: 3rem;
+    position: relative !important;
+    overflow: hidden !important;
+    border-bottom: 3px solid #f59e0b !important;
+    box-shadow: 0 4px 25px rgba(108, 43, 217, 0.3) !important;
+}
+
+    /* Fondo 1: Textura con líneas de indentación de IDE */
+    .header-lab::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background-image: linear-gradient(90deg, rgba(245, 158, 11, 0.07) 1px, transparent 1px), radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 60%) !important;
+        background-size: 32px 100%, 100% 100% !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+    }
+
+    /* Fondo 2: Luz del debugger descendente paso a paso */
+    .header-lab::after {
+        content: '' !important;
+        position: absolute !important;
+        top: -50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 50% !important;
+        background: linear-gradient(180deg, transparent 0%, rgba(245, 158, 11, 0.08) 70%, rgba(16, 185, 129, 0.15) 100%) !important;
+        border-bottom: 2px solid rgba(245, 158, 11, 0.4) !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+        animation: debuggerStep 6s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
+    }
+
+    /* Garantizar que el contenido texto quede por encima de las luces */
+    .header-lab .container {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+@keyframes debuggerStep {
+    0% {
+        top: -50%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.header-lab .badge-lab {
+    background: rgba(245, 158, 11, 0.2);
+    color: #ffd700;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   8. HEADER DEL SIMULADOR
+   ============================================================ */
+
+.hero-small-lab {
+    background: linear-gradient(135deg, #0d0517 0%, #1e0c3e 60%, #2a1154 100%) !important;
+    color: white;
+    padding: 1.75rem 0;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid #f59e0b;
+}
+
+    .hero-small-lab .badge-curso-lab-sim {
+        background: rgba(245, 158, 11, 0.18);
+        color: #ffd700;
+        padding: 4px 16px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    .hero-small-lab h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    .hero-small-lab .subtitle {
+        opacity: 0.85;
+        font-size: 0.95rem;
+        color: #d1d5db;
+    }
+
+/* ============================================================
+   9. CARDS DE ALGORITMOS
+   ============================================================ */
+
+.algoritmo-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    border: 1px solid rgba(108, 43, 217, 0.12);
+    cursor: default;
+}
+
+    .algoritmo-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(108, 43, 217, 0.18);
+        border-color: rgba(245, 158, 11, 0.4);
+    }
+
+.algoritmo-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #6c2bd9;
+    transition: all 0.3s ease;
+}
+
+.algoritmo-card:hover .algoritmo-icon {
+    background: linear-gradient(135deg, #6c2bd9, #4c1d95);
+    color: #ffd700;
+    transform: rotate(-6deg) scale(1.05);
+}
+
+.algoritmo-card .btn-simular {
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background-color: #6c2bd9;
+    border-color: #6c2bd9;
+    color: white;
+}
+
+    .algoritmo-card .btn-simular:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(108, 43, 217, 0.4);
+        background-color: #5b21b6;
+        border-color: #5b21b6;
+        color: white;
+    }
+
+.badge-curso-lab {
+    background: rgba(108, 43, 217, 0.1);
+    color: #6c2bd9;
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+/* ============================================================
+   10. BOTONES DE NAVEGACIÓN EN EL SIMULADOR
+   ============================================================ */
+
+.nav-buttons-lab {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+    .nav-buttons-lab .btn-nav {
+        border-radius: 50px;
+        padding: 0.45rem 1.3rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+        .nav-buttons-lab .btn-nav:hover {
+            transform: translateY(-2px);
+        }
+
+    .nav-buttons-lab .btn-nav-back {
+        background: rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+        .nav-buttons-lab .btn-nav-back:hover {
+            background: rgba(255, 255, 255, 0.22);
+            color: white;
+        }
+
+    .nav-buttons-lab .btn-nav-course {
+        background: rgba(245, 158, 11, 0.2);
+        color: #ffd700;
+        border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+        .nav-buttons-lab .btn-nav-course:hover {
+            background: rgba(245, 158, 11, 0.35);
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+        }
+
+/* ============================================================
+   11. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .panel-controles .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .code-container {
+        font-size: 13px;
+        padding: 10px;
+        min-height: 320px;
+    }
+
+        .code-container .line-number {
+            width: 25px;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+
+    .variables-wrapper {
+        max-height: 200px;
+    }
+
+    #panel-salida {
+        min-height: 90px;
+        max-height: 130px;
+        font-size: 13px;
+    }
+
+    .header-lab {
+        padding: 2rem 0;
+    }
+
+        .header-lab h1 {
+            font-size: 1.75rem;
+        }
+
+    .hero-small-lab {
+        padding: 1.2rem 0;
+    }
+
+        .hero-small-lab h1 {
+            font-size: 1.4rem;
+        }
+
+    .algoritmo-card {
+        padding: 1.2rem;
+    }
+
+    .algoritmo-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+
+    .nav-buttons-lab {
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .nav-buttons-lab .btn-nav {
+            width: 100%;
+            justify-content: center;
+        }
+}

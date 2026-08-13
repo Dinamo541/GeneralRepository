@@ -1,0 +1,9 @@
+<svg width="100" height="50" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cuerpo curvado -->
+  <path d="M20 10 q15 15 0 30 q20 0 30 -15 q-10 -15 -30 -15 z" fill="none" stroke="#000000" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Entradas -->
+  <line x1="5" y1="18" x2="26" y2="18" stroke="#000000" stroke-width="2"/>
+  <line x1="5" y1="32" x2="26" y2="32" stroke="#000000" stroke-width="2"/>
+  <!-- Salida -->
+  <line x1="50" y1="25" x2="80" y2="25" stroke="#000000" stroke-width="2"/>
+</svg>

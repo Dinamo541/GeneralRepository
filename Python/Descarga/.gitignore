@@ -1,0 +1,9 @@
+# Entorno virtual local
+.venv/
+
+# Copias descargadas del sitio (pueden pesar bastante)
+sitio_descargado/
+copia_*/
+*.log
+
+__pycache__/

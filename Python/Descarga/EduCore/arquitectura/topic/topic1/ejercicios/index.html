@@ -1,0 +1,1614 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Ejercicios - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">Ejercicios</h1>
+                <p class="lead opacity-75">Representación interna de los datos</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 100.0%;"
+                         data-total="5"
+                         data-current="5">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 5 de 5</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <div class="conv-exercise-container">
+    <h4 class="conv-title">📝 Ejercicio de Conversión</h4>
+
+    <div class="conv-exercise-box">
+        <div class="conv-exercise-header">
+            <span class="conv-exercise-badge">✏️ Práctica</span>
+            <span id="exerciseCounter" class="conv-exercise-counter">Ejercicio 1</span>
+        </div>
+
+        <div class="conv-exercise-question">
+            <p>
+                Convierta 
+                <strong id="exerciseNumber" class="conv-highlight-number">1011</strong>
+                de 
+                <strong id="exerciseFrom" class="conv-highlight-base">binario</strong>
+                a 
+                <strong id="exerciseTo" class="conv-highlight-base">decimal</strong>
+            </p>
+        </div>
+
+        <div class="conv-exercise-answer-area">
+            <div class="conv-answer-input-group">
+                <label for="exerciseAnswer" class="conv-label">Su respuesta:</label>
+                <input type="text" id="exerciseAnswer" class="conv-input-field" placeholder="Escriba su respuesta aquí...">
+
+                <!-- Contenedor con Grid Forzado -->
+                <div class="conv-answer-actions">
+                    <button type="button" id="checkAnswerBtn" class="conv-btn-action conv-btn-check">✅ Verificar</button>
+                    <button type="button" id="showHintBtn" class="conv-btn-action conv-btn-hint">💡 Pista</button>
+                    <button type="button" id="newExerciseBtn" class="conv-btn-action conv-btn-new">🔄 Nuevo</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultado de la verificación -->
+        <div id="exerciseFeedback" class="conv-exercise-feedback">
+            <p class="conv-text-muted">✏️ Escriba su respuesta y presione "Verificar".</p>
+        </div>
+
+        <!-- Proceso paso a paso -->
+        <div id="exerciseSolution" class="conv-exercise-solution" style="display: none !important;">
+            <div class="conv-solution-header">📖 Proceso paso a paso</div>
+            <div id="solutionContent"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Prefijo único 'conv-' para evitar que otros estilos de la página alteren el ejercicio */
+.conv-exercise-container {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+    margin: 1.5rem 0 !important;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    visibility: visible !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+.conv-title {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.25rem !important;
+    color: #333333 !important;
+}
+
+.conv-exercise-box {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.conv-exercise-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 1rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+}
+
+.conv-exercise-badge {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+    padding: 4px 14px !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+}
+
+.conv-exercise-counter {
+    color: #6c757d !important;
+    font-size: 0.85rem !important;
+}
+
+.conv-exercise-question {
+    font-size: 1.2rem !important;
+    padding: 1rem !important;
+    background: #f8f9fa !important;
+    border-radius: 10px !important;
+    margin-bottom: 1.2rem !important;
+    text-align: center !important;
+}
+
+.conv-highlight-number {
+    font-size: 1.5rem !important;
+    color: #0a4b7a !important;
+    font-family: 'Consolas', monospace !important;
+    background: #e8f0fe !important;
+    padding: 2px 12px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
+
+.conv-highlight-base {
+    color: #e65100 !important;
+    font-weight: 600 !important;
+}
+
+.conv-exercise-answer-area {
+    margin-bottom: 1rem !important;
+    display: block !important;
+}
+
+.conv-answer-input-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+}
+
+.conv-label {
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    color: #333333 !important;
+}
+
+.conv-input-field {
+    padding: 12px 16px !important;
+    border: 2px solid #ced4da !important;
+    border-radius: 10px !important;
+    font-size: 1.1rem !important;
+    font-family: 'Consolas', monospace !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.conv-input-field.correct {
+    border-color: #28a745 !important;
+    background: #e8f5e9 !important;
+}
+
+.conv-input-field.incorrect {
+    border-color: #dc3545 !important;
+    background: #f8d7da !important;
+}
+
+/* Forzado estricto del contenedor de botones mediante GRID */
+.conv-answer-actions {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+}
+
+/* Reset de botones para evitar colisiones con frameworks como Bootstrap */
+.conv-btn-action {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    padding: 12px 10px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-size: 0.95rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+}
+
+.conv-btn-check {
+    background: #28a745 !important;
+    color: #ffffff !important;
+}
+
+.conv-btn-check:hover {
+    background: #1e7e34 !important;
+}
+
+.conv-btn-hint {
+    background: #ffc107 !important;
+    color: #333333 !important;
+}
+
+.conv-btn-hint:hover {
+    background: #e0a800 !important;
+}
+
+.conv-btn-new {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+}
+
+.conv-btn-new:hover {
+    background: #083a5e !important;
+}
+
+.conv-exercise-feedback {
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    background: #f8f9fa !important;
+    margin-top: 0.5rem !important;
+    border-left: 4px solid #ced4da !important;
+}
+
+.conv-text-muted {
+    color: #6c757d !important;
+    margin: 0 !important;
+}
+
+.conv-exercise-solution {
+    margin-top: 1rem !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.conv-solution-header {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+}
+
+#solutionContent {
+    padding: 1rem !important;
+    background: #f8f9fa !important;
+    font-family: 'Consolas', monospace !important;
+    font-size: 0.95rem !important;
+    line-height: 1.8 !important;
+}
+
+/* Pantallas móviles */
+@media (max-width: 600px) {
+    .conv-answer-actions {
+        grid-template-columns: 1fr !important;
+    }
+}
+</style>
+
+<script>
+var currentExercise = {};
+var exerciseCounter = 0;
+
+function generateExercise() {
+    var bases = [
+        { id: 2, name: 'binario', digits: '01' },
+        { id: 8, name: 'octal', digits: '01234567' },
+        { id: 10, name: 'decimal', digits: '0123456789' },
+        { id: 16, name: 'hexadecimal', digits: '0123456789ABCDEF' }
+    ];
+
+    var fromIdx = Math.floor(Math.random() * bases.length);
+    var toIdx;
+    do {
+        toIdx = Math.floor(Math.random() * bases.length);
+    } while (toIdx === fromIdx);
+
+    var fromBase = bases[fromIdx];
+    var toBase = bases[toIdx];
+
+    var numLength = fromBase.id === 2 ? 4 : 3; 
+    var number = '';
+    for (var i = 0; i < numLength; i++) {
+        var idx = Math.floor(Math.random() * fromBase.digits.length);
+        number += fromBase.digits[idx];
+    }
+
+    if (number[0] === '0') {
+        var nonZeroDigits = fromBase.digits.slice(1);
+        if (nonZeroDigits.length > 0) {
+            var digit = nonZeroDigits[Math.floor(Math.random() * nonZeroDigits.length)];
+            number = digit + number.slice(1);
+        }
+    }
+
+    var decimal = parseInt(number, fromBase.id);
+    var correctAnswer = decimal.toString(toBase.id).toUpperCase();
+
+    exerciseCounter++;
+    currentExercise = {
+        number: number,
+        fromBase: fromBase,
+        toBase: toBase,
+        correctAnswer: correctAnswer,
+        decimal: decimal,
+        counter: exerciseCounter
+    };
+
+    document.getElementById('exerciseCounter').textContent = 'Ejercicio ' + exerciseCounter;
+    document.getElementById('exerciseNumber').textContent = number;
+    document.getElementById('exerciseFrom').textContent = fromBase.name;
+    document.getElementById('exerciseTo').textContent = toBase.name;
+
+    var input = document.getElementById('exerciseAnswer');
+    input.value = '';
+    input.className = 'conv-input-field';
+    input.placeholder = 'Escriba su respuesta aquí...';
+    document.getElementById('exerciseFeedback').innerHTML = '<p class="conv-text-muted">✏️ Escriba su respuesta y presione "Verificar".</p>';
+    document.getElementById('exerciseSolution').style.setProperty('display', 'none', 'important');
+    input.focus();
+}
+
+function showSolution() {
+    var content = document.getElementById('solutionContent');
+    var steps = [];
+
+    steps.push('📌 ' + currentExercise.number + ' (base ' + currentExercise.fromBase.id + ') → decimal:');
+
+    var digits = currentExercise.number.split('');
+    var expansion = '';
+    var exp = digits.length - 1;
+    for (var i = 0; i < digits.length; i++) {
+        var val = parseInt(digits[i], currentExercise.fromBase.id);
+        expansion += val + ' × ' + currentExercise.fromBase.id + '^' + exp;
+        if (i < digits.length - 1) expansion += ' + ';
+        exp--;
+    }
+    steps.push('   ' + expansion);
+    steps.push('   = ' + currentExercise.decimal + ' (decimal)');
+    steps.push('');
+
+    var targetName = currentExercise.toBase.name;
+    var targetId = currentExercise.toBase.id;
+    var result = currentExercise.correctAnswer;
+
+    if (targetId === 10) {
+        steps.push('🔸 Como el sistema de destino es decimal, ¡ya tiene el resultado directo!');
+    } else {
+        steps.push('🔸 ' + currentExercise.decimal + ' → ' + targetName + ':');
+        var temp2 = currentExercise.decimal;
+        if (temp2 === 0) {
+            steps.push('   El número es 0, su residuo es 0.');
+        }
+        while (temp2 > 0) {
+            var residuo = temp2 % targetId;
+            var residuoVisual = (targetId === 16 && residuo >= 10) ? residuo + ' (' + "0123456789ABCDEF"[residuo] + ')' : residuo;
+            steps.push('   ' + temp2 + ' ÷ ' + targetId + ' = ' + Math.floor(temp2 / targetId) + ' → residuo ' + residuoVisual);
+            temp2 = Math.floor(temp2 / targetId);
+        }
+        steps.push('   Residuos leídos en orden inverso (de abajo hacia arriba): ' + result);
+    }
+
+    steps.push('');
+    steps.push('✅ Resultado final: ' + result + ' (base ' + targetId + ')');
+
+    content.innerHTML = steps.map(function(s) {
+        if (s.includes('✅')) {
+            return '<div style="color: #28a745; font-weight: 600; font-size: 1.05rem;">' + s + '</div>';
+        } else if (s.includes('🔸') || s.includes('📌')) {
+            return '<div style="color: #0a4b7a; font-weight: 600;">' + s + '</div>';
+        }
+        return '<div>' + s + '</div>';
+    }).join('');
+
+    document.getElementById('exerciseSolution').style.setProperty('display', 'block', 'important');
+}
+
+document.getElementById('checkAnswerBtn').addEventListener('click', function() {
+    var input = document.getElementById('exerciseAnswer');
+    var userAnswer = input.value.trim().toUpperCase();
+    var feedback = document.getElementById('exerciseFeedback');
+
+    if (!userAnswer) {
+        feedback.innerHTML = '<p class="conv-text-muted">⚠️ Por favor, escriba su respuesta.</p>';
+        return;
+    }
+
+    var validDigits = currentExercise.toBase.digits;
+    var isValid = true;
+    for (var i = 0; i < userAnswer.length; i++) {
+        if (validDigits.indexOf(userAnswer[i]) === -1) {
+            isValid = false;
+            break;
+        }
+    }
+
+    if (!isValid) {
+        feedback.innerHTML = '<p style="color: #dc3545; font-weight: 600; margin: 0;">❌ La respuesta contiene caracteres inválidos para el sistema ' + currentExercise.toBase.name + '.</p>';
+        input.className = 'conv-input-field incorrect';
+        return;
+    }
+
+    if (userAnswer === currentExercise.correctAnswer) {
+        input.className = 'conv-input-field correct';
+        feedback.innerHTML = '<p style="color: #28a745; font-weight: 600; margin: 0;">✅ ¡Excelente trabajo! ' + currentExercise.number + ' (base ' + currentExercise.fromBase.id + ') equivale a ' + currentExercise.correctAnswer + ' (base ' + currentExercise.toBase.id + ')</p>';
+    } else {
+        input.className = 'conv-input-field incorrect';
+        feedback.innerHTML = '<p style="color: #dc3545; font-weight: 600; margin: 0;">❌ Respuesta incorrecta. Su propuesta: ' + userAnswer + '. La respuesta exacta es: ' + currentExercise.correctAnswer + '</p>';
+    }
+    showSolution();
+});
+
+document.getElementById('showHintBtn').addEventListener('click', function() {
+    var feedback = document.getElementById('exerciseFeedback');
+    var hint = '💡 Pista: Pase primero el número ' + currentExercise.number + ' a formato decimal multiplicando cada dígito por ' + currentExercise.fromBase.id + ' elevado a su posición. Luego, divida ese total sucesivamente entre ' + currentExercise.toBase.id + '.';
+    feedback.innerHTML = '<p style="color: #e65100; font-weight: 500; margin: 0;">' + hint + '</p>';
+});
+
+document.getElementById('newExerciseBtn').addEventListener('click', function() {
+    generateExercise();
+});
+
+// Inicialización forzada
+generateExercise();
+</script>
+
+<div class="comp-exercise-container">
+    <h4 class="comp-title">🔢 Ejercicio de Complementos</h4>
+
+    <div class="comp-exercise-box">
+        <div class="comp-exercise-header">
+            <span class="comp-exercise-badge">✏️ Práctica</span>
+            <span id="compExerciseCounter" class="comp-exercise-counter">Ejercicio 1</span>
+        </div>
+
+        <div class="comp-exercise-question">
+            <p>
+                Calcule el <strong id="compType" class="comp-highlight-type">complemento a 2's</strong>
+                del número binario 
+                <strong id="compNumber" class="comp-highlight-number">1011</strong>
+            </p>
+        </div>
+
+        <div class="comp-exercise-answer-area">
+            <div class="comp-answer-input-group">
+                <label for="compAnswer" class="comp-label">Su respuesta (en binario):</label>
+                <input type="text" id="compAnswer" class="comp-input-field" placeholder="Ej: 0101">
+
+                <div class="comp-answer-actions">
+                    <button type="button" id="checkCompBtn" class="comp-btn-action comp-btn-check">✅ Verificar</button>
+                    <button type="button" id="showCompHintBtn" class="comp-btn-action comp-btn-hint">💡 Pista</button>
+                    <button type="button" id="newCompExerciseBtn" class="comp-btn-action comp-btn-new">🔄 Nuevo</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="compFeedback" class="comp-exercise-feedback">
+            <p class="comp-text-muted">✏️ Calcule el complemento y escriba su respuesta.</p>
+        </div>
+
+        <div id="compSolution" class="comp-exercise-solution" style="display: none !important;">
+            <div class="comp-solution-header">📖 Proceso paso a paso</div>
+            <div id="compSolutionContent"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.comp-exercise-container {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+    margin: 1.5rem 0 !important;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    visibility: visible !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+.comp-title {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.25rem !important;
+    color: #333333 !important;
+}
+
+.comp-exercise-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 1rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+}
+
+.comp-exercise-badge {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+    padding: 4px 14px !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+}
+
+.comp-exercise-counter {
+    color: #6c757d !important;
+    font-size: 0.85rem !important;
+}
+
+.comp-exercise-question {
+    font-size: 1.2rem !important;
+    padding: 1rem !important;
+    background: #f8f9fa !important;
+    border-radius: 10px !important;
+    margin-bottom: 1.2rem !important;
+    text-align: center !important;
+}
+
+.comp-highlight-number {
+    font-size: 1.5rem !important;
+    color: #0a4b7a !important;
+    font-family: 'Consolas', monospace !important;
+    background: #e8f0fe !important;
+    padding: 2px 12px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
+
+.comp-highlight-type {
+    color: #e65100 !important;
+    font-weight: 600 !important;
+}
+
+.comp-answer-input-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+}
+
+.comp-label {
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    color: #333333 !important;
+}
+
+.comp-input-field {
+    padding: 12px 16px !important;
+    border: 2px solid #ced4da !important;
+    border-radius: 10px !important;
+    font-size: 1.1rem !important;
+    font-family: 'Consolas', monospace !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.comp-input-field.correct {
+    border-color: #28a745 !important;
+    background: #e8f5e9 !important;
+}
+
+.comp-input-field.incorrect {
+    border-color: #dc3545 !important;
+    background: #f8d7da !important;
+}
+
+.comp-answer-actions {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.comp-btn-action {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    padding: 12px 10px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-size: 0.95rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+}
+
+.comp-btn-check {
+    background: #28a745 !important;
+    color: #ffffff !important;
+}
+.comp-btn-check:hover {
+    background: #1e7e34 !important;
+}
+
+.comp-btn-hint {
+    background: #ffc107 !important;
+    color: #333333 !important;
+}
+.comp-btn-hint:hover {
+    background: #e0a800 !important;
+}
+
+.comp-btn-new {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+}
+.comp-btn-new:hover {
+    background: #083a5e !important;
+}
+
+.comp-exercise-feedback {
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    background: #f8f9fa !important;
+    margin-top: 0.5rem !important;
+    border-left: 4px solid #ced4da !important;
+}
+
+.comp-text-muted {
+    color: #6c757d !important;
+    margin: 0 !important;
+}
+
+.comp-exercise-solution {
+    margin-top: 1rem !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.comp-solution-header {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+}
+
+#compSolutionContent {
+    padding: 1rem !important;
+    background: #f8f9fa !important;
+    font-family: 'Consolas', monospace !important;
+    font-size: 0.95rem !important;
+    line-height: 1.8 !important;
+}
+
+@media (max-width: 600px) {
+    .comp-answer-actions {
+        grid-template-columns: 1fr !important;
+    }
+}
+</style>
+
+<script>
+var currentCompExercise = {};
+var compExerciseCounter = 0;
+
+function generateComplementExercise() {
+    // Generar número binario de 4-6 bits
+    var len = 4 + Math.floor(Math.random() * 3);
+    var num = '';
+    for (var i = 0; i < len; i++) {
+        num += Math.random() > 0.5 ? '1' : '0';
+    }
+    if (num[0] === '0') num = '1' + num.slice(1);
+
+    // Elegir tipo de complemento
+    var types = ['1s', '2s'];
+    var type = types[Math.floor(Math.random() * types.length)];
+    var typeName = type === '1s' ? 'complemento a 1\'s' : 'complemento a 2\'s';
+
+    // Calcular complementos
+    var comp1 = '';
+    for (var i = 0; i < num.length; i++) {
+        comp1 += (num[i] === '0') ? '1' : '0';
+    }
+
+    var comp2 = (parseInt(comp1, 2) + 1).toString(2);
+    while (comp2.length < num.length) {
+        comp2 = '0' + comp2;
+    }
+    if (comp2.length > num.length) {
+        comp2 = comp2.slice(-num.length);
+    }
+
+    var correctAnswer = type === '1s' ? comp1 : comp2;
+
+    compExerciseCounter++;
+    currentCompExercise = {
+        number: num,
+        type: type,
+        typeName: typeName,
+        correctAnswer: correctAnswer,
+        comp1: comp1,
+        comp2: comp2,
+        counter: compExerciseCounter
+    };
+
+    document.getElementById('compExerciseCounter').textContent = 'Ejercicio ' + compExerciseCounter;
+    document.getElementById('compType').textContent = typeName;
+    document.getElementById('compNumber').textContent = num;
+
+    var input = document.getElementById('compAnswer');
+    input.value = '';
+    input.className = 'comp-input-field';
+    input.placeholder = 'Ej: 0101';
+    document.getElementById('compFeedback').innerHTML = '<p class="comp-text-muted">✏️ Calcule el complemento y escriba su respuesta.</p>';
+    document.getElementById('compSolution').style.setProperty('display', 'none', 'important');
+    input.focus();
+}
+
+function showCompSolution() {
+    var content = document.getElementById('compSolutionContent');
+    var steps = [];
+
+    steps.push('📌 Número original: ' + currentCompExercise.number);
+    steps.push('');
+
+    // Paso 1: Complemento a 1's
+    steps.push('🔹 **Paso 1: Complemento a 1\'s**');
+    steps.push('   Invertir cada bit: 0 → 1, 1 → 0');
+    steps.push('   ' + currentCompExercise.number + ' → ' + currentCompExercise.comp1);
+    steps.push('');
+
+    if (currentCompExercise.type === '2s') {
+        steps.push('🔸 **Paso 2: Complemento a 2\'s**');
+        steps.push('   Complemento a 1\'s + 1');
+        steps.push('   ' + currentCompExercise.comp1 + ' + 1');
+        // Mostrar suma paso a paso
+        var sumSteps = [];
+        var carry = 1;
+        var comp1rev = currentCompExercise.comp1.split('').reverse();
+        var result = '';
+        for (var i = 0; i < comp1rev.length; i++) {
+            var bit = parseInt(comp1rev[i]);
+            var sum = bit + carry;
+            if (sum === 2) {
+                result = '0' + result;
+                carry = 1;
+            } else {
+                result = sum + result;
+                carry = 0;
+            }
+        }
+        if (carry === 1) {
+            result = '1' + result;
+        }
+        // Asegurar longitud
+        while (result.length < currentCompExercise.number.length) {
+            result = '0' + result;
+        }
+        if (result.length > currentCompExercise.number.length) {
+            result = result.slice(-currentCompExercise.number.length);
+        }
+
+        // Mostrar suma bit a bit
+        steps.push('   ' + currentCompExercise.comp1);
+        steps.push(' + 1');
+        steps.push('   ' + '-'.repeat(currentCompExercise.number.length));
+        // Mostrar el resultado con acarreos
+        var comp1Array = currentCompExercise.comp1.split('');
+        var sumResult = '';
+        var carry2 = 1;
+        var sumDisplay = '';
+        for (var i = comp1Array.length - 1; i >= 0; i--) {
+            var bit = parseInt(comp1Array[i]);
+            var sum = bit + carry2;
+            if (sum === 2) {
+                sumResult = '0' + sumResult;
+                carry2 = 1;
+            } else {
+                sumResult = sum + sumResult;
+                carry2 = 0;
+            }
+        }
+        if (carry2 === 1) {
+            sumResult = '1' + sumResult;
+        }
+        while (sumResult.length < currentCompExercise.number.length) {
+            sumResult = '0' + sumResult;
+        }
+        if (sumResult.length > currentCompExercise.number.length) {
+            sumResult = sumResult.slice(-currentCompExercise.number.length);
+        }
+        steps.push('   ' + sumResult);
+        steps.push('   (Acarreo final: ' + carry2 + ')');
+        steps.push('');
+        steps.push('✅ Resultado final: ' + currentCompExercise.comp2);
+    } else {
+        steps.push('✅ Resultado final: ' + currentCompExercise.comp1);
+    }
+
+    // Verificación
+    steps.push('');
+    steps.push('📊 **Verificación:**');
+    var decimalOriginal = parseInt(currentCompExercise.number, 2);
+    var decimalComp = parseInt(currentCompExercise.correctAnswer, 2);
+    if (currentCompExercise.type === '2s') {
+        steps.push('   ' + currentCompExercise.number + ' (' + decimalOriginal + ') + ' + currentCompExercise.correctAnswer + ' (' + decimalComp + ') = ' + (decimalOriginal + decimalComp).toString(2));
+        steps.push('   ' + currentCompExercise.number + ' + ' + currentCompExercise.correctAnswer + ' = 0 (desbordamiento)');
+    } else {
+        steps.push('   ' + currentCompExercise.number + ' + ' + currentCompExercise.correctAnswer + ' = ' + (decimalOriginal + decimalComp).toString(2));
+        steps.push('   ' + currentCompExercise.number + ' + ' + currentCompExercise.correctAnswer + ' = 111... (todos 1)');
+    }
+
+    content.innerHTML = steps.map(function(s) {
+        if (s.includes('✅')) {
+            return '<div style="color: #28a745; font-weight: 600; font-size: 1.05rem;">' + s + '</div>';
+        } else if (s.includes('🔹') || s.includes('🔸') || s.includes('📌') || s.includes('📊')) {
+            return '<div style="color: #0a4b7a; font-weight: 600;">' + s + '</div>';
+        }
+        return '<div>' + s + '</div>';
+    }).join('');
+
+    document.getElementById('compSolution').style.setProperty('display', 'block', 'important');
+}
+
+document.getElementById('checkCompBtn').addEventListener('click', function() {
+    var input = document.getElementById('compAnswer');
+    var userAnswer = input.value.trim();
+    var feedback = document.getElementById('compFeedback');
+
+    if (!userAnswer) {
+        feedback.innerHTML = '<p class="comp-text-muted">⚠️ Por favor, escriba su respuesta.</p>';
+        return;
+    }
+
+    // Validar que sea binario
+    if (!/^[01]+$/.test(userAnswer)) {
+        feedback.innerHTML = '<p style="color: #dc3545; font-weight: 600; margin: 0;">❌ La respuesta debe ser un número binario (solo 0 y 1).</p>';
+        input.className = 'comp-input-field incorrect';
+        return;
+    }
+
+    // Asegurar misma longitud
+    var userPadded = userAnswer;
+    while (userPadded.length < currentCompExercise.number.length) {
+        userPadded = '0' + userPadded;
+    }
+    if (userPadded.length > currentCompExercise.number.length) {
+        userPadded = userPadded.slice(-currentCompExercise.number.length);
+    }
+
+    if (userPadded === currentCompExercise.correctAnswer) {
+        input.className = 'comp-input-field correct';
+        feedback.innerHTML = '<p style="color: #28a745; font-weight: 600; margin: 0;">✅ ¡Excelente! El ' + currentCompExercise.typeName + ' de ' + currentCompExercise.number + ' es ' + currentCompExercise.correctAnswer + '</p>';
+    } else {
+        input.className = 'comp-input-field incorrect';
+        feedback.innerHTML = '<p style="color: #dc3545; font-weight: 600; margin: 0;">❌ Respuesta incorrecta. Su respuesta: ' + userAnswer + '. Respuesta correcta: ' + currentCompExercise.correctAnswer + '</p>';
+    }
+    showCompSolution();
+});
+
+document.getElementById('showCompHintBtn').addEventListener('click', function() {
+    var feedback = document.getElementById('compFeedback');
+    var hint = '💡 Pista: Primero invierta todos los bits (0→1, 1→0) para obtener el complemento a 1\'s. ' +
+        (currentCompExercise.type === '2s' ? 'Luego, súmele 1 al resultado.' : '');
+    feedback.innerHTML = '<p style="color: #e65100; font-weight: 500; margin: 0;">' + hint + '</p>';
+});
+
+document.getElementById('newCompExerciseBtn').addEventListener('click', function() {
+    generateComplementExercise();
+});
+
+// Inicializar
+generateComplementExercise();
+</script>
+
+<div class="resta-comp-container">
+    <h4 class="resta-title">➖ Ejercicio de Resta con Complementos</h4>
+
+    <div class="resta-exercise-box">
+        <div class="resta-exercise-header">
+            <span class="resta-exercise-badge">✏️ Práctica</span>
+            <span id="restaExerciseCounter" class="resta-exercise-counter">Ejercicio 1</span>
+        </div>
+
+        <div class="resta-exercise-question">
+            <p>
+                Calcule: 
+                <strong id="restaOp1" class="resta-highlight-number">1011</strong>
+                <span class="resta-operator">−</span>
+                <strong id="restaOp2" class="resta-highlight-number">0110</strong>
+                <span style="font-weight:400;font-size:0.9rem;color:#6c757d;">(binario)</span>
+             </p>
+             <p>
+                <span style="font-size:0.9rem;color:#6c757d;">Utilizando el método de complemento a 2's</span>
+                <span id="restaTypeBadge" class="resta-type-badge" style="display:none;"></span>
+            </p>
+        </div>
+
+        <div class="resta-exercise-answer-area">
+            <div class="resta-answer-input-group">
+                <label for="restaAnswer" class="resta-label">Su respuesta (en binario):</label>
+                <input type="text" id="restaAnswer" class="resta-input-field" placeholder="Ej: 0101">
+
+                <div class="resta-answer-actions">
+                    <button type="button" id="checkRestaBtn" class="resta-btn-action resta-btn-check">✅ Verificar</button>
+                    <button type="button" id="showRestaHintBtn" class="resta-btn-action resta-btn-hint">💡 Pista</button>
+                    <button type="button" id="newRestaExerciseBtn" class="resta-btn-action resta-btn-new">🔄 Nuevo</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="restaFeedback" class="resta-exercise-feedback">
+            <p class="resta-text-muted">✏️ Resuelva la resta usando complemento a 2's y escriba su respuesta.</p>
+        </div>
+
+        <div id="restaSolution" class="resta-exercise-solution" style="display: none !important;">
+            <div class="resta-solution-header">📖 Proceso paso a paso</div>
+            <div id="restaSolutionContent"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.resta-comp-container {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+    margin: 1.5rem 0 !important;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    visibility: visible !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+.resta-title {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.25rem !important;
+    color: #333333 !important;
+}
+
+.resta-exercise-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 1rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+}
+
+.resta-exercise-badge {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+    padding: 4px 14px !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+}
+
+.resta-exercise-counter {
+    color: #6c757d !important;
+    font-size: 0.85rem !important;
+}
+
+.resta-exercise-question {
+    font-size: 1.2rem !important;
+    padding: 1rem !important;
+    background: #f8f9fa !important;
+    border-radius: 10px !important;
+    margin-bottom: 1.2rem !important;
+    text-align: center !important;
+}
+
+.resta-highlight-number {
+    font-size: 1.5rem !important;
+    color: #0a4b7a !important;
+    font-family: 'Consolas', monospace !important;
+    background: #e8f0fe !important;
+    padding: 2px 12px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
+
+.resta-operator {
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    color: #dc3545 !important;
+    margin: 0 8px !important;
+}
+
+.resta-answer-input-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+}
+
+.resta-label {
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    color: #333333 !important;
+}
+
+.resta-input-field {
+    padding: 12px 16px !important;
+    border: 2px solid #ced4da !important;
+    border-radius: 10px !important;
+    font-size: 1.1rem !important;
+    font-family: 'Consolas', monospace !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.resta-input-field.correct {
+    border-color: #28a745 !important;
+    background: #e8f5e9 !important;
+}
+
+.resta-input-field.incorrect {
+    border-color: #dc3545 !important;
+    background: #f8d7da !important;
+}
+
+.resta-answer-actions {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.resta-btn-action {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    padding: 12px 10px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    font-size: 0.95rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+}
+
+.resta-btn-check {
+    background: #28a745 !important;
+    color: #ffffff !important;
+}
+.resta-btn-check:hover {
+    background: #1e7e34 !important;
+}
+
+.resta-btn-hint {
+    background: #ffc107 !important;
+    color: #333333 !important;
+}
+.resta-btn-hint:hover {
+    background: #e0a800 !important;
+}
+
+.resta-btn-new {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+}
+.resta-btn-new:hover {
+    background: #083a5e !important;
+}
+
+.resta-exercise-feedback {
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    background: #f8f9fa !important;
+    margin-top: 0.5rem !important;
+    border-left: 4px solid #ced4da !important;
+}
+
+.resta-text-muted {
+    color: #6c757d !important;
+    margin: 0 !important;
+}
+
+.resta-exercise-solution {
+    margin-top: 1rem !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border: 1px solid #e9ecef !important;
+}
+
+.resta-solution-header {
+    background: #0a4b7a !important;
+    color: #ffffff !important;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+}
+
+#restaSolutionContent {
+    padding: 1rem !important;
+    background: #f8f9fa !important;
+    font-family: 'Consolas', monospace !important;
+    font-size: 0.95rem !important;
+    line-height: 1.8 !important;
+}
+
+@media (max-width: 600px) {
+    .resta-answer-actions {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.resta-type-badge {
+    display: inline-block !important;
+    padding: 2px 12px !important;
+    border-radius: 12px !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    margin-left: 8px !important;
+}
+
+.resta-type-badge.positive {
+    background: #d4edda !important;
+    color: #155724 !important;
+}
+
+.resta-type-badge.negative {
+    background: #f8d7da !important;
+    color: #721c24 !important;
+}
+
+/* Asegurar que el contenedor de badges no se desborde */
+.resta-exercise-question p {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+</style>
+
+<script>
+var currentRestaExercise = {};
+var restaExerciseCounter = 0;
+
+function generateRestaExercise() {
+    var exerciseType = Math.random() > 0.5 ? 'positive' : 'negative';
+
+    // Generar dos números binarios
+    var len1 = 4 + Math.floor(Math.random() * 3);
+    var len2 = 4 + Math.floor(Math.random() * 3);
+
+    var num1 = '';
+    for (var i = 0; i < len1; i++) {
+        num1 += Math.random() > 0.5 ? '1' : '0';
+    }
+    if (num1[0] === '0') num1 = '1' + num1.slice(1);
+
+    var num2 = '';
+    for (var i = 0; i < len2; i++) {
+        num2 += Math.random() > 0.5 ? '1' : '0';
+    }
+    if (num2[0] === '0') num2 = '1' + num2.slice(1);
+
+    var dec1 = parseInt(num1, 2);
+    var dec2 = parseInt(num2, 2);
+
+    if (exerciseType === 'positive' && dec1 < dec2) {
+        var temp = num1;
+        num1 = num2;
+        num2 = temp;
+        dec1 = parseInt(num1, 2);
+        dec2 = parseInt(num2, 2);
+    }
+    else if (exerciseType === 'negative' && dec1 > dec2) {
+        var temp = num1;
+        num1 = num2;
+        num2 = temp;
+        dec1 = parseInt(num1, 2);
+        dec2 = parseInt(num2, 2);
+    }
+
+    var resultDec = dec1 - dec2;
+    var isNegative = resultDec < 0;
+    var absResultDec = Math.abs(resultDec);
+
+    // --- CORRECCIÓN: Alinear a la misma longitud ---
+    var maxBits = Math.max(num1.length, num2.length);
+    var num1Aligned = num1.padStart(maxBits, '0');
+    var num2Aligned = num2.padStart(maxBits, '0');
+
+    // --- CORRECCIÓN: Complemento a 2's del sustraendo alineado ---
+    var comp1 = '';
+    for (var i = 0; i < num2Aligned.length; i++) {
+        comp1 += (num2Aligned[i] === '0') ? '1' : '0';
+    }
+    var comp2 = (parseInt(comp1, 2) + 1).toString(2);
+    while (comp2.length < maxBits) {
+        comp2 = '0' + comp2;
+    }
+    if (comp2.length > maxBits) {
+        comp2 = comp2.slice(-maxBits);
+    }
+
+    // Sumar num1Aligned + comp2
+    var sumResult = '';
+    var carry = 0;
+    var sumSteps = [];
+    for (var i = maxBits - 1; i >= 0; i--) {
+        var bitA = parseInt(num1Aligned[i]);
+        var bitB = parseInt(comp2[i]);
+        var sum = bitA + bitB + carry;
+        var resultBit = sum % 2;
+        carry = Math.floor(sum / 2);
+        sumResult = resultBit + sumResult;
+        sumSteps.push({
+            pos: i,
+            bitA: bitA,
+            bitB: bitB,
+            carryIn: (i === maxBits - 1) ? 0 : sumSteps[sumSteps.length - 1]?.carryOut || 0,
+            carryOut: carry,
+            resultBit: resultBit
+        });
+    }
+    sumSteps.reverse();
+
+    // --- CORRECCIÓN: Determinar la respuesta correcta ---
+    var correctAnswer = '';
+    if (isNegative) {
+        // Si es negativo, el resultado es el complemento a 2 del valor absoluto
+        var absBin = absResultDec.toString(2);
+        // Asegurar que el valor absoluto tenga la misma cantidad de bits
+        var absBinPadded = absBin.padStart(maxBits, '0');
+        // Complemento a 2 del valor absoluto
+        var absComp1 = '';
+        for (var i = 0; i < absBinPadded.length; i++) {
+            absComp1 += (absBinPadded[i] === '0') ? '1' : '0';
+        }
+        var absComp2 = (parseInt(absComp1, 2) + 1).toString(2);
+        while (absComp2.length < maxBits) {
+            absComp2 = '0' + absComp2;
+        }
+        if (absComp2.length > maxBits) {
+            absComp2 = absComp2.slice(-maxBits);
+        }
+        correctAnswer = absComp2;
+    } else {
+        // Si es positivo, el resultado es la suma sin el acarreo final
+        if (carry > 0) {
+            // Descartar el acarreo final
+            correctAnswer = sumResult.slice(1);
+            if (correctAnswer === '') correctAnswer = '0';
+        } else {
+            correctAnswer = sumResult;
+        }
+        // Eliminar ceros a la izquierda
+        correctAnswer = correctAnswer.replace(/^0+/, '') || '0';
+    }
+
+    restaExerciseCounter++;
+    currentRestaExercise = {
+        num1: num1,
+        num2: num2,
+        num1Aligned: num1Aligned,
+        num2Aligned: num2Aligned,
+        dec1: dec1,
+        dec2: dec2,
+        resultDec: resultDec,
+        isNegative: isNegative,
+        absResultDec: absResultDec,
+        correctAnswer: correctAnswer,
+        comp1: comp1,
+        comp2: comp2,
+        sumResult: sumResult,
+        carry: carry,
+        sumSteps: sumSteps,
+        maxBits: maxBits,
+        counter: restaExerciseCounter,
+        exerciseType: exerciseType
+    };
+
+    document.getElementById('restaExerciseCounter').textContent = 'Ejercicio ' + restaExerciseCounter;
+    document.getElementById('restaOp1').textContent = num1;
+    document.getElementById('restaOp2').textContent = num2;
+
+    var badge = document.getElementById('restaTypeBadge');
+    if (isNegative) {
+        badge.textContent = '⚠️ Resultado negativo';
+        badge.className = 'resta-type-badge negative';
+        badge.style.display = 'inline-block';
+    } else {
+        badge.textContent = '✅ Resultado positivo';
+        badge.className = 'resta-type-badge positive';
+        badge.style.display = 'inline-block';
+    }
+
+    var input = document.getElementById('restaAnswer');
+    input.value = '';
+    input.className = 'resta-input-field';
+    input.placeholder = isNegative ? 'Ej: 1011 (C2)' : 'Ej: 0101';
+    document.getElementById('restaFeedback').innerHTML = '<p class="resta-text-muted">✏️ Resuelva la resta usando complemento a 2\'s y escriba su respuesta.</p>';
+    document.getElementById('restaSolution').style.setProperty('display', 'none', 'important');
+    input.focus();
+}
+
+function showRestaSolution() {
+    var content = document.getElementById('restaSolutionContent');
+    var steps = [];
+    var ex = currentRestaExercise;
+
+    steps.push('📌 Operación: ' + ex.num1 + ' − ' + ex.num2);
+    steps.push('');
+
+    steps.push('🔹 **Paso 1: Alinear los números**');
+    steps.push('   ' + ex.num1 + ' → ' + ex.num1Aligned + ' (' + ex.maxBits + ' bits)');
+    steps.push('   ' + ex.num2 + ' → ' + ex.num2Aligned + ' (' + ex.maxBits + ' bits)');
+    steps.push('');
+
+    steps.push('🔹 **Paso 2: Complemento a 2\'s del sustraendo (' + ex.num2Aligned + ')**');
+    steps.push('   Complemento a 1\'s: ' + ex.comp1);
+    steps.push('   Sumar 1: ' + ex.comp1 + ' + 1');
+    steps.push('   Complemento a 2\'s: ' + ex.comp2);
+    steps.push('');
+
+    steps.push('🔸 **Paso 3: Sumar ' + ex.num1Aligned + ' + (' + ex.comp2 + ')**');
+    steps.push('   ' + ex.num1Aligned);
+    steps.push(' + ' + ex.comp2);
+    steps.push('   ' + '-'.repeat(ex.maxBits));
+
+    for (var i = 0; i < ex.sumSteps.length; i++) {
+        var s = ex.sumSteps[i];
+        var carryIn = (i === 0) ? 0 : ex.sumSteps[i-1].carryOut;
+        steps.push('   Columna ' + (i + 1) + ': ' + s.bitA + ' + ' + s.bitB + ' + ' + carryIn + ' = ' + (s.bitA + s.bitB + carryIn) + ' → resultado ' + s.resultBit + ', acarreo ' + s.carryOut);
+    }
+    steps.push('   Suma: ' + ex.sumResult);
+    if (ex.carry > 0) {
+        steps.push('   Acarreo final: ' + ex.carry + ' (se descarta)');
+    }
+    steps.push('');
+
+    // Paso 4: Interpretar el resultado
+    if (ex.isNegative) {
+        steps.push('🔸 **Paso 4: Interpretación del resultado**');
+        steps.push('   Como NO hay acarreo final, el resultado es negativo.');
+        steps.push('   El resultado obtenido (' + ex.sumResult + ') es el complemento a 2\'s del valor absoluto.');
+        steps.push('   Valor absoluto en binario: ' + ex.absResultDec.toString(2));
+        steps.push('   Resultado final: -' + ex.absResultDec + ' (decimal) → ' + ex.correctAnswer + ' (binario en C2)');
+    } else {
+        steps.push('✅ **Resultado:** ' + ex.num1 + ' − ' + ex.num2 + ' = ' + ex.correctAnswer);
+        steps.push('   Comprobación: ' + ex.dec1 + ' − ' + ex.dec2 + ' = ' + ex.resultDec);
+    }
+
+    content.innerHTML = steps.map(function(s) {
+        if (s.includes('✅')) {
+            return '<div style="color: #28a745; font-weight: 600; font-size: 1.05rem;">' + s + '</div>';
+        } else if (s.includes('🔹') || s.includes('🔸') || s.includes('📌')) {
+            return '<div style="color: #0a4b7a; font-weight: 600;">' + s + '</div>';
+        }
+        return '<div>' + s + '</div>';
+    }).join('');
+
+    document.getElementById('restaSolution').style.setProperty('display', 'block', 'important');
+}
+
+document.getElementById('checkRestaBtn').addEventListener('click', function() {
+    var input = document.getElementById('restaAnswer');
+    var userAnswer = input.value.trim();
+    var feedback = document.getElementById('restaFeedback');
+
+    if (!userAnswer) {
+        feedback.innerHTML = '<p class="resta-text-muted">⚠️ Por favor, escriba su respuesta.</p>';
+        return;
+    }
+
+    if (!/^[01]+$/.test(userAnswer)) {
+        feedback.innerHTML = '<p style="color: #dc3545; font-weight: 600; margin: 0;">❌ La respuesta debe ser un número binario (solo 0 y 1).</p>';
+        input.className = 'resta-input-field incorrect';
+        return;
+    }
+
+    // Normalizar la respuesta del usuario
+    var userNormalized = userAnswer.replace(/^0+/, '') || '0';
+    var correctNormalized = currentRestaExercise.correctAnswer.replace(/^0+/, '') || '0';
+
+    if (userNormalized === correctNormalized) {
+        input.className = 'resta-input-field correct';
+        if (currentRestaExercise.isNegative) {
+            feedback.innerHTML = '<p style="color: #28a745; font-weight: 600; margin: 0;">✅ ¡Excelente! ' + currentRestaExercise.num1 + ' − ' + currentRestaExercise.num2 + ' = ' + currentRestaExercise.correctAnswer + ' (C2)</p>';
+        } else {
+            feedback.innerHTML = '<p style="color: #28a745; font-weight: 600; margin: 0;">✅ ¡Excelente! ' + currentRestaExercise.num1 + ' − ' + currentRestaExercise.num2 + ' = ' + currentRestaExercise.correctAnswer + '</p>';
+        }
+    } else {
+        input.className = 'resta-input-field incorrect';
+        if (currentRestaExercise.isNegative) {
+            feedback.innerHTML = '<p style="color: #dc3545; font-weight: 600; margin: 0;">❌ Respuesta incorrecta. Su respuesta: ' + userAnswer + '. Respuesta correcta: ' + currentRestaExercise.correctAnswer + ' (C2)</p>';
+        } else {
+            feedback.innerHTML = '<p style="color: #dc3545; font-weight: 600; margin: 0;">❌ Respuesta incorrecta. Su respuesta: ' + userAnswer + '. Respuesta correcta: ' + currentRestaExercise.correctAnswer + '</p>';
+        }
+    }
+    showRestaSolution();
+});
+
+document.getElementById('showRestaHintBtn').addEventListener('click', function() {
+    var feedback = document.getElementById('restaFeedback');
+    var hint = '💡 Pista: Primero alinee ambos números a la misma cantidad de bits. Luego calcule el complemento a 2\'s del sustraendo. Sume al minuendo. ';
+    if (currentRestaExercise.isNegative) {
+        hint += 'Como no hay acarreo final, el resultado es negativo. El resultado obtenido es el complemento a 2\'s del valor absoluto.';
+    } else {
+        hint += 'Si hay acarreo final, descártelo.';
+    }
+    feedback.innerHTML = '<p style="color: #e65100; font-weight: 500; margin: 0;">' + hint + '</p>';
+});
+
+document.getElementById('newRestaExerciseBtn').addEventListener('click', function() {
+    generateRestaExercise();
+});
+
+generateRestaExercise();
+</script>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../complementos/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

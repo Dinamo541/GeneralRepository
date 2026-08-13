@@ -1,0 +1,974 @@
+{
+  "url_base": "https://monkeytype.com/",
+  "descargado": "2026-07-31T14:17:20",
+  "segundos": 2.1,
+  "enlaces_reescritos": true,
+  "totales": {
+    "archivos": 106,
+    "paginas_html": 2,
+    "bytes": 7246473,
+    "fallos": 1
+  },
+  "archivos": [
+    {
+      "url": "https://www.google.com/recaptcha/api.js?render=explicit",
+      "local": "_externo/www.google.com/recaptcha/api__render_explicit_b0910a35.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 1550,
+      "sha256": "909b9887427a91c40a3f857b6ed06a4e510ca42cd2f62a5384756d574619bd08",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "local": "cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+      "content_type": "application/javascript",
+      "bytes": 1239,
+      "sha256": "2595496fe48df6fcf9b1bc57c29a744c121eb4dd11566466bc13d2e52e6bbcc8",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/css/monkeytype.Aotrjaev.css",
+      "local": "css/monkeytype.Aotrjaev.css",
+      "content_type": "text/css; charset=utf-8",
+      "bytes": 202780,
+      "sha256": "8861bb0815888eae0d7e70cd0c1f06e1116cee006985379721af2a4bd672960e",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "https://monkeytype.com/css/standalone.BowSyp6T.css",
+      "local": "css/standalone.BowSyp6T.css",
+      "content_type": "text/css; charset=utf-8",
+      "bytes": 14252,
+      "sha256": "2c731cdfe435aad5d2b8756d842e6365d1b9dce3372f954f3d6d6d16abf67f2a",
+      "tipo": "css",
+      "reescrito": true
+    },
+    {
+      "url": "https://monkeytype.com/images/caret/banana.png",
+      "local": "images/caret/banana.png",
+      "content_type": "image/png",
+      "bytes": 2639,
+      "sha256": "98fd28e5bcd29763b4e306213f2104ae68915940d73fc4e11b3f150f3a2a51a7",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/images/caret/carrot.png",
+      "local": "images/caret/carrot.png",
+      "content_type": "image/png",
+      "bytes": 2227,
+      "sha256": "38997464221003113599f20474a44be0955025728188ddcb086dee919524d983",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/images/caret/monkey.png",
+      "local": "images/caret/monkey.png",
+      "content_type": "image/png",
+      "bytes": 8020,
+      "sha256": "6483d9c91df0f4c354d9e3a6979c23bdae2c71767fb88eab501a757c4e0d2efc",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/images/favicon/apple-touch-icon.png",
+      "local": "images/favicon/apple-touch-icon.png",
+      "content_type": "image/png",
+      "bytes": 3860,
+      "sha256": "41b105f2487bee5caf4c55d3a714d55e323597f5aacaa90c7e82969563010c1e",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/images/favicon/favicon.ico",
+      "local": "images/favicon/favicon.ico",
+      "content_type": "image/x-icon",
+      "bytes": 15086,
+      "sha256": "5d8783a362f64ec2096f581f87f3c3bc647de7aab99ee3231a8b9c397825aec7",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/images/favicon/safari-pinned-tab.svg",
+      "local": "images/favicon/safari-pinned-tab.svg",
+      "content_type": "image/svg+xml",
+      "bytes": 1595,
+      "sha256": "e82a42cb741b35b2b12632fd4f20fdb0fbbe00d19db3f948c206b585784235a5",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/",
+      "local": "index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 21079,
+      "sha256": "6b9df7645d7963778225fc32137cd9562bd7b22384b3e8fbedd4eb2bf4fb9fdc",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "https://monkeytype.com/js/modulepreload-polyfill.D5v7Mlue.js",
+      "local": "js/modulepreload-polyfill.D5v7Mlue.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 1435,
+      "sha256": "c2e815a558f37f489ede9899dc1fca6ab0c0935f75a4722d699514aa0a64aa21",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/js/monkeytype-packages.CMshZv1T.js",
+      "local": "js/monkeytype-packages.CMshZv1T.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 267919,
+      "sha256": "7447aa4338d24c759fd11a5f97c995648947af13031f6bfff38545a0b82779fe",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/js/monkeytype-utils.BW4dyJbh.js",
+      "local": "js/monkeytype-utils.BW4dyJbh.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 148370,
+      "sha256": "9f920b6ae43b279c68d74beaee8604bc11dea4defbd2c305d1c7c361e9e42fd2",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/js/monkeytype.aWHQPUis.js",
+      "local": "js/monkeytype.aWHQPUis.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 771537,
+      "sha256": "3dcc4e1be5c14cdfebea378dc67b5fd52847ddad72202871cabd26ff37dfc22f",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/js/rolldown-runtime.Brbi1p7_.js",
+      "local": "js/rolldown-runtime.Brbi1p7_.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 1944,
+      "sha256": "bed3390ebde07db6ee129e76bde0f1d13274bbedda38c14bda3d324648f4819b",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/js/vendor-chart.XF6_xLN3.js",
+      "local": "js/vendor-chart.XF6_xLN3.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 266288,
+      "sha256": "33e3f4fbcbf7f92006c81d9f17afc2bcca320032a076cb5727da2b8ecb3de337",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/js/vendor-firebase.B-uGHR6N.js",
+      "local": "js/vendor-firebase.B-uGHR6N.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 136589,
+      "sha256": "02812e3b3fb6299560055095de624d8b4db872e36bafc2c40a01cf0ec368a977",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/js/vendor-tanstack.CI3JrCAf.js",
+      "local": "js/vendor-tanstack.CI3JrCAf.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 417853,
+      "sha256": "047d15dd5df131683cc0bbd2815acc1ce0c301d9c9bf31d781a97f210bcebb9e",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/js/vendor.j5SY6VPA.js",
+      "local": "js/vendor.j5SY6VPA.js",
+      "content_type": "text/javascript; charset=utf-8",
+      "bytes": 230642,
+      "sha256": "8cc7037de830352c88fc5f53aaa8d6512887be6fd721f406d1cec7457f272ed8",
+      "tipo": "js",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/login",
+      "local": "login/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 21079,
+      "sha256": "e68b4419870103beebe571b567788a89c29d2600edbf46bd771afc4f0f24faff",
+      "tipo": "html",
+      "reescrito": true
+    },
+    {
+      "url": "https://monkeytype.com/manifest.json",
+      "local": "manifest.json",
+      "content_type": "application/json",
+      "bytes": 378,
+      "sha256": "0837740ae5b27d0df318433a3295e93a14d8a132df1c232c6e9ec40e5b31d551",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/0xProto-Regular.woff2",
+      "local": "webfonts-preview/0xProto-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 5144,
+      "sha256": "8421fbcf34c3eda97781bc8a48dcd668c466f1490888d9ea202481af91fe0ffd",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/AdwaitaMono-Regular.woff2",
+      "local": "webfonts-preview/AdwaitaMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4036,
+      "sha256": "967d330cbc4bf27545b27b46047af9e17516b34231c51c8028dd4cb96a89c667",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/AtkinsonHyperlegible-Regular.woff2",
+      "local": "webfonts-preview/AtkinsonHyperlegible-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4488,
+      "sha256": "cf4dc86987b83fd0c23f651f3bf601cbff1bcc83795f47893c9c442691c6a470",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Boon-Regular.woff2",
+      "local": "webfonts-preview/Boon-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 3048,
+      "sha256": "893a62135fd564ef1301a8060a2545949953548556b20ff94c4fe93dbc63a2f8",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/CascadiaMono-Regular.woff2",
+      "local": "webfonts-preview/CascadiaMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 6616,
+      "sha256": "568b3441640e75cd21248bb886a31ebff28ca099614a54a89ee0d811160941b5",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Comfortaa-Regular.woff2",
+      "local": "webfonts-preview/Comfortaa-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 3076,
+      "sha256": "02d7f07ddb1a945c2aaf84f57ef7090179d0a604faf8fa7db5be422210ddee09",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/ComingSoon-Regular.woff2",
+      "local": "webfonts-preview/ComingSoon-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 2944,
+      "sha256": "f9db0b519c7a451c3491ee217121e3a4dd1ddece2f6c4d6ea0dbccbb2dfa55de",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/CommitMono-Regular.woff2",
+      "local": "webfonts-preview/CommitMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 2420,
+      "sha256": "ca8f4bd12d438552dfb05e82ad9e2e394cb3b9e26a353292df5272002b216586",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/FiraCode-Regular.woff2",
+      "local": "webfonts-preview/FiraCode-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 5640,
+      "sha256": "cc0f7549d613c041d1c07bf8fa0585386a54370ca259478563c831703079de94",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Geist-Medium.woff2",
+      "local": "webfonts-preview/Geist-Medium.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4960,
+      "sha256": "533371790bfe17549974b735d93ed0838e467d8d4dcf61a06a6d34d56135f7a0",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/GeistMono-Medium.woff2",
+      "local": "webfonts-preview/GeistMono-Medium.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4664,
+      "sha256": "a7399dd45b480843f3a7df888a3e704ec51ac5d5682fcbef48e97d0ca4d25f33",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Hack-Regular.woff2",
+      "local": "webfonts-preview/Hack-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 3928,
+      "sha256": "c3b1acf4682aa9715c785cdb60127417e72c5265c7d8ea1bb6b1834370392cd4",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/IBMPlexMono-Regular.woff2",
+      "local": "webfonts-preview/IBMPlexMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 2784,
+      "sha256": "71c7795f828b6060780311c9a34dd49b9a010f26e9164acb75bcfcc48cff81ed",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/IBMPlexSans-SemiBold.woff2",
+      "local": "webfonts-preview/IBMPlexSans-SemiBold.woff2",
+      "content_type": "font/woff2",
+      "bytes": 3476,
+      "sha256": "f86a0eebead82c1f9a669fa557c0117a9b103b8fa9fd8b8d8dc5f6574196feb0",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Inconsolata-Regular.woff2",
+      "local": "webfonts-preview/Inconsolata-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4044,
+      "sha256": "520cf4ff2f2b744bb0ab590df47f15a5def8c09d084dd08ee3011c6cc13638bc",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/InterTight-Regular.woff2",
+      "local": "webfonts-preview/InterTight-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 3576,
+      "sha256": "8856519cbe63e2be79d18bf272e2eadef801f65fb05b49d8fd3396cb0333e0bc",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Iosevka-Regular.woff2",
+      "local": "webfonts-preview/Iosevka-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 15080,
+      "sha256": "f519a8adf48b7157e11ef45b6eeb8d1e3b56440c18da806722a4414d61deaedb",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Itim-Regular.woff2",
+      "local": "webfonts-preview/Itim-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 7624,
+      "sha256": "6debabdf1fbbe825cfac7e9e2024c8d9455ca7a4b0fea30c200d84bcf8402a13",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/JetBrainsMono-Regular.woff2",
+      "local": "webfonts-preview/JetBrainsMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4880,
+      "sha256": "b5d9d6fbbc151f062c55aaea2e79c597a515291d92d3122d6c89f983cced1294",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Kanit-Regular.woff2",
+      "local": "webfonts-preview/Kanit-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 3784,
+      "sha256": "2d70a3041336dc0db6daa8ebbf892afccab357d7e39bed4079b09304a5e71cc0",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Lalezar-Regular.woff2",
+      "local": "webfonts-preview/Lalezar-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4128,
+      "sha256": "d0d54ed1cdac945932a6ece3e2a5476e3d500f3da02a6ac0412f97e43bf20e1d",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Lato-Regular.woff2",
+      "local": "webfonts-preview/Lato-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4576,
+      "sha256": "4f71b4ca4aae724e0bbdaa9f24a1a7eb58fd39f5c6ba49a4d52fb1ca5570d742",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/LexendDeca-Regular.woff2",
+      "local": "webfonts-preview/LexendDeca-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 1916,
+      "sha256": "67664861feaaafe8dca2b88f9c221c71048797d374bb622b222de287a8b3cc4e",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Mononoki-Regular.woff2",
+      "local": "webfonts-preview/Mononoki-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 1208,
+      "sha256": "a5f43f6641760bb912d38480c63a7012ac93f9e354210e44ad1bf02598c78bcf",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Montserrat-Regular.woff2",
+      "local": "webfonts-preview/Montserrat-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 6564,
+      "sha256": "307787d52f17d099d7826991358902569ec1bc0d49afb35e57c9fdbb387f9bf7",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/NotoNaskhArabic-Regular.woff2",
+      "local": "webfonts-preview/NotoNaskhArabic-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 2048,
+      "sha256": "42932ddbe398890cba44131d9ab70a4940024f11b106f68895fb386adf440b2c",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/NotoSansLao-Regular.woff2",
+      "local": "webfonts-preview/NotoSansLao-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 2116,
+      "sha256": "e089bbb97638c814ec5c2462af271e77bf68138ebff990df168d36b73b4eb059",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Nunito-Bold.woff2",
+      "local": "webfonts-preview/Nunito-Bold.woff2",
+      "content_type": "font/woff2",
+      "bytes": 1828,
+      "sha256": "a67e9f59f7b053bbd12880f4d7df3653752efd411e81dede7101394085390b64",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/OpenDyslexic-Regular.woff2",
+      "local": "webfonts-preview/OpenDyslexic-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4272,
+      "sha256": "28a78d12cddc5d0b5fc22d728f1b30c25d73025e3cf304eb7e3bce178bd0294a",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/OverpassMono-Regular.woff2",
+      "local": "webfonts-preview/OverpassMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 6792,
+      "sha256": "bbb7b4094b699d6e10bb61ae9c5f9493218d1f009a981d44647b813f99db1673",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Oxygen-Regular.woff2",
+      "local": "webfonts-preview/Oxygen-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 3972,
+      "sha256": "08c27f4f3eac00b29f1f36a21148ea6467290ac5cccc26bc4bac49b94e01b856",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Parkinsans-Regular.woff2",
+      "local": "webfonts-preview/Parkinsans-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 2004,
+      "sha256": "b1298e102251e49800d260e40bb7089a1266dcd849c83aaf2a329d0df255bb0a",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Roboto-Regular.woff2",
+      "local": "webfonts-preview/Roboto-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 2636,
+      "sha256": "c5ba0ab929411fd08252531c5fdb0949bb45d5a97b170ffce8639ef6a67f4d63",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/RobotoMono-Regular.woff2",
+      "local": "webfonts-preview/RobotoMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 1764,
+      "sha256": "b15bd664993c4fb04d09ad01cbe36d5703349aa94fc00a38c7b0c6a978383f3c",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Sarabun-Bold.woff2",
+      "local": "webfonts-preview/Sarabun-Bold.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4236,
+      "sha256": "8d6a1008c53bd8ae31ca4e842ff89f2e1a2752302fe7b1dc36972c385f455edf",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/SourceCodePro-Regular.woff2",
+      "local": "webfonts-preview/SourceCodePro-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4108,
+      "sha256": "7dc0e8f497970468f6a72541902c82506963e6225b7856ec04c926469c921e9a",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/SpaceGrotesk-Regular.woff2",
+      "local": "webfonts-preview/SpaceGrotesk-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 2364,
+      "sha256": "1308237cdff0765840f32d39b0f20b85ac9a5923a5859b478674af2218b82db6",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/TitilliumWeb-Regular.woff2",
+      "local": "webfonts-preview/TitilliumWeb-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 1468,
+      "sha256": "58198b3ae0abd93db31672cafa98115646e3b7c29c1958ed921b3aea9748b4d9",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/Ubuntu-Regular.woff2",
+      "local": "webfonts-preview/Ubuntu-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 6192,
+      "sha256": "f566b88bd23fb0050dc435348ff4a25a6d1f2c777d2ec287e6b98c079e377159",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts-preview/UbuntuMono-Regular.woff2",
+      "local": "webfonts-preview/UbuntuMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 4500,
+      "sha256": "1fe9b5090cc261a6ab15ffd52726f66e58c01486a7346117e5ef5cd50e7fedf3",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/0xProto-Regular.woff2",
+      "local": "webfonts/0xProto-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 56732,
+      "sha256": "c02ab75a26b913765f1c6dfcc07c240ff8e6169e3945df622b041532713c85d9",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/AdwaitaMono-Regular.woff2",
+      "local": "webfonts/AdwaitaMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 361248,
+      "sha256": "f4fc2dc07d6b409ecadac7452572eb11bd389dbe28ab4c360c2422bd0a9604e2",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/AtkinsonHyperlegible-Regular.woff2",
+      "local": "webfonts/AtkinsonHyperlegible-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 23196,
+      "sha256": "2df4ba17804bc7a36f123127966075d8427bff2df58d0d76820c1130bb1a4150",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Boon-Regular.woff2",
+      "local": "webfonts/Boon-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 52228,
+      "sha256": "52b5233be6fa02150d565ea3a8aae5c94246f226fdf8ceec81fadfdc57884895",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/CascadiaMono-Regular.woff2",
+      "local": "webfonts/CascadiaMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 211268,
+      "sha256": "2b31f8303972a859e97bd4bcc3d69ec6c8b1f2173a497298c96ad37b3e9dd230",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Comfortaa-Regular.woff2",
+      "local": "webfonts/Comfortaa-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 51212,
+      "sha256": "c7576c61d98e1b6c7291f5309b3da0c5662cfe071dcf050f8dbc1de07d068dce",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/ComingSoon-Regular.woff2",
+      "local": "webfonts/ComingSoon-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 21432,
+      "sha256": "e975a6b393c298075c7b0a262fe46b0f1cb1a9f408cc3a48360a12d897364500",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/CommitMono-Regular.woff2",
+      "local": "webfonts/CommitMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 39992,
+      "sha256": "fff2de519a553412ef249a54b4a21dbd812873ea6e6ed9dd7ca3997a276d39b2",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/FiraCode-Regular.woff2",
+      "local": "webfonts/FiraCode-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 103240,
+      "sha256": "a6ce59520b90e15d7062ffef214f94c8add5a4085c0bbb1683602ef227a4d1fe",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Geist-Medium.woff2",
+      "local": "webfonts/Geist-Medium.woff2",
+      "content_type": "font/woff2",
+      "bytes": 42132,
+      "sha256": "38172c2866346029745e6c6268099aac059fbb591fca3c7f12320c787940cbf8",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/GeistMono-Medium.woff2",
+      "local": "webfonts/GeistMono-Medium.woff2",
+      "content_type": "font/woff2",
+      "bytes": 44108,
+      "sha256": "d55ee550def9ba0af069facabc0a2f8e1cb54ba891eb379c90ae300ed12ea90e",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Hack-Regular.woff2",
+      "local": "webfonts/Hack-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 106236,
+      "sha256": "0b0ef254dfc7afc172528e3166eace813989e1cf77f576ddae5f5e8fb2897c06",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/IBMPlexMono-Regular.woff2",
+      "local": "webfonts/IBMPlexMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 45640,
+      "sha256": "49ce58b41a0e1cb921c0f58d9a5b8b96a2cc21437c7066f3ba4f24873076d131",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/IBMPlexSans-SemiBold.woff2",
+      "local": "webfonts/IBMPlexSans-SemiBold.woff2",
+      "content_type": "font/woff2",
+      "bytes": 67060,
+      "sha256": "f78048030eab62e860efa39a0df79e2e5581bf122eb95b9bc42c0b8a4988d205",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Inconsolata-Regular.woff2",
+      "local": "webfonts/Inconsolata-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 38772,
+      "sha256": "dd27707dafd0317e6d33f6841bb90d4ead107d6b27f2c414f1779741823cad06",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/InterTight-Regular.woff2",
+      "local": "webfonts/InterTight-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 99132,
+      "sha256": "a365f43dbd3fb50a493cc0f803de8469673f5be74074c5d365843e3285401d04",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Iosevka-Regular.woff2",
+      "local": "webfonts/Iosevka-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 1494892,
+      "sha256": "1eef7a2089b22fa17214cfaf4e9c0d727b1ac43ba37d0e5e2b2872226769e358",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Itim-Regular.woff2",
+      "local": "webfonts/Itim-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 100780,
+      "sha256": "23850d8e70d78007c891205a8adc2908dc4b3f3cfeb38a3bc36682bd259fd1f9",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/JetBrainsMono-Regular.woff2",
+      "local": "webfonts/JetBrainsMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 92164,
+      "sha256": "a9cb1cd82332b23a47e3a1239d25d13c86d16c4220695e34b243effa999f45f2",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Kanit-Regular.woff2",
+      "local": "webfonts/Kanit-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 53656,
+      "sha256": "6f96a34f2246c92022ad1971546c2721b55ac549b37b084f31aee9f1c7acc81d",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Lalezar-Regular.woff2",
+      "local": "webfonts/Lalezar-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 85748,
+      "sha256": "148c72044161f7fdd874a7743f5402f15b04bc2b9a609d2734deb22057bef2d5",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Lato-Regular.woff2",
+      "local": "webfonts/Lato-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 182708,
+      "sha256": "983b0caf336e8542214fc17019a4fc5e0360864b92806ca14d55c1fc1c2c5a0f",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/LexendDeca-Regular.woff2",
+      "local": "webfonts/LexendDeca-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 25888,
+      "sha256": "da6fb465c414af8e52b7a88be5a051a0b28afd2991154b0afded101062b8934d",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Mononoki-Regular.woff2",
+      "local": "webfonts/Mononoki-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 28860,
+      "sha256": "ba004106c9cb01b4cc0de47de886cc757157d0590a5f2e277f0f3aa54bdbebf8",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Montserrat-Regular.woff2",
+      "local": "webfonts/Montserrat-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 86900,
+      "sha256": "c2b2cb00987bfe82494d234b5de4a36d217d20536e37e1b98423cc64efefca43",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/NotoNaskhArabic-Regular.woff2",
+      "local": "webfonts/NotoNaskhArabic-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 71592,
+      "sha256": "f8e10555967f6ceab253fca3cacd3b0c7857b24f4b47292e54153fcaed21bac5",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/NotoSansLao-Regular.woff2",
+      "local": "webfonts/NotoSansLao-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 23008,
+      "sha256": "d04df61dc1d1a2adc634fafb99d9eb463e3d15eb5aeb752120507a0092643715",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Nunito-Bold.woff2",
+      "local": "webfonts/Nunito-Bold.woff2",
+      "content_type": "font/woff2",
+      "bytes": 41676,
+      "sha256": "c129c2c42b2f1d5af9bd5b9858f0eba8215ee3ebf61fbc99866e107b2c0af4b5",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/OpenDyslexic-Regular.woff2",
+      "local": "webfonts/OpenDyslexic-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 117196,
+      "sha256": "d113768e57fe811e9c4e180c017f0761e79a5b3a17ae1c3f4f5cbe6dfa2e14af",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/OverpassMono-Regular.woff2",
+      "local": "webfonts/OverpassMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 97068,
+      "sha256": "2053420e606230e7067b9397be4588546767f28ed3c5f454b466183c76ac3bbc",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Oxygen-Regular.woff2",
+      "local": "webfonts/Oxygen-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 19804,
+      "sha256": "d8507ee4e977b77a96d738d1f4db99db9fac7ac4b463c65efc2085394f5fada1",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Parkinsans-Regular.woff2",
+      "local": "webfonts/Parkinsans-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 17740,
+      "sha256": "76d73c42851763a6a7f53726de5ce27e4276f4d1d7bd99bfc3c6c5891532a872",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Roboto-Regular.woff2",
+      "local": "webfonts/Roboto-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 50476,
+      "sha256": "d4d175f498b00516c629ce8af152cbe745d73932fa58cc9fdfc8e4b49c0da368",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/RobotoMono-Regular.woff2",
+      "local": "webfonts/RobotoMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 37632,
+      "sha256": "2706dfabcbaaf2dee90c3a10c168d5f5691ce787dcae9e77cd038f66b08fc4ba",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Sarabun-Bold.woff2",
+      "local": "webfonts/Sarabun-Bold.woff2",
+      "content_type": "font/woff2",
+      "bytes": 59236,
+      "sha256": "5e998c6f5b161f55a1ff4f56fc5aa5990b9fc2d9b42c7f01df282eb382067981",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/SourceCodePro-Regular.woff2",
+      "local": "webfonts/SourceCodePro-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 76348,
+      "sha256": "23a0d7981dc90c0a8ec7d8a6ca7ee5dc439c777f3e2aabcf1009fdcf0e821b79",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/SpaceGrotesk-Regular.woff2",
+      "local": "webfonts/SpaceGrotesk-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 28560,
+      "sha256": "10cbd2a1c0ea0fb9e6a983a7b33fe338b154aec235118f466429adf272f54d69",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/TitilliumWeb-Regular.woff2",
+      "local": "webfonts/TitilliumWeb-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 18136,
+      "sha256": "6ccb26dc2a03353e8be7e0052375e146285fa243428429df9fcbad2003db105d",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Ubuntu-Regular.woff2",
+      "local": "webfonts/Ubuntu-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 111604,
+      "sha256": "8713695256f84a9a0a07359c63d2dc5f26d41cff611b1a2c2d77439d0f2fc30c",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/UbuntuMono-Regular.woff2",
+      "local": "webfonts/UbuntuMono-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 79680,
+      "sha256": "b7b9cc09915801271c0199fed61b5543d37e0f8ce7ac9e6ff38b671a7071eab5",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/Vazirharf-NL-Regular.woff2",
+      "local": "webfonts/Vazirharf-NL-Regular.woff2",
+      "content_type": "font/woff2",
+      "bytes": 22196,
+      "sha256": "88e12f42c67353821c2043ed759802c3fde9df2a871e83a9119ac7b437e2c94c",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/fa-brands-400-BJEvs-YL.woff2",
+      "local": "webfonts/fa-brands-400-BJEvs-YL.woff2",
+      "content_type": "font/woff2",
+      "bytes": 73076,
+      "sha256": "c47ba6406a9f96805fcd47bcd3403de46bcc54028d98836cbabc7d75e73b3d67",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/fa-regular-400-CPEIu2bx.woff2",
+      "local": "webfonts/fa-regular-400-CPEIu2bx.woff2",
+      "content_type": "font/woff2",
+      "bytes": 11776,
+      "sha256": "ec0b0e8032b49ce4655908e5c4d0f7aa40c76c80e6d5c5e092b3701e02bb3321",
+      "tipo": "otro",
+      "reescrito": false
+    },
+    {
+      "url": "https://monkeytype.com/webfonts/fa-solid-900-COjqfJMd.woff2",
+      "local": "webfonts/fa-solid-900-COjqfJMd.woff2",
+      "content_type": "font/woff2",
+      "bytes": 71180,
+      "sha256": "40962e2f417ae1b26eb3d24d2a61614d3a7750b6cc1b7879999c7e1f3652b77a",
+      "tipo": "otro",
+      "reescrito": false
+    }
+  ],
+  "fallos": [
+    {
+      "url": "https://monkeytype.com/cdn-cgi/l/email-protection",
+      "motivo": "HTTP 404"
+    }
+  ]
+}

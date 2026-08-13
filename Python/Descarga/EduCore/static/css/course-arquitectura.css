@@ -1,0 +1,656 @@
+﻿/* ============================================================
+   CURSO: ARQUITECTURA DE COMPUTADORES (EIF205)
+   ESTILO TEMÁTICO - HARDWARE, CIRCUITOS Y SISTEMAS DIGITALES
+   ============================================================ */
+
+/* ============================================================
+   1. PALETA DE COLORES TEMÁTICA
+   ============================================================ */
+:root {
+    --course-color: #0d47a1; /* Azul profundo - chips */
+    --course-color-light: #1565c0; /* Azul eléctrico */
+    --course-color-dark: #0a2a5e; /* Azul muy oscuro */
+    --course-color-rgb: 13, 71, 161;
+    --course-accent: #00bcd4; /* Cian - LEDs */
+    --course-accent-rgb: 0, 188, 212;
+    --course-warm: #ff6f00; /* Naranja - cobre/pistas */
+    --course-bg-dark: #0a1628; /* Fondo oscuro técnico */
+    --course-text-light: #e0e8f0;
+}
+
+/* ============================================================
+   2. HEADERS CON EFECTO DE CIRCUITO
+   ============================================================ */
+
+.header-curso,
+.header-leccion {
+    position: relative !important;
+    overflow: hidden !important;
+    /* 1. MARCO INFERIOR CON GLOW TÉCNICO */
+    border-bottom: 2px solid var(--course-accent) !important;
+    /* Creamos un efecto de neón/LED sutil proyectado hacia abajo */
+    box-shadow: 0 4px 20px rgba(0, 188, 212, 0.4), 0 1px 3px rgba(0, 188, 212, 0.6) !important;
+    /* 2. TEXTURA: Cuadrícula Micro-Técnica (Grid) + Gradiente Base */
+    background-color: var(--course-bg-dark) !important;
+    background-image:
+    /* Líneas verticales */
+    linear-gradient(rgba(0, 188, 212, 0.05) 1px, transparent 1px),
+    /* Líneas horizontales */
+    linear-gradient(90deg, rgba(0, 188, 212, 0.05) 1px, transparent 1px),
+    /* Vignette/Sombra en bordes para profundidad */
+    radial-gradient(circle at center, transparent 40%, rgba(10, 22, 40, 0.8) 100%),
+    /* Fondo gradiente */
+    linear-gradient(135deg, #0a1628 0%, var(--course-color) 60%, var(--course-color-light) 100%) !important;
+    background-size: 20px 20px, 20px 20px, 100% 100%, 100% 100% !important;
+}
+
+    /* 2. EFECTO K.I.T.T. SUTIL: Barrido de luz difuso en el fondo */
+    .header-curso::after,
+    .header-leccion::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: -30% !important; /* Inicia fuera de la pantalla */
+        width: 30% !important; /* Ancho amplio para difuminar */
+        height: 100% !important;
+        /* Luz cian tenue en el centro que se difumina hacia los lados */
+        background: linear-gradient( 90deg, transparent 0%, rgba(0, 188, 212, 0.03) 30%, rgba(0, 188, 212, 0.12) 50%, rgba(0, 188, 212, 0.03) 70%, transparent 100% ) !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+        /* Animación más lenta (4s) para no distraer */
+        animation: subtleKittScan 4s ease-in-out infinite alternate !important;
+    }
+
+    /* 3. Asegurar que el contenido siempre quede por encima de la luz */
+    .header-curso .container,
+    .header-leccion .container {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+/* Movimiento fluido del haz ambiental */
+@keyframes subtleKittScan {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(430%); /* Cruza suavemente todo el header */
+    }
+}
+
+    /* Badges con estilo de chip */
+    .header-curso .curso-badge,
+    .header-leccion .badge-curso {
+        background: rgba(0, 188, 212, 0.15) !important;
+        border: 1px solid rgba(0, 188, 212, 0.3);
+        backdrop-filter: blur(4px);
+        font-family: 'Courier New', monospace;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        padding: 6px 18px;
+        box-shadow: 0 0 20px rgba(0, 188, 212, 0.1);
+    }
+
+    /* Títulos con efecto de display LED */
+    .header-curso h1,
+    .header-leccion h1 {
+        font-weight: 800;
+        text-shadow: 0 0 30px rgba(13, 71, 161, 0.5), 0 0 60px rgba(0, 188, 212, 0.1);
+        letter-spacing: -0.5px;
+    }
+
+    .header-curso .lead,
+    .header-leccion .lead {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 300;
+    }
+
+/* ============================================================
+   3. BUSCADOR CON ESTILO TÉCNICO
+   ============================================================ */
+
+.search-box {
+    background: rgba(10, 22, 40, 0.6) !important;
+    border: 1px solid rgba(0, 188, 212, 0.2) !important;
+    backdrop-filter: blur(10px);
+}
+
+    .search-box:focus-within {
+        border-color: var(--course-accent) !important;
+        box-shadow: 0 0 30px rgba(0, 188, 212, 0.15), inset 0 0 30px rgba(0, 188, 212, 0.05) !important;
+    }
+
+    .search-box i {
+        color: var(--course-accent) !important;
+    }
+
+    .search-box input {
+        color: #fff !important;
+    }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.4) !important;
+        }
+
+/* ============================================================
+   4. CARDS DE TEMAS - ESTILO DE PLACAS DE CIRCUITO
+   ============================================================ */
+
+.tema-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f5f8fc 100%) !important;
+    border: 1px solid rgba(13, 71, 161, 0.08) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Efecto de pistas de circuito en las cards */
+    .tema-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 80% 20%, rgba(0, 188, 212, 0.03), transparent 70%);
+        pointer-events: none;
+        transition: all 0.6s ease;
+    }
+
+    .tema-card:hover::before {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    .tema-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 20px 50px rgba(13, 71, 161, 0.12), 0 0 0 1px rgba(0, 188, 212, 0.1) !important;
+    }
+
+    /* Borde decorativo como pista de circuito */
+    .tema-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--course-accent), var(--course-warm), var(--course-accent), transparent );
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+
+    .tema-card:hover::after {
+        opacity: 0.8;
+        left: 5%;
+        right: 5%;
+    }
+
+    /* Header de la card */
+    .tema-card .card-header {
+        color: var(--course-color) !important;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(13, 71, 161, 0.06) !important;
+    }
+
+        .tema-card .card-header .badge {
+            background: rgba(13, 71, 161, 0.08) !important;
+            color: var(--course-color) !important;
+            font-family: 'Courier New', monospace;
+            font-size: 0.65rem;
+            padding: 4px 12px;
+            border: 1px solid rgba(13, 71, 161, 0.1);
+        }
+
+    /* Título del tema */
+    .tema-card .card-title {
+        color: var(--course-color) !important;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+    }
+
+    /* Descripción */
+    .tema-card .card-text {
+        color: #4a5568 !important;
+        font-size: 0.9rem;
+    }
+
+/* ============================================================
+   5. LISTA DE LECCIONES - ESTILO DE REGISTROS
+   ============================================================ */
+
+.lesson-item {
+    border-bottom: 1px solid rgba(13, 71, 161, 0.04);
+    transition: all 0.2s ease;
+}
+
+    .lesson-item:last-child {
+        border-bottom: none;
+    }
+
+.lesson-link {
+    color: #2d3748 !important;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    padding: 6px 8px !important;
+    border-radius: 8px;
+}
+
+    .lesson-link:hover {
+        color: var(--course-color) !important;
+        background: rgba(13, 71, 161, 0.04);
+        transform: translateX(4px);
+    }
+
+/* Número de lección estilo chip */
+.lesson-num {
+    background: rgba(13, 71, 161, 0.08) !important;
+    color: var(--course-color) !important;
+    border: 1px solid rgba(13, 71, 161, 0.1);
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    width: 28px;
+    height: 28px;
+    transition: all 0.3s ease;
+}
+
+.lesson-link:hover .lesson-num {
+    background: var(--course-color) !important;
+    color: white !important;
+    border-color: var(--course-color);
+    transform: scale(1.1);
+    box-shadow: 0 2px 10px rgba(13, 71, 161, 0.2);
+}
+
+/* Icono de flecha */
+.lesson-link i.fa-chevron-right {
+    color: var(--course-accent) !important;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.lesson-link:hover i.fa-chevron-right {
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+/* ============================================================
+   6. BARRA DE PROGRESO - ESTILO DE LEDS
+   ============================================================ */
+
+.progress-container {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+    .progress-container .bar {
+        background: linear-gradient(90deg, var(--course-accent), var(--course-warm), var(--course-accent) ) !important;
+        background-size: 200% 100% !important;
+        animation: shimmerProgress 2s ease-in-out infinite;
+        box-shadow: 0 0 20px rgba(0, 188, 212, 0.2);
+    }
+
+@keyframes shimmerProgress {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Progreso de temas */
+.topic-progress .progress {
+    background: rgba(13, 71, 161, 0.06) !important;
+    border-radius: 4px;
+    height: 6px;
+}
+
+.topic-progress .progress-bar {
+    background: linear-gradient(90deg, var(--course-color), var(--course-accent)) !important;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.15);
+}
+
+.topic-progress .topic-progress-text {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    color: #718096 !important;
+}
+
+/* ============================================================
+   7. BOTONES - ESTILO TÉCNICO
+   ============================================================ */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--course-color), var(--course-color-light)) !important;
+    border: none !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+}
+
+    .btn-primary:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 30px rgba(13, 71, 161, 0.3) !important;
+        background: linear-gradient(135deg, var(--course-color-dark), var(--course-color)) !important;
+    }
+
+.btn-outline-primary {
+    color: var(--course-color) !important;
+    border-color: var(--course-color) !important;
+    background: transparent !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+    .btn-outline-primary:hover {
+        background: var(--course-color) !important;
+        color: white !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(13, 71, 161, 0.2);
+    }
+
+.btn-outline-secondary {
+    border-color: rgba(13, 71, 161, 0.15) !important;
+    color: #4a5568 !important;
+    transition: all 0.3s ease;
+}
+
+    .btn-outline-secondary:hover {
+        background: rgba(13, 71, 161, 0.05) !important;
+        border-color: var(--course-color) !important;
+        color: var(--course-color) !important;
+    }
+
+/* ============================================================
+   8. CONTENIDO DE LECCIONES - ESTILO TÉCNICO
+   ============================================================ */
+
+.lesson-content {
+    color: #1a202c;
+}
+
+    /* Títulos con estilo técnico */
+    .lesson-content h1 {
+        color: var(--course-color);
+        border-bottom: 3px solid var(--course-accent);
+        padding-bottom: 12px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    .lesson-content h2 {
+        color: var(--course-color);
+        border-left: 4px solid var(--course-accent);
+        padding-left: 16px;
+        font-weight: 600;
+    }
+
+    .lesson-content h3 {
+        color: var(--course-color-dark);
+        font-weight: 600;
+    }
+
+    .lesson-content h4 {
+        color: var(--course-color-light);
+        font-weight: 600;
+    }
+
+    /* Código con estilo de terminal */
+    .lesson-content pre {
+        background: #0a1628 !important;
+        border: 1px solid rgba(0, 188, 212, 0.1);
+        border-radius: 12px;
+        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+    }
+
+        .lesson-content pre::before {
+            content: '▼ TERMINAL';
+            background: var(--course-color-dark);
+            color: var(--course-accent);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            font-size: 0.6rem;
+            margin-top: 10px;
+        }
+
+    .lesson-content code {
+        background: rgba(13, 71, 161, 0.06);
+        color: var(--course-color);
+        border-radius: 4px;
+        padding: 2px 8px;
+        font-size: 0.9rem;
+    }
+
+    /* Resaltado de sintaxis - colores técnicos */
+    .lesson-content .keyword {
+        color: #7c4dff;
+        font-weight: bold;
+    }
+
+    .lesson-content .comment {
+        color: #4fc3f7;
+        font-style: italic;
+    }
+
+    .lesson-content .number {
+        color: #ff6f00;
+    }
+
+    .lesson-content .string {
+        color: #00e676;
+    }
+
+    .lesson-content .variable {
+        color: #4fc3f7;
+    }
+
+    /* Tablas con estilo de registros */
+    .lesson-content table {
+        border-radius: 12px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .lesson-content thead th {
+        background: var(--course-color) !important;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .lesson-content tbody td {
+        border-bottom: 1px solid rgba(13, 71, 161, 0.06);
+        padding: 12px 16px;
+    }
+
+    .lesson-content tbody tr:nth-child(even) {
+        background: rgba(13, 71, 161, 0.02);
+    }
+
+    .lesson-content tbody tr:hover {
+        background: rgba(0, 188, 212, 0.04);
+    }
+
+    /* Blockquotes - estilo de documentación técnica */
+    .lesson-content blockquote {
+        background: rgba(13, 71, 161, 0.03);
+        border-left: 4px solid var(--course-accent);
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        font-family: 'Inter', sans-serif;
+    }
+
+        .lesson-content blockquote:has(⚠️) {
+            background: rgba(255, 111, 0, 0.06);
+            border-left-color: var(--course-warm);
+        }
+
+        .lesson-content blockquote:has(📌) {
+            background: rgba(0, 188, 212, 0.06);
+            border-left-color: var(--course-accent);
+        }
+
+        .lesson-content blockquote:has(💡) {
+            background: rgba(13, 71, 161, 0.04);
+            border-left-color: var(--course-color);
+        }
+
+/* ============================================================
+   9. TOC SIDEBAR - ESTILO TÉCNICO
+   ============================================================ */
+
+.toc-sidebar {
+    background: linear-gradient(145deg, #f8fafc, #edf2f7);
+    border: 1px solid rgba(13, 71, 161, 0.06);
+    border-radius: 12px;
+}
+
+    .toc-sidebar h6 {
+        color: var(--course-color) !important;
+        font-weight: 700;
+        border-bottom: 2px solid var(--course-accent);
+        padding-bottom: 10px;
+    }
+
+    .toc-sidebar ul li a {
+        color: #4a5568;
+        font-size: 0.85rem;
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+    }
+
+        .toc-sidebar ul li a:hover {
+            color: var(--course-color);
+            background: rgba(13, 71, 161, 0.04);
+        }
+
+/* ============================================================
+   10. NAVEGACIÓN ENTRE LECCIONES
+   ============================================================ */
+
+.nav-lessons {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(13, 71, 161, 0.06);
+}
+
+    .nav-lessons .btn {
+        font-weight: 600;
+        border-radius: 50px !important;
+        transition: all 0.3s ease;
+    }
+
+        .nav-lessons .btn:hover {
+            transform: translateY(-2px);
+        }
+
+/* ============================================================
+   11. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .header-curso h1,
+    .header-leccion h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .lesson-content {
+        font-size: 1rem;
+    }
+
+        .lesson-content h1 {
+            font-size: 1.5rem;
+        }
+
+        .lesson-content h2 {
+            font-size: 1.2rem;
+        }
+
+        .lesson-content h3 {
+            font-size: 1rem;
+        }
+
+        .lesson-content pre {
+            font-size: 0.8rem;
+            padding: 1rem;
+        }
+
+    .tema-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+}
+
+@media (max-width: 576px) {
+    .header-curso {
+        padding: 1.5rem 0;
+    }
+
+        .header-curso h1 {
+            font-size: 1.4rem !important;
+        }
+
+    .header-leccion {
+        padding: 1.2rem 0;
+    }
+
+        .header-leccion h1 {
+            font-size: 1.3rem !important;
+        }
+
+    .search-box {
+        padding: 4px 14px;
+        max-width: 100%;
+    }
+
+        .search-box input {
+            font-size: 0.9rem;
+            padding: 8px 0;
+        }
+
+    .nav-lessons .btn {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem !important;
+    }
+}
+
+/* ============================================================
+   12. ANIMACIONES ADICIONALES
+   ============================================================ */
+
+/* Efecto de parpadeo para elementos importantes */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Efecto de encendido como LED */
+.lesson-num {
+    transition: all 0.3s ease;
+}
+
+/* Efecto de scanline sutil en headers */
+.header-curso .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient( 0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.02) 2px, rgba(0, 0, 0, 0.02) 4px );
+    pointer-events: none;
+    z-index: 0;
+}

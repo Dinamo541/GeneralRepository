@@ -1,0 +1,455 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Sistemas numéricos: binario, octal, decimal, hexadecimal - Arquitectura de Computadores</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-arquitectura.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-microchip me-2"></i>
+                    EIF205 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">Sistemas numéricos: binario, octal, decimal, hexadecimal</h1>
+                <p class="lead opacity-75">Representación interna de los datos</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 40.0%;"
+                         data-total="5"
+                         data-current="2">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 2 de 5</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Sistemas Numéricos y Operaciones Aritméticas</h1>
+<h2>1. Introducción a los Sistemas Numéricos</h2>
+<p>Los sistemas numéricos son la base para entender cómo se representan los datos y se realizan los cálculos en una computadora. La computadora solo entiende el sistema binario, pero para facilitar la interacción con los humanos, se utilizan otros sistemas como el octal y el hexadecimal.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sistema</th>
+<th style="text-align: left;">Base</th>
+<th style="text-align: left;">Dígitos</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Decimal</strong></td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">0-9</td>
+<td style="text-align: left;">2745</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Binario</strong></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">0, 1</td>
+<td style="text-align: left;">1011</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Octal</strong></td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">0-7</td>
+<td style="text-align: left;">17</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hexadecimal</strong></td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">0-9, A-F</td>
+<td style="text-align: left;">B65F</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Notación Posicional</h2>
+<p>Todos los sistemas numéricos utilizan una notación posicional, donde el valor de un dígito depende de la posición que ocupa dentro del número.</p>
+<h3>Ejemplos:</h3>
+<ul>
+<li>
+<p><strong>Decimal</strong>:<br />
+  $2745 = 2 \times 10^3 + 7 \times 10^2 + 4 \times 10^1 + 5 \times 10^0$</p>
+</li>
+<li>
+<p><strong>Hexadecimal</strong>:<br />
+  $<br />
+  B65F = 11 \times 16^3 + 6 \times 16^2 + 5 \times 16^1 + 15 \times 16^0 = 46687_{10}<br />
+  $</p>
+</li>
+<li>
+<p><strong>Binario</strong>:<br />
+  $<br />
+  1011 = 1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 1 \times 2^0 = 11_{10}<br />
+  $</p>
+</li>
+</ul>
+<hr />
+<h2>3. Tabla de Equivalencias</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Decimal</th>
+<th style="text-align: left;">Binario</th>
+<th style="text-align: left;">Octal</th>
+<th style="text-align: left;">Hexadecimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0000</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0001</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">0010</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0011</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">0100</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">0101</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">0110</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">0111</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">7</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">1000</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">1001</td>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">9</td>
+</tr>
+<tr>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">1010</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">1011</td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">B</td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">1100</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">1101</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">D</td>
+</tr>
+<tr>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">1110</td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">E</td>
+</tr>
+<tr>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">1111</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">F</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Operaciones Aritméticas en Binario</h2>
+<p>Las operaciones aritméticas en binario siguen las mismas reglas que en decimal, pero operando con 0s y 1s.</p>
+<h3>4.1 Suma Binaria</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operación</th>
+<th style="text-align: left;">Resultado</th>
+<th style="text-align: left;">Acarreo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0 + 0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">0 + 1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">1 + 0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">1 + 1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo de Suma</strong>:</p>
+<pre><code class="language-text">  00110000  (Acarreos)
+   10011000
++  00010101
+-----------
+   10101101
+</code></pre>
+<p><strong>Procedimiento</strong>:<br />
+1. Sumamos los bits de derecha a izquierda.<br />
+2. Cuando el resultado es 10 (2 en decimal), escribimos 0 y llevamos 1 (acarreo) a la siguiente columna.</p>
+<h3>4.2 Resta Binaria</h3>
+<p>Se utiliza el método de "pedir prestado" igual que en decimal.</p>
+<p><strong>Ejemplo</strong>:</p>
+<pre><code class="language-text">  10110
+- 10011
+-------
+  00011
+</code></pre>
+<h3>4.3 Multiplicación Binaria</h3>
+<p>Se realiza de forma similar a la multiplicación decimal, multiplicando el multiplicando por cada bit del multiplicador.</p>
+<p><strong>Ejemplo</strong>:</p>
+<pre><code class="language-text">      1011
+   x   101
+  --------
+      1011  (1011 × 1)
+     0000   (1011 × 0, desplazado 1 posición)
++   1011    (1011 × 1, desplazado 2 posiciones)
+----------
+    110111
+</code></pre>
+<h3>4.4 División Binaria</h3>
+<p>Sigue el mismo proceso que la división decimal.</p>
+<p><strong>Ejemplo</strong>:</p>
+<pre><code class="language-text">101010  | 110
+- 110   |-------
+ ----   | 111  (Cociente)
+  1001
+ - 110
+  ----
+   0110
+ -  110
+  -----
+    000 (Residuo)
+</code></pre>
+<p><strong>Resultado</strong>: Cociente = 111 (7 en decimal), Residuo = 0.</p>
+<hr />
+<h2>5. Ejercicios de Operaciones Aritméticas</h2>
+<p>Realiza las siguientes operaciones en binario:</p>
+<ol>
+<li>$10110011111 + 111001000110$</li>
+<li>$1011111010 \times 101101$</li>
+<li>$11111111 / 101$</li>
+<li>$11010 - 1101$</li>
+<li>$110110000 - 1111011$</li>
+</ol>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../introduccion/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../conversiones/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -30,7 +30,7 @@ public class WaveGeneratorAlgorithm {
      * Predefined monster type distribution ratios for each difficulty tier.
      * Key: wave number threshold (0, 10, 20, etc.)
      * Value: array of [typeA, typeB, typeC, typeD, typeE] ratios
-     * 
+     *
      * Distribution increases in complexity and introduces higher-tier monsters
      * as wave thresholds increase.
      */
@@ -69,21 +69,21 @@ public class WaveGeneratorAlgorithm {
     /**
      * Private constructor to prevent instantiation of this utility class.
      */
-    private WaveCreatorUtil() {
+    private WaveGeneratorAlgorithm() {
     }
 
     /**
      * Generates a complete monster wave for the specified wave number.
-     * 
+     *
      * Wave 1 is hardcoded: 8 type A monsters and 2 type B monsters (10 total).
      * Waves 2 and beyond use the matrix generation system with scaling difficulty.
      * Monster quantity = 15 + ((waveNumber - 2) / 2), capped at 150.
      * Every 10th wave (10, 20, 30, etc.) includes a boss monster (type F).
-     * 
+     *
      * @param waveNumberParam the wave number to generate (starting from 1)
      * @return a list of monster type strings ("A", "B", "C", "D", "E", "F")
      *         in randomized spawn order
-     * 
+     *
      * @see #WAVE_VARIATIONS for difficulty scaling
      */
     public static List<String> generateWave(int waveNumberParam) {
@@ -109,10 +109,10 @@ public class WaveGeneratorAlgorithm {
      * Maps wave numbers to their difficulty tier and returns the corresponding
      * ratio array.
      * Uses the nearest lower threshold from WAVE_VARIATIONS.
-     * 
+     *
      * Example: wave 25 falls in tier 20, so uses the ratio at key 20.
      * If wave number exceeds the highest tier (90+), uses the tier 90 values.
-     * 
+     *
      * @return array of [typeA, typeB, typeC, typeD, typeE] ratios for the current
      *         wave tier
      */
@@ -123,15 +123,15 @@ public class WaveGeneratorAlgorithm {
 
     /**
      * Generates a wave from the difficulty matrix using weighted random selection.
-     * 
+     *
      * Process:
      * 1. Creates a matrix of pre-generated monsters organized by type
      * 2. Builds a pool of monsters based on the required distribution ratios
      * 3. Randomly selects from the pool and adds to finalWave, removing each
      * selected monster
-     * 
+     *
      * This ensures proper type distribution while maintaining randomness.
-     * 
+     *
      * @param monstersNeeded array of [typeA, typeB, typeC, typeD, typeE] quantities
      *                       needed
      */
@@ -158,13 +158,13 @@ public class WaveGeneratorAlgorithm {
      * Creates a 2D matrix of pre-generated monsters organized by type.
      * Each row represents a monster type (0-4 for types A-E), each column a wave
      * position.
-     * 
+     *
      * Monsters are generated with level weighting:
      * - Row 0 (type A): level 1 (weak)
      * - Row 1 (type B): level 2
      * - Row 2 (type C): level 3
      * - Rows 3-4 (types D-E): level 4 (strong)
-     * 
+     *
      * This matrix is then used by {@link #generateWaveFromMatrix(int[])}
      * to create the final wave with proper distribution.
      */
@@ -186,13 +186,13 @@ public class WaveGeneratorAlgorithm {
 
     /**
      * Generates a random monster type based on the specified difficulty level.
-     * 
+     *
      * Level 0: mostly type A (weak).
      * Level 1: more type B, some type A.
      * Level 2: introduces type C, with some A and B.
      * Level 3: includes types D and E (strong), with some A, B, C.
      * Level 4: balanced mix of all types (used for highest difficulty waves).
-     * 
+     *
      * @param level the difficulty level (0-4, where 0 is weakest)
      * @return a random monster type string ("A", "B", "C", "D", or "E")
      */

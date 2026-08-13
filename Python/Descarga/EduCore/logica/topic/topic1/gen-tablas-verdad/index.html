@@ -1,0 +1,981 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCore - Generador de tablas de verdad - Lógica y Algoritmos Computacionales</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="../../../../_externo/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="../../../../_externo/fonts.googleapis.com/css2__family_Inter_wght_400_500_600_700_800_di_3585f5fd.css" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../../../static/css/base.css">
+
+    <!-- CSS específico de página -->
+    
+<link rel="stylesheet" href="../../../../static/css/lessons.css">
+<link rel="stylesheet" href="../../../../static/css/course-logica.css">
+
+<link rel="stylesheet" href="../../../../static/css/course-logica.css">
+
+
+
+    <!-- Head extra (para MathJax, etc.) -->
+    
+<!-- MathJax para fórmulas matemáticas -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            enableMenu: false
+        }
+    };
+</script>
+<script async src="../../../../_externo/cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script">
+</script>
+
+</head>
+<body class="app-body">
+
+    <!-- Navegación Estilo Cyber-Glass con Luces Neón Internas -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+        <!-- LUCES NEÓN RESTRINGIDAS AL NAVBAR -->
+        <div class="nav-glow nav-glow-blue"></div>
+        <div class="nav-glow nav-glow-purple"></div>
+
+        <div class="container position-relative" style="z-index: 2;">
+            <a class="navbar-brand fw-bold app-brand" href="../../../../index.html">
+                <i class="fas fa-graduation-cap text-warning me-2"></i>EduCore
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link app-nav-link" href="../../../../index.html">
+                            <i class="fas fa-home me-1"></i> Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal sobre Fondo Blanco (Empuja el footer al fondo de pantalla) -->
+    <div class="app-content-wrapper">
+        <main class="app-main">
+            
+<section class="header-leccion">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <div class="badge-curso">
+                    <i class="fas fa-code me-2"></i>
+                    TDC400 - Tema 1
+                </div>
+                <h1 class="display-5 fw-bold">Generador de tablas de verdad</h1>
+                <p class="lead opacity-75">Fundamentos de lógica matemática</p>
+
+                <div class="progress-container" style="max-width: 400px; margin: 1.5rem auto 0;">
+                    <div class="bar"
+                         style="width: 57.0%;"
+                         data-total="7"
+                         data-current="4">
+                    </div>
+                </div>
+                <small class="opacity-75">Lección 4 de 7</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-lg-5 lesson-content">
+                    <h1>Generador interactivo de tablas de verdad</h1>
+<style>
+/* ============================================================
+   ESTILOS PARA EL GENERADOR DE TABLAS DE VERDAD
+   (Compatibles con el tema de Lógica y Algoritmos)
+   ============================================================ */
+
+/* ============================================================
+   1. CONTENEDOR PRINCIPAL
+   ============================================================ */
+.truth-table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px 0;
+    border: 2px solid rgba(108, 43, 217, 0.06);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* ============================================================
+   2. CONTROLES
+   ============================================================ */
+.truth-table-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(108, 43, 217, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(108, 43, 217, 0.04);
+}
+
+.truth-table-controls .form-group {
+    flex: 1;
+    min-width: 120px;
+}
+
+.truth-table-controls label {
+    display: block;
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.truth-table-controls .form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid rgba(108, 43, 217, 0.08);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: white;
+    color: #1f2937;
+    font-family: 'Inter', sans-serif;
+}
+
+.truth-table-controls .form-control:focus {
+    border-color: #6c2bd9;
+    box-shadow: 0 0 0 3px rgba(108, 43, 217, 0.08);
+    outline: none;
+}
+
+.truth-table-controls #tt-variables {
+    max-width: 80px;
+}
+
+.btn-generar {
+    background: linear-gradient(135deg, #6c2bd9, #8b5cf6);
+    border: none;
+    color: white;
+    font-weight: 700;
+    padding: 10px 32px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(108, 43, 217, 0.2);
+    font-size: 0.95rem;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 46px;
+    align-self: flex-end;
+}
+
+.btn-generar:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(108, 43, 217, 0.3);
+    background: linear-gradient(135deg, #4c1d95, #6c2bd9);
+}
+
+.btn-generar:active {
+    transform: scale(0.98);
+}
+
+/* ============================================================
+   3. TECLADO DE SÍMBOLOS - VERSIÓN VERTICAL
+   ============================================================ */
+.symbol-keyboard-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(108, 43, 217, 0.02);
+    border-radius: 10px;
+    border: 1px solid rgba(108, 43, 217, 0.04);
+    margin-bottom: 20px;
+}
+
+.symbol-keyboard-vertical .symbol-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.symbol-keyboard-vertical .symbol-group-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 85px;
+    margin-right: 4px;
+}
+
+.symbol-keyboard-vertical .tt-symbol-btn {
+    padding: 4px 12px;
+    border: 2px solid rgba(108, 43, 217, 0.08);
+    border-radius: 6px;
+    background: white;
+    color: #4c1d95;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 32px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.symbol-keyboard-vertical .tt-symbol-btn:hover {
+    background: rgba(108, 43, 217, 0.05);
+    border-color: #6c2bd9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 43, 217, 0.08);
+}
+
+.symbol-keyboard-vertical .tt-symbol-btn:active {
+    transform: scale(0.95);
+}
+
+/* ============================================================
+   4. TABLA DE VERDAD
+   ============================================================ */
+#truth-table-generator {
+    font-family: 'Inter', sans-serif;
+}
+
+#truth-table-generator .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#truth-table-generator .truth-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+    font-size: 0.95rem;
+}
+
+#truth-table-generator .truth-table thead th {
+    background: linear-gradient(135deg, #6c2bd9, #8b5cf6) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 12px 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-family: 'Inter', sans-serif;
+}
+
+#truth-table-generator .truth-table thead th.formula-header {
+    background: linear-gradient(135deg, #4c1d95, #6c2bd9) !important;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0px;
+    min-width: 120px;
+}
+
+#truth-table-generator .truth-table td {
+    padding: 10px 16px !important;
+    border: 1px solid rgba(108, 43, 217, 0.06) !important;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s ease;
+}
+
+#truth-table-generator .truth-table td.text-center {
+    text-align: center !important;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+}
+
+/* Filas - valores verdaderos */
+#truth-table-generator .truth-table tbody tr.table-success td {
+    background-color: rgba(16, 185, 129, 0.08) !important;
+    color: #065f46 !important;
+}
+
+#truth-table-generator .truth-table tbody tr.table-success td.resultado {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    font-weight: 700;
+    color: #065f46 !important;
+}
+
+/* Filas - valores falsos */
+#truth-table-generator .truth-table tbody tr.table-danger td {
+    background-color: rgba(239, 68, 68, 0.06) !important;
+    color: #991b1b !important;
+}
+
+#truth-table-generator .truth-table tbody tr.table-danger td.resultado {
+    background-color: rgba(239, 68, 68, 0.12) !important;
+    font-weight: 700;
+    color: #991b1b !important;
+}
+
+/* Filas - neutras */
+#truth-table-generator .truth-table tbody tr:not(.table-success):not(.table-danger) td {
+    background-color: white !important;
+    color: #1f2937 !important;
+}
+
+#truth-table-generator .truth-table tbody tr:not(.table-success):not(.table-danger) td.resultado {
+    background-color: rgba(108, 43, 217, 0.04) !important;
+    font-weight: 700;
+    color: #6c2bd9 !important;
+}
+
+/* Hover en filas */
+#truth-table-generator .truth-table tbody tr:hover td {
+    background-color: rgba(108, 43, 217, 0.03) !important;
+}
+
+#truth-table-generator .truth-table tbody tr.table-success:hover td {
+    background-color: rgba(16, 185, 129, 0.12) !important;
+}
+
+#truth-table-generator .truth-table tbody tr.table-danger:hover td {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* ============================================================
+   5. ALERTAS Y BADGES
+   ============================================================ */
+#truth-table-generator .alert {
+    border-radius: 12px;
+    padding: 16px 20px !important;
+    margin-top: 20px !important;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid rgba(108, 43, 217, 0.06) !important;
+}
+
+#truth-table-generator .alert-info {
+    background: rgba(108, 43, 217, 0.03) !important;
+    color: #1f2937 !important;
+    border-left: 4px solid #6c2bd9 !important;
+}
+
+#truth-table-generator .alert-danger {
+    background: rgba(239, 68, 68, 0.04) !important;
+    color: #991b1b !important;
+    border-left: 4px solid #ef4444 !important;
+}
+
+#truth-table-generator .alert strong {
+    font-weight: 700;
+    color: #1f2937 !important;
+}
+
+/* Badges */
+#truth-table-generator .badge {
+    padding: 4px 14px !important;
+    border-radius: 20px !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+}
+
+#truth-table-generator .badge.bg-success {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: white !important;
+}
+
+#truth-table-generator .badge.bg-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: white !important;
+}
+
+#truth-table-generator .badge.bg-warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    color: white !important;
+}
+
+/* ============================================================
+   6. DISCLAIMER
+   ============================================================ */
+.disclaimer-lab {
+    background: rgba(245, 158, 11, 0.04) !important;
+    border-left: 4px solid #f59e0b !important;
+    border-radius: 12px !important;
+    padding: 16px 20px !important;
+    margin: 20px 0 !important;
+    color: #1f2937 !important;
+}
+
+.disclaimer-lab strong {
+    color: #1f2937 !important;
+}
+
+.disclaimer-lab small {
+    color: #6b7280 !important;
+}
+
+/* ============================================================
+   7. ANIMACIONES
+   ============================================================ */
+@keyframes ttFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#truth-table-generator .truth-table {
+    animation: ttFadeIn 0.4s ease-out;
+}
+
+/* ============================================================
+   8. RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    .truth-table-container {
+        padding: 16px;
+    }
+
+    .truth-table-controls {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .truth-table-controls .form-group {
+        min-width: 100%;
+    }
+
+    .truth-table-controls #tt-variables {
+        max-width: 100%;
+    }
+
+    .btn-generar {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .symbol-keyboard-vertical {
+        padding: 10px 12px;
+        gap: 6px;
+    }
+
+    .symbol-keyboard-vertical .symbol-row {
+        gap: 4px;
+    }
+
+    .symbol-keyboard-vertical .symbol-group-label {
+        min-width: 70px;
+        font-size: 0.6rem;
+    }
+
+    .symbol-keyboard-vertical .tt-symbol-btn {
+        padding: 3px 8px;
+        font-size: 0.8rem;
+        min-width: 28px;
+    }
+
+    #truth-table-generator .truth-table {
+        font-size: 0.8rem;
+    }
+
+    #truth-table-generator .truth-table thead th {
+        padding: 8px 10px !important;
+        font-size: 0.7rem;
+    }
+
+    #truth-table-generator .truth-table td {
+        padding: 6px 10px !important;
+        font-size: 0.8rem;
+    }
+
+    #truth-table-generator .truth-table thead th.formula-header {
+        font-size: 0.7rem;
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .truth-table-container {
+        padding: 12px;
+    }
+
+    .symbol-keyboard-vertical {
+        padding: 8px 10px;
+    }
+
+    .symbol-keyboard-vertical .symbol-group-label {
+        min-width: 100%;
+        margin-bottom: 2px;
+    }
+
+    .symbol-keyboard-vertical .symbol-row {
+        flex-wrap: wrap;
+    }
+
+    .symbol-keyboard-vertical .tt-symbol-btn {
+        padding: 2px 6px;
+        font-size: 0.7rem;
+        min-width: 24px;
+    }
+
+    #truth-table-generator .truth-table {
+        font-size: 0.7rem;
+    }
+
+    #truth-table-generator .truth-table thead th {
+        padding: 4px 6px !important;
+        font-size: 0.6rem;
+    }
+
+    #truth-table-generator .truth-table td {
+        padding: 4px 6px !important;
+        font-size: 0.7rem;
+    }
+
+    #truth-table-generator .truth-table thead th.formula-header {
+        font-size: 0.6rem;
+        min-width: 60px;
+    }
+}
+</style>
+
+<div class="alert alert-warning disclaimer-lab">
+    <strong>⚠️ Importante:</strong> Esta herramienta es un <strong>apoyo didáctico</strong> para facilitar el aprendizaje.
+    <br>
+    <small>
+        • No sustituye el razonamiento lógico ni la verificación manual.<br>
+        • El estudiante es responsable de verificar los resultados obtenidos.<br>
+        • Puede presentar errores en fórmulas complejas.<br>
+        • Utilice esta herramienta como complemento.
+    </small>
+</div>
+
+<div class="truth-table-container">
+    <div class="truth-table-controls">
+        <div class="form-group">
+            <label for="tt-variables">Número de variables (n)</label>
+            <input type="number" id="tt-variables" value="2" min="1" max="5" class="form-control">
+        </div>
+        <div class="form-group" style="flex: 2;">
+            <label for="tt-formula">Fórmula lógica</label>
+            <input type="text" id="tt-formula" value="p ∧ q" class="form-control" placeholder="Ej: p ∧ q">
+        </div>
+        <button class="btn-generar" id="tt-generar">Generar tabla</button>
+    </div>
+
+    <!-- Teclado de símbolos - Versión Vertical -->
+    <div class="symbol-keyboard-vertical">
+        <!-- Fila 1: Operadores -->
+        <div class="symbol-row">
+            <span class="symbol-group-label">Operadores:</span>
+            <button class="tt-symbol-btn" data-symbol="∧" title="Conjunción (Y)">∧</button>
+            <button class="tt-symbol-btn" data-symbol="∨" title="Disyunción (O)">∨</button>
+            <button class="tt-symbol-btn" data-symbol="¬" title="Negación (NO)">¬</button>
+            <button class="tt-symbol-btn" data-symbol="→" title="Condicional (Si... entonces)">→</button>
+            <button class="tt-symbol-btn" data-symbol="↔" title="Bicondicional (Si y solo si)">↔</button>
+            <button class="tt-symbol-btn" data-symbol="⊕" title="Disyunción exclusiva (XOR)">⊕</button>
+        </div>
+
+        <!-- Fila 2: Variables -->
+        <div class="symbol-row">
+            <span class="symbol-group-label">Variables:</span>
+            <button class="tt-symbol-btn" data-symbol="p">p</button>
+            <button class="tt-symbol-btn" data-symbol="q">q</button>
+            <button class="tt-symbol-btn" data-symbol="r">r</button>
+            <button class="tt-symbol-btn" data-symbol="s">s</button>
+            <button class="tt-symbol-btn" data-symbol="t">t</button>
+        </div>
+
+        <!-- Fila 3: Agrupadores -->
+        <div class="symbol-row">
+            <span class="symbol-group-label">Agrupadores:</span>
+            <button class="tt-symbol-btn" data-symbol="(">(</button>
+            <button class="tt-symbol-btn" data-symbol=")">)</button>
+        </div>
+
+        <!-- Fila 4: Ejemplos -->
+        <div class="symbol-row">
+            <span class="symbol-group-label">Ejemplos:</span>
+            <button class="tt-symbol-btn" data-symbol="p ∧ q" style="font-size: 0.85rem;">p ∧ q</button>
+            <button class="tt-symbol-btn" data-symbol="p ∨ q" style="font-size: 0.85rem;">p ∨ q</button>
+            <button class="tt-symbol-btn" data-symbol="p → q" style="font-size: 0.85rem;">p → q</button>
+            <button class="tt-symbol-btn" data-symbol="p ↔ q" style="font-size: 0.85rem;">p ↔ q</button>
+            <button class="tt-symbol-btn" data-symbol="¬(p ∧ q)" style="font-size: 0.85rem;">¬(p ∧ q)</button>
+        </div>
+    </div>
+
+    <div id="truth-table-generator" data-variables="2" data-formula="p ∧ q">
+        <!-- La tabla se genera aquí -->
+    </div>
+</div>
+
+<script>
+/* ============================================================
+   EDUcore - GENERADOR DE TABLAS DE VERDAD
+   ============================================================ */
+
+/**
+ * Genera todas las combinaciones de valores de verdad para n variables
+ * Orden correcto: de V a F (VVV, VVF, VFV, VFF...)
+ */
+function generarCombinaciones(n) {
+    var total = Math.pow(2, n);
+    var combinaciones = [];
+
+    // Recorremos a la inversa (desde total - 1 hasta 0) para que empiece en Todo True (111...)
+    for (var i = total - 1; i >= 0; i--) {
+        var fila = [];
+        for (var j = n - 1; j >= 0; j--) {
+            fila.push((i & (1 << j)) ? true : false);
+        }
+        combinaciones.push(fila);
+    }
+    return combinaciones;
+}
+
+/**
+ * Obtiene las letras para las variables (p, q, r, s, ...)
+ */
+function obtenerVariables(n) {
+    var letras = ['p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    if (n <= letras.length) {
+        return letras.slice(0, n);
+    }
+    var vars = [];
+    for (var i = 0; i < n; i++) {
+        vars.push('p' + (i + 1));
+    }
+    return vars;
+}
+
+/**
+ * Evalúa una fórmula lógica con los valores dados
+ */
+function evaluarFormula(formula, valores, variables) {
+    try {
+        var params = variables.join(', ');
+
+        var body = '';
+        body += 'function implica(a, b) { return !a || b; }\n';
+        body += 'function equiv(a, b) { return a === b; }\n';
+        body += 'function xor(a, b) { return a !== b; }\n';
+
+        var expr = formula;
+
+        // 1. Reemplazar símbolos básicos y operadores de texto comunes
+        expr = expr.replace(/¬/g, '!');
+        expr = expr.replace(/∧/g, ' && ');
+        expr = expr.replace(/∨/g, ' || ');
+        expr = expr.replace(/\bY\b/g, ' && ');
+        expr = expr.replace(/\bO\b/g, ' || ');
+        expr = expr.replace(/\bNO\b/g, ' ! ');
+
+        // 2. CORRECCIÓN CRÍTICA: Convertir operadores infijos (A op B) a formato de función javascript (op(A, B))
+        var regexImplica = /([a-z0-9!)]+)\s*→\s*([a-z0-9!(]+)/g;
+        var regexEquiv = /([a-z0-9!)]+)\s*↔\s*([a-z0-9!(]+)/g;
+        var regexXor = /([a-z0-9!)]+)\s*⊕\s*([a-z0-9!(]+)/g;
+
+        while (expr.includes('→')) {
+            expr = expr.replace(regexImplica, 'implica($1, $2)');
+        }
+        while (expr.includes('↔')) {
+            expr = expr.replace(regexEquiv, 'equiv($1, $2)');
+        }
+        while (expr.includes('⊕')) {
+            expr = expr.replace(regexXor, 'xor($1, $2)');
+        }
+
+        body += 'return ' + expr + ';';
+
+        var fn = new Function(params, body);
+        var resultado = fn.apply(null, valores);
+        return resultado;
+
+    } catch (e) {
+        console.error('Error evaluando fórmula:', formula, e);
+        return 'Error: ' + e.message;
+    }
+}
+
+/**
+ * Genera la tabla de verdad HTML
+ */
+function generarTablaVerdad(n, formula) {
+    var variables = obtenerVariables(n);
+    var combinaciones = generarCombinaciones(n);
+    var resultados = [];
+
+    for (var i = 0; i < combinaciones.length; i++) {
+        var resultado = evaluarFormula(formula, combinaciones[i], variables);
+        resultados.push(resultado);
+    }
+
+    var html = '';
+
+    html += '<div class="table-responsive">';
+    html += '<table class="table table-bordered table-striped truth-table">';
+    html += '<thead class="table-primary">';
+    html += '<tr>';
+    for (var i = 0; i < variables.length; i++) {
+        html += '<th class="text-center">' + variables[i] + '</th>';
+    }
+    html += '<th class="text-center formula-header">' + formula + '</th>';
+    html += '</tr>';
+    html += '</thead>';
+    html += '<tbody>';
+
+    for (var i = 0; i < combinaciones.length; i++) {
+        var fila = combinaciones[i];
+        var resultado = resultados[i];
+        var resultadoStr = resultado === true ? 'V' : (resultado === false ? 'F' : '?');
+        var rowClass = resultado === true ? 'table-success' : (resultado === false ? 'table-danger' : '');
+
+        html += '<tr class="' + rowClass + '">';
+        for (var j = 0; j < fila.length; j++) {
+            var val = fila[j] ? 'V' : 'F';
+            html += '<td class="text-center">' + val + '</td>';
+        }
+        html += '<td class="text-center fw-bold resultado">' + resultadoStr + '</td>';
+        html += '</tr>';
+    }
+
+    html += '</tbody>';
+    html += '</table>';
+    html += '</div>';
+
+    var verdaderos = resultados.filter(function (r) { return r === true; }).length;
+    var falsos = resultados.filter(function (r) { return r === false; }).length;
+    var errores = resultados.filter(function (r) { return typeof r === 'string' && r.startsWith('Error'); }).length;
+
+    if (errores > 0) {
+        html += '<div class="alert alert-danger mt-3">';
+        html += '<strong>Error:</strong> La fórmula no pudo ser evaluada correctamente. ';
+        html += 'Verifica que la sintaxis y los paréntesis sean correctos.';
+        html += '</div>';
+    } else {
+        var esTautologia = falsos === 0 && verdaderos > 0;
+        var esContradiccion = verdaderos === 0 && falsos > 0;
+
+        html += '<div class="alert alert-info mt-3">';
+        html += '<strong>Resumen:</strong> ';
+        html += verdaderos + ' verdaderos, ' + falsos + ' falsos';
+        if (esTautologia) {
+            html += ' <span class="badge bg-success">TAUTOLOGÍA</span>';
+        } else if (esContradiccion) {
+            html += ' <span class="badge bg-danger">CONTRADICCIÓN</span>';
+        } else {
+            html += ' <span class="badge bg-warning text-dark">CONTINGENCIA</span>';
+        }
+        html += '</div>';
+    }
+
+    return html;
+}
+
+/**
+ * Inicializa el generador de tablas de verdad
+ */
+function initTruthTable() {
+    var container = document.getElementById('truth-table-generator');
+    if (!container) return;
+
+    var n = parseInt(container.dataset.variables) || 2;
+    var formula = container.dataset.formula || 'p ∧ q';
+
+    container.innerHTML = generarTablaVerdad(n, formula);
+}
+
+/**
+ * Inserta un símbolo en el campo de fórmula en la posición del cursor
+ */
+function insertarSimbolo(simbolo) {
+    var input = document.getElementById('tt-formula');
+    if (!input) return;
+
+    var start = input.selectionStart;
+    var end = input.selectionEnd;
+    var texto = input.value;
+
+    input.value = texto.substring(0, start) + simbolo + texto.substring(end);
+    input.focus();
+    var newPos = start + simbolo.length;
+    input.selectionStart = input.selectionEnd = newPos;
+    input.dispatchEvent(new Event('input'));
+}
+
+/**
+ * Conecta los controles del generador
+ */
+function connectTruthTableControls() {
+    var btnGenerar = document.getElementById('tt-generar');
+    if (!btnGenerar) return;
+
+    var newBtn = btnGenerar.cloneNode(true);
+    btnGenerar.parentNode.replaceChild(newBtn, btnGenerar);
+    btnGenerar = newBtn;
+
+    btnGenerar.addEventListener('click', function () {
+        var n = parseInt(document.getElementById('tt-variables').value) || 2;
+        var formula = document.getElementById('tt-formula').value || 'p ∧ q';
+
+        var container = document.getElementById('truth-table-generator');
+        container.dataset.variables = n;
+        container.dataset.formula = formula;
+
+        container.innerHTML = generarTablaVerdad(n, formula);
+    });
+}
+
+/**
+ * Conecta el teclado de símbolos
+ */
+function connectSymbolKeyboard() {
+    var botones = document.querySelectorAll('.tt-symbol-btn');
+
+    botones.forEach(function (btn) {
+        var newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+
+        newBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var simbolo = this.dataset.symbol;
+            insertarSimbolo(simbolo);
+        });
+    });
+}
+
+// Inicializar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        initTruthTable();
+        connectTruthTableControls();
+        connectSymbolKeyboard();
+    });
+} else {
+    initTruthTable();
+    connectTruthTableControls();
+    connectSymbolKeyboard();
+}
+</script>
+                </div>
+            </div>
+
+            <div class="nav-lessons">
+                <div class="row align-items-center g-3">
+                    <div class="col-4 text-start">
+                        
+                        <a href="../tablas-verdad/index.html"
+                           class="btn btn-outline-primary rounded-pill px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Anterior
+                        </a>
+                        
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="../../../index.html" class="btn btn-outline-secondary rounded-pill px-4">
+                            <i class="fas fa-th-list me-2"></i>Temas
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        
+                        <a href="../leyes-logica/index.html"
+                           class="btn btn-primary rounded-pill px-4">
+                            Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 d-none d-lg-block">
+            <div class="toc-sidebar">
+                <h6><i class="fas fa-list me-2"></i>En esta lección</h6>
+                <ul id="toc"></ul>
+                <hr>
+                <div class="d-grid gap-2">
+                    <a href="#top" class="btn btn-sm btn-outline-secondary rounded-pill">
+                        <i class="fas fa-arrow-up me-2"></i>Volver arriba
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </main>
+    </div>
+
+    <!-- Footer Fijo al fondo de la pantalla (Estilo Landing Page) -->
+    <footer class="app-footer text-center py-3">
+        <div class="container">
+            <p class="mb-0">
+                <i class="fas fa-university me-2 text-warning"></i>
+                Universidad Nacional - Sede Regional Brunca © 2026
+            </p>
+            <small class="text-white-50">
+                EduCore - Plataforma de aprendizaje
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../../../_externo/cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Global -->
+    <script src="../../../../static/js/main.js"></script>
+
+    <!-- JavaScript específico de página -->
+    
+<script src="../../../../static/js/progress.js"></script>
+<script src="../../../../static/js/lesson.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof initLessonPage === 'function') {
+            initLessonPage();
+        }
+    });
+</script>
+
+
+
+
+<script src="../../../../static/js/course-logica.js"></script>
+
+
+
+</body>
+</html>
